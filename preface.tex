@@ -1,0 +1,95 @@
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amssymb, amsfonts, cmll, mathabx, mathtools} % Pacchetti per matematica
+\usepackage[margin=3cm]{geometry} %Margine di pagina
+\usepackage{graphicx} %Immagini
+\usepackage{enumitem} %Per gli elenchi con numeri romani
+\usepackage{multicol} %Per avere più colonne in una parte del documento
+\usepackage[most]{tcolorbox} %BOX
+\tcbuselibrary{breakable}
+\usepackage{tikz} \usetikzlibrary{matrix} %Tabella Numeri Razionali (Q)
+\usepackage{float} %Posizione tabelle
+%\usepackage{gensymb} %gradi sessagesimali
+
+\usepackage{xcolor} %Colori personalizzati
+\usepackage{enumitem} %Lettere nelle liste numerate
+
+
+\usepackage{tikz, pgfplots} %GRAFICI
+\pgfplotsset{compat=1.18}
+
+
+%% ---------------- ARCO --------------------------
+%% Tutto il comando seguente serve per inserire l'arco sopra due lettere, per indicare l'arco di circonferenza tra due punti
+\makeatletter
+\DeclareFontFamily{U}{tipa}{}
+\DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
+\newcommand{\arc@char}{{\usefont{U}{tipa}{m}{n}\symbol{62}}}%
+
+\newcommand{\arc}[1]{\mathpalette\arc@arc{#1}}
+
+\newcommand{\arc@arc}[2]{%
+  \sbox0{$\m@th#1#2$}%
+  \vbox{
+    \hbox{\resizebox{\wd0}{\height}{\arc@char}}
+    \nointerlineskip
+    \box0
+  }%
+}
+\makeatother
+%% ---------------- FINE ARCO -------------------
+
+
+\tikzset{ %Tabella numeri razionali
+table/.style={
+  matrix of nodes,
+  row sep=-\pgflinewidth,
+  column sep=-\pgflinewidth,
+  nodes={rectangle,text width=3em,align=center},
+  text depth=1.25ex,
+  text height=2.5ex,
+  nodes in empty cells
+},
+row 6/.style={nodes={text depth=0.4ex,text height=2ex}},
+}
+
+%DEFINIZIONE COLORI
+\definecolor{rosso_0}{RGB}{150, 98, 113}
+\definecolor{rosso_1}{RGB}{240, 225, 229}
+\definecolor{blu_0}{RGB}{102, 133, 176}
+\definecolor{blu_1}{RGB}{240, 245, 255}
+\definecolor{arancione_0}{RGB}{255, 179, 117}
+\definecolor{arancione_1}{RGB}{255, 244, 230}
+\definecolor{green_0}{RGB}{210, 255, 189}
+
+%AMBIENTI DEFINITI
+\newenvironment{definition}
+{\begin{tcolorbox}[title=Definizione, breakable, bottomrule at break = 0mm, toprule at break = 0mm, sharp corners, colframe=blu_0, colback=blu_1]
+}{
+\end{tcolorbox}}
+
+\newenvironment{proof}
+{\begin{tcolorbox}[title = Dimostrazione, breakable, bottomrule at break = 0mm, toprule at break = 0mm, colframe=arancione_0, coltitle=black, colback=arancione_1]
+}{
+\end{tcolorbox}}
+
+\newenvironment{theorem}
+{\begin{tcolorbox}[title = Teorema, bottomrule at break = 0mm, toprule at break = 0mm, colframe=rosso_0, colback=rosso_1]
+}{
+\end{tcolorbox}}
+
+\newenvironment{mlemma}
+{\begin{tcolorbox}[title = Lemma, breakable, bottomrule at break = 0mm, toprule at break = 0mm, colframe=brown, coltitle=black, colback=brown!40!white]
+}{
+\end{tcolorbox}}
+
+\newenvironment{important}
+{\begin{tcolorbox}[coltitle=black, sharp corners, colback=green_0, colframe=white]
+}{
+\end{tcolorbox}}
+
+\newcommand{\dfn}[1]{\begin{definition}{#1}\end{definition}}
+\newcommand{\pf}[1]{\begin{proof}{#1}\end{proof}}
+\newcommand{\thm}[1]{\begin{theorem}{#1}\end{theorem}}
+\newcommand{\mlem}[1]{\begin{mlemma}{#1}\end{mlemma}}
+\newcommand{\imp}[1]{\begin{important}{#1}\end{important}}

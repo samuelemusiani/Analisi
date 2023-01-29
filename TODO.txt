@@ -1,0 +1,32 @@
+DA RICOPIARE:
+  -TUTTO \ {Analisi_pt1}
+
+
+- Introduzione agli appunti:
+    - Spiegare perché li ho fatti e a cosa servono. Come vanno letti.
+    - NON FARLA TROPPO LUNGA!! :)
+
+- FUNZIONI:
+  - La parte sulle funzioni biunivoche e invertibili è spiegata veramente poco. Sopratutto
+    se voglio tenere l'idea di "dare le idee di fondo" per ogni concetto va migliorata.
+
+  - Valore assoluto, fattoriale e coefficiente binomiale vanno introdotti meglio con un senso.
+
+  - Introdurre la radice aritmetica com euna funzione inenversa. Far capire perché serve.
+
+  - Accentuare alcune belle proprietà del logaritmo
+
+- LIMITI:
+  - Spiegare un po' meglio \epslin e \delta nella def. di limite:
+    soprattutto i casi limite dx e sx non sono spiegati. Per rendere l'idea almeno un accenno
+    andrebb fatto. Sarebbero in Analisi_pt2 all'inizio. Se avrò tempo alla fine ci ritorno.
+
+  - Fare meglio schema riassuntivo limiti (è orribile :) )
+
+  - Spiegare asintoti limiti
+
+- DERIVATE
+  - Dalla dervita in poi non c'è nulla
+
+- GENERALE
+  - Le mimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGERE!!
