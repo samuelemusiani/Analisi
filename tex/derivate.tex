@@ -1,0 +1,56 @@
+\section{Derivate}
+
+\subsection{Teorema di Fermat}
+Il seguente teorema enuncia che la derivata nei minimi e nei massimi si annulla.
+\thm {
+Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_0 \in ]a,b[$ e inoltre $f$ è derivabile in $x_0$, allora:
+\begin{equation*}
+    f'(x_0) = 0
+\end{equation*}
+}
+È essenziale che il punto $x_0$ si all'interno dell'intervallo! %DARE VEDERE FOTO DI UNA RETTA CON DOMIONIO RISTRETTO
+Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale (es. $x^3$ in $x=0$). %FAR VEDERE GRAFICO
+
+\subsection{Teorema di Rolle}
+\thm {
+$f:[a,b] \to \mathbb{R}$
+\begin{enumerate}
+    \item $f$ è continua su $[a,b]$
+    \item $f$ è derivabile su $]a,b[$
+    \item $f(a) = f(b)$
+\end{enumerate}
+Allora:
+\begin{equation*}
+    \exists \,c \in ]a,b[ \;: f'(c) = 0
+\end{equation*}
+}
+
+\subsection{Teorema di Lagrange}
+\thm {
+$f:[a,b] \to \mathbb{R}$
+\begin{enumerate}
+    \item $f$ è continua su $[a,b]$
+    \item $f$ è derivabile su $]a,b[$
+\end{enumerate}
+Allora:
+\begin{equation*}
+    \exists \,c \in ]a,b[ \;: \dfrac{f(b)-f(a)}{b-a} = f'(c)
+\end{equation*}
+}
+Corollario: se una funzione ha derivata sempre zero è costante.
+
+\subsection{Teorema di Cauchy}
+\thm {
+$f,g:[a,b] \to \mathbb{R}$
+\begin{enumerate}
+    \item $f,g$ è continua su $[a,b]$
+    \item $f,g$ è derivabile su $]a,b[$
+    \item $g'(x) \neq 0 \forall x\in ]a,b[$
+\end{enumerate}
+Allora:
+\begin{equation*}
+    \exists \,c \in ]a,b[ \;: \dfrac{f(b)-f(a)}{g(b)-g(a)} = \dfrac{f'(c)}{g'(c)}
+\end{equation*}
+}
+
+\subsection{I teoremi di De L'Hôpital}
