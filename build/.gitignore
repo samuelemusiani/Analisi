@@ -1,5 +1,0 @@
-# Faccio in modo che la cartella sia sempre pulita e che nessun file
-# temporaneo usato per la build venga visto da git
-
-*
-!.gitignore
