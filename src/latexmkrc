@@ -1,0 +1,3 @@
+$emulate_aux = 1;
+$out_dir = 'output';
+$aux_dir = 'aux';
