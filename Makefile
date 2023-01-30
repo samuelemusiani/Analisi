@@ -45,5 +45,6 @@ Analisi_fast.pdf: $(TEX_SRC) $(IMG)
 clean:
 	rm -rf build/*
 	touch build/.gitkeep	
+	rm -rf Analisi.pdf Analisi_fast.pdf
 
 .PHONY: clean all
