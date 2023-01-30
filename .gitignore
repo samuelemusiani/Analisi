@@ -2,3 +2,4 @@
 # temporaneo usato per la build venga visto da git
 
 build/*
+!build/.gitkeep
