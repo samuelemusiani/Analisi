@@ -1,0 +1,5 @@
+# Faccio in modo che la cartella build/ sia sempre pulita e che nessun file
+# temporaneo usato per la build venga visto da git
+
+build/*
+!build/.gitkeep
