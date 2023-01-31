@@ -6,6 +6,9 @@ DA RICOPIARE:
     - Spiegare perché li ho fatti e a cosa servono. Come vanno letti.
     - NON FARLA TROPPO LUNGA!! :)
 
+    - Aggiungere contatti (mail, telegram e git) per segnalare errori
+    - Se si vuole contribuire si può (git)
+
 - FUNZIONI:
   - La parte sulle funzioni biunivoche e invertibili è spiegata veramente poco. Sopratutto
     se voglio tenere l'idea di "dare le idee di fondo" per ogni concetto va migliorata.
@@ -29,4 +32,6 @@ DA RICOPIARE:
   - Dalla dervita in poi non c'è nulla
 
 - GENERALE
-  - Le mimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGERE!!
+  - Le mimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGEREEEE!! :((
+
+  - La data all'inzio del file la metterei alla fine del corso. Aggiungerei una secona data che comprende l'ultima modifica.
