@@ -193,28 +193,39 @@ Un paio di osservazioni utili sul teorema:
 \thm{
 Ogni polinomio di grado dispari ha almeno un radice reale.
 }
-Corollario:
-Tutti i polinomi di grado dispari assumono \textbf{tutti i valori reali}. Questo implica che una funzione che è definita tramite un polinomio di grado dispari è una funzione \textbf{suriettiva}, in quanto ha come immagine $\mathbb{R}$.\\
+È facile ricordarsi questo teorema perché tutti i polinomi di grado dispari hanno il termine di grado maggiore (che in quanto dispari) è soggetto al segno dell'argomento del polinomio. Cioè $x^3$ avrà lo stesso segno di $x$, mentre questo non vale per i polinomi di grado pari in quanto $x^8$ avrà sempre segno positivo. Se quindi si fanno i limiti per $+\infty$ e $-\infty$ di un polinomio di grado dispari, da una parte andrà sempre a $+\infty$ e dall'altra andrà sempre a $-\infty$ (seguendo appunto il segno della $x$). Ed essendo inoltre i polinomi funzioni continue, sono costretti a ad assumure tutti i valori dell'asse delle ordinate almeno una volta\footnote{Per chiarire: non assumono tutti i valori dell'asse delle ordinate perché sono funzioni continue e basta, assumono tutti i valori perché sono funzioni continue su $\mathbb{R}$ e da una parte vanno a $+\infty$ e dall'altra a $-\infty$}. Inoltre, visto che da una parte hanno valori positivi, dall'altra negativi e sono continui, esiste per forza un punto in cui si annullano (dal teorema degli zeri) e sarà proprio lì la loro radice.\\
 
-È facile ricordarsi questo teorema perché tutti i polinomi di grado dispari hanno il termine di grado maggiore (che in quanto dispari) è soggetto al segno dell'argomento del polinomio. Cioè $x^3$ avrà lo stesso segno di $x$, mentre questo non vale per i polinomi di grado pari in quanto $x^8$ avrà sempre segno positivo. Se quindi si fanno i limiti per $+\infty$ e $-\infty$ di un polinomio di grado dispari, da una parte andrà sempre a $+\infty$ e dall'altra andrà sempre a $-\infty$. Ed essendo i polinomi funzioni continue, sono costretti a toccare tutti i valori dell'asse delle ordinate almeno una volta. Inoltre, visto che da una parte hanno valori positivi, dall'altra negativi e sono continui, esiste per forza un punto in cui si annullano (dal teorema degli zeri) e sarà proprio lì la loro radice.
+\textbf{Corollario:}
+Tutti i polinomi di grado dispari assumono \textbf{tutti i valori reali}. Questo implica che una funzione che è definita tramite un polinomio di grado dispari è una funzione \textbf{suriettiva}, in quanto ha come immagine $\mathbb{R}$.
+\pf{
+  Dimostrazione del corollario:\\
 
-\subsection{Teorema di Weierstrass}
-\subsubsection{Formulazione 1} %COSA ME NE FACCIO DI DUE FORMULAZIONE???
+  Preso un qualsiasi polinomio di \textbf{grado dispari} $p(x)$, dobbiamo dimostrare che assume tutti i valori reali, cioè:
+  \begin{equation*}
+    \forall k \in \mathbb{R} \;\; p(x) = k \;\; \text{ha almeno una soluzione}
+  \end{equation*}
+  Ci basta considerare l'equazione $p(x) - k = 0$ (che resta un generico polinomio di grado dispari) e applicare il teorema appena enunciato.\\
 
+  \hfill Qed.
+}
+
+\subsection{Teorema di Weierstrass} % Di questo teorema ho due formulazioni perché la seconda si basa sulla prima e sul teorema degli zeri. Non so se sono effettivamente imporanti entrambe, però sono leggermente diverse tra loro (la sconda è più generale) e quindi ho deciso di scriverle entrambe.
 \dfn {
 $f:A \to \mathbb{R}$
 \begin{enumerate}
-    \item $x_0 \in A: x_0$ si dice punto di \textbf{massimo assoluto} di $f$ se:
+    \item $x_0 \in A$ si dice punto di \textbf{massimo assoluto} di $f$ se:
     \begin{equation*}
         f(x) \leq f(x_0) \quad \forall x \in A
     \end{equation*}
     
-    \item $x_0 \in A: x_0$ si dice punto di \textbf{minimo assoluto} di $f$ se:
+    \item $x_0 \in A$ si dice punto di \textbf{minimo assoluto} di $f$ se:
     \begin{equation*}
         f(x_0) \leq f(x) \quad \forall x \in A
     \end{equation*}
 \end{enumerate}
 }
+
+\subsubsection{Formulazione 1} 
 
 \thm{
 Una funzione continua, in un intervallo chiuso e limitato, ammette il massimo e il minimo assoluti della funzione.\\
@@ -225,10 +236,92 @@ $f: [a,b] \to \mathbb{R}$ continua, allora:
 \begin{equation*}
     \exists x_1 \in [a,b]: f(x) \leq f(x_1) = \vcentcolon m \quad \forall x \in [a,b]
 \end{equation*}
+E quindi:
+\begin{equation*}
+  \mathrm{Im}f([a,b]) \subseteq [m, M]
+\end{equation*}
+Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$.
 }
-L'immagine di $f$ nell'intervallo $[a,b]$ corrisponderà a $[m, M]$.
+È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{WeierstrassIntervalloAperto},  \ref{WeierstrassIntervalloIllimitato} e \ref{WeierstrassNonContinuo})
 
-\subsubsection{Formulazione 2} %SONO NECESSARIE DUE FORMULAZIONI?
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 1.5, xmin = -0.5, ymax = 10, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={0.5, 1},
+             ytick={2, 4, 6, 8},
+             ylabel style={anchor=south east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.6\linewidth,
+            ]
+\addplot[domain=0:1, samples=200]{1/x};
+\addplot [only marks] table {
+1 1
+};
+\end{axis}
+\end{tikzpicture}
+  \caption{Intervallo aperto $]0,1]$}
+  \label{WeierstrassIntervalloAperto}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 10, xmin = -0.5, ymax = 1.5, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={2, 4, 6, 8},
+             ytick={0.5, 1},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.6\linewidth,
+            ]
+\addplot[domain=1:10, samples=200]{1/x};
+\addplot [only marks] table {
+1 1
+};
+\end{axis}
+\end{tikzpicture}
+  \caption{Intervallo illimitato $[1,+\infty[$}
+  \label{WeierstrassIntervalloIllimitato}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 8, xmin = -0.5, ymax = 2, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={1, 2, 3, 4, 5, 6},
+             ytick={0.5, 1, 1.5},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.6\linewidth,
+            ]
+\addplot[domain=1:2, samples=200]{-0.5 * x + 1.5};
+\addplot[domain=2:4, samples=200]{0.4 * x + 0.2};
+\addplot[domain=4:6, samples=200]{1};
+\addplot [only marks, mark options={scale=1.5}] table {
+1 1
+2 0.5
+2 1
+};
+\addplot [only marks, white] table {
+2 0.5
+4 1.8
+};
+\end{axis}
+\end{tikzpicture}
+  \caption{Funzione non continua} 
+  \label{WeierstrassNonContinuo}
+\end{figure}
+
+
+\subsubsection{Formulazione 2} 
+La seconda formulazione di questo teorema è più generale rispetto alla prima e utilizza il teorema degli zeri in combinazione con la prima formulazione di questo terorema.
+
 \thm{
 $f:[a,b]\to \mathbb{R}$ continua, allora:
 \begin{equation*}
@@ -237,4 +330,12 @@ $f:[a,b]\to \mathbb{R}$ continua, allora:
 \begin{equation*}
     \exists m = \min f([a,b])
 \end{equation*}
+e vale che l'immagine di $f$ nell'intervallo $[a,b]$ corrisponde esattamente a $[m, M]$:
+\begin{equation*}
+  f([a,b]) = [m, M]
+\end{equation*}
+}
+%AGGIUNGERE LA DIM
+\pf{
+ DA AGGIUNGERE
 }
