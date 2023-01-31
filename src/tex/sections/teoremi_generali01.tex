@@ -72,8 +72,119 @@ Un paio di osservazioni utili sul teorema:
 
     \item La seconda osservazione riguarda la quantità di punti in cui si può annullare la funzione. Come si legge dal teorema, il punto $c$ è garantito che esista ($\exists$) ma nessuno garantisce che è unico. Ci possono essere infatti un numero arbitrario di punti in cui la funzione si annulla, basti pensare al grafico delle funzioni goniometriche $\sin(x)$ e $\cos(x)$.
 \end{itemize}
-%AGGIUNGERE DIMOSTRAZIONE p.34 analisi 2
 
+
+\pf{
+  Questa dimostrazione a differenza delle altre è di tipo \textit{costruttivo}, cioè oltre a dimostrare il teorema fornisce un algoritmo di calcolo per trovare il punto $c$.\\
+
+  Assumiamo $f(a) < 0$ e $f(b) > 0$. %Seguiamo una procedura iterativa che ci permetterà di costruire due successioni: $(a_n)_n$ e $(b_n)_n$ dove $a_1 = a$, $b_1 = b$, $\forall n, f(a_n) < 0$ e $\forall n, f(b_n) > 0$. 
+  L'idea dietro questa dimostrazione è appunto trovare un algoritmo di calcolo che permetta di determinare il punto $c$. Avendo un punto $a$ in cui la funzione è \textbf{negativa} e un punto $b$ in cui la funzione è \textbf{positiva} ci deve essere un punto che giace tra $a$ e $b$ in cui la funzione si annulla. Per trovarlo andiamo a "tentativi" dividendo l'intervallo a metà con la formula:
+  \begin{equation*}
+    \dfrac{a+b}{2}
+  \end{equation*}
+  Da qui possiamo avere 3 casi:
+  \begin{enumerate}
+    \item $f\left(\dfrac{a + b}{2}\right) = 0$. In questo caso abbiamo trovato il punto $c$ proprio perché la funzione si annula. Quindi abbiamo finito!
+      \begin{equation*}
+        c = \dfrac{a+b}{2}
+      \end{equation*}
+
+      \item $f\left(\dfrac{a + b}{2}\right) < 0$. In questo caso non abbiamo trovato il punto $c$, ma bensì la funzione ci ha restituito un punto negativo. Essendo il punto $f(b)$ ancora maggiore di $0$ per ipotesi, possiamo applicare nuovamente questa procedura (cioè di suddividere l'intervallo a metà), però cambiando il punto $a$, in quanto adesso diventa:
+      \begin{equation*}
+        a_2 := \dfrac{a+b}{2}
+      \end{equation*}
+
+    \item $f\left(\dfrac{a + b}{2}\right) > 0$. L'idea di questo punto è identica a quella del punto 2, semplicemente invece che assegnare un valore diverso ad $a$, lo assegnamo a $b$ perché questa volta il valore della funzione è positivo invece che negativo.
+      \begin{equation*}
+        b_2 := \dfrac{a+b}{2}
+      \end{equation*}
+  \end{enumerate}
+  Con i punti 2 e 3, riassegnando il valore ad $a$ o $b$, restringiamo l'intervallo su cui vogliamo applicare questo algoritmo per trovare il punto $c$. Ed essendo che ad ogni iterazione ci avviciniamo sempre di più, a forza di stringere l'intervallo prima o poi arriveremo a $c$.\\
+  \textbf{Nota:} Ad ogni iterazione, se la funzione non si annulla, dobbiamo sostituire il valore del punto al corrispettivo punto $a$ o $b$ in modo che la funzione mantenga lo stesso segno. Questo perché se invertissimo i punti ci troveremmo in un caso in qui $f(a) > 0$ e $f(b) > 0$, cosa che ovviamente annullerebbe il teorema. Quindi nel caso del punto 2 in cui sostituiamo il nuovo punto ad $a$, lo facciamo soltanto perché per ipotesi $f(a) < 0$ e la funzione nel nuovo punto è negativa. Se per ipotesi avessimo scelto $f(a) > 0$ avremmo dovuto sostituire il nuovo punto in $b$, e vice versa.\\
+
+  Essendo che dobbiamo ripete l'algoritmo, il caso \textit{n}-arrio diventa:
+  \begin{enumerate}
+    \item 
+      \begin{equation*}
+        f\left(\dfrac{a_n + b_n}{2}\right) = 0 \;\; \qquad \qquad \qquad \text{Fine:} \;\; \qquad \qquad \qquad c = \dfrac{a_n + b_n}{2}
+      \end{equation*}
+
+    \item 
+      \begin{equation*}
+        f\left(\dfrac{a_n + b_n}{2}\right) < 0 \qquad \text{Ieriamo nuovamente:} \qquad a_{n + 1}:= \dfrac{a_n + b_n}{2}
+      \end{equation*}
+      
+    \item 
+      \begin{equation*}
+        f\left(\dfrac{a_n + b_n}{2}\right) > 0 \qquad \text{Ieriamo nuovamente:} \qquad b_{n + 1}:= \dfrac{a_n + b_n}{2}
+      \end{equation*}
+
+  \end{enumerate}
+
+  Se l'algoritmo termina al passo $p \in \mathbb{N}$ significa che:
+  \begin{equation*}
+    f\left(\dfrac{a_p + b_p}{2}\right) = 0 \qquad \text{e quindi:} \qquad c = \dfrac{a_n + b_n}{2}
+  \end{equation*}
+  Altrimenti la procedura non termina: in quaso avremo costrutito due successioni $(a_n)_n$ e $(b_n)_n$ contenute in $[a, b]$. Scriviamo di seguito le proprietà di queste 2 successioni:
+  \begin{enumerate}[label=\roman*.]
+    \item $a_n \leq a_{n+1} \forall n \in \mathbb{N}$ \quad e \quad $b_n \leq b_{n+1} \forall n \in \mathbb{N}$
+
+    \item $a_n \leq b_n \forall n \in \mathbb{N}$ 
+      
+    \item $f(a_n) < 0, \;\; f(b_n) > 0 \quad \forall n \in \mathbb{N}$
+    
+    \item 
+      \begin{equation*}
+        b_n - a_n = \dfrac{b_{n-1} - a_{n-1}}{2} \qquad \forall n
+      \end{equation*}
+      Se si espandono i vari passaggi si vede che in realtà ad ogni itarazione si divide l'intervallo iniziale $[a, b]$ in 2:
+      \begin{equation*}
+        b_n - a_n = \dfrac{b_{n-1} - a_{n-1}}{2} = \dfrac{b_{n-2} - a_{n-2}}{2^2} = \dfrac{b_{n-2} - a_{n-2}}{2^3}  = \cdots = \dfrac{b_1 - a_1}{2^{n-1}}
+      \end{equation*}
+  \end{enumerate}
+
+  A questo punto vogliamo dimostrare che:
+  \begin{equation*}
+    \begin{cases*}
+      \lim \limits_{n \to +\infty} a_n = \lim \limits_{n \to +\infty} b_n = c\\
+      \\
+      f(c) = 0
+    \end{cases*}
+  \end{equation*}
+    Dal punto (i) e (ii) ricaviamo che sia $(a_n)_n$ sia $(b_n)_n$ sono \textbf{limitate}.
+    \begin{equation*}
+      (a_n)_n \subseteq [a, b] \implies a_n \nearrow \; \forall n \implies \exists \lim_{n \to +\infty} a_n = \alpha \in \mathbb{R}
+    \end{equation*}
+    \begin{equation*}
+      (b_n)_n \subseteq [a, b] \implies b_n \nearrow \; \forall n \implies \exists \lim_{n \to +\infty} b_n = \beta \in \mathbb{R}
+    \end{equation*}
+    Dal punto (iv) e da quanto abbiamo ricavato possiamo fare il limite che tende a $+\infty$ di $b_n - a_n$:
+    \begin{align*}
+      \lim_{n \to +\infty} b_n - a_n &= \lim_{n \to +\infty} \dfrac{b_1 - a_1}{2^{n-1}}\\
+      \beta - \alpha &= 0
+    \end{align*}
+    Quindi $\beta = \alpha$ e le due successioni hanno lo stesso limite! Abbiamo quindi provato che:
+    \begin{equation*}
+      \lim \limits_{n \to +\infty} a_n = \lim \limits_{n \to +\infty} b_n := c
+    \end{equation*}
+    Ci resta da dimostrare che $f(c) = 0$. Da quanto appena dimostrato e dal primo lemma di questa prova:
+    \begin{equation*}
+      \lim \limits_{n \to +\infty} f(a_n) = f(c)
+    \end{equation*}
+    Poiché $a_n \to c$. Inoltre dal punto (iii) sappiamo che $f(a_n) < 0 \; \forall n \in \mathbb{N}$. Usando il secondo lemma preliminare alla prova:
+    \begin{equation*}
+      f(c) \leq 0
+    \end{equation*}
+    Se facciamo lo stesso per $f(b_n)$:
+    \begin{equation*}
+      \lim \limits_{n \to +\infty} f(b_n) = f(c) \geq 0
+    \end{equation*}
+    Avendo contemporaneamente $f(c) \leq 0$ e $f(c) \geq 0$:
+    \begin{equation*}
+      f(c) = 0
+    \end{equation*}
+    \hfill Qed.
+}
 
 \subsection{Radici di un polinomio di grado dispari}
 
