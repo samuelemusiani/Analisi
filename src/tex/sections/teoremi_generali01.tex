@@ -244,6 +244,7 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 }
 È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{WeierstrassIntervalloAperto},  \ref{WeierstrassIntervalloIllimitato} e \ref{WeierstrassNonContinuo})
 
+% Questi grafici sono completamente sparsi tra le pagine. Si può fare qualcosa per evitarlo?
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
@@ -307,6 +308,9 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 1 1
 2 0.5
 2 1
+4 1.8
+4 1
+6 1
 };
 \addplot [only marks, white] table {
 2 0.5
@@ -327,6 +331,7 @@ $f:[a,b]\to \mathbb{R}$ continua, allora:
 \begin{equation*}
     \exists M = \max f([a,b])
 \end{equation*}
+
 \begin{equation*}
     \exists m = \min f([a,b])
 \end{equation*}
@@ -335,7 +340,34 @@ e vale che l'immagine di $f$ nell'intervallo $[a,b]$ corrisponde esattamente a $
   f([a,b]) = [m, M]
 \end{equation*}
 }
-%AGGIUNGERE LA DIM
+
 \pf{
- DA AGGIUNGERE
+	\begin{center}
+		\includegraphics[width=250px]{../img/WeierstrassCostruzione.png}
+	\end{center}
+	%Chi mi assicura l'esistenza di questi due punti? Il teorema prima?
+
+	\begin{equation*}
+		\exists x_1 \in [a, b] : f(x_1) = \min f = m
+	\end{equation*}
+	\begin{equation*}
+		\exists x_2 \in [a, b] : f(x_2) = \min f = M
+	\end{equation*}
+	Definiamo una funzione ausiliaria che $\forall y \in ]m, M[$:
+	\begin{equation*}
+		g:[x_1, x_2] \to \mathbb{R} \qquad g(x) = f(x) -y
+	\end{equation*}
+
+	Se quindi calcoliamo la funzione $g$ nei punti $x_1$ e $x_2$ diventa:
+	\begin{align*}
+		g(x_1) = f(x_1) -y &= m - y < 0 \\
+		g(x_2) = f(x_2) -y &= M - y > 0 
+	\end{align*}
+
+	Applicando quindi il teorema degli zeri:
+	\begin{equation*}
+		\exists {x_0} \in ]x_1, x_2[ \subseteq [a, b] : g(x_0) \iff f(x_0) - y = 0 \iff f(x_0) = y \quad \forall y \in ]m, M[ %L'intervallo nel teorema è chiuso, mentre qui è aperto. Che vuol dire?
+	\end{equation*}
+	\hfill Qed.
 }
+
