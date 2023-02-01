@@ -1,6 +1,100 @@
 \section{Derivate}
 
-\subsection{Teorema di Fermat}
+% P. 64 Analisi_pt2. La parte prima sarebbe tutta una analisi sulle rette e i suoi coefficienti. Io la stringerei un po' e la farei meglio.
+
+
+\dfn{
+	Dato un intervallo $I \in \mathbb{R}$, $x_0 \in I$ si dice \textbf{punto interno} a $I$ se \textbf{esiste un intorno sferico:}
+	\begin{equation*}
+		B_r(x_0) = \{x \in \mathbb{R} \;| \; |x-x_0| < 0\}
+	\end{equation*}
+	tale che:
+	\begin{equation*}
+		B_r(x_0) \subseteq I
+	\end{equation*}
+}
+L'insieme dei punti interni si indica con un piccolo \textit{tondino} in alto:
+\begin{equation*}
+	\mathring{I} := \{x \in I \; | \;\; \text{x è un punto interno a}\;I\} 
+\end{equation*}
+Questi punti sono diversi rispetto ai punti di accumulazione dei limiti per un paio di motivi. Il primo è che devono appartenere innanzitutto all'insieme. Se infatti si considera un insieme del tipo $\mathbb{R} \setminus \{0\}$, lo $0$ è un punto di accumulazione pur non appartenendo all'insieme. Non è però un punto interno. La seconda differenza principale con i punto di accumulazione è che, mentre questi ultimi possono essere "al bordo" di un insieme, i punti interni no, e devono avere l'intorno sferico completamente interno all'insieme. Cioè preso l'intervallo $[2, 4]$, mentre sia $2$ sia $4$ sono punti di accumulazione, nessuno dei due è interno all'insieme. In questo caso i punti interni a questo insieme sono $]2,4[$.
+
+\subsection{Introduzione informale}
+Pirma di dare la definizione formale di derviata vorrei spendere qualche riga per cercare di spiegare l'idea che si trova dietro a questo potentissimo oggetto matematico. Il problema è che spesso ci si perde nelle definzioni formali e negli esercizi, senza apprezzare veramente quello che si sta facendo. Perché alla fine si spera che ognuno, dopo aver seguito un corso di analisi, sappia che la derivata di $x^2$ è $2x$, oppure che la derivata del seno è il coseno, però veramente in pochi hanno capito cosa significa e perché è così.\\
+
+\textbf{Derivata come tangente una curva:} Vi siete mai chiesti (probabilmente no ma la domanda retorica andava fatta) quale sia la retta tangete a una curva? Cioè, se io vi disegno una curva su un foglio e vi traccio un punto sopra e vi chiedo di disegnare la tangente a quella curva, probabilmente la richiesta non risulta così difficile. Magari la retta non verrà perfetta, però il disegno si avvicinerebbe parecchio ad una vera e propria tangente. Se però io invece di darvi un disegno di una curva vi do una funzione e un punto, trovare la tangente ora è molto più complicato perché dovreste prima disegnare la funzione e poi finalmente tracciare la tangente. Però poi nasce il problema di come si disegna una funzione in modo abbastanza preciso e quindi la situazione diventa piuttosto complicata. 
+
+Facciamo un piccolo salto indietro e chiediamoci prima come si disegna una retta. Una retta, nella sua forma più classica, è data dalla seguente formula:
+\begin{equation*}
+	y = mx + q
+\end{equation*}
+Abbiamo quindi bisogno di due elementi per definirla: un coefficiente angolare $m$ e un termine noto $q$. Sappiamo però, dati due punti, trovare l'unica retta che passa per entrambi. Mettiamo di avere $A(x_a, y_a)$ e $B(x_b, y_b)$. Innanzitutto troviamo il coefficiente angolare della retta:
+\begin{equation*}
+	m = \dfrac{y_a - y_b}{x_a - x_b}
+\end{equation*}
+Fatto questo trovare $q$ non è molto difficile: basta inserire nella retta $m$ e uno qualsiasi dei due punti e risolvere l'equazione.
+
+In realtà questo metodo di calcolare la retta presi due punti ci potrebbe venire molto comodo per calcolare la tangente ad una curva. Se infatti prendiamo due punti su di essa e poi li \textit{avviciniamo abbastanza} tra loro possiamo ottenere una buona approssimazione di una tangente (figura \ref{ApproxTangenteCurva}).
+
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 3, xmin = -0.5, ymax = 2, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={10},
+             ytick={10},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=\linewidth,
+            ]
+\addplot[domain=-1:3, samples=200]{-0.2*x*x + 0.8 * x + 0.4};
+\addplot[domain=-1:3, samples=200, dashed]{0.2 * x + 0.65};
+\addplot[domain=-1:3, samples=200, dashed]{0.3 * x + 0.6};
+\addplot[domain=-1:3, samples=200, dashed]{0.5 * x + 0.5};
+\addplot[domain=-1:3, samples=200]{0.6 * x + 0.45};
+\addplot [only marks, mark options={scale=1}] table {
+0.5 0.75
+1 1
+2 1.2
+2.5 1.15
+};
+\end{axis}
+\end{tikzpicture}
+  \caption{Approssimazione di una tangente con rette passanti per due punti} 
+	\label{ApproxTangenteCurva}
+\end{figure}
+
+Il calcolo difficile non è tanto però il termine noto $q$, ma piuttosto il coefficiente angolare $m$. Questo perché dobbiamo prendere punti sempre più vicini e non è facile farlo venire preciso. Questo avvicinarci indefinitivamente ad un punto dovrebbe però far accendere una piccola lapadina in testa: abbiamo già uno strumento matematico che ci permette di avvicinarci indefinitivamente ad un punto: \textbf{il limite}. 
+
+Prendiamo ora una funzione $f(x)$ per il momento generica\footnote{Per correttezza questa funzione non può essere generica perché non tutte le funzioni sono effettivamente derivabili, però rimaniamo così per il momento. In seguito viene definita rigorosamente.} e decidiamo di vole cacolare la tangente nel punto $x_0$. Come abbiamo appena visto ci servono due punti per calcolare la tangente: uno che resta fermo (in questo caso $x_0$) e uno che si avvicina a quest'ultimo. Per correttezza $x_0$ non è un punto, ma bensì $P(x_0, f(x_0))$. Il secondo punto che ci serve deve essere anchesso sulla funzione e quindi imponiamo questa condizione per la sua ordinata: $Q(x, f(x))$. Il coefficiente angolare tra i due risulta quindi:
+\begin{equation*}
+	m = \dfrac{Q_y - P_y}{Q_x - P_x} = \dfrac{f(x) - f(x_0)}{x-x_0}
+\end{equation*}
+Facendo in modo che il punto $Q$ si avvicini a $P$ indefinitamente:
+\begin{equation*}
+	\lim_{x \to x_0} \dfrac{f(x) - f(x_0)}{x-x_0}
+\end{equation*}
+E tadà, siamo arrivati alla definizione (informale) di derivata. La \textit{derivata della funzione $f$ nel punto $x_0$} è proprio il valore di quel limite, cioè il \textbf{coefficiente angolare della retta tangente alla funzione f nel punto $x_0$}.
+
+%RIFLETTERE SUL LIMITE E FARE UN ESEMPIO (?)
+
+%\textbf{Derivata come misura del cambiamento:} DA FAREEE
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Teoremi}
+\subsubsection{Teorema di Fermat}
 Il seguente teorema enuncia che la derivata nei minimi e nei massimi si annulla.
 \thm {
 Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_0 \in ]a,b[$ e inoltre $f$ è derivabile in $x_0$, allora:
@@ -11,7 +105,7 @@ Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_
 È essenziale che il punto $x_0$ si all'interno dell'intervallo! %DARE VEDERE FOTO DI UNA RETTA CON DOMIONIO RISTRETTO
 Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale (es. $x^3$ in $x=0$). %FAR VEDERE GRAFICO
 
-\subsection{Teorema di Rolle}
+\subsubsection{Teorema di Rolle}
 \thm {
 $f:[a,b] \to \mathbb{R}$
 \begin{enumerate}
@@ -25,7 +119,7 @@ Allora:
 \end{equation*}
 }
 
-\subsection{Teorema di Lagrange}
+\subsubsection{Teorema di Lagrange}
 \thm {
 $f:[a,b] \to \mathbb{R}$
 \begin{enumerate}
@@ -39,7 +133,7 @@ Allora:
 }
 Corollario: se una funzione ha derivata sempre zero è costante.
 
-\subsection{Teorema di Cauchy}
+\subsubsection{Teorema di Cauchy}
 \thm {
 $f,g:[a,b] \to \mathbb{R}$
 \begin{enumerate}
@@ -53,4 +147,4 @@ Allora:
 \end{equation*}
 }
 
-\subsection{I teoremi di De L'Hôpital}
+\subsubsection{I teoremi di De L'Hôpital}
