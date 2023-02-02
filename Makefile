@@ -47,4 +47,4 @@ clean:
 	touch build/.gitkeep	
 	rm -rf Analisi.pdf Analisi_fast.pdf
 
-.PHONY: clean all
+.PHONY: clean all fast
