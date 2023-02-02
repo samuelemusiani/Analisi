@@ -81,17 +81,87 @@ E tadà, siamo arrivati alla definizione (informale) di derivata. La \textit{der
 
 %RIFLETTERE SUL LIMITE E FARE UN ESEMPIO (?)
 
-%\textbf{Derivata come misura del cambiamento:} DA FAREEE
+\textbf{Derivata come misura del cambiamento:} Un altro modo di vedere la derivata è come \textit{misura del cambiamento}. Successivamente introdurremo un teorema che esplicita meglio questo concetto, ma per ora limitiamoci ad introdurlo informalmente. Come abbiamo appena visto la derivata è \textit{il coefficiente angolare della retta tangente una curva in un punto}. Se osserviamo le figure \ref{Tangente12} e \ref{Tangente3} si può vedere come il coefficiente sia proporzionalmente più grande in base a quanto sta crescendo (o diminuendo per coefficienti negativi) la funzione. In pratica la derivata in questo caso sta risponendo alla domanda \textbf{quanto sta cambiando la funzione in quel punto?} 
 
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -2.5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick={10},
+		     ytick={10},
+		     xlabel style={anchor=north east},
+		     xticklabel style={anchor=north},
+		     yticklabel style={anchor=east},
+		    ]
+		\addplot[domain=-3:12, samples=200]{ln(x+5)};
+		\addplot[domain=-3:3, samples=200, dashed]{0.1923* x + 1.6101};
+		\addplot [only marks, mark options={scale=1}] table {
+		%2 1.945
+		0.2 1.648
+		};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 6, xmin = -0.5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick={10},
+		     ytick={10},
+		     xlabel style={anchor=north east},
+		     xticklabel style={anchor=north},
+		     yticklabel style={anchor=east},
+		    ]
+		\addplot[domain=-1:6, samples=200]{ln(x)+2};
+		\addplot[domain=-1:5, samples=200, dashed]{2/3* x -0.594 + 2};
+		\addplot [only marks, mark options={scale=1}] table {
+		1.5 2.405
+		};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\caption{Tangenti una curva, coefficienti angolari rispettivamente (da sinistra a destra) $11^\circ$ e $33^\circ$} 
+\label{Tangente12}
+\end{figure}
 
+\begin{figure}[h]
+\end{figure}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 4, xmin = -3, ymax = 10, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={10},
+             ytick={10},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.6\linewidth,
+            ]
+	\addplot[domain=-3:12, samples=200]{x*x};
+\addplot[domain=-2:4, samples=200, dashed]{4*x-4};
+\addplot[domain=-3:2, samples=200, dashed]{-2*x-1};
+\addplot [only marks, mark options={scale=1}] table {
+%2 1.945
+2 4
+-1 1
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Tangente una curva, coefficiente angolare (da sinistra a destra) $-63^\circ$ e $75^\circ$} 
+	\label{Tangente3}
+\end{figure}
 
+Per quello può essere vista come la misura del cambiamento, perché se derivi una funzione puoi scoprire quanto effettivamente quella stia cambiando in relazione al suo argomento.
 
+%\subsection{Introduzione formale}
 
-
-
-
-
+%Li faccio come subsubsection i teoremi? Oppure gli dedico delle subsection per ognuno?
 
 \subsection{Teoremi}
 \subsubsection{Teorema di Fermat}
