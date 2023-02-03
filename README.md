@@ -27,3 +27,11 @@ Si noti che questo comando genera un file `.gitkeep` all'interno della cartella 
 La direcotry `build/` viene usata per tutti i file temporanei che servono a latex per compilare il pdf finale
 
 La directory `src/` contiene tutte le sorgenti tex e le immagini usate.
+
+## Dependencies
+Per compilare con il comando `make` è necessario aver installato `latexmk`, mentre per fare la compilazione veloce con il comando `make fast` è necessario aver installato `pdflatex`.
+
+Per i pacchetti necessari a LaTex in quanto inclusi e usati nel progetto è invece necessario consultare il file
+```
+src/tex/preface.tex
+```
