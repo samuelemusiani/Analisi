@@ -234,7 +234,7 @@ La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto
 
 
 
-\subsection{Regole di derivazione}
+\subsection{Regole di derivazione} \label{RegoleDerivazione}
 È oggettivamente infattibile derivare ogni singola funzione con la definzione di derivata. Di conseguenza tramite questa ultima si ricavano delle piccole regoline che permettono poi di semplificare enormemente il calcolo:
 \imp{
 \begin{enumerate}
@@ -299,16 +299,44 @@ Nonostante il prof non abbia portato nessuna dimostrazione riguardo alle regole 
 		\end{align*}
 \end{enumerate}
 
+\subsection{Algebra delle derivate} % DA FARE
+Questa sottosezioine sembrerà un duplicato delle regole di derivazine (Sezione: \ref{RegoleDerivazione}). In parte lo è, ma in realtà vuole rendere più formali quelle regole che hanno qualche piccola premessa volutamente mancante ma che in teoria dovrebbe averle rese più chiari e semplici da leggere.\\
+
+Date due funzioni $f, g: I \to \mathbb{R}$, e un punto $x_0 \in I$, se $f$ e $f$ sosno derivabili in $x_0$ allora:
+\begin{enumerate}
+	\item $f \pm g$ è derivabile in $x_0$ e: 
+		\begin{equation*}
+			(f \pm g)' (x_0) = f'(x_0) \pm g'(x_0)
+		\end{equation*}
+
+	\item $f \cdot g$ è derivabile in $x_0$ e: 
+		\begin{equation*}
+			(f \cdot g)' (x_0) = f'(x_0) \cdot g(x_0) + f(x_0) \cdot g'(x_0)
+		\end{equation*}
+
+	\item $\dfrac{f}{g}$ è derivabile in $x_0$ se $g(x_0) \neq 0$ e: 
+		\begin{equation*}
+			\left( \dfrac{f}{g} \right)' = \dfrac{f' \cdot g - f \cdot g'}{g^2}
+		\end{equation*}
+\end{enumerate}
+\thm{
+	Dati due intervalli $I, J \subseteq \mathbb{R}$, due funzioni $f:I \to \mathbb{R}$ e $g: J \to I$ e un punto $x_0 \in J$. Se $g$ è derivabile in $x_0$ e $f$ è derivabile in $g(x_0)$ allora $f \circ g$ è derivabile in $x_0$ e vale:
+
+	\begin{equation*}
+		(f \circ g)' (x_0) = f'(g(x_0)) \cdot g'(x_0)
+	\end{equation*}
+}
+
+\subsection{Derivate funzioni elementari} % DA FARE
+%Derivate funzioni elementari e loro inverse (goniometriche e potenze!!)
 
 
 
-
+\subsection{Derivare un valore assoluto} % DA FARE
 %Fare tutta la parte sul valore assoluto che non è derivabile ma x|X| lo è.
 
-%Algebra delle derivate
 
-%Derivate funzioni elementari e loro inverse (goniometriche pure!!)
-
+\subsection{Derivate di ordine superiore}
 %Derivate di ordine superiore
 
 %Li faccio come subsubsection i teoremi? Oppure gli dedico delle subsection per ognuno?
