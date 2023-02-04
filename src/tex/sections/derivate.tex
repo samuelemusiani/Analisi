@@ -238,6 +238,10 @@ La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto
 È oggettivamente infattibile derivare ogni singola funzione con la definzione di derivata. Di conseguenza tramite questa ultima si ricavano delle piccole regoline che permettono poi di semplificare enormemente il calcolo:
 \imp{
 \begin{enumerate}
+	\item Costante per una funzione:
+		\begin{equation*}
+			(a \cdot f)' = a \cdot f'(x)
+		\end{equation*}
 	\item Somma e sottrazione di funzioni:
 		\begin{equation*}
 			(f \pm g)' = f' \pm g'
@@ -329,11 +333,100 @@ Date due funzioni $f, g: I \to \mathbb{R}$, e un punto $x_0 \in I$, se $f$ e $f$
 
 \subsection{Derivate funzioni elementari} % DA FARE
 %Derivate funzioni elementari e loro inverse (goniometriche e potenze!!)
+\imp{
+\begin{multicols}{2}
+\begin{itemize}
+	\item $(x^n)' = nx^{n-1}$ 
 
+	\item $(e^x)' = e^x$
+	\item $(a^x)' = a^x \cdot \ln(a)$ con $a > 0$
+
+	\item $(\ln(x))' = \dfrac{1}{x}$
+	\item $(\log_a (x))' = \dfrac{1}{x \cdot ln(a)}$
+
+	\item $(\sin(x))' = \cos(x)$
+	\item $(\cos(x))' = -\sin(x)$
+	\item $(\tan(x))' = \dfrac{1}{\cos^2(x)} = 1 + \tan^2(x)$
+
+	\item $(\arcsin(x))' = \dfrac{1}{\sqrt{1 - x^2}}$
+	\item $(\arccos(x))' = -\dfrac{1}{\sqrt{1 - x^2}}$
+	\item $(\arctan(x))' = \dfrac{1}{1 + x^2}$
+\end{itemize}
+\end{multicols}
+}
+
+Di seguito sono presenti le dimostrazioni di alcune di queste derivate:
+\pf{
+	Dobbiamo dimostrare:
+	\begin{equation*}
+		(x^n)' = n \cdot x^{n-1}
+	\end{equation*}
+	Prendimo una funzione funzione $f(x) = x^n$ con $n \in \mathbb{N}$ e $n > 2$. Ci riduciamo a dimostrare quindi:
+	\begin{equation*}
+		f'(x) = n \cdot x^{n-1}
+	\end{equation*}
+	Ora dalla definizione di derivata:
+	\begin{equation*}
+		f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} = \lim_{x \to 0} \dfrac{(x + h)^n - x^n}{h}
+	\end{equation*}
+	Dal binomio di newton (Sezione \ref{BinomioNewton}):
+	\begin{equation*}
+		(x + h)^n = \sum \limits_{j = 0}^n \binom{n}{j} \cdot x^{n-j} \cdot h^j = x^n + \binom{n}{1} \cdot x^{n-1} \cdot h + \sum_{j = 2}^{n} \binom{n}{j} x^{n -j} \cdot h^j
+	\end{equation*}
+	Essendo $\binom{n}{1} = n$, possiamo sostituire nel limite:
+	\begin{align*}
+		&\lim_{x \to 0} \dfrac{x^n + n \cdot x^{n-1} \cdot h + \sum_{j = 2}^{n} \binom{n}{j} x^{n -j} \cdot h^j - x^n}{h} =\\[10pt]
+		=& \lim_{x \to 0} \left( n \cdot x^{n-1} + \sum_{j = 2}^n \binom{n}{j} x^{n-j} \cdot h^{j-1} \right)
+	\end{align*}
+	L'esponente di $h$, essendo che la sommatoria parte da $j = 2$, sarà sempre maggiore o uguale a uno ($j-1 \geq 1$). Di conseguenza essendo $h \to 0$ per il limite, tutta la sommatoria va a $0$:
+	\begin{equation*}
+		n \cdot x^{n-1}
+	\end{equation*}
+
+	\hfill Qed.
+	
+}
+% IN CODA VANNO LE DIMOSTRAZIONI 
 
 
 \subsection{Derivare un valore assoluto} % DA FARE
 %Fare tutta la parte sul valore assoluto che non è derivabile ma x|X| lo è.
+
+Proviamo a derivare il valore assoluto di $x$:
+\begin{equation*}
+    f(x) = |x| =
+    \begin{cases*}
+        x \quad \;\;\, \text{se} \quad x \geq 0\\
+        -x \quad \text{se} \quad x < 0
+    \end{cases*}
+\end{equation*}
+È abbastanza facile vedere che è derivabile sicuramente per tutto l'intervallo $\mathbb{R} \setminus \{0\}$ perché se prese singolarmente, sia $x$ che $-x$ sono derivabili. Il problema è che non sappiamo se è derivabile in $x = 0$. Usiamo la definzione approcciando questa derivata prima da sinistra e poi da destra:
+\begin{equation*}
+	f_-' (0) \lim_{x \to 0^-} \dfrac{f(x) - f(0)}{x -0} = \lim_{x \to 0^-} \dfrac{|x|}{x}
+\end{equation*}
+Essendo che ci stiamo avvicinando a $0$ da sinistra ($x \to 0^-$), il valore assoluto è semplicemente $-x$:
+\begin{equation*}
+	\lim_{x \to 0^-} \dfrac {-x}{x} = -1
+\end{equation*} 
+Usando lo stesso procedimento per la derivata destra:
+\begin{equation*}
+	f_+' (0) \lim_{x \to 0^+} \dfrac{f(x) - f(0)}{x -0} = \lim_{x \to 0^+} \dfrac{|x|}{x} = \lim_{x \to 0^+} {x}{x} = 1
+\end{equation*}
+Concludiamo quindi che $|x|$ \textbf{non è derivabile} in $x = 0$ perché il valore della sua derivata destra non coincide con il valore della derivata sinistra:
+\begin{equation*}
+	f_-' (0) = -1 \; \neq \; 1 = f_+'(0)
+\end{equation*}
+
+In generale però \textbf{il valore assoluto in una funzione non rende per forza questa non derivabile}. Un classico esempio è:
+\begin{equation*}
+	g(x) = x|x| = 
+	\begin{cases*}
+		x^2 \quad \;\;\, \text{se} \quad x \geq 0\\
+		-x^2 \quad \text{se} \quad x < 0
+	\end{cases*}
+\end{equation*}
+
+%% DA FAREEEE p.76
 
 
 \subsection{Derivate di ordine superiore}
