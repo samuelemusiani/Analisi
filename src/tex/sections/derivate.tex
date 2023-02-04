@@ -20,7 +20,7 @@ L'insieme dei punti interni si indica con un piccolo \textit{tondino} in alto:
 Questi punti sono diversi rispetto ai punti di accumulazione dei limiti per un paio di motivi. Il primo è che devono appartenere innanzitutto all'insieme. Se infatti si considera un insieme del tipo $\mathbb{R} \setminus \{0\}$, lo $0$ è un punto di accumulazione pur non appartenendo all'insieme. Non è però un punto interno. La seconda differenza principale con i punto di accumulazione è che, mentre questi ultimi possono essere "al bordo" di un insieme, i punti interni no, e devono avere l'intorno sferico completamente interno all'insieme. Cioè preso l'intervallo $[2, 4]$, mentre sia $2$ sia $4$ sono punti di accumulazione, nessuno dei due è interno all'insieme. In questo caso i punti interni a questo insieme sono $]2,4[$.
 
 \subsection{Introduzione informale}
-Pirma di dare la definizione formale di derviata vorrei spendere qualche riga per cercare di spiegare l'idea che si trova dietro a questo potentissimo oggetto matematico. Il problema è che spesso ci si perde nelle definzioni formali e negli esercizi, senza apprezzare veramente quello che si sta facendo. Perché alla fine si spera che ognuno, dopo aver seguito un corso di analisi, sappia che la derivata di $x^2$ è $2x$, oppure che la derivata del seno è il coseno, però veramente in pochi hanno capito cosa significa e perché è così.\\
+Pirma di dare la definizione formale di derivata vorrei spendere qualche riga per cercare di spiegare l'idea che si trova dietro a questo potentissimo oggetto matematico. Il problema è che spesso ci si perde nelle definzioni formali e negli esercizi, senza apprezzare veramente quello che si sta facendo. Perché alla fine si spera che ognuno, dopo aver seguito un corso di analisi, sappia che la derivata di $x^2$ è $2x$, oppure che la derivata del seno è il coseno, però veramente in pochi hanno capito cosa significa e perché è così.\\
 
 \textbf{Derivata come tangente una curva:} Vi siete mai chiesti (probabilmente no ma la domanda retorica andava fatta) quale sia la retta tangete a una curva? Cioè, se io vi disegno una curva su un foglio e vi traccio un punto sopra e vi chiedo di disegnare la tangente a quella curva, probabilmente la richiesta non risulta così difficile. Magari la retta non verrà perfetta, però il disegno si avvicinerebbe parecchio ad una vera e propria tangente. Se però io invece di darvi un disegno di una curva vi do una funzione e un punto, trovare la tangente ora è molto più complicato perché dovreste prima disegnare la funzione e poi finalmente tracciare la tangente. Però poi nasce il problema di come si disegna una funzione in modo abbastanza preciso e quindi la situazione diventa piuttosto complicata. 
 
@@ -207,12 +207,101 @@ L'idea è la stessa dei limiti:
 \dfn{
 	$f$ si dice \textbf{derivabile su} $I$ se $f$ è derivabile $\forall x \in I$
 }
-In questo ultimo caso, ad $f$ si può associare una nuova funzione: la sua derivata. In pratica la nuova funzione assume i valori della derivata di $f$ per ogni punto in cui è definita. Si indica generalmente con la notazione classica $f'(x)$.
+In questo ultimo caso, ad $f$ si può associare una nuova funzione: la sua derivata. In pratica la nuova funzione assume i valori della derivata di $f$ per ogni punto in cui è definita. Si indica generalmente con la notazione classica $f'(x)$.\\
+
+\textbf{Alcuni esempi:} Di seguito riporto qualche esempio molto semplice di calcolo della derivata tramita la sua definzione. In realtà raramente si usa questa definzione nei calcoli effettivi, ma piuttosto si ricavano prima le derivate delle funzioni elementari e applicando qualche regola si riesce a derivare senza calcolare limiti. È bello però far vedere comunque la definzione e la sua potenza in quanto tutto quello che verrà dopo sarà comunque frutto di questo. %% NON mi piace la formulazione
+
+Proviamo a derivare $f(x) = x$:
+\begin{equation*}
+	\lim_{h \to 0} \dfrac{f(x_0 + h) - f(x_0)}{h} = \lim_{h \to 0} \dfrac{x_0 + h -x_0}{h} = \lim_{h \to 0} 1 = 1
+\end{equation*}
+
+Quindi $f'(x) = 1$. È facile verificare che questo è vero perché la fuznione $x$ è semplcemente una retta, che ha lo stesso coefficiente angolare $\forall x \in \mathbb{R}$. Inoltre alla domanda "\textit{quanto sta cambiando questa funzione?}" è facile vedere che la funzione cambia sempre nello stesso modo, quindi il valore della sua derivata è costante.
+
+La funzione costante $g(x) = k$ invece che derivata ci aspettiamo che abbia? In teoria, essendo costante, la funzione non cambia mai. Quindi possiamo aspettarci che la sua derivata sia nulla. Verifichiamolo:
+\begin{equation*}
+	\lim_{h \to 0} \dfrac{f(x_0 + h) - f(x_0)}{h} = \lim_{h \to 0} \dfrac{5 - 5}{h} = 0
+\end{equation*}
+In questo caso il limite non è una forma indeterminata perché il numeratore è \textbf{esattamente} $0$, mentre il denominatore si avvicinerà sempre di più a quel valore, ma non lo raggiungerà mai (come da definzione di limite).
+
+Proviamo a derivare una funzione leggermente più complessa: $h(x) = x^2$ :
+\begin{align*}
+	&\lim_{h \to 0} \dfrac{f(x_0 + h) - f(x_0)}{h} = \lim_{h \to 0} \dfrac{(x+h)^2 - x^2}{h} =  \lim_{h \to 0} \dfrac{x^2 +2 x h + h^2 - x^2}{h} =\\
+	&\lim_{h \to 0} \dfrac{2xh + h^2}{h} = \lim_{h \to 0} 2x + h =  2x
+\end{align*}
+
+La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto che il grafico di $x^2$ cambia sempre di più all'aumentare di $x$. Se infatti si guarda la classica forma di una parabola di può facilmente notare che più aumenta $x$, più il grafico \textit{acquista pendenza}. % FORSE VA RIFORMULATO :)
 
 
-%Fare alcuni esempi di calcolo della derivata
 
-%Aggiungere regole di derivazione in una sezione a parte.
+\subsection{Regole di derivazione}
+È oggettivamente infattibile derivare ogni singola funzione con la definzione di derivata. Di conseguenza tramite questa ultima si ricavano delle piccole regoline che permettono poi di semplificare enormemente il calcolo:
+\imp{
+\begin{enumerate}
+	\item Somma e sottrazione di funzioni:
+		\begin{equation*}
+			(f \pm g)' = f' \pm g'
+		\end{equation*}
+
+	\item Prodotto di funzioni:
+		\begin{equation*}
+			(f \cdot g)' = f' \cdot g + f \cdot g'
+		\end{equation*}
+
+	\item Quoziente di funzioni:
+		\begin{equation*}
+			\left( \dfrac{f}{g} \right)' = \dfrac{f' \cdot g - f \cdot g'}{g^2}
+		\end{equation*}
+
+	\item Composizione di funzioni
+		\begin{equation*}
+			(f \circ g)' = (f' \circ g) \cdot g'
+		\end{equation*}
+		Il simbolo $\circ$ indica la composizione di funzioni, cioè $f \circ g = f(g(x))$.
+\end{enumerate}
+}
+Nonostante il prof non abbia portato nessuna dimostrazione riguardo alle regole sopra citate, ritengo che per completezza queste dimostrazioni vadano comunque viste per togliere quel senso di mistero intrinseco che delle regole comparse dal nulla hanno.\\
+
+
+\textbf{Dimostrazioni NON FATTE DAL PROF} (ma che io ritengo importanti):
+\begin{enumerate}
+	\item Somma e sottrazione di funzioni $j(x) = f(x) \pm g(x)$:
+		\begin{align*}
+			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) \pm g(x + h) - f(x) \mp g(x)}{h} = \\
+			& = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} \pm \dfrac{g(x + h) - g(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} \pm \lim_{h \to 0} \dfrac{g(x + h) - g(x)}{h} = \\
+			& = f'(x) \pm g'(x)
+		\end{align*}
+
+	\item Prodotto di funzioni $j(x) = f(x) \cdot g(x)$:
+		\begin{align*}
+			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x + h) - f(x) \cdot g(x)}{h} = \\
+			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x + h) +f(x + h) \cdot g(x) - f(x + h) \cdot g(x) - f(x) \cdot g(x)}{h} = \\
+			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot (g(x + h) - g(x)) + g(x) \cdot (f(x + h) - f(x))}{h} = \\
+			&= \lim_{h \to 0} f(x+h) \left[\dfrac{g(x+h) - g(x)}{h} \right] + \lim_{h \to 0} g(x) \left[\dfrac{f(x+h) - f(x)}{h} \right] = \\
+			&= f(x) \cdot g'(x) + g(x) \cdot f'(x)
+		\end{align*}
+
+
+	\item Quoziente di funzioni $j(x) = \left( \dfrac{f}{g} \right)$:
+		\begin{align*}
+			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{\dfrac{f(x + h)}{g(x + h)} - \dfrac{f(x)}{g(x)}}{h} =\\[10pt]
+			&= \lim_{h \to 0} \dfrac{\dfrac{f(x + h) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x)}}{h} = \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x) \cdot h} =\\[10pt]
+			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x) + f(x) \cdot g(x) - f(x) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x) \cdot h} =\\[10pt]
+			&= \lim_{h \to 0} \dfrac{g(x) \cdot (f(x + h) - f(x)) -f(x) \cdot (g(x + h) - g(x))}{h} \cdot \dfrac{1}{g(x + h) \cdot g(x)} =\\[10pt]
+			&= \lim_{h \to 0} \left [\dfrac{g(x) \cdot (f(x + h) - f(x))}{h} - \dfrac{f(x) \cdot (g(x + h) - g(x))}{h} \right] \cdot \dfrac{1}{g(x + h) \cdot g(x)} =\\[10pt]
+			&= \left [ g(x) \cdot f'(x) - f(x) \cdot g'(x) \right] \cdot \dfrac{1}{g(x) \cdot g(x)} = \dfrac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{g^2(x)}
+		\end{align*}
+
+	\item Composizione di funzioni $j(x) = f(g(x))$:
+		\begin{align*}
+			j'(x) &= \lim_{x \to x_0} \dfrac{j(x) - j(x_0)}{x - x_0} = \lim_{h \to 0} \dfrac{f(g(x)) - f(g(x_0))}{x - x_0} =\\[10pt]
+			&= \lim_{x \to x_0} \dfrac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \cdot \dfrac{g(x) - g(x_0)}{x - x_0}= f'(g(x)) \cdot g'(x) % DA VERIFICARE :)
+		\end{align*}
+\end{enumerate}
+
+
+
+
 
 %Fare tutta la parte sul valore assoluto che non è derivabile ma x|X| lo è.
 
