@@ -1,5 +1,5 @@
 DA RICOPIARE:
-  -TUTTO \ {Analisi_pt1}
+  -TUTTO \ {Analisi_pt1, Analisi_pt2}
 
 
 - Introduzione agli appunti:
@@ -28,8 +28,7 @@ DA RICOPIARE:
 
   - Spiegare asintoti limiti
 
-- DERIVATE
-  - Dalla dervita in poi non c'è nulla
+- Agginge una parte sullo studio di funzione? Cioè punti di massimo, minimo, flesso, ecc.?
 
 - GENERALE
   - Le mimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGEREEEE!! :((
