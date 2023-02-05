@@ -378,9 +378,9 @@ Di seguito sono presenti le dimostrazioni di alcune di queste derivate:
 \pf{
 	Dobbiamo dimostrare:
 	\begin{equation*}
-		(x^n)' = n \cdot x^{n-1}
+		(x^n)' = n \cdot x^{n - 1} \qquad \forall x \in \mathbb{N}
 	\end{equation*}
-	Prendimo una funzione funzione $f(x) = x^n$ con $n \in \mathbb{N}$ e $n > 2$. Ci riduciamo a dimostrare quindi:
+	Prendimo una funzione $f(x) = x^n$ con $n \in \mathbb{N}$ e $n > 2$. Ci riduciamo a dimostrare quindi:
 	\begin{equation*}
 		f'(x) = n \cdot x^{n-1}
 	\end{equation*}
@@ -405,6 +405,23 @@ Di seguito sono presenti le dimostrazioni di alcune di queste derivate:
 	\hfill Qed.
 	
 }
+In questo caso abbiamo trovato la derivata di $x^n$ ma solo per $n \in \mathbb{N}$. In realtà possiamo provare che è la stessa identica cosa però per $n \in \mathbb{R}$:
+\pf{
+	Dobbiamo dimostrare:
+	\begin{equation*}
+		(x^n)' = n \cdot x^{n - 1} \qquad \forall x \in \mathbb{R}
+	\end{equation*}
+	Prendiamo una funzione $f(x) = x^n$ con $n \in \mathbb{R}$ e $n > 0$. Ora usando sia l'esponenziale che il logaritmo in quanto sua inversa possiamo riscrivere la funzione come:
+	\begin{equation*}
+		f(x) = x^n = e^{\ln(x^n)} = e^{n \cdot \ln{x}}
+	\end{equation*}
+	Questa ultima è derivabile per $x > 0$. Calcoliamo quindi la derivata:
+	\begin{equation*}
+		f'(x) = \left( e^{n \cdot \ln{x}} \right)' = e^{n \cdot \ln{x}} \cdot (n \cdot \ln{x})' = x^n \cdot n \cdot \dfrac{1}{x} = n \cdot x^{n-1}
+	\end{equation*}
+	\hfill Qed.
+}
+
 \pf{
 	Dobbiamo provare che:
 	\begin{equation*}
@@ -522,11 +539,108 @@ Approcciamolo ora da destra:
 Ne consegue che \textbf{la funzione è derivabile} proprio peché la sua derivata destra e sinistra conicidono.
 
 \subsection{Derivate di ordine superiore}
-%Derivate di ordine superiore
+L'idea dietro le derivate di ordine superiore è il fatto che la funzione derivata di una qualsiasi funzione resta comunque una funzione. Cioè se scrivo:
+\begin{equation*}
+	3x^2 + 4
+\end{equation*}
+Non esiste modo di distinguere se questa è una derivata o una funzione proprio perché non c'è differenza tra queste due. Se fosse una derivata la funzione potrebbe essere tipo questa\footnote{In realtà ci possono essere infinite funzioni che hanno la seguente come derivata, ma è un discorso che va affrontato poi con gli integrali}:
+\begin{equation*}
+	f(x) = x^3 + 4x + 1
+\end{equation*}
+Ma potrebbe benissimo essere una funzione a parte e si scriverebbe come:
+\begin{equation*}
+	g(x) = 3x^2 + 4
+\end{equation*}
+Essendo quindi che la funzione derivata (si capisce anche dal nome) rimane comunque una normalissima funzione possiamo applicare nuovamente il concetto di derivata alla derivata stessa. Prendiamo per esempio una funzione e deriviamola una volta:
+\begin{align*}
+	j(x) &= 2x^5 - 3x^3 + 5x\\
+	j'(x) &= 10x^4 - 9x^2 +5
+\end{align*}
+Ora possiamo applicare nuovamente il concetto di derivata alla derivata stessa (cioè $j'$):
+\begin{equation*}
+	j''(x) = 40x^3 - 18x
+\end{equation*}
+In questo caso abbiamo usato due volte il simbolo di derivata $'$ per indicare proprio il fatto che è una funzione derivata 2 volte. Ovviamente questa cosa si può iterare finché la funzione resta derivabile. Formalizziamo meglio il concetto:
+\dfn{
+	Data una funzione $f: I \to \mathbb{R}$ derivabile su $I$, esiste la derivata $f': I \to \mathbb[R]$. Se $f'$ è derivabile in $x_0 \in I$ allora:
+	\begin{equation*}
+		f''(x_0) := \lim_{h \to 0} \dfrac{f'(x_o + h) - f'(x_0)}{h} \in R
+	\end{equation*}
+}
+In questo caso si dice che la funzione $f$ \textbf{è derivabile due volte in} $\mathbf{x_0}$.
+
+Ne consegue che se volgiamo definire la derivata terza di una funzione in un punto $x_0$, basta che esista la derivata seconda della funzione in quel punto e che questa ultima si derivabile:
+\begin{equation*}
+		f'''(x_0) := \lim_{h \to 0} \dfrac{f''(x_o + h) - f''(x_0)}{h} \in R
+\end{equation*}
+
+\textbf{Notazioni}:
+\begin{gather*}
+	f', f'', f''', f^{IV}, f^{V} \cdots\\
+	f^{(1)}, f^{(2)}, f^{(3)}, f^{(4)}, f^{(5)}, \cdots
+\end{gather*}
+\textbf{Nota}: La derivata $f'$ viene spesso chiamata \textit{derivata prima}.
+
+\dfn{
+	\textbf{Classe} $\mathbf{C^k}$ dove $k \in \mathbb{N}$. 
+	\begin{equation*}
+		f \in C^k (I) \iff
+		\begin{cases*}
+			f \; \text{è derivabile k-volte su } I\\
+			f^{(k)} \text{è continua su I}
+		\end{cases*}
+	\end{equation*}
+}
+Ci basta imporre solo che $f^{(k)}$ sia continua da un teorema enunciato più avanti (Sezione \ref{TeoremaDerivataContinua}) che in pratica afferma che se una funzione è derivabile (e tutte quelle prima di $f^{(k)}$ lo sono) allora la funzione è forza continua.\\
+
+Le classi risultano quindi:
+\begin{align*}
+	C^0 (I) &= \{f: I \to \mathbb{R}\; |\; f \; \text{continua su I}\}\\
+	C^1 (I) &= \{f: I \to \mathbb{R}\; |\; f \; \text{è derivabile e } f':I \to \mathbb{R} \text{ è continua}\}\\
+	C^2 (I) &= \{f: I \to \mathbb{R}\; |\; f \; \text{è derivabile due volte e } f'':I \to \mathbb{R} \text{ è continua}\}\\
+	\vdots\\
+	C^\infty (I) &:= \bigcap_{k} C^k (I)
+\end{align*}
+L'ultima classe comprende tutte le funzioni derivabili un numero arbitrario di volte.\\
+
+Un esempio di funzione derivabile $k$ volte:
+\begin{equation*}
+	h(x) = x^k |x|  
+\end{equation*}
+Infatti $h \in C^k (\mathbb{R})$ ma $h \not \in C^{k+1} (\mathbb{R})$.
 
 %Li faccio come subsubsection i teoremi? Oppure gli dedico delle subsection per ognuno?
 
 \subsection{Teoremi}
+
+\thm{ \label{TeoremaDerivataContinua}
+	Data una funzione $f: I \to \mathbb{R}$ dove $I \subseteq \mathbb{R}$ e un punto $x_0 \in \mathbb{R}$ si ha che:
+	\begin{equation*}
+		f \; \text{derivabile in } x_0 \implies f \; \text{è continua in } x_0
+	\end{equation*}
+}
+\pf{
+	Assumendo che $x_0$ faccia parte dei punti di accumulazione di $I$ ($x_0 \in \mathcal{D}(I)$), dobbiamo dimostrare che:
+	\begin{equation*}
+		\lim_{x \to x_0} f(x) = f(x_0)
+	\end{equation*}
+	o equivalentemente:
+	\begin{equation*}
+		\lim_{x \to x_0} [f(x) - f(x_0)] = 0
+	\end{equation*}
+	Moltiplicando e dividendo per lo stesso fattore ($x - x_0$):
+	\begin{equation*}
+		\lim_{x \to x_0} \dfrac{f(x) - f(x_0)}{x-x_0} \cdot (x - x_0) = 0
+	\end{equation*}
+	Il primo termine è semplicemente la derivata di $f$ nel punto $x_0$ mentre il secondo termine tende a zero per $x \to x_0$:
+	\begin{equation*}
+		f'(x_0) \cdot 0 = 0
+	\end{equation*}
+	\hfill Qed.
+}
+È importante notare qui la direzione dell'implicazione: mentre se una funzione è derivabile allora è continua, NON è affatto detto che una funzione continua automaticamente sia derivabile. L'esempio classico è il valore assoluto di $x$, che è continuo su tutto $\mathbb{R}$ ma non è derivabile in $x = 0$. Si può vedere la cosa come se le funzioni derivabili fossero un sottoinsieme delle funzioni continue.
+
+
 \subsubsection{Teorema di Fermat}
 Il seguente teorema enuncia che la derivata nei minimi e nei massimi si annulla.
 \thm {
