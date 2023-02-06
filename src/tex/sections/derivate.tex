@@ -642,15 +642,170 @@ Infatti $h \in C^k (\mathbb{R})$ ma $h \not \in C^{k+1} (\mathbb{R})$.
 
 
 \subsubsection{Teorema di Fermat}
-Il seguente teorema enuncia che la derivata nei minimi e nei massimi si annulla.
+\dfn{
+	$f: A \to \mathbb{R}$ 
+	\begin{enumerate}
+		\item $x_0 \in A$ si dice punti di \textbf{massimo relativo} (o locale) se:
+			\begin{equation*}
+				\exists r >0: \;\; f(x) \leq f(x_0) \;\; \forall x \in A \cap I_r(x_0)
+			\end{equation*}
+
+		\item $x_0 \in A$ si dice punti di \textbf{minimo relativo} (o locale) se:
+			\begin{equation*}
+				\exists r >0: \;\; f(x) \geq f(x_0) \;\; \forall x \in A \cap I_r(x_0)
+			\end{equation*}
+	\end{enumerate}
+}
+In pratica basta che esista un itorno di quel punto in cui tutti i valori della funzione sono più piccoli del valore della funzione nel punto stesso per fare in modo che quel punto sia un massimo relativo. La stessa cosa vale con il minimo. La differenza con i punti di massimo e di minimo assoluti è che questi ultimi devono essere maggiori o minori di tutti gli altri valori della funzione, non soltanto in un intorno scelto a piacere. Nonostante siano già scritti in precedenza riporto nuovamente la definzione:
+
+Data una funzione $f:A \to \mathbb{R}$:
+\begin{enumerate}
+    \item $x_0 \in A$ si dice punto di \textbf{massimo assoluto} di $f$ se:
+    \begin{equation*}
+        f(x) \leq f(x_0) \quad \forall x \in A
+    \end{equation*}
+    
+    \item $x_0 \in A$ si dice punto di \textbf{minimo assoluto} di $f$ se:
+    \begin{equation*}
+        f(x) \geq f(x_0) \quad \forall x \in A
+    \end{equation*}
+\end{enumerate}
+
+Ovviamente: \\
+\begin{align*}
+	x_0 \; \text{punto di massimo assoluto} &\implies x_0 \; \text{punto di massimo relativo}\\
+	x_0 \; \text{punto di minimo assoluto} &\implies x_0 \; \text{punto di minimo relativo}
+\end{align*}
+
+Il seguente teorema enuncia che la derivata nei minimi e nei massimi relativi si annulla. Questo teorema torna molto utile nello studio di funzione per individuare potenziali massimi o minimi.
 \thm {
-Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_0 \in ]a,b[$ e inoltre $f$ è derivabile in $x_0$, allora:
+Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_0 \in ]a,b[$, se inoltre $f$ è derivabile in $x_0$, allora:
 \begin{equation*}
     f'(x_0) = 0
 \end{equation*}
 }
-È essenziale che il punto $x_0$ si all'interno dell'intervallo! %DARE VEDERE FOTO DI UNA RETTA CON DOMIONIO RISTRETTO
-Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale (es. $x^3$ in $x=0$). %FAR VEDERE GRAFICO
+È essenziale che il punto $x_0$ si all'interno dell'intervallo. Se infatti non lo fosse (come da Figura: \ref{Fermat1}) la derivata non si annullerebbe nonostante gli estremi siano un punto di massimo e di minimo. 
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 3, xmin = -0.5, ymax = 8, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={10},
+             ytick={10},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.5\linewidth,
+            ]
+\addplot[domain=0.5:2.2, samples=200]{3 * x};
+\addplot [only marks, mark options={scale=1}] table {
+0.5 1.5
+2.2 6.6
+};
+\end{axis}
+\end{tikzpicture}
+  \caption{Caso del teorema di Fermat in cui il punto di massimo o di minimo non è interno all'intervallo e quindi la derivata non si annulla} 
+	\label{Fermat1}
+\end{figure}
+
+
+
+Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale. Se prendiamo infatti la funzione $f(x) = x^3$ e la deriviamo viene $f'(x) = 3x^2$ ed è facile vedere che la derivata di annulla in $x = 0$. Se guardiamo il grafico di $f(x)$ (Figura: \ref{Graficox3}) però in $x= 0$ non è presente ne un massimo ne un minimo.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 3, xmin = -3, ymax = 9, ymin = -9,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick={10},
+             ytick={10},
+             xlabel style={anchor=north east},
+             xticklabel style={anchor=north},
+             yticklabel style={anchor=east},
+             width=0.5\linewidth,
+            ]
+\addplot[domain=-3:3, samples=200]{x*x*x};
+\addplot [only marks, mark options={scale=1}] table {
+0 0 
+};
+\end{axis}
+\end{tikzpicture}
+	\caption{Grafico della funzione $f(x) = x^3$}
+	\label{Graficox3}
+\end{figure}
+	
+
+\pf{
+	Dimostriamo il teorema solo per il caso dei punti di massimo. Prendiamo una funzione $f:[a, b] \to \mathbb{R}$ che ha un punto di massimo relativo in $x_0 \in ]a, b[$. Assumiamo inoltre che $f$ sia derivabile in $x_0$. 
+
+	Essendo $x_0$ un punto di massimo relativo:
+	\begin{equation*}
+		\exists r >0: \;\; f(x) \leq f(x_0) \;\; \forall x \in A \cap I_r(x_0)
+	\end{equation*}
+	L'intorno $I_r(x_0)$ si può scrivere anche come:
+	\begin{equation*}
+		x_0 - r < x < x_0 + r
+	\end{equation*}
+	Dividiamo quindi questo intervallo in due casi distinti:
+	\begin{enumerate}
+		\item Il primo canso considera l'intervallo ristretto a: 
+			\begin{equation*}
+				x_0 - r < x < x_0
+			\end{equation*}
+			La derivata sinistra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definzione:
+			\begin{equation*}
+				f_-'(x_0) = \lim_{x \to x_0^-}  \dfrac{f(x) - f(x_0)}{x-x_0}
+			\end{equation*}
+			Per ipotesi abbiamo che $f(x) - f(x_0) \leq 0$ e per il fatto che ci stiamo avvicinando a $x_0$ da sinistra $x - x_0 < 0$. Ne consegue che:
+			\begin{equation*}
+				\dfrac{f(x) - f(x_0)}{x-x_0} \geq 0
+			\end{equation*}
+			E quindi per il teorema di permanenza del segno (Sezione \ref{TeoremaPermanenzaSegno}):
+		
+			\begin{equation*}
+				f_-'(x_0) = \lim_{x \to x_0^-}  \dfrac{f(x) - f(x_0)}{x-x_0} \geq 0
+			\end{equation*}
+			E quindi:
+			\begin{equation*}
+				f_-'(x_0) \geq 0
+			\end{equation*}
+
+		\item Il secondo caso considera l'altro pezzo di intervallo:
+			\begin{equation*}
+				x_0< x < x_0 + r
+			\end{equation*}
+			La derivata destra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definzione:
+			\begin{equation*}
+				f_+'(x_0) = \lim_{x \to x_0^+}  \dfrac{f(x) - f(x_0)}{x-x_0}
+			\end{equation*}
+			Per ipotesi abbiamo che $f(x) - f(x_0) \leq 0$ e per il fatto che ci stiamo avvicinando a $x_0$ da destra $x - x_0 > 0$. Ne consegue che:
+			\begin{equation*}
+				\dfrac{f(x) - f(x_0)}{x-x_0} \leq 0
+			\end{equation*}
+			E quindi per il teorema di permanenza del segno (Sezione \ref{TeoremaPermanenzaSegno}):
+			\begin{equation*}
+				f_+'(x_0) = \lim_{x \to x_0^+}  \dfrac{f(x) - f(x_0)}{x-x_0} \leq 0
+			\end{equation*}
+			E quindi:
+			\begin{equation*}
+				f_+'(x_0) \leq 0
+			\end{equation*}
+	\end{enumerate}
+	Sempre per ipotesi $f$ è derivabile in $x_0$:
+	\begin{equation*}
+		f'(x_0) =
+		\begin{cases*}
+i			f_-' (x_0) \leq 0\\[10pt]
+			f_+' (x_0) \geq 0\\
+		\end{cases*}
+	\end{equation*}
+	Essendo che il valore della derivata destra e sinistra devono coincidere per fare in modo che esista la derivata nel punto:
+	\begin{equation*}
+		f'(x_0) = 0
+	\end{equation*}
+	\hfill Qed.
+}
 
 \subsubsection{Teorema di Rolle}
 \thm {
