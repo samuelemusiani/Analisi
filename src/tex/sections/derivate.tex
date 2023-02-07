@@ -929,7 +929,7 @@ E infatti non esiste un punto in cui la derivata si annulla.
 \end{figure}
 
 
-\subsubsection{Teorema di Lagrange}
+\subsubsection{Teorema di Lagrange} \label{sec:TeoremaLagrange}
 \thm {
 Data un fuzione $f:[a,b] \to \mathbb{R}$ cone le seguenti proprietà:
 \begin{enumerate}
@@ -1147,5 +1147,111 @@ Nessuno infatti ci assicura che $c_1 = c_2$, risulta quindi necessario fare una 
 	\end{equation*}
 	\hfill Qed.
 }
+
+\subsubsection{Legame tra derivata e monotonia di una funzione}
+Questo teorema è fondamentale nello studio di funzione perché permette. in base al segno della derivata, di determinare la monotonia della funzione in esame.
+\thm{
+	Data una funzione $f:]a,b[ \to \mathbb{R}$ se è derivabile su $]a,b[$ allora:
+	\begin{enumerate}
+		\item 
+			\begin{equation*}
+				f'(x) \geq 0 \quad \forall x \in ]a,b[ \iff f \; \text{è crescente su } ]a,b[
+			\end{equation*}
+
+			Vale anche per il caso $\leq$:
+			\begin{equation*}
+				f'(x) \leq 0 \quad \forall x \in ]a,b[ \iff f \; \text{è decrescente su } ]a,b[
+			\end{equation*}
+
+		\item
+			\begin{equation*}
+				f'(x) > 0 \quad \forall x \in ]a,b[ \implies f \; \text{è strettamente crescente su } ]a,b[
+			\end{equation*}
+
+			Vale anche il caso $<$:
+			\begin{equation*}
+				f'(x) < 0 \quad \forall x \in ]a,b[ \implies f \; \text{è strettamente decrescente su } ]a,b[
+			\end{equation*}
+	\end{enumerate}
+}
+Nei casi 2 e 3 non vale l'implicazione contraria perché alcune funzioni strettamente crescenti o strettamente decrescenti possono avere anche derivata nulla in un punto, tipo $x^3$ e $-x^3$ in $x = 0$.
+
+\pf{
+	Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ e assumiamo come ipotesi che sia derivabile su $]a,b[$. 
+	\begin{enumerate}
+		\item Caso $\implies$: Dobbiamo provare che:
+			\begin{equation*}
+				f'(x) \geq 0 \quad \forall x \in ]a,b[ \implies f \; \text{è crescente su } ]a,b[
+			\end{equation*}
+			Assumiamo come ipotesi che  $f'(x) \geq 0 \; \forall x \in ]a,b[$ per dimostrare che:
+			\begin{equation*}
+				f \; \text{è crescente su } ]a,b[
+			\end{equation*}
+			In pratica dobbiamo provare che:
+			\begin{equation*}
+				\forall x_1, x_2 \in ]a,b[ : x_1 < x_2 \implies f(x_1) \leq f(x_2)
+			\end{equation*}
+			Applichiamo il teorema di Lagrange (Sezione: \ref{sec:TeoremaLagrange}) alla funzione $f:[x_1, x_2] \to \mathbb{R}$ con il dominio quindi ristretto a $[x_1, x_2]$:
+			\begin{equation*}
+				\exists c \in ]x_1, x_2[ \; : \; \dfrac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(c)
+			\end{equation*}
+			Per ipotesi $f'(c) \geq 0$ ed essendo sempre per ipotesi $x_2 - x_1 > 0$:
+			\begin{align*}
+				f(x_2) &- f(x_1) \geq 0\\[10pt]
+				f(x_2) &\geq f(x_1)
+			\end{align*}
+			Quindi abbiamo concluso questo caso. Nel caso del $\leq$ si fa uguale.\\
+
+			Caso $\impliedby$: In questo caso l'uso diretto del teorema di Lagrange non permette di concludere quello che vogliamo dimostrare, infatti non riuscirei a dimostrare la cosa per tutti i punti. Dobbiamo provare che:
+			\begin{equation*}
+				f \; \text{è una funzione crescente su } ]a,b[ \implies \forall x \in ]a, b[ \; f'(x) \geq 0 
+			\end{equation*}
+			Assumiamo che $f$ sia crescente su $]a,b[$ per dimostrare:
+			\begin{equation*}
+				f'(x) \geq 0 \quad \forall x \in ]a, b[
+			\end{equation*}
+			Essendo crescente:
+			\begin{equation*}
+				\forall x_0 \in ]a,b[ : x > x_0 \implies f(x) \geq f(x_0)
+			\end{equation*}
+			Visto che $x - x_0 > 0$ e $f(x) - f(x_0) \geq 0$, ne consegue:
+			\begin{equation*}
+				\dfrac{f(x) - f(x_0)}{x - x_0} \geq 0
+			\end{equation*}
+			Essedo per ipotesi derivabile e dal teorema di permanenza del segno (Sezione: \ref{TeoremaPermanenzaSegno}):
+			\begin{equation*}
+				f'(x_0) = \lim_{x \to x_0} \dfrac{f(x) - f(x_0)}{x - x_0} \geq 0
+			\end{equation*}
+			E questo vale $\forall x_0 \in ]a,b[$, quindi abbiamo finito.
+
+		\item Questo caso si fa esattamente come il punto 1, ma lo riporto lo stesso. Dobbiamo provare che:
+			\begin{equation*}
+				f'(x) > 0 \quad \forall x \in ]a,b[ \implies f \; \text{è strettamente crescente su } ]a,b[
+			\end{equation*}
+			Assumiamo come ipotesi che  $f'(x) > 0 \; \forall x \in ]a,b[$ per dimostrare che:
+			\begin{equation*}
+				f \; \text{è strettamente crescente su } ]a,b[
+			\end{equation*}
+			In pratica dobbiamo provare che:
+			\begin{equation*}
+				\forall x_1, x_2 \in ]a,b[ : x_1 < x_2 \implies f(x_1) < f(x_2)
+			\end{equation*}
+			Applichiamo il teorema di Lagrange (Sezione: \ref{sec:TeoremaLagrange}) alla funzione $f:[x_1, x_2] \to \mathbb{R}$:
+			\begin{equation*}
+				\exists c \in ]x_1, x_2[ \; : \; \dfrac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(c)
+			\end{equation*}
+			Per ipotesi $f'(c) > 0$ ed essendo sempre per ipotesi $x_2 - x_1 > 0$:
+			\begin{align*}
+				f(x_2) &- f(x_1) > 0\\[10pt]
+				f(x_2) &> f(x_1)
+			\end{align*}
+			Quindi abbiamo concluso questo caso. Nel caso del $<$ si fa uguale.\\
+	\end{enumerate}
+	\hfill Qed.
+}
+
+
+
+
 
 \subsubsection{I teoremi di De L'Hôpital}
