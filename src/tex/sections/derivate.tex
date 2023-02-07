@@ -1085,22 +1085,67 @@ Non vi è in realtà contraddizione con il corollario perché il dominio di $f$ 
 \end{figure}
 
 
-
-
-
-
 \subsubsection{Teorema di Cauchy}
 \thm {
-$f,g:[a,b] \to \mathbb{R}$
+Date due funzioni $f,g:[a,b] \to \mathbb{R}$ con le seguenti proprietà:
 \begin{enumerate}
-    \item $f,g$ è continua su $[a,b]$
-    \item $f,g$ è derivabile su $]a,b[$
-    \item $g'(x) \neq 0 \forall x\in ]a,b[$
+    \item $f,g$ è continue su $[a,b]$
+    \item $f,g$ è derivabili su $]a,b[$
+    \item $g'(x) \neq 0 \quad \forall x\in ]a,b[$
 \end{enumerate}
 Allora:
 \begin{equation*}
     \exists \,c \in ]a,b[ \;: \dfrac{f(b)-f(a)}{g(b)-g(a)} = \dfrac{f'(c)}{g'(c)}
 \end{equation*}
+}
+La codizione che $g(b) - g(a) \neq 0$ è intrinseca alla premessa numero 3. Se infatti fosse che $g(b) - g(a) = 0$ diventerebbe $g(b) = g(a)$ che in combinazione con le premesse 1 e 2 del teorema permetterebbe l'applicazione del teorema di Rolle (Sezione: \ref{sec:TeoremaRolle}) e quindi $\exists d \in ]a,b[ : g'(d) = 0$ che è in contraddizione con l'ipotesi numero 3.
+
+Per la dimostrazione si potrebbe pensare erroneamente che applicando il teorema di Lagrange prima al numeratore e poi al denominatore si possa dimostrare questo teorema. Le premesse ci permettono di applicare Lagrange, ma nessuno ci assicura che il punto in cui si annulla $f'$ è lo stesso punto in in cui si annulla $g'$:
+\begin{equation*}
+	\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{\dfrac{f(b) - f(a)}{b-a}}{\dfrac{g(b)-g(a)}{b - a}} = \dfrac{f'(c_1)}{g'(c_2)}
+\end{equation*}
+Nessuno infatti ci assicura che $c_1 = c_2$, risulta quindi necessario fare una dimostrazione a parte:
+
+\pf{
+	Dobbiamo dimostrare il teorema di Cauchy. Prendiamo due funzionei $f,g:[a,b] \to \mathbb{R}$ e assumiamo le seguenti proprietà come ipotesi:
+	\begin{enumerate}
+	    \item $f,g$ è continue su $[a,b]$
+	    \item $f,g$ è derivabili su $]a,b[$
+	    \item $g'(x) \neq 0 \quad \forall x\in ]a,b[$
+	\end{enumerate}
+	Consideriamo ora una funzione ausiliaria $h:[a, b] \to \mathbb{R}$:
+	\begin{equation*}
+		h(x) = f(x) + k \cdot g(x) \qquad (k \in \mathbb{R})
+	\end{equation*}
+	Per ipotesi 1 e 2 $h$ è continua su $[a, b]$ e derivabile su $]a, b[$. Vogliamo applicare il teorema di teorema di Rolle ad $h$: 
+	\begin{align*}
+		h(a) &= f(a) + k \cdot g(a) \\[10pt]
+		h(b) &= f(b) + k \cdot g(b)
+	\end{align*}
+	Dobbiamo quindi scegliere $k$ in modo che:
+	\begin{align*}
+		h(a) &= h(b)\\[10pt]
+		f(a) + k \cdot g(a) &= f(b) + k \cdot g(b) \\[10pt]
+		f(b) - f(a) &= k (g(a) - g(b))
+	\end{align*}
+	Per ipotesi 3 so che $g(a) - g(b) \neq 0$, quindi posso dividere:
+	\begin{equation*}
+		k = \dfrac{f(b) - f(a)}{g(a) - g(b)}
+	\end{equation*}
+	Applichiamo quindi il teorema di Rolle ad $h$:
+	\begin{equation*}
+		\exists c \in ]a, b[ : h'(c) = 0
+	\end{equation*}
+	Cioè:
+	\begin{align*}
+		h'(c) &= f'(c) + k \cdot g'(c) = 0\\[10pt]
+		f'(c) &= -k \cdot g'(c)
+	\end{align*}
+	E quindi:
+	\begin{equation*}
+	    \dfrac{f'(c)}{g'(c)} = -k = \dfrac{f(b)-f(a)}{g(b)-g(a)}
+	\end{equation*}
+	\hfill Qed.
 }
 
 \subsubsection{I teoremi di De L'Hôpital}
