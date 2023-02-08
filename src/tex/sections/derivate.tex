@@ -1339,7 +1339,7 @@ E poi calcolare il loro limite e far vedere che i valori non coincidono. Di cons
 \end{gather*}
 
 \thm{
-	Caso \textbf{limite al finito}: Preso un intervallo $I \subseteq{R}$ e un punto $x_0 \in \mathring{I}$ se:
+	\textbf{Caso 1 limite al finito}: Preso un intervallo $I \subseteq{R}$ e un punto $x_0 \in \mathring{I}$ se:
 	\begin{enumerate}
 		\item Due funzioni $f, g: I \to \mathbb{R}$ continue su I e con $f(x_0) = g(x_0) = 0$
 
@@ -1548,11 +1548,144 @@ Dimostriamo ora il teorema:
 	\end{equation*}
 	\hfill Qed.
 }
+Dei seguenti teoremi non vi è la dimostrazione:
 
-% Aggiungere osservazione :( 
+\thm{ %La formulazione cambia partecchio rispetto al primo caso. Cosa faccio? Le tengo così diverse?
+	\textbf{Caso 2 limite al finito}: Prese due funzioni $f, g:]a,b[ \to \mathbb{R}$ derivabili:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\lim_{x \to x_0} f(x) = \lim_{x \to x_0} g(x) = \pm \infty 
+			\end{equation*}
 
+		\item 
+			\begin{equation*}
+				g'(x) \neq 0 \;\; \forall x \in ]a,b[ \; \setminus \{x_0\}
+			\end{equation*}
 
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{itemize}
+		\item $g(x) \neq 0$ per $x \to x_0$
 
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to x_0} \dfrac{f(x)}{g(x)} = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} 
+			\end{equation*}
+	\end{itemize}
+}
 
+\thm{ 
+	\textbf{Caso 3 destra limite al finito}, \textit{non nel punto "secco" ma da destra }: Prese due funzioni $f, g:]a,b[ \to \mathbb{R}$ derivabili:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\lim_{x \to a^+} f(x) = \lim_{x \to a^+} g(x) = \pm \infty \quad (\text{oppure } 0)
+			\end{equation*}
 
+		\item 
+			\begin{equation*}
+				g'(x) \neq 0 \;\; \forall x \in ]a,b[
+			\end{equation*}
 
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to a^+} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{itemize}
+		\item $g(x) \neq 0$ per $x \to a^+$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to a^+} \dfrac{f(x)}{g(x)} = \lim_{x \to a^+} \dfrac{f'(x)}{g'(x)} 
+			\end{equation*}
+	\end{itemize}
+
+	\textbf{Caso 3 sinistra limite al finito}: Prese due funzioni $f, g:]a,b[ \to \mathbb{R}$ derivabili:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\lim_{x \to b^-} f(x) = \lim_{x \to b^-} g(x) = \pm \infty \quad (\text{oppure } 0)
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				g'(x) \neq 0 \;\; \forall x \in ]a,b[
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to b^-} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{itemize}
+		\item $g(x) \neq 0$ per $x \to b^-$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to b^-} \dfrac{f(x)}{g(x)} = \lim_{x \to b^-} \dfrac{f'(x)}{g'(x)} 
+			\end{equation*}
+	\end{itemize}
+}
+\thm{
+	\textbf{Caso 4 destra limite all'infinito}: Prese due funzioni $f, g:]c,+\infty[ \to \mathbb{R}$ derivabili:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\lim_{x \to +\infty} f(x) = \lim_{x \to +\infty} g(x) = \pm \infty \quad (\text{oppure } 0)
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				g'(x) \neq 0 \;\; \forall x \in ]c,+\infty[
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to +\infty} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{itemize}
+		\item $g(x) \neq 0$ per $x \to +\infty$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to +\infty} \dfrac{f(x)}{g(x)} = \lim_{x \to +\infty} \dfrac{f'(x)}{g'(x)} 
+			\end{equation*}
+	\end{itemize}
+
+	\textbf{Caso 4 sinistra limite all'infinito}: Prese due funzioni $f, g:]-\infty,d[ \to \mathbb{R}$ derivabili:
+	\begin{enumerate}
+		\item
+			\begin{equation*}
+				\lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} g(x) = \pm \infty \quad (\text{oppure } 0)
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				g'(x) \neq 0 \;\; \forall x \in ]-\infty,d[
+			\end{equation*}
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to -\infty} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{itemize}
+		\item $g(x) \neq 0$ per $x \to -\infty$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to -\infty} \dfrac{f(x)}{g(x)} = \lim_{x \to -\infty} \dfrac{f'(x)}{g'(x)} 
+			\end{equation*}
+	\end{itemize}
+}
