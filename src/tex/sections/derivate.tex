@@ -1250,8 +1250,48 @@ Nei casi 2 e 3 non vale l'implicazione contraria perché alcune funzioni stretta
 	\hfill Qed.
 }
 
+\textbf{Proposizione:} Data una funzione $f:]a,b[ \to \mathbb{R}$ che sia derivabile su $]a,b[$ se vale che:
+\begin{enumerate}
+	\item $f'(x) \geq 0 \quad \forall x \in ]a,b[$ 
+	
+	\item Posto $N = \{x \in ]a,b[ \; | \; f'(x) = 0\}$, $N$ è un insieme finito.
+\end{enumerate}
+Allora:
+\begin{center}
+	$f$ è strettamente crescente
+\end{center}
+Vale anche per il caso in cui $f'(x) \leq 0 \; \forall x \in ]a,b[$, che però rende la funzione \textit{strettamente decrescente}.
 
-
+\pf{
+	Dobbiamo dimostrare la proposizione appena enunciata. Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ che sia derivabile su $]a,b[$. Assumiamo come ipotesi che valgono le seguenti proprietà:
+	\begin{enumerate}
+		\item $f'(x) \geq 0 \quad \forall x \in ]a,b[$ 
+		
+		\item Posto $N = \{x \in ]a,b[ \; | \; f'(x) = 0\}$, $N$ è un insieme finito.
+	\end{enumerate}
+	Dalla prima ipotesi e dal teorema appena enunciato:
+	\begin{center}
+		$f$ è crescente su $]a,b[$
+	\end{center}
+	Assumiamo come ipotesi che $f$ NON sia strettamente crescente e riduciamoci a dimostrare l'assurdo\footnote{RAAAAAAA}. Essendo per che $f$ non è strettamente crescente:
+	\begin{equation*}
+		\exists x_1, x_2 \in ]a, b[ \; : \; x_1 < x_2 \land f(x_1) = f(x_2)
+	\end{equation*}
+	Siccome però $f$ è crescente:
+	\begin{equation*}
+		\forall x \in ]x_1, x_2[ \; : \; f(x_1) \leq f(x) \leq f(x_2)
+	\end{equation*}
+	Ma essendo $f(x_1) = f(x_2)$:
+	\begin{center}
+		$f$ è costante su $[x_1, x_2]$
+	\end{center}
+	Di conseguenza:
+	\begin{equation*}
+		f'(x) = 0 \quad \forall ]x_1, x_2[
+	\end{equation*}
+	Che però è in contraddizione con l'ipotesi 2. Usando quindi una \textit{not eliminazione}\footnote{Deduzione naturale insegna} abbiamo provato l'assurdo!
+	\hfill Qed.
+}
 
 
 \subsubsection{I teoremi di De L'Hôpital}

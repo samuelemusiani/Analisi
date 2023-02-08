@@ -1,5 +1,7 @@
 DA RICOPIARE:
-  -TUTTO \ {Analisi_pt1, Analisi_pt2}
+  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3}
+  
+  Analisi_pt3: In fondo c'è una considerazione sui punti di minimo e massimo relativi. La aggiungo?
 
 
 - Introduzione agli appunti:
