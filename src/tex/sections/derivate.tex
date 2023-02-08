@@ -1085,7 +1085,7 @@ Non vi è in realtà contraddizione con il corollario perché il dominio di $f$ 
 \end{figure}
 
 
-\subsubsection{Teorema di Cauchy}
+\subsubsection{Teorema di Cauchy} \label{sec:TeoremaCauchy}
 \thm {
 Date due funzioni $f,g:[a,b] \to \mathbb{R}$ con le seguenti proprietà:
 \begin{enumerate}
@@ -1295,3 +1295,166 @@ Vale anche per il caso in cui $f'(x) \leq 0 \; \forall x \in ]a,b[$, che però r
 
 
 \subsubsection{I teoremi di De L'Hôpital}
+
+Per dimostrare i teoremi di De L'Hôpital è necessario il seguente lemma che "traduce" la nozione di limite usando le successioni:
+\mlem{
+	Data una funzione $h: A \to \mathbb{R}$ e un punto $x_0 \in \mathcal{D}(A)$ allora: %non sono sicuro di cosa sia D
+	\begin{equation*}
+		l \in R \cup \{+\infty\} \cup \{-\infty\}
+	\end{equation*}
+	\begin{enumerate}
+		\item 
+			\begin{equation*}
+				\lim_{x \to x_0^-} h(x) = l \iff \forall (x_n)_n \subseteq A, \, x_n < x_0 \;\; \forall n \; \text{tale che: } x_n \xrightarrow[n \to + \infty]{} x_0 \; \text{si ha: } h(x_n) \xrightarrow[n \to +\infty]{} l
+			\end{equation*}
+		\item 
+			\begin{equation*}
+				\lim_{x \to x_0^+} h(x) = l \iff \forall (x_n)_n \subseteq A, \, x_n > x_0 \;\; \forall n \; \text{tale che: } x_n \xrightarrow[n \to + \infty]{} x_0 \; \text{si ha: } h(x_n) \xrightarrow[n \to +\infty]{} l
+			\end{equation*}
+	\end{enumerate}
+	Senza dimostrazione da 1 e 2 segue che:
+	\begin{enumerate}
+		\setcounter{enumi}{2} %mi serve per fare  partire la lista da 3
+		\item  
+			\begin{equation*}
+				\lim_{x \to x_0} h(x) = l \iff \forall (x_n)_n \subseteq A, \, x_n \neq x_0 \;\; \forall n \; \text{tale che: } x_n \xrightarrow[n \to + \infty]{} x_0 \; \text{si ha: } h(x_n) \xrightarrow[n \to +\infty]{} l
+			\end{equation*}
+	\end{enumerate}
+}
+
+Da qui nasce un criterio per mostrare che non eiste il limite per un punto di una funzione. Cioè se voglio far vedere che:
+\begin{equation*}
+	\not \exists \lim_{x \to x_0} h(x)
+\end{equation*}
+Mi basta trovare due successioni che tendono entrambe ad $x_0$:
+\begin{align*}
+	x_n \xrightarrow[n \to + \infty]{} x_0\\
+	y_n \xrightarrow[n \to + \infty]{} x_0\\
+\end{align*}
+E poi calcolare il loro limite e far vedere che i valori non coincidono. Di conseguenza il limite non esiste perché non è unico.
+\begin{gather*}
+	h(x_n) \xrightarrow[n \to +\infty]{} l1\\
+	h(y_n) \xrightarrow[n \to +\infty]{} l2\\
+	l1 \neq l2
+\end{gather*}
+
+\thm{
+	Caso \textbf{limite al finito}: Preso un intervallo $I \subseteq{R}$ e un punto $x_0 \in \mathring{I}$ se:
+	\begin{enumerate}
+		\item Due funzioni $f, g: I \to \mathbb{R}$ continue su I e con $f(x_0) = g(x_0) = 0$
+
+		\item $f, g$ derivabili in $I \setminus \{x_0\}$ e $g'(x) \neq 0$ se $x \in I \setminus \{x_0\}$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Allora:
+	\begin{equation*}
+		\exists \lim_{x \to x_0} \dfrac{f(x)}{g(x)} = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} 
+	\end{equation*}
+}
+Alcune considerazioni importanti da fare:
+\begin{itemize}
+	\item Non serve specificare che $g(x) \neq 0$ se $x \in I\setminus \{x_0\}$ perché è già intrinseco nella seconda ipotesi del teorema. Supponiamo infatti che:
+		\begin{equation*}
+			\exists x_1 \in I : x_1 \neq x_0 \land g(x_1) = 0
+		\end{equation*}
+		La funzione $g:[x_0, x_1] \to \mathbb{R}$ è continua su $[x_0, x_1]$, è derivabile in $]x_0,x_1[$ e inoltre, per quanto appena assunto e per la prima ipotesi del teorema, $g(x_0) = 0 = g(x_1)$. Ne consegue che dal teorema di Rolle (Sezione: \ref{sec:TeoremaRolle}):
+		\begin{equation*}
+			\exists x \in ]x_0, x_1[ \; : \; g'(c) = 0
+		\end{equation*}
+		Che però è in contrasto con la seconda ipotesi del teorema.
+
+	\item È estremamente importanete da direzione dell'implicazione: se esiste il limite del rapporto delle derivate allora esiste il limite del rapporto delle funzioni ed è uguale al limite del rapporto delle derivate. Se però il limite delle derivate non esiste, il teorema non si può applicare, ma nessuno ci dice il limite in se non esiste. Non vale quindi il contrario. Se esiste il limite di un rapporto di funzioni non è detto che esista il limite del rapporto delle derivate. %Fare meglio??  
+\end{itemize}
+
+\pf{
+	Dobbiamo dimostrare il teorema appena enunciato. Prendiamo un intervallo $I \subseteq \mathbb{R}$ e un punto $x_0 \in \mathring{I}$. Assumiamo inoltre le seguenti ipotesi:
+	\begin{enumerate}
+		\item Due funzioni $f, g: I \to \mathbb{R}$ continue su I e con $f(x_0) = g(x_0) = 0$
+
+		\item $f, g$ derivabili in $I \setminus \{x_0\}$ e $g'(x) \neq 0$ se $x \in I \setminus \{x_0\}$
+
+		\item 
+			\begin{equation*}
+				\exists \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+			\end{equation*}
+	\end{enumerate}
+	Dobbiamo provare che:
+	\begin{equation*}
+		\exists \lim_{x \to x_0} \dfrac{f(x)}{g(x)} = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)} 
+	\end{equation*}
+	In altre parole:
+	\begin{equation*}
+		\exists \lim_{x \to x_0^-} \dfrac{f(x)}{g(x)} = l \quad \land \quad \exists \lim_{x \to x_0^+} \dfrac{f(x)}{g(x)} = l
+	\end{equation*}
+	Proviamo solo uno dei due tanto l'altro è analogo. Scegliamo quindi di provare:
+	\begin{equation*}
+		\exists \lim_{x \to x_0^+} \dfrac{f(x)}{g(x)} = l
+	\end{equation*}
+	A tal fine, usiamo il lemma precedente: ci riduciamo quindi a provare:
+	\begin{equation*}
+		\forall (x_n)_n \subseteq A, \, x_n > x_0 \;\; \forall n \; \text{tale che: } x_n \xrightarrow[n \to + \infty]{} x_0 \; \text{si ha: } \lim_{n \to + \infty} \dfrac{f(x_n)}{g(x_n)} = l
+	\end{equation*}	
+	Assumiamo le premesse per dimostrare che:
+	\begin{equation*}
+		\lim_{n \to + \infty} \dfrac{f(x_n)}{g(x_n)} = l
+	\end{equation*}	
+	Per ipotesi 1 $f(x_0) = g(x_0) = 0$. Di conseguenza, in quanto nulli, possiamo sommarli e sottrarli a piacere:
+	\begin{equation*}
+		\dfrac{f(x_n)}{g(x_n)} = \dfrac{f(x_n) - f(x_0)}{g(x_n) - g(x_0)}
+	\end{equation*}
+	Se ora restringiamo il dominio alle funzioni $f,g:[x_0, x_n] \to \mathbb{R}$ possiamo applicare il teorema di Cauchy (Sezione: \ref{sec:TeoremaCauchy}):
+	\begin{equation*}
+		\exists c_n \in ]x_0, x_n[ \;\; \text{tale che } \;\; \dfrac{f(x_n) - f(x_0)}{g(x_n) - g(x_0)} = \dfrac{f'(c_n)}{g'(c_n)}
+	\end{equation*}
+	Essendo $c_n$ "intrappolata" tra $x_0$ e $x_n$:
+	\begin{equation*}
+		x_0 < c_n < x_n
+	\end{equation*}
+	Ed essendo per ipotesi:
+	\begin{equation*}
+		x_n \xrightarrow[n \to + \infty]{} x_0
+	\end{equation*}
+	Ne consegue che:
+	\begin{equation*}
+		c_n \xrightarrow[n \to + \infty]{} x_0
+	\end{equation*}
+	Dall'ipotesi 3 del teorema:
+	\begin{equation*}
+		\lim_{x \to x_0^+} \dfrac{f'(x)}{g'(x)} = l
+	\end{equation*}
+	Dunque dal lemma (ricordiamoci che $c_n \to x_0$ e che $x_0 < c_n$):
+	\begin{equation*}
+		\lim_{n \to +\infty} \dfrac{f'(c_n)}{g'(c_n)} = l
+	\end{equation*}
+	Ricapitolando:
+	\begin{equation*}
+		\dfrac{f(x_n)}{g(x_n)} = \dfrac{f(x_n) - f(x_0)}{g(x_n) - g(x_0)} = \dfrac{f'(c_n)}{g'(c_n)}
+	\end{equation*}
+	Quindi:
+	\begin{equation*}
+		\lim_{n \to + \infty} \dfrac{f(x_n)}{g(x_n)} = l
+	\end{equation*}
+	Dal lemma:
+	\begin{equation*}
+		\lim_{x \to x_0^+} \dfrac{f(x)}{g(x)} = l = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)}
+	\end{equation*}
+	Analogamente si prova che:
+	\begin{equation*}
+		\lim_{x \to x_0^-} \dfrac{f(x)}{g(x)} = l = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)}
+	\end{equation*}
+	Da cui:
+	\begin{equation*}
+		\lim_{x \to x_0} \dfrac{f(x)}{g(x)} = \lim_{x \to x_0} \dfrac{f'(x)}{g'(x)}
+	\end{equation*}
+	\hfill Qed.
+}
+
+
+
+
+
+
