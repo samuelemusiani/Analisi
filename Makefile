@@ -43,8 +43,7 @@ Analisi_fast.pdf: $(TEX_SRC) $(IMG)
 	mv build/main.pdf Analisi_fast.pdf
 
 clean:
-	rm -rf build/*
+	rm -rf Analisi.pdf Analisi_fast.pdf build/*
 	touch build/.gitkeep	
-	rm -rf Analisi.pdf Analisi_fast.pdf
 
 .PHONY: clean all fast
