@@ -1,0 +1,85 @@
+\section{Serie di Taylor}
+Le serie di Taylor sono uno strumento potentissimo e bellissimo allo stesso tempo. Il loro scopo è approssimare una funzione generica intorno ad un punto. Il fatto è che questa approssimazione è data soltanto da polinomi, che sono la cosa più bella in matematica perché tutte le operazioni su di loro (limiti, derivate, ecc.) sono estremamente semplici. 
+
+Purtroppo la matematica viene spesso spiegata così velocemente che non ci si ferma mai a pensare quanto effettivamente certi concetti siano belli ed importanti. Le serie di Taylor sono importanti in matematica, ma anche in fisica in quanto approssimare funzioni non polinomiali in polinomi rende tutti i problemi estremamente più semplici. Vengono usate moltissimo in ingegneria e soprattutto per calcolare il valore di alcune funzioni. 
+
+Facciamo qualche esempio perché credo che la loro importanza vada giustificata il più possibile prima di imparare a memoria un qualsiasi teorema che le definisce:
+
+\begin{enumerate}
+	\item \textbf{Calcolo delle funzioni trigonometriche:} Mentre imparavate goniometria avrete sicuramente notato che esistono dei così detti \textit{angoli notevoli} sulla circonferenza che presi come argomenti nelle funzioni $\sin$ e $\cos$ danno dei valori "belli". Un sempio è $\frac{\pi}{2}$:
+	\begin{equation*}
+		\sin \left(\dfrac{\pi}{2}\right) = 1
+	\end{equation*}
+	Avrete inoltre sicuramente notato che su quasi tutte le calcolatrici è presente la funzione $\sin$. Avete mai provato a mettere valori non notevoli al suo interno? Perché se per esempio mettiamo come argomento (in radianti) 0.2:
+	\begin{equation*}
+		\sin(0.2) = 0.1986693307950612\cdots 
+	\end{equation*}
+	Eppure non è un angolo notevole e nessuno ha definito un modo per calcolare il valore del seno in 0.2. Cosa si fa? Una media? Oppure si divide un angolo in che si ha già in tante parti e si prova a fare una media con quello. Nessuno di questi ragionamenti ha molto senso a livello matematico. Quello che si fa realmente è approssimare la funzione \textit{seno} intorno al punto dato dall'argomento, e poi si calcola il valore usando l'approssimazione in quanto sappiamo calcolare i polinomi. In questo caso (tranquilli che poi più avanti spiego tutto):
+	\begin{equation*}
+		\sin(x) \approx x - \dfrac{x^3}{6} + \dfrac{x^5}{120} - \dfrac{x^7}{5040} + o(x^8)
+	\end{equation*}
+	Che se proviamo a calcolare sostituendo $1$ ad $x$ viene:
+	\begin{equation*}
+		0.2 - \dfrac{0.0008}{6} + \dfrac{0.00032}{120} \approx 0.1986693333 \cdots
+	\end{equation*}
+	Che è estremamente vicino al valore originale, e ci è bastato prendere solo 3 termini.
+
+	\item \textbf{Calcolo dei limiti:} Un altro esempio in cui queste serie tornano estremamente utili è nel calcolo dei limiti. Probabilmente concorderete con me che calcolare il seguente limite non è affatto semplice:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{2\cos(\sin(x)) + e^{x\sin{x}} - 3}{x^4}
+		\end{equation*}
+		Ed effettivamente con gli strumenti attuali non è semplice. Ma se usiamo le serie di Taylor diventa:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{\dfrac{3}{4} x^4 + o(x^4)}{x^4} = \dfrac{3}{4}
+		\end{equation*}
+		Sicuramente ora è molto ma molto più semplice da calcolare. Ovviamente ho saltanto molti passaggi è quella $o(x^4)$ non l'ho spiegata, però siamo riusciti a calcolare un limite che prima non sapevamo fare.
+
+\end{enumerate}
+
+\subsection{Confronto di infinitesimi}
+\dfn{
+	Data una funzione $f: A \to \mathbb{R}$ e un punto $x_0 \in \mathcal{D}(A)$, $f(x)$ si dice \textbf{infinitesimo} per $x \to x_0$ se: 
+	\begin{equation*}
+		\lim_{x \to x_0} f(x) = 0
+	\end{equation*}
+}
+L'infinitesimo è sempre in relazione ad un punto, in questo caso $x_0$. Di solito si omette di dire il punto solo se questo coincide con l'origine. Esempi:
+\begin{itemize}
+	\item $x^3,\; x^5 - x^2,\; \sin{x^3},\; \tan^2{x}$ sono infinitesimi per $x \to 0$
+	
+	\item $x^5 - x^2$ è anche un infinitesimo per $x \to 1$, mentre $x^3,\; \sin{x^3},\; \tan^2{x}$ no.
+\end{itemize}
+
+L'idea del confronto di infinitesimi è la stessa del confronto di infiniti (Sezione: \ref{sec:GerarchiaInfiniti}), semplicemente invece di avere $x \to +\infty$ abbiamo $x \to x_0 \in \mathbb{R}$. Date due funzioni:
+\begin{align*}
+	&f(x) \xrightarrow[x \to x_0]{} 0\\
+	&g(x) \xrightarrow[x \to x_0]{} 0
+\end{align*}
+Che quindi sono infinitesimi per $x_0$, se esiste:
+\begin{equation*}
+	\lim_{x \to x_0} \left| \dfrac{f(x)}{g(x)} \right| = l \in \mathbb{R} \cup \{+\infty\}
+\end{equation*}
+Allora si hanno i seguenti casi:
+\begin{enumerate}
+	\item $L = 0 \implies f(x)$ è un infinitesimo di ordine superiore a $g(x)$.
+
+	\item $0 < L \in \mathbb{R} \implies f(x)$ e $g(x)$ sono infinitesimi equivalenti.
+
+	\item $L = +\infty \implies g(x)$ è un infinitesimo di ordine superiore a $f(x)$.
+\end{enumerate}
+
+\subsection{La notazione \textit{o}-piccolo}
+
+\subsection{Sviluppo di Taylor in $x \sim 0$}
+
+\subsubsection{Idea intuitiva}
+
+\subsubsection{Definzione formale}
+
+
+\subsection{Teorema di Peano}
+\subsubsection{Teorema di Peano in $x = 0$}
+\subsubsection{Teorema di Peano generale}
+
+
+\subsection{Sviluppi di Taylor per le funzioni elementari}
