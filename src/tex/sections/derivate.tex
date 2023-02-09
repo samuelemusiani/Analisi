@@ -1420,11 +1420,11 @@ Alcune considerazioni importanti da fare:
 		     width=\linewidth,
 		     height=0.4\linewidth
 		    ]
-		\addplot[domain=-6:-0.02, samples=100]{2 * x * sin(deg(1/x)) - cos(deg(1/x))};
-		\addplot[domain=0.02:6, samples=100]{2 * x * sin(deg(1/x)) - cos(deg(1/x))};
+		\addplot[domain=-6:-0.02, samples=2000]{2 * x * sin(deg(1/x)) - cos(deg(1/x))};
+		\addplot[domain=0.02:6, samples=2000]{2 * x * sin(deg(1/x)) - cos(deg(1/x))};
 	\end{axis}
 	\end{tikzpicture}
-		\caption{Grafico di $2x \cdot \sin(\dfrac{1}{x}) - \cos(\dfrac{1}{x})$ AUMENTARE SAMPLES AL GRAFICO}
+		\caption{Grafico di $2x \cdot \sin(\dfrac{1}{x}) - \cos(\dfrac{1}{x})$}
 		\label{fig:EsempioDeLHopital1}
 	\end{figure}
 
@@ -1690,5 +1690,73 @@ Dei seguenti teoremi non vi è la dimostrazione:
 	\end{itemize}
 }
 
+\label{dim:GerarchiaInfiniti}
+\textbf{Dimostrazione gerarchia degli infiniti:} Come già visto nel capitolo dei limiti e in particolare nella sezione \ref{sec:GerarchiaInfiniti}, esiste una così detta "\textit{gerarchia degli infiniti}". In pratica alcune funzione, quando tendono ad infinito, sono più veloci o più lente di altre. Il modo corretto per definire comunque questo concetto di "più veloce" e "più lento" è tramite un rapporto di due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$:
+\begin{equation*}
+    \lim \dfrac{f(x)}{g(x)} =
+    \begin{cases*}
+        0 \qquad \qquad g \text{ cresce più velocemente di } f\\
+        +\infty \qquad \;\;\; f \text{ cresce più velocemente di } g\\
+        l \neq 0 \qquad \; \text{$f$ e $g$ sono infinitesimi dello stesso ordine}
+    \end{cases*}
+\end{equation*}
+La gerarchia riportata nella sezione dei limiti è la seguente:
+\begin{enumerate}
+	\item $\log_a^m (x)$ con $a > 1$ e $m \in \mathbb{N}$
+	\item $p(x)$
+	\item $a^x$ con $a > 1$
+	\item $x^x$
+\end{enumerate}
+Ora ci poniamo l'obiettivo di dimostrarla:
+\begin{enumerate}
+	\item Assumendo come polinomio $p(x) = x^\alpha$ con $\alpha > 0$, dimostriamo che:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^\alpha}{\log_\beta^m (x)} = +\infty
+		\end{equation*}
+		Usando De L'Hôpital:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^\alpha}{\log_\beta^m (x)} \stackrel{\text{H}}{=} \lim_{x \to + \infty} \dfrac{\alpha \cdot x^{\alpha -1}}{m \cdot \log_\beta^{m-1} (x) \cdot \dfrac{1}{x \cdot \ln(\beta)}} = \lim_{x \to + \infty} \dfrac{\alpha \cdot x^{\alpha - 1} \cdot x}{\dfrac{m}{\ln(\beta)} \cdot \log_\beta^{m-1} (x)} = \lim_{x \to + \infty} \dfrac{\alpha \cdot x^\alpha}{\dfrac{m}{\ln(\beta)} \cdot \log_\beta^{m-1} (x)} 
+		\end{equation*}
+		Dopo quindi un'iterazione di De L'Hôpital ci siamo ridotti a:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^{\alpha}}{\log_\beta^m (x)} \stackrel{\text{H}}{=} \lim_{x \to + \infty} \dfrac{\alpha \cdot \ln(\beta)}{m} \cdot \dfrac{x^\alpha}{\log_\beta^{m-1} (x)} 
+		\end{equation*}
+		Abbiamo quindi abbassato il grado del logaritmo al denominatore di 1. Ripetendo questo processo $m$ volte:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^{\alpha}}{\log_\beta^m (x)} \stackrel{\text{H}}{=} \cdots \stackrel{\text{H}}{=} \lim_{x \to + \infty} \dfrac{\alpha ! \cdot \ln^m(\beta)}{m!} \cdot \dfrac{x^\alpha}{1} 
+		\end{equation*}
+		Ne consegue che:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{\alpha ! \cdot \ln^m(\beta)}{m!} \cdot \dfrac{x^\alpha}{1} = \dfrac{\alpha ! \cdot \ln^m(\beta)}{m!} \cdot \lim_{x \to + \infty} x^\alpha = +\infty
+		\end{equation*}
+		Finito.
 
-% Il confronto di infiniti l'ho già riportato in maniera approssimativa nella parte dei limiti. Io lascerei così e rimanderei e una eventuale sezione qui per la dimostrazione perché serve De L'Hopital. Non sposterei il confronto tutto qui perché ha senso che stia con i limiti 
+	\item Dimostriamo che:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^\alpha}{\beta^x} = 0
+		\end{equation*}
+		Usando De L'Hôpital:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^\alpha}{\beta^x} \stackrel{\text{H}}{=} \lim_{x \to + \infty} \dfrac{\alpha \cdot x^{(\alpha-1)}}{\beta^x \cdot \ln(\beta)} \stackrel{\text{H}}{=} \lim_{x \to + \infty} \dfrac{\alpha \cdot (\alpha-1) \cdot x^{(\alpha-2)}}{\beta^x \cdot \ln^2(\beta)} \stackrel{\text{H}}{=} \cdots 
+		\end{equation*}
+		Iterando l'utilizzo di De L'Hôpital per $\alpha$ volte si arriva a:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{\alpha !}{\ln^\alpha (\beta)} \cdot \dfrac{1}{\beta^x} = \dfrac{\alpha !}{\ln^\alpha (\beta)} \cdot \lim_{x \to + \infty} \dfrac{1}{\beta^x} = \dfrac{\alpha !}{\ln^\alpha (\beta)} \cdot 0 = 0
+		\end{equation*}
+		Finito.
+
+	\item Dimostriamo che:
+		\begin{equation*}
+			\lim_{x \to + \infty} \dfrac{x^x}{a^x} = +\infty
+		\end{equation*}
+		Possiamo riscrivere il limite come:
+		\begin{equation*}
+			\lim_{x \to + \infty} \left(\dfrac{x}{a}\right)^x
+		\end{equation*}
+		Essendo $a$ un numero fisso maggiore di 1, mentre $x$ va a $+\infty$, ci sarà un momento in cui $x > 2a$, ne consegue che $\frac{x}{a} \geq 2$, quindi:
+		\begin{equation*}
+			\left(\dfrac{x}{a}\right)^x \geq 2^x \xrightarrow[x \to +\infty]{} +\infty
+		\end{equation*}
+		Finito.
+\end{enumerate}
+

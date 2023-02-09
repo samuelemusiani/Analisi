@@ -1,5 +1,5 @@
 DA RICOPIARE:
-  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3}
+  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3, 11-11-2022}
   
   Analisi_pt3: In fondo c'è una considerazione sui punti di minimo e massimo relativi. La aggiungo?
 
@@ -37,7 +37,5 @@ DA RICOPIARE:
 
   - La data all'inzio del file la metterei alla fine del corso. Aggiungerei una secona data che comprende l'ultima modifica.
   - Modificare le label in modo che ogni nome inzi con il tipo. Es le figure iniziano con "fig:", le sezioni con "sec:"
-
-  - Aumentare samples al grafico nei teoremi di De L'Hopital
 
   - Il compilatore di LaTeX da alcuni errori, soprattutto sulle \label e \ref

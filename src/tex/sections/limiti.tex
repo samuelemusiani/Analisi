@@ -590,7 +590,7 @@ Di seguito un elenco di limiti delle funzioni elementari. Alcuni sono abbastanza
 
 %NE MANCA QUALCUNA?
 
-\subsection{Confronto di infiniti}
+\subsection{Confronto di infiniti} \label{sec:GerarchiaInfiniti}
 
 Se si hanno due funzioni che vanno a $+\infty$ si possono confrontare. Il confronto ci permette di determinare qualche delle due funzioni "\textit{va a infinito più velocemente}". Si riesce quindi a stilare una sorta di "gerarchia" degli infiniti dove alcuni tendono a $+\infty$ più velocemente di altri. Questo è molto utile negli esercizi e soprattutto in analisi della complessità computazionale.\\
 
@@ -603,13 +603,12 @@ Date quindi due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$ se:
         l \neq 0 \qquad \; \text{$f$ e $g$ sono infinitesimi dello stesso ordine}
     \end{cases*}
 \end{equation*}
-La gerarchia degli infiniti risulta quindi (dal più "lento" al più "veloce"):
+Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim:GerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di ripotare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
 \begin{enumerate}
-    \item $\ln_a x$ con $a > 1$
-    \item $\sqrt[n]{x}$
-    \item $p(x)$
-    \item $a^x$
-    \item $x^x$
+	\item $\log_a^m (x)$ con $a > 1$ e $m \in \mathbb{N}$
+	\item $p(x)$
+	\item $a^x$ con $a > 1$
+	\item $x^x$
 \end{enumerate}
 Ne consegue quindi che, per esempio, $x^{100^{100^{100}}}$ è "più lento" di $(1,000001)^x$, cioè che:
 \begin{equation*}
