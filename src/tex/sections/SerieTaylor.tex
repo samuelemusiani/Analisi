@@ -69,6 +69,203 @@ Allora si hanno i seguenti casi:
 \end{enumerate}
 
 \subsection{La notazione \textit{o}-piccolo}
+\dfn{
+	Date le seguenti: 
+	\begin{enumerate}
+		\item Due funzioni $f,g: A \to \mathbb{R}$
+
+		\item Un punto $x_0 \in \mathcal{D}(A)$
+
+		\item $f(x) \neq 0 \quad \forall A\setminus\{x_0\}$
+
+		\item $g(x) \xrightarrow[x \to x_0]{} 0$
+	\end{enumerate}
+	Si dice che $g$ è un \textbf{\textit{o}-piccolo} di $f$ per $x \to x_0$ se: 
+	\begin{equation*}
+		\lim_{x \to x_0} \dfrac{g(x)}{f(x)} = 0
+	\end{equation*}
+	In questo caso si scrive:
+	\begin{equation*}
+		g(x) = o(f(x)) \;\; \text{per } x \to x_0
+	\end{equation*}
+	Se il punto $x_0$ coincide con l'origine si omette il “per $x \to 0$”
+}
+In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 0 "più velocemente". Per sempio:
+\begin{itemize}
+	\item $4x^4 = o(x^2)$ in quanto:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{4x^4}{x^2} = \lim_{x \to 0} 4x^2 = 0
+		\end{equation*}
+	\item $\sin^3{x} = o(x^2)$ in quanto:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{\sin^3{x}}{x^2} = \lim_{x \to 0} x \cdot \dfrac{\sin^3{x}}{x^3} = \lim_{x \to 0} x \cdot \left(\dfrac{\sin{x}}{x} \right)^3 = 0 \cdot 1 = 0
+		\end{equation*}
+	
+	\item Ma $x^3 \neq o(\sin^3{x})$, infati sono infinitesimi equivalenti:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{x^3}{\sin^3{x}} = \lim_{x \to 0} \dfrac{1}{\left(\dfrac{\sin{x}}{x} \right)^3} = \dfrac{1}{1} = 1
+		\end{equation*}
+
+	\item $(x^6 - x^4)^2 = o(x-1)$ per $x \to 1$ in quanto:
+		\begin{equation*}
+			\lim_{x \to 1} \dfrac{(x^6 - x^4)^2}{x-1} = \lim_{x \to 1} \dfrac{x^8 (x^2 -1)^2}{x-1} = \lim_{x \to 1} x^8 (x+1)^2 (x-1) = 1 \cdot 2^2 \cdot 0 = 0
+		\end{equation*}
+
+	\item $x^n = o(x^m) \quad \forall m \in \mathbb{N}: m < n$ in quanto:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{x^n}{x^m} = \lim_{x \to 0} x^{n-m} = 0
+		\end{equation*}
+\end{itemize}
+Direi che $g(x) = o(1)$ per $x \to x_0$ significa che:
+\begin{equation*}
+	\lim_{x \to x_0} \dfrac{g(x)}{1} = 0
+\end{equation*}
+Cioè $g(x) \to 0$ per $x \to x_0$, che è un altro modo dire dire che $g$ è un infinitesimo per $x \to x_0$
+
+\subsubsection{Proprietà algebriche degli \textit{o}-piccolo}
+Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, si assume $n, m \in \mathbb{N}$:
+\begin{enumerate}
+	\item $f = o(x^n) \implies f= o(x^m)$ con $m < n$, dimostriamolo:\\
+
+		Assumiamo $f = o(x^n)$ per dimostrare:
+		\begin{equation*}
+			f = o(x^m)
+		\end{equation*}
+		Cioè:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^m} = 0
+		\end{equation*}
+		Se facciamo qualche sostituzione:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^n} \cdot \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^m} \cdot \dfrac{f(x)}{x^n} = \lim_{x \to 0} x^{n-m} \cdot \dfrac{f(x)}{x^n}
+		\end{equation*}
+		Per ipotesi, in quanto $f(x) = o(x^n)$:
+		\begin{equation*}
+			\lim_{x \to 0} x^{n-m} \cdot \dfrac{f(x)}{x^n} = 0 \cdot 0 = 0
+		\end{equation*}
+
+	\item $o(x^n) \pm o(x^n)$ è un $o(x^n)$. Nel senso che:
+		\begin{equation*}
+			f_1 = o(x^n), \quad f_2 = o(x^m) \implies f_1 \pm f_2 = o(x^n)
+		\end{equation*}
+
+	\item $x^m \cdot o(x^n)$ è un $o(x^{n+m})$
+
+	\item $o(x^m) \cdot o(x^n)$ è un $o(x^{n+m})$
+
+	\item $(o(x^n))^m$ è un $o(x^{n \cdot m})$. La dimostrazione segue del punto 4.
+
+	\item $o(o(x^4))$ è un $o(x^n)$. Nel senso che:
+		\begin{equation*}
+			g = o(f) \;\; \text{e} \;\; f = o(x^n) \implies g = o(x^n)
+		\end{equation*}
+		Infatti:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{g(x)}{x^n} = \lim_{x \to 0} \dfrac{g(x)}{f(x)} \cdot \dfrac{f(x)}{x^n} = 0 \cdot 0 = 0
+		\end{equation*}
+
+	\item $o(x^n + o(x^m))$ è un $o(x^n)$ con $m \geq n$. Nel senso che:
+		\begin{equation*}
+			f = o(x^n + g(x)) \;\; g(x) = o(x^m) \implies f = o(x^n)
+		\end{equation*}
+		Infatti:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \dfrac{x^n + g(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right)
+		\end{equation*}
+		Dalle ipotesi e dalla definzione di \textit{o}-piccolo:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right) = 0 \cdot (1 + 0) = 0
+		\end{equation*}
+
+	\item $o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) = o(x^n)$, con $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. Cioè in pratica l'\textit{o}-piccolo di un polinomio è l'\textit{o}-piccolo del grado più basso.
+		\begin{equation*}
+			o(\text{polinomio}) = o(\text{grado più basso})
+		\end{equation*}
+		Dimostriamolo:
+		\begin{equation*}
+			f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) \implies f = o(x^n)
+		\end{equation*}
+		Assumiamo $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$ per dimostrare $f = o(x^n)$. Per la definzione di \textit{o}-piccolo ci siamo ridotti a dimostrare:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} = 0
+		\end{equation*}
+		Che manipolato un po':
+		\begin{align*}
+			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot \dfrac{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots}{x^n} =\\[10pt]
+			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots)
+		\end{align*}
+		Che per ipotesi:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots) = 0 \cdot (1 + 0 + 0 + \cdots) = 0
+		\end{equation*}
+
+		Vale anche il contrario: $o(x^n) = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$, con $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. Dimostriamolo:
+		\begin{equation*}
+			f = o(x^n) \implies f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)
+		\end{equation*}
+		Assumiamo $f = o(x^n)$ per dimostrare $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$, cioè:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} = 0
+		\end{equation*}
+		Che moltiplicando e dividendo per gli stessi termini e usando l'ipotesi:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} \cdot \dfrac{x^n}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} = \lim_{x \to 0} \dfrac{f(x)}{x^n} \cdot \dfrac{1}{1 + \alpha x^{m} + \beta x^{p} + \cdots} = 0 \cdot \dfrac{1}{1 + 0 + 0 + \cdots} = 0
+		\end{equation*}
+
+	\item $\dfrac{o(x^n)}{x^m} = o(n^{n-m})$ se $m \leq n$. Infatti:
+		\begin{equation*}
+			f = \dfrac{o(x^n)}{x^m} \implies f = o(n^{n-m})
+		\end{equation*}
+		Assumendo $f = \dfrac{o(x^n)}{x^m}$, cioè $x^m \cdot f = o(x^n)$, per dimostrare $f = o(n^{n-m})$. Che equivale a dimostrare:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^{n-m}} = 0
+		\end{equation*}
+		Manipolando e usando l'ipotesi:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^{n-m}} = \lim_{x \to 0} \dfrac{f(x) \cdot x^m}{x^n} = 0 % È giusta?
+		\end{equation*}
+
+		Vale anche il contrario: se $g(x) = o(x^{n-m})$ allora $g(x) = \dfrac{o(x^n)}{x^m}$. In pratica dobbiamo dimostrare che $x^m \cdot g(x) = o(x^n)$:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac {x^m \cdot g(x)}{x^n} = \lim_{x \to 0} \dfrac{g(x)}{x^{n-m}} = 0
+		\end{equation*}
+
+	\item $o(k \cdot x^n) = o(x^n)$ con $k \in \mathbb{R}: k \neq 0$. Infatti con $f=o(k\cdot x^n)$:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{k \cdot x^n} \cdot k = 0 \cdot k = 0
+		\end{equation*}
+		Analogamente vale viceversa.
+
+	\item Se due funzioni $f,g$ sono infinitesimi per $x \to x_0$ e sono infinitesimi dello stesso ordine:
+		\begin{equation*}
+			\lim_{x \to x_0} \dfrac{f(x)}{g(x)} = l \neq 0
+		\end{equation*}
+		Allora:
+		\begin{equation*}
+			o(f(x)) = o(g(x))
+		\end{equation*}
+		Infatti dimostriamo che $h(x) = o(f) \implies h(x) = o(g)$:
+		\begin{equation*}
+			\lim_{x \to x_0} \dfrac{h(x)}{g(x)} = \lim_{x \to x_0} \dfrac{h(x)}{f(x)} \cdot \dfrac{f(x)}{g(x)} = 0 \cdot l = 0
+		\end{equation*}
+		Ovviamente vale anche il contrario perché:
+		\begin{equation*}
+			\lim_{x \to x_0} \dfrac{h(x)}{f(x)} = \lim_{x \to x_0} \dfrac{h(x)}{g(x)} \cdot \dfrac{g(x)}{f(x)} = 0 \cdot \dfrac{1}{l} = 0
+		\end{equation*}
+
+	\item Data una funzione $h(x)$ e $k \in \mathbb{R} : k \neq 0$:
+		\begin{equation*}
+			h(x) \xrightarrow[x \to 0]{} k \neq 0 \implies o(h(x) \cdot x^n) = o(x^n)
+		\end{equation*}
+		Infatti $x^n$ e $h(x) \cdot x^n$ sono infinitesimi equivalenti in quanto:
+		\begin{equation*}
+			\lim_{x \to 0} \dfrac{h(x) \cdot x^n}{x^n} = \lim_{x \to 0} h(x) = k \neq 0
+		\end{equation*}
+\end{enumerate}
+
+
+
+
 
 \subsection{Sviluppo di Taylor in $x \sim 0$}
 
