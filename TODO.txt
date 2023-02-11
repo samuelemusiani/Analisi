@@ -1,5 +1,5 @@
 DA RICOPIARE:
-  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3, 11-11-2022}
+  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3, 11-11-2022, 17-11-2022}
   
   Analisi_pt3: In fondo c'è una considerazione sui punti di minimo e massimo relativi. La aggiungo?
 

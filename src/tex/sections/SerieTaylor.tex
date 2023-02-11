@@ -472,6 +472,86 @@ Ovviamente più avanti verrà definito tutto più formalmente, però questa è e
 
 
 \subsubsection{Definzione formale}
+Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$. Se $f$ è continua in 0:
+\begin{equation*}
+	\lim_{x \to 0} f(x) = f(0)
+\end{equation*}
+Cioè:
+\begin{equation*}
+	\lim_{x \to 0} (f(x) - f(0)) = 0
+\end{equation*}
+Ne consegue che $f(x) - f(0)$ è un infinitesimo per $x \to 0$:
+\begin{equation*}
+	f(x) - f(0) = o(1) \quad \implies \quad f(x) = f(0) + o(1) \quad \text{per } x \to 0
+\end{equation*}
+Se provassimo a sostituire a $f(0)$ una qualunque costante $k \neq f(0)$:
+\begin{equation*}
+	\lim_{x \to 0} (f(x) - k) = f(0) - k \neq 0
+\end{equation*}
+Ne consegue che $f(x) - k$ non è un infinitesimo, cioè:
+\begin{align*}
+	f(x) = k + (f(x) &- k)\\
+	&\updownarrow\\
+	\text{non è } & \text{un infinitesimo}
+\end{align*}
+Quindi $f(0)$ è la migliore costante che approssima $f(x)$ per $x \sim 0$.\\
+
+Se $f$ è derivabile in $x = 0$ allora:
+\begin{gather*}
+	\lim_{x \to 0} \dfrac{f(x) - f(0)}{x} = f'(0) \in \mathbb{R}\\[10pt]
+	\Big\Updownarrow\\[10pt]
+	\lim_{x \to 0} \left[ \dfrac{f(x) - f(0)}{x} - f'(0)\right] = 0\\[10pt]
+	\Big\Updownarrow\\[10pt]
+	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x}{x} = 0
+\end{gather*}
+Pertanto:
+\begin{equation*}
+	f(x) - f(0) - f'(0) \cdot x = o(x)
+\end{equation*}
+Se quindi arrangiamo i termini in modo leggermente differente:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + o(x) \quad \text{per } x \to 0
+\end{equation*}
+In questo caso il polinomio $f(0) + f'(0) \cdot x$ è la migliore approssimazione di grado 1 di $f$ in $x = 0$ perché l'errore tende a zero più velocemente di x.
+
+\imp{
+	La notazione \textbf{\textit{o}-piccolo infatti rappresenta l'errore} che ha la nostra approssimazione. Questo perché un $o(x)$ racchiude tutti i termini che vanno a $0$ più velocemente di $x$, quindi tutti i gradi superiori in quanto polinomio. Infatti un errore $o(x^4)$ racchiude tutti i gradi superiori a $x^4$.
+}
+Ovviamente come in fisica, la misura è \textit{tanto più buona quanto l'errore è piccolo}. È quindi necessario sempre scegliere il grado di approssimazione in base all'evenienza.
+
+Ora scegliamo il polinomio di grado 2 che approssima meglio la funzione. Ovviamente dobbiamo contare l'errore, che chiameremo $E_2(x)$:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x_2 + E_2(x)
+\end{equation*}
+Dubbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più velocemente di $x^2$, cioè:
+\begin{equation*}
+	E_2(x) = o(x^2)
+\end{equation*}
+Sostituendo:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x_2 + o(x^2)
+\end{equation*}
+Portando quindi tutti i termini a sinistra:
+\begin{equation*}
+	f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x_2 = o(x^2)
+\end{equation*}
+Applicando la definzione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2$ dal seguente limite:
+\begin{equation*}
+	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} = 0
+\end{equation*}
+A tal fine usiamo il teorema di De L'Hôpital (Sezione: \ref{sec:DeLHopital}) assumendo che la funzione sia derivabile due volte in $x = 0$:
+\begin{align*}
+	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - 2! \cdot a_2 \cdot x}{2! \cdot x} \stackrel{\text{H}}{=}\\[10pt]
+	&\lim_{x \to 0} \left(\dfrac{f'(x) - f'(0)}{2! \cdot x} - a_2\right) = \dfrac{1}{2!} \left(\lim_{x \to 0} \dfrac{f'(x) - f'(0)}{x} \right) - a_2 =  \dfrac{1}{2!} f''(0) - a_2
+\end{align*}
+Ricordandoci che vogliamo che il risultato del limite sia 0:
+\begin{equation*}
+	a_2 = \dfrac{1}{2!} \cdot f''(0)
+\end{equation*}
+Quindi la migliore approssimazione di grado 2 di $f$ in $x = 0$:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2!} f''(0) \cdot x_2 + o(x^2)
+\end{equation*}
 
 
 \subsubsection{Teorema di Peano in $x = 0$}
