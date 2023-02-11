@@ -267,16 +267,238 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 
 
 
-\subsection{Sviluppo di Taylor in $x \sim 0$}
+\subsection{Sviluppo di Taylor}
 
 \subsubsection{Idea intuitiva}
+Prima di dare la definizione di qualche teorema tirato fuori dal nulla vorrei cercare di dare l'idea dietro queste serie di Taylor, in modo che poi, quanto si andranni a leggere ed effettivamente studiare i teoremi successivi, si abbia comunque una vaga idea del loro significato e da dove deriva il tutto.\\
+
+Prendiamo una funzione che vogliamo approssimare, per esempio $f(x) = e^x$ e scegliamo un punto in cui approssimare questa funzione, per sempio $x_0 = 0$. Ora non possiamo partire subito con 200 termini di approssimazione, ma dobbiamo costruire il poliniomio piano piano in modo che tutti i passaggi abbiano effettivamente un senso. 
+
+Proviamo quindi a trovare la migliore approssimazione di \textbf{grado 0} per $f(x) = e^x$ in $x_0 = 0$. Cioè in pratica quello che vogliamo fare è trovare un polinomio $p_0(x)$ di grado $0$ che sia la migliore approssimazione di $f(x)$ vicino a $x_0$. Questa condizione protremmo scriverla così:
+\begin{equation*}
+	\lim_{x \to x_0} f(x) - p_0(x) = 0
+\end{equation*}
+In pratica quello che stiamo chiedendo è che quando ci avviciniamo al punto $x_0$ la differenza tra la funzione $f(x)$ e la sua approssimazione $p_0(x)$ tenda a 0 (che è un altro modo di dire che le due quantità diventano uguali). In questo caso il nostro polinomio di approssimazione è di grado 0, questo implica che equivale ad una costante genrica $k \in \mathbb{R}$. Sostituendo la funzione $f(x) = e^x$, $p_0(x) = k$ e il punto $x_0 = 0$ il nostro limite risulta:
+\begin{equation*}
+	\lim_{x \to 0} e^x - k  = 0
+\end{equation*}
+Se ora proviamo a risolverlo ci viene fuori un equazione che si può risolvere per $k$, che è il nostro polinomio di approssimazione che vogliamo trovare:
+\begin{equation*}
+	\lim_{x \to 0} e^x - k  = 0 \implies e^0 - k  = 0 \implies k = e^0 = 1
+\end{equation*}
+Di conseguenza la migliore approssimazione di grado 0 della funzione $f(x) = e^x$ è il polinomio $p_0(x) = 1$:
+\begin{equation*}
+	e^x \approx 1 \qquad \text{per } x \to 0
+\end{equation*}
+Ovviamente però non è una gran approssimazione, quindi proviamo ad trovare l'approssimazione migliore sotto forma di polinomio di grado 1.\\
+
+Vogliamo trovare il miglior polinomio di \textbf{grado 1} che approssima la funzione $f(x) = e^x$ in $x_0 = 0$. In questo caso se usiamo il limite usato in precedenza non riusciamo a ricavare nessuna informazione aggiuntiva sul polinomio. Questo perché:
+\begin{align*}
+	&\lim_{x \to x_0} f(x) - p_1(x) = 0\\
+	&\lim_{x \to x_0} e^x - (ax + b) = 0\\
+	&e^0 - (a \cdot 0 + b) = 0\\
+	&1 - b = 0 \implies b = 1
+\end{align*}
+Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che abbiamo già imposto il limite nel punto e quest'ultimo non ci da alcuna informazione aggiuntiva se aumentiamo il grado del polinomio, dobbiamo trovare un altro metodo per approssimare una funzione. Come abbiamo già visto, il limite nel punto ci da la migliore approssimazione per il punto specifico, ma non ci dice nulla se ci allontaniamo leggermente da esso. Quello che vogliamo però è che se ci allontaniamo "un pochino" dal punto, il valore della funzione e il valore della nostra approssimazione siano abbastanza simili. Potremmo quindi pensare di imporre che se ci allontaniamo dal punto, il \textit{tasso di cambiamento della funzione sia lo stesso della nostra approssimazione}. In questo modo partendo dal punto stesso, quando ci allontaniamo il valore della funzione e della nostra approssimazione cambiano nello stesso modo. Per fare un esempio visuale prendiamo il grafico di $f(x) = e^x$ (Figura: \ref{fig:EsponenzialeGrafico}). Nel grafico sono presenti anche delle rette (che sono dei polinomi di grado 1) che passano tutte per il punto $P(0, 1)$ che è la nostra prima approssimazione. Il fatto è che queste rette hanno coefficienti angolari diversi.
+
+% Si può fare meglio questo grafico??
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+             axis lines=middle, xlabel=$x$, ylabel=$y$,
+             xtick style={draw=none},
+             xticklabels={},
+             ytick={1},
+             yticklabels={$1$},
+             yticklabel style={anchor=north west},
+             width=0.8\linewidth,
+             height=0.5\linewidth
+            ]
+\addplot[domain=-5:5, samples=200]{e^x};
+\addplot[domain=-3:3, samples=200, dotted]{-0.1 * x + 1};
+\addplot[domain=-3:3, samples=200, dotted]{0.2 * x + 1};
+\addplot[domain=-1:3, samples=200, dotted]{0.5 * x + 1};
+\addplot[domain=-0.8:3, samples=200, dotted]{0.8 * x + 1};
+\addplot[domain=-0.8:2, samples=200]{x + 1};
+\end{axis}
+\end{tikzpicture}
+\caption{Grafico di $y = e^x$ con alcune rette che tentano una sua approssimazione}
+	\label{fig:EsponenzialeGrafico}
+\end{figure}
+
+
+
+Ad occhio è facile vedere che la retta che sembra approssimare di più la funzione è quella non tratteggiata. Ma come la formalizziamo un po' di più questa cosa?
+
+Ovviamente quando si parla di \textit{tasso di cambiamento} la lampadina che si deve accendere è quella della derivata, che infatti misura il tasso di cambiamento di una funzione in un determinato punto. Se quindi facciamo in modo che la funzione che vogliamo approssimare abbia la stessa derivata del nostro polinomio di approssimazione:
+\begin{equation*}
+	f'(x_0) = p_1'(x_0)
+\end{equation*}
+È importante che la derivata sia calcolata in $x_0$ in quanto vogliamo sempre approssimare la funzione per un punto, in questo caso $x_0 = 0$. Ora se calcoliamo le derivate:
+\begin{equation*}
+	f'(x) = (e^x)' = e^x \qquad \qquad p_1'(x) = (ax + b)' = a
+\end{equation*}
+Sostituendo quindi il punto:
+\begin{align*}
+	f'(x_0) &= p_1'(x_0)\\
+	e^{0} & = a\\
+	a & = 1
+\end{align*}
+In questo caso abbiamo trovato che il nostro polinomio di approssimazione $p_1(x) = ax + 1$, per approssimare al meglio la funzione e il suo \textit{tasso di cambiamento} deve avere il coefficiente $a = 1$. È importante però notare che del termine noto $b$ non sappiamo effettivamente nulla perché la derivata si "cancella". Se proviamo ad applicare la condizione vista in precedenza per trovare il polinomio di grado 0 che meglio approssima la funzione:
+\begin{align*}
+	&\lim_{x \to x_0} f(x) - p_1(x) = 0\\
+	&\lim_{x \to x_0} e^x - (ax + b) = 0\\
+	&e^0 - (a \cdot 0 + b) = 0\\
+	&1 - b = 0 \implies b = 1
+\end{align*}
+Come prima che a causa della derivata il termine noto spariva e quindi era completamente ininfluente sul tasso di cambiamento della funzione e del nostro polinomio, ora per il limite spariscono tutti i termini con una $x$, lasciando solo il termine noto. Questo è molto imporatante perché anche avendo un polinomio di approssimazione di grado 100 il termine noto sarà sempre lo stesso, in questo caso 1.
+
+Ora che però abbiamo già usato sia un limite che una derivata cosa ci inventiamo per trovare il miglior polinomio di \textbf{grado 2} che approssima la funzione? In realtà ora possiamo continuare ad iterare lo stesso processo della derivata, semplicemente usando derivate seconde, terze, ecc. Questo perché la derivata in quanto tale rappresenta il tasso di cambiamente della funzione di partenza, quindi se facciamo in modo che le due derivate seconde coincidano abbiamo aggiunto un grado di somiglianza tra il nostro polinomio e la funzione:
+\begin{equation*}
+	f''(x_0) = p_2''(x_0)
+\end{equation*}
+In questo caso:
+\begin{equation*}
+	f''(x) = (e^x)'' = e^x \qquad \qquad p_2''(x) = (ax^2 + bx + c)'' = 2a
+\end{equation*}
+E quindi:
+\begin{align*}
+	f''(x_0) &= p_2''(x_0)\\
+	e^{0} & = 2a\\
+	a & = \dfrac{1}{2}
+\end{align*}
+Come ormai è facile notare, sui polinomi, la derivata \textit{n}-esima lascia solo i termini con grado maggiore di $n$. Di conseguenza quelli prima sono completamente indipendenti e questo significa che se approssimiamo una funzione con un polinomio di grado 1 e poi vogliamo trovare il polinomio di grado 2 che approssima meglio tale funzione, quest'ultimo sarà fatto dal primo polinomio più il grado che lo distingue. Cioè in questo caso avevamo già il polinomio di grado 1: 
+\begin{equation*}
+	p_1(x) = x + 1
+\end{equation*}
+Per trovare il polinomio grado 2 partiamo da questo e semplicemente aggiungiamo un termine:
+\begin{equation*}
+	p_2(x) = ax^2 + p_1(x)
+\end{equation*}
+E in questo caso abbiamo trovato che $a = \frac{1}{2}$, quindi il polinomio di secondo grado che approssima al meglio la funzione $f(x) = e^x$ in $x_0 = 0$ è:
+\begin{equation*}
+	p_2(x) = \dfrac{1}{2}x^2 + x + 1
+\end{equation*}
+Sull'esponenziale è facile iterare il processo in quanto la derivata sarà sempre $e^x$ che in $x = 0$ vale $1$. Di conseguenza la derivata terza per approssimare un polinomio di grado 3 sarà:
+\begin{gather*}
+	p_3'''(x) = e^0\\
+	(a^3x + \dfrac{1}{2}x^2 + x + 1)''' = 1\\
+	3 \cdot 2 \cdot 1 \cdot a = 1\\
+	a = \dfrac{1}{3 \cdot 2 \cdot 1} = \dfrac{1}{3!}
+\end{gather*}
+Si comincia a vedere un pattern: infatti il coefficiente angolare del termine di grado $n$ sarà sempre $\dfrac{1}{n!}$ proprio perché dovendo derivare $n$ volte l'esponente di grado $n$ scende e forma un fattoriale. In questo caso la funzione $f(x) = e^x$ in $x_0 = 0$ è approssimata dal polinomio:
+\begin{equation*}
+	e^x = 1 + x + \dfrac{1}{2!}x^2 + \dfrac{1}{3!} x^3 \cdots \dfrac{1}{n!} x^n
+\end{equation*}
+Ovviamente più avanti verrà definito tutto più formalmente, però questa è effettivamente il polinomio di Taylor per $f(x) = e^x$ in $x_0 = 0$. La cosa più bella però è vedere i grafici che piano piano si avvicinano sempre di più alla funzione (Figure: \ref{fig:ApproxEsponenziale1} e \ref{fig:ApproxEsponenziale2})
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		     yticklabel style={anchor=north west},
+		    ]
+		\addplot[domain=-5:5, samples=200]{e^x};
+		\addplot[domain=-5:5, samples=200]{x + 1};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		     yticklabel style={anchor=north west},
+		    ]
+		\addplot[domain=-5:5, samples=200]{e^x};
+		\addplot[domain=-5:5, samples=200]{1/2*x*x + x + 1};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+	\caption{Approssimazioni di grado 1 e 2 della funzione $f(x) = e^x$} 
+\label{fig:ApproxEsponenziale1}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		     yticklabel style={anchor=north west},
+		    ]
+		\addplot[domain=-5:5, samples=200]{e^x};
+		\addplot[domain=-5:5, samples=200]{1/6*x*x*x + 1/2*x*x + x + 1};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		    ]
+		\addplot[domain=-5:5, samples=200]{e^x};
+		\addplot[domain=-5:5, samples=200]{1/24*x*x*x*x + 1/6*x*x*x + 1/2*x*x + x + 1};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+	\caption{Approssimazioni di grado 3 e 4 della funzione $f(x) = e^x$} 
+\label{fig:ApproxEsponenziale2}
+\end{figure}
+
+
 
 \subsubsection{Definzione formale}
 
 
-\subsection{Teorema di Peano}
 \subsubsection{Teorema di Peano in $x = 0$}
-\subsubsection{Teorema di Peano generale}
+\thm{
+	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$, se $f$ è derivabile \textit{n}-volte in $x_0 = 0$ si definisce \textbf{polinomio di Taylor} di $f$ in $x_0 = 0$ di grado $\leq n$:
+	\begin{equation*}
+		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i
+	\end{equation*}
+	È l'unico polinomio di grado $\leq n$ tale che\footnote{In questo caso non si sa con certezza se il polinomio sarà esattamente di grado $n$, per quello si mette il $\leq$. Questo prché alcune derivate di ordine superiore potrebbero essere nulle facendo quindi risultare il polinomio di grado minore. Si noti però che se comunque il polinomio non risultasse di grado $n$, sarebbe comunque la migliore approssimazione di grado $n$ e avrebbe un \textit{o}-piccolo di $o(x^n)$. Un classico esempio in questo caso sono le funzioni seno e coseno.}: 
+	\begin{equation*}
+		f(x) = T_n(x) + o(x^n) \qquad \text{per } x \to 0
+	\end{equation*}
+}
 
+\subsubsection{Teorema di Peano generale}
+\thm{
+	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $x_0 \in ]a,b[$, se $f$ è derivabile \textit{n}-volte in $x_0$ si definisce \textbf{polinomio di Taylor} di $f$ in $x_0$ di grado $\leq n$:
+	\begin{equation*}
+		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(x_0)}{i!} \cdot (x - x_0)^i
+	\end{equation*}
+	È l'unico polinomio di grado $\leq n$ tale che:
+	\begin{equation*}
+		f(x) = T_n(x) + o((x - x_0)^n) \qquad \text{per } x \to 0
+	\end{equation*}
+}
+\imp{
+	È importante notare che il polinomio ci garantisce una buona approssimazione \textbf{solo vicino al punto} $\mathbf{x_0}$. È possibile che la funzione si approssimi anche lontano da quel punto, ma nessuno lo garantisce.
+}
 
 \subsection{Sviluppi di Taylor per le funzioni elementari}
