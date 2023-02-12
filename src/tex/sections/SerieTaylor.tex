@@ -589,10 +589,6 @@ E quindi:
 Si dimostra così il teorema di Peano.
 
 
-
-
-
-
 \subsubsection{Teorema di Peano in $x = 0$}
 \thm{
 	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$, se $f$ è derivabile \textit{n}-volte in $x_0 = 0$ si definisce \textbf{polinomio di Taylor} di $f$ in $x_0 = 0$ di grado $\leq n$:
@@ -620,4 +616,23 @@ Si dimostra così il teorema di Peano.
 	È importante notare che il polinomio ci garantisce una buona approssimazione \textbf{solo vicino al punto} $\mathbf{x_0}$. È possibile che la funzione si approssimi anche lontano da quel punto, ma nessuno lo garantisce.
 }
 
-\subsection{Sviluppi di Taylor per le funzioni elementari}
+\subsection{Sviluppi di Taylor per le funzioni elementari in $x_0 = 0$}
+% aggiungere prove e considerazioni
+
+\clearpage % Va bene come comando?
+\subsubsection{Tavola riassuntiva}
+\begin{align*}
+	&e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!} + o(x^n)\\[10pt]
+	&\log(1 + x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1} \cdot \dfrac{x^n}{n} + o(x^n)\\[10pt]
+	&\sin{x} = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} + \cdots + (-1)^n \dfrac{x^{2n+1}}{(2n+1)!} + o(x^{2n+2})\\[10pt]
+	&\cos{x} = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots + (-1)^n \dfrac{x^{2n}}{(2n)!} + o(x^{2n+1})\\[10pt]
+	&\tan{x} = x + \dfrac{x^3}{3} + \dfrac{2}{15}x^5 + \dfrac{17}{315}x^7 + o(x^8)\\[10pt]
+	&\arcsin{x} = x + \dfrac{x^3}{6} + \dfrac{3}{40}x^5 + o(x^5)\\[10pt]
+	&\arccos{x} = \dfrac{\pi}{2} - x - \dfrac{x^3}{6} - \dfrac{3}{40} x^5 + o(x^5)\\[10pt]
+	&\arctan{x} = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} + \cdots + (-1)^n \dfrac{x^{2n+1}}{2n+1} + o(x^{2n+2})\\[10pt]
+	&\dfrac{1}{1 - x} = 1 + x + x^2 + \cdots + x^n + o(x^n)\\[10pt]
+	&(1 + x)^\alpha = 1 + \alpha x + \dfrac{\alpha(\alpha - 1)}{2} x^2 + \cdots +  \binom{\alpha}{n} x^n + o(x^n)
+\end{align*}
+\begin{equation*}
+	\text{con} \quad \binom{\alpha}{n} = \dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!}
+\end{equation*}
