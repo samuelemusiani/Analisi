@@ -521,7 +521,7 @@ Ovviamente come in fisica, la misura è \textit{tanto più buona quanto l'errore
 
 Ora scegliamo il polinomio di grado 2 che approssima meglio la funzione. Ovviamente dobbiamo contare l'errore, che chiameremo $E_2(x)$:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x_2 + E_2(x)
+	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x^2 + E_2(x)
 \end{equation*}
 Dubbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più velocemente di $x^2$, cioè:
 \begin{equation*}
@@ -529,11 +529,11 @@ Dubbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più v
 \end{equation*}
 Sostituendo:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x_2 + o(x^2)
+	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x^2 + o(x^2)
 \end{equation*}
 Portando quindi tutti i termini a sinistra:
 \begin{equation*}
-	f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x_2 = o(x^2)
+	f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2 = o(x^2)
 \end{equation*}
 Applicando la definzione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2$ dal seguente limite:
 \begin{equation*}
@@ -550,8 +550,47 @@ Ricordandoci che vogliamo che il risultato del limite sia 0:
 \end{equation*}
 Quindi la migliore approssimazione di grado 2 di $f$ in $x = 0$:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2!} f''(0) \cdot x_2 + o(x^2)
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2!} f''(0) \cdot x^2 + o(x^2)
 \end{equation*}
+Per trovare la migliore approssimazione di grado 3 basta iterare il processo. Quindi vogliamo trovare $a_3$:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3 + o(x^3)
+\end{equation*}
+Che portando tutto a sinistra e applicando la definzione di \textit{o}-piccolo:
+\begin{equation*}
+	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3}{x^3} = 0
+\end{equation*}
+Assumendo che la funzione sia derivabile 3 volte applichiamo De L'Hôpital:
+\begin{align*}
+	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3}{x^3} \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - f''(0) \cdot x + 3 \cdot a_3 \cdot x^2}{3 \cdot x^2} = \\[10pt]
+	= &\lim_{x \to 0} \dfrac{f''(x) - f''(0) + 3 \cdot 2 \cdot a_3 \cdot x}{3 \cdot 2 \cdot x} = \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{3! \cdot x} - a_3 = \dfrac{1}{3!} \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{x} - a_3 = \\[10pt]
+	= &\dfrac{1}{3!} f'''(0) - a_3
+\end{align*}
+Imponendo che sia uguale a 0 come prima:
+\begin{equation*}
+	a_3 = \dfrac{1}{3!} f'''(0)
+\end{equation*}
+Quindi la migliore approssimazione di grado 3 di $f$ in $x = 0$:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3)
+\end{equation*}
+Si comoincia a vedere un pattern, infatti:
+\begin{equation*}
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3) = \left( \sum \limits_{i = 0}^3 \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^3)
+\end{equation*}
+Se la funzione è derivabile 4 volte:
+\begin{equation*}
+	a_4 = \dfrac{1}{4!} f^{(4)}(0)
+\end{equation*}
+E quindi:
+\begin{equation*}
+	f(x) = \left( \sum \limits_{i = 0}^4 \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^4)
+\end{equation*}
+Si dimostra così il teorema di Peano.
+
+
+
+
 
 
 \subsubsection{Teorema di Peano in $x = 0$}
