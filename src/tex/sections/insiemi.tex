@@ -1,6 +1,8 @@
 \section{Insiemi}
 \subsection{Simbologia}
-Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per indicare gli elementi appartenenti ad un insieme si usano le lettere minuscole ($a, b, x, y ...$). Di seguito una lista di simboli necessari per lavorare con gli insiemi:
+Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per indicare gli elementi appartenenti ad un insieme si usano le lettere minuscole ($a, b, x, y ...$). Di seguito una lista di simboli necessari per lavorare con gli insiemi e la logica in generale:
+
+\begin{multicols}{2}
 
 \begin{itemize}
     \item $\in$ \qquad Appartiene
@@ -15,8 +17,8 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
     \item $\subsetneqq$ \qquad Inclusione stretta (cioè $A \subseteq B$ e $A \neq B$)
     \item $\nsubseteq$ \qquad Non incluso
     
-    \item $\bigcup$ \qquad Unione
-    \item $\bigcap$ \qquad Intersezione
+    \item $\cup$ \qquad Unione
+    \item $\cap$ \qquad Intersezione
     \item $\emptyset$ \qquad Insieme vuoto
     \item $\setminus$ \qquad Meno tra insiemi
     \item $\mathbb{U}$ \qquad Insieme universale
@@ -27,11 +29,11 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
     \item $\implies$ \qquad Implica
     \item $\iff$ \qquad Coimplica, "se e solo se" 
 \end{itemize}
+\end{multicols}
 
 \subsection{Preposizioni e utilizzo di simboli logici}
-%VEDERE PREPOSIZIONI
 
-Le \textbf{preposizioni} sono "frasi" che posso essere vere o false. Per legare due o più preposizioni si utilizzano i simboli logici $\land$ (and) e $\lor$ (or). %FARE MEGLIO
+Le \textbf{preposizioni} sono "frasi" che hanno un valore di verità, cioè posso essere vere o false. Per legare due o più preposizioni si utilizzano svariati simboli logici. In generale la logica proposizionale si studia nel corso di logica quindi non ho intenzione di riporare più dello stetto necessario qui.
 
 \begin{table}[H]
 \centering
@@ -49,12 +51,12 @@ true & false & true & true & true \\ \hline
 
 Nell'implicazione ($p \implies q$) $p$ è condizione sufficiente per $q$, mentre $q$ è condizione necessaria per $p$.
 
-Se si vuole negare una preposizione si utilizza il simbolo di negazione ($^-$), quindi $p$ negato risulta $\overline{p}$. Di seguito alcune negazioni di simboli generali:
+Se si vuole negare una preposizione si utilizza il simbolo di negazione ($^-$) oppure il classico $\neg$, quindi $p$ negato risulta $\overline{p}$ oppure $\neg p$. Di seguito alcune negazioni di simboli generali:
 \begin{itemize}
-    \item $\overline{\forall} = \exists$
-    \item $\overline{\exists} = \forall$
+    \item $\neg \forall = \exists$
+    \item $\neg \exists = \forall$
 \end{itemize}
-Un esempio classico che si porta per comprendere la negazione: $p = $ \textit{lavoro tutti i giorni della settimana}, $\overline{p} =$ \textit{esiste almeno un giorno della settimana in cui non lavoro}.\\
+Attenzione che i simboli $\not \exists$ e $\neq \exists$ hanno significati diversi. 
 
 È interessante notare che se si ha un'implicazione, si negano entrambe le preposizioni e si scambiano i termini il risultato rimane invariato.
 
@@ -71,7 +73,24 @@ true & false & true & true \\ \hline
 \caption{Implicazione con termini negati e invertiti}
 \end{table}
 
-Avendo la stessa tabella di verità $p \implies q = \overline{q} \implies \overline{p}$. Da qui nasce la \textbf{dimostrazione per negazione} (o contronominale). Esempio: se vogliamo dimostrare che se $n^2$ \textit{è pari} allora $n$ \textit{è pari}, ci basta dimostrare che se $n$ \textit{è dispari} allora $n^2$ \textit{è dispari} (Dimostrazione \ref{QuadratoDispari}). \label{dimostrazioneNegazione}
+Avendo la stessa tabella di verità $p \implies q = \overline{q} \implies \overline{p}$. Da qui nasce la \textbf{dimostrazione per negazione} (o contronominale). Esempio: se vogliamo dimostrare che se $n^2$ \textit{è pari} allora $n$ \textit{è pari}, ci basta dimostrare che se $n$ \textit{è dispari} allora $n^2$ \textit{è dispari}:
+\begin{equation*}
+	n \; \text{dispari} \implies n^2 \; \text{dispari}
+\end{equation*}
+Assumiamo che $n$ sia dispari per dimostrare che $n^2$ è dispari. Per ipotesi:
+\begin{equation*}
+	\exists k \in \mathbb{N}: n = 2k + 1
+\end{equation*}
+Ne consegue che:
+\begin{equation*}
+	n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1
+\end{equation*}
+Essendo $(2k^2 + 2k) \in \mathbb{N}$ ne consegue che:
+\begin{equation*}
+	2(2k^2 + 2k) + 1 \;\; \text{è dispari}
+\end{equation*}
+\hfill Qed.
+
 
 \subsection{Insiemi numerici noti}
 
@@ -81,9 +100,8 @@ Il primo insieme che si introduce è l'insieme dei \textbf{numeri naturali}, ind
 \begin{center}
     $\mathbb{N} = \{0, 1, 2, 3, ...\}$
 \end{center}
-Gli elementi dell'insieme si indicano quindi tra parentesi graffe.\\
 
-Il secondo insieme che va introdotto è quello dei \textbf{numeri interi}. Questo insieme comprende tutti i numeri che non hanno la virgola (per l'appunto interi) e si distingue da $\mathbb{N}$ in quanto ha al sui interno anche i numeri negativi. Il suo simbolo è $\mathbb{Z}$ e viene generalmente scritto come segue:
+Il secondo insieme che va introdotto è quello dei \textbf{numeri interi}. Questo insieme comprende tutti i numeri che non hanno la virgola (per l'appunto interi) e si distingue da $\mathbb{N}$ in quanto ha al suo interno anche i numeri negativi. Il suo simbolo è $\mathbb{Z}$ e viene generalmente scritto come segue:
 \begin{center}
     $\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ...\}$
 \end{center}
@@ -94,7 +112,7 @@ Non sempre però è comodo descrivere gli insiemi elencando il loro termini (in 
         \mathbb{Q} = \left\{\,\dfrac{p}{q}\, \middle| \, p, q \in \mathbb{Z},\, q \neq 0 \right\}
     \end{equation*}
 \end{center}
-In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte le frazioni (matematici rigorosi abbiate pietà della mia anima). E per esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo una preposizione (?).\\ %DA CONTROLLARE
+In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte le frazioni\footnote{Matematici rigorosi abbiate pietà della mia anima}. E per esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo una preposizione.
 
 \subsubsection{Reali}
 L'ultimo insieme che introduciamo è l'insieme dei \textbf{numeri reali}. Viene indicato con il simbolo $\mathbb{R}$ ed è l'insieme più importante di tutti i precedenti. Questo insieme viene introdotto perché all'insieme dei numeri razionali ($\mathbb{Q}$) mancano dei numeri.
@@ -106,34 +124,31 @@ Proviamo infatti a prendere una retta e a inserirci tutti i numeri che conosciam
 Questo punto è contenuto nell'insieme $\mathbb{Q}$? 
 
 \pf{
-    \textbf{Ipotesi}: $\sqrt{2} \in \mathbb{Q}$
-    
-    Se $\sqrt{2}$ è contenuta in $\mathbb{Q}$, questo significa che:
-    
-    \begin{equation*}
-        \exists\, m, n, \in \mathbb{N} : \dfrac{m}{n} = \sqrt{2}
-    \end{equation*}
-    Cioè esistono due numeri appartenenti all'insieme dei numeri naturali tali che il loro rapporto è esattamente $\sqrt{2}$.
-    
-    Ovviamente essendo una frazione possiamo semplificare $m$ e $n$ fino ad eliminare tutti i loro fattori comuni, cioè fino a farli diventare \textbf{coprimi} o meglio $\mathrm{M.C.D}(m,n) = 1$.
-    
-    \begin{equation*}
-        \dfrac{m}{n} = \sqrt{2} \implies \dfrac{m^2}{n^2} = \sqrt{2} \implies m^2 = 2n^2
-    \end{equation*}
-    Possiamo quindi dedurre che $m^2$ è pari, e quindi $m$ è pari (Dimostrazione \ref{QuadratoDispari}).
-    Quindi $\exists\, k \in \mathbb{N} : m = 2k$.
-    \begin{equation*}
-        m^2 = 2n^2 \implies (2k)^2 = 2n^2 \implies 4k^2 = 2n^2 \implies 2k^2 = n^2
-    \end{equation*}
-    Quindi se $n^2$ è pari, anche $n$ è pari (Dimostrazione \ref{QuadratoDispari}).\\
-    
-    \textbf{Conclusione}: Abbiamo dimostrato che sia $m$ che $n$ sono pari, eppure per ipotesi $m$ e $n$ non hanno hanno fattori in comune. \textbf{CONTRADDIZIONE!}.\\
-    
-    \textbf{Tesi}: $\sqrt{2} \notin \mathbb{Q}$
-    \hfill Q.e.d.
+	Dobbiamo provare che $\sqrt{2} \not \in \mathbb{Q}$. Assumiamo che sia contenuto e riduciamoci a dimostrare l'assurdo. Se $\sqrt{2} \in \mathbb{Q}$ significa che:
+	\begin{equation*}
+	\exists\, m, n, \in \mathbb{N} : \dfrac{m}{n} = \sqrt{2}
+	\end{equation*}
+	Cioè esistono due numeri appartenenti all'insieme dei numeri naturali tali che il loro rapporto è esattamente $\sqrt{2}$. Ovviamente essendo una frazione possiamo semplificare $m$ e $n$ fino ad eliminare tutti i loro fattori comuni, cioè fino a farli diventare \textbf{coprimi} o meglio $\mathrm{M.C.D}(m,n) = 1$.
+
+	\begin{equation*}
+	\dfrac{m}{n} = \sqrt{2} \implies \dfrac{m^2}{n^2} = \sqrt{2} \implies m^2 = 2n^2
+	\end{equation*}
+	Possiamo quindi dedurre che $m^2$ è pari,  e quindi $m$ è pari\footnote{Lo abbiamo visto qualche pagina sopra come esempio di dimostrazione per negazione}.
+	Quindi $\exists\, k \in \mathbb{N} : m = 2k$.
+	\begin{equation*}
+	m^2 = 2n^2 \implies (2k)^2 = 2n^2 \implies 4k^2 = 2n^2 \implies 2k^2 = n^2
+	\end{equation*}
+	Quindi se $n^2$ è pari, anche $n$ è pari.\\
+
+	Abbiamo dimostrato che sia $m$ che $n$ sono pari, eppure avevamo imposto che $m$ e $n$ non avessero fattori in comune. Assurdo! Quindi:
+	\begin{equation*}
+		\sqrt{2} \not \in \mathbb{Q}
+	\end{equation*}
+
+	\hfill Q.e.d.
 }
 
-Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Inoltre si può dimostrare che $\forall\, n \in \mathbb{N} : n$ \textit{non è un quadrato perfetto} $\implies \sqrt{n} \notin \mathbb{Q}$. %Aggiungere anche la frazione che non è un quadrato perfetto?
+Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Inoltre si può dimostrare che $\forall\, n \in \mathbb{N} : n$ \textit{non è un quadrato perfetto} $\implies \sqrt{n} \notin \mathbb{Q}$.
 Ne consegue che esistono infiniti punti sulla retta che non appartengono a $\mathbb{Q}$, e anzi è molto più probabile che facendo la radice di un numero si ottenga un numero che non è incluso in $\mathbb{Q}$ piuttosto che il contrario. Quindi se si vuole formalizzare una teoria dei limiti è necessario lavorare su un insieme non "bucato", cioè un insieme \textbf{continuo}.\\
 
 La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti sulla retta hanno associato un unico numero reale). Esiste infatti una \textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza biunivoca} è necessario fare riferimento al capitolo legato alla funzioni.}
@@ -168,6 +183,7 @@ Per esempio, dato l'insieme $A = \{q \in \mathbb{Q}\,|\,q^2 < 2\}$ non è possib
 
 \subsection{Intervalli} \label{intervalli}
 Per indicare gli intervalli generalmente si utilizza una notazione con le parentesi. Viene utilizzata la parentesi quadra ($[$ e $]$) per indicare rispettivamente se un estremo dell'intervallo è compreso o no. In particolare se l'apertura della parentesi è rivolta verso il numero, allora tale numero è compreso. Di seguito degli esempi per chiarire. Gli intervalli sono comunque un insieme di punti e quindi questo si può tradurre:
+\begin{multicols}{2}
 \begin{itemize}
     \item $[a, b] = \left\{ x \in \mathbb{R}\, \middle|\, a \leq x 	\leq b\right\}$
     \item $]a, b] = \left\{ x \in \mathbb{R}\, \middle|\, a < x \leq b\right\}$
@@ -178,7 +194,8 @@ Per indicare gli intervalli generalmente si utilizza una notazione con le parent
     \item $[b, +\infty[ = \left\{ x \in \mathbb{R}\, \middle|\, x \geq b \right\}$
     \item $]-\infty, +\infty[ = \mathbb{R}$
 \end{itemize}
-Con infinito si utilizza sempre la parentesi di esclusione. In alcuni libri viene utilizzata però la parentesi tonda: al posto di $[a,+\infty[$ viene scritto $[a. +\infty)$.
+\end{multicols}
+Con infinito si utilizza sempre la parentesi di esclusione. In alcuni libri viene utilizzata però la parentesi tonda: al posto di $[a,+\infty[$ viene scritto $[a. +\infty)$. La notazione è del tutto equivalente.
 
 \subsection{Prodotto cartesiano}
 \dfn{
@@ -193,7 +210,7 @@ Con infinito si utilizza sempre la parentesi di esclusione. In alcuni libri vien
 $\mathbb{R}$ = Retta. $\mathbb{R}^2$ = Piano cartesiano. $\mathbb{R}^3$ = Sistema di coordinate a tre dimensioni. %FARE GRAFICO
 
 \subsection{Cardinalità}
-La cardinalità per essere introdotta ha bisogno di alcune nozioni riguardo le funzioni. È consigliato quindi andare a vedere la sezione \ref{funzioni} e poi tornare qui.\\
+La cardinalità, per essere introdotta, ha bisogno di alcune nozioni riguardo le funzioni. È consigliato quindi andare a vedere la sezione \ref{funzioni} e poi tornare qui.\\
 
 \dfn{
     Dati due insiemi $A$ e $B$, se esiste una funzione biunivoca $f: A \to B$ si dice che \textbf{$A$ e $B$ sono equipotenti}.
@@ -206,20 +223,20 @@ La cardinalità per essere introdotta ha bisogno di alcune nozioni riguardo le f
     \end{equation*}
 }
 
-La cardinalità, in parole povere, è un modo per "misurare" e classificare gli insiemi in base a quanti elementi contengono. Se infatti abbiamo tre insiemi \textit{finiti} $A=\{1, 3, 5\}$, $B=\{2, 4, 6\}$ e $C=\{1, 2\}$ possiamo dire che A e C NON hanno la stessa cardinalità ($|A|=3 \neq |C| = 2$), mentre A e B hanno la stessa cardinalità ($|A| = |B| = 3$). Quindi la cardinalità riguardo insiemi \textit{finiti} si limita a misurare gli elementi che contengono gli insiemi stessi, mentre la cardinalità con insiemi \textit{infiniti} ci permette di capire quali insiemi contengono più elementi di altri (nonostante siano infiniti).\\
+La cardinalità, in parole povere, è un modo per "misurare" e classificare gli insiemi in base a quanti elementi contengono. Se infatti abbiamo tre insiemi finiti $A=\{1, 3, 5\}$, $B=\{2, 4, 6\}$ e $C=\{1, 2\}$ possiamo dire che A e C NON hanno la stessa cardinalità ($|A|=3 \neq |C| = 2$), mentre A e B hanno la stessa cardinalità ($|A| = |B| = 3$). Quindi la cardinalità riguardo insiemi \textit{finiti} si limita a misurare gli elementi che contengono gli insiemi stessi, mentre la cardinalità con insiemi \textit{infiniti} ci permette di capire quali insiemi contengono più elementi di altri (nonostante siano infiniti).\\
 
 \subsubsection{Cardinalità del numerabile}
 
-La cardinalità infinita \textit{più piccola} è la \textbf{cardinalità del numerabile}, cioè la stessa cardinalità dell'insieme dei numeri naturali ($|\mathbb{N}| = numerabile$).
+La cardinalità infinita più piccola è la \textbf{cardinalità del numerabile}, cioè la stessa cardinalità dell'insieme dei numeri naturali ($|\mathbb{N}| = numerabile$).
 
 Ora prendiamo in considerazione il secondo insieme che abbiamo introdotto subito dopo $\mathbb{N}$, cioè $\mathbb{Z}.$ L'intuito ci dice che la cardinalità dell'insieme dei numeri interi dovrebbe essere doppia rispetto a quella dei naturali, in quanto ci sono esattamente il doppio dei numeri (cioè anche i negativi oltre ai positivi). Proviamo però a definire una funzione $f: \mathbb{N} \to \mathbb{Z}$ tale che:
 
 \begin{equation*}
-    f(n) =
-    \begin{cases}
-    n/2 \qquad \quad \;\;\; \text{se $n$ è pari}\\
-    -\dfrac{n+1}{2} \qquad \text{se $n$ è dispari}
-    \end{cases}
+	f(n) =
+	\begin{cases}
+		\dfrac{n}{2} \qquad \qquad \;\; \text{se $n$ è pari}\\
+		-\dfrac{n+1}{2} \qquad \text{se $n$ è dispari}
+	\end{cases}
 \end{equation*}
 
 I valori della funzione risultano quindi:
@@ -295,26 +312,51 @@ Non dimostreremo rigorosamente la cosa, però è facile notare che si può costr
 \end{equation*}
 }
 
-\subsubsection{Cardinalità del continuo} %DA FORMULARE MEGLIO
-Concludiamo con l'analisi dei numeri reali, ovvero l'insieme $\mathbb{R}$. Se volessimo dimostrare che $|\mathbb{R}|$ non è numerabile, ci basterebbe dimostrare che un suo sottoinsieme non è numerabile. Proviamo quindi a dimostrare che l'intervallo $[0, 1[$ non è numerabile, cioè ha cardinalità maggiore dell'insieme dei numeri naturali ($\mathbb{N}$). Prendiamo tutti i numeri contenuti nell'intervallo $[0,1[$ e cominciamo ad elencarli senza un ordine preciso:
-\begin{align*}
-    0.1298417824611040752 \dots\\
-    0.3793921999397529387 \dots\\
-    0.2384798342293874812 \dots\\
-    0.0073820271308387362 \dots\\
-    0.4579468274062944976 \dots\\
-    0.7432686162126636901 \dots\\
-    \vdots \qquad \qquad \qquad
-\end{align*}
-Immaginiamo una funzione $f: \mathbb{N} \to [0,1[$ che associ ad ogni numero elencato un numero naturale. Ora indichiamo con $b_{ij}$ la cifra $j$ (partendo dai decimali) del numero $i$ e creiamo un nuovo numero $r$ secondo la regola:
+\subsubsection{Cardinalità del continuo}
+Concludiamo con l'analisi dei numeri reali, ovvero l'insieme $\mathbb{R}$. Se volessimo dimostrare che $\mathbb{R}$ non è numerabile, ci basterebbe dimostrare che un suo sottoinsieme non è numerabile.
+\pf{
+	Vogliamo dimostrare che $[0,1[$ non è numerabie perché questo ci permetterebbe di concludere che $\mathbb{R}$ non è numerabile. Ci basta quindi dimostrate che non esiste una funzione suriettiva da $\mathbb{N}$ a $\mathbb{R}$:
+	\begin{equation*}
+		\not \exists f:N \xrightarrow[1-1]{SU} [0,1[
+	\end{equation*}
+	Supponiamo che esiste tale funzione e riduciamoci a dimostrare l'assurdo\footnote{Il prof chiama questa dimostrazione \textit{una dimostrazione per assurdo} quando chiaramente non lo è perché si suppone l'esistenza della funzione da una semplice introduzione del not. La differenza tra la dimostrazione per assurdo (RAA) e la not introduzione sarà chiara soltanto quando farete deduzione naturale nel corso di logica. Fino ad allora fregatevene di questa distinzione. La prova comunque non è per assurdo, dando ragione al sommo CSC quando dice che "\textit{i matematici si confondono sempre sulle dimostrazioni per assurdo}".}. Essendo la funzione suriettiva, ogni numero nell'intervallo $[0,1[$ deve avere una corrispondenza in $\mathbb{N}$. 
 \begin{equation*}
-    r_{jj} = 
-    \begin{cases}
-    5 \qquad \mathrm{se}\;\,b_{jj} \neq 5\\
-    6 \qquad \mathrm{se}\;\,b_{jj} = 5\\
-    \end{cases}
+	f(n) \in [0,1[
 \end{equation*}
-È facile notare che $r$ è un numero diverso per almeno una cifra da tutti quelli elencati in precedenza. Ne consegue che non c'è nessun numero in $\mathbb{N}$ associato ad $r$, quindi $|\mathbb{R}|$ \textbf{non è numerabile}, infatti:
-\imp{\begin{center}
-    $\mathbb{R}$ ha \textbf{cardinalità del continuo}.
-\end{center}}
+Quindi:
+\begin{align*}
+	f(0) &= 0,b_{00} \; b_{01} \; b_{02} \; b_{03} \; b_{04} \; b_{05} \cdots\\
+	f(1) &= 0,b_{10} \; b_{11} \; b_{12} \; b_{13} \; b_{14} \; b_{15} \cdots\\
+	f(2) &= 0,b_{20} \; b_{21} \; b_{22} \; b_{23} \; b_{24} \; b_{25} \cdots\\
+	f(3) &= 0,b_{30} \; b_{31} \; b_{32} \; b_{33} \; b_{34} \; b_{35} \cdots\\
+	f(4) &= 0,b_{40} \; b_{41} \; b_{42} \; b_{43} \; b_{44} \; b_{45} \cdots\\
+	f(5) &= 0,b_{50} \; b_{51} \; b_{52} \; b_{53} \; b_{54} \; b_{55} \cdots\\
+	\vdots\\
+	f(n) &= 0,b_{n0} \; b_{n1} \; b_{n2} \; b_{n3} \; b_{n4} \; b_{n5} \cdots
+\end{align*}
+Ci basta ora trovare un numero $r \in[0,1[$ tale che: $f(n) \neq r \; \forall n \in \mathbb{N}$ per provare l'assurdo. Costruiamo il numero $r$ usando un procedimento diagonale\footnote{Questo procedimento esiste grazie al matematico Cantor.}:
+\begin{align*}
+	r := 0,r_0 \; r_1 \; r_2 \; r_3 \; r_4 \cdots\\
+	r_{j} = 
+	\begin{cases}
+		5 \qquad \mathrm{se}\;\,b_{jj} \neq 5\\
+		6 \qquad \mathrm{se}\;\,b_{jj} = 5\\
+	\end{cases}
+\end{align*}
+La costruzione è in diagonale perché consideriamo come indici della $b$ solo la coppia $jj$, che quindi produce uno spostamento regolare $00, 11, 22, \cdots$. In pratica prendiamo una cifra da ogni numero che abbiamo già e la cambiamo. In questo modo tutti i numeri che abbiamo differiranno di almeno una cifra da quello che stiamo costruendo. Questa particolare costruzione implica che:
+\begin{equation*}
+	r_j \neq b_{jj} \quad \forall j \in \mathbb{N}
+\end{equation*}
+Nonostante ciò $r \in [0,1[$. Abbiamo quindi provato l'assurdo in quanto:
+\begin{equation*}
+	r \neq f(n) \quad \forall n \in \mathbb{N}
+\end{equation*}
+E quindi la funzione non è suriettiva.
+\hfill Qed.
+
+}
+\imp{
+	\begin{center}
+		Quindi $|\mathbb{R}|$ non è numerabile, infatti: $\mathbb{R}$ ha \textbf{cardinalità del continuo}.
+	\end{center}
+}
