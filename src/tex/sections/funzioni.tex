@@ -188,6 +188,30 @@ Gode delle seguenti proprietà:
     2) &\qquad\binom{n}{k-1} + \binom{n}{k} = \binom{n+1}{k}
 \end{align*}
 
+\subsubsection{Coefficiente binomiale generalizzato}
+Dato il coefficiente binomiale appena definito:
+\begin{equation*}
+\binom{n}{m}=
+    \begin{cases}
+    1 \qquad \qquad \qquad \, \mathrm{se}\;\, m = 0\\
+    \dfrac{n!}{(n-m)!m!} \quad \;\, \mathrm{se}\;\, m \geq 1\\
+    \end{cases}
+\end{equation*}
+Il caso $m \geq 1$ è possibile riscriverlo come segue:
+\begin{equation*}
+	\binom{n}{m} = \dfrac{n!}{(n-m)!m!} = \dfrac{m (m - 1) (m -2) \cdots (m - n + 1)}{n!}
+\end{equation*}
+Questo permette di togliere l'operazione fattoriale dal primo argomento e quindi permette di generalizzare la sua definzione a $n \in \mathbb{R}$. In questo caso si parla di coefficiente binomiale generalizzato:
+\begin{equation*}
+	\binom{\alpha}{m} = 
+		\begin{cases}
+			1 \qquad \qquad \qquad \qquad \qquad \qquad \qquad \,\; \mathrm{se}\;\, m = 0\\[5pt]
+		\dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!} \quad \;\, \mathrm{se}\;\, m \geq 1\\
+		\end{cases}
+\end{equation*}
+
+
+
 \subsection{Binomio di Newton} \label{BinomioNewton}
 Il binomio di Newton è metodo per esprimere lo sviluppo della potenza \textit{n}-esima di un binomio qualsiasi mediante una formula.
 \subsubsection{Sommatoria} \label{sommatoria}
@@ -234,6 +258,7 @@ Il \textbf{binomio di Newton} esprime lo sviluppo della potenza \textit{n}-esima
     (a+b)^n = \sum \limits_{k=0}^{n} \binom{n}{k} a^{n-k} b^k
 \end{equation*}
 }
+
 
 \subsection{Radice aritmetica} \label{RadiceAritmetica}
 \thm{
