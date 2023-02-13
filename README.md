@@ -33,5 +33,5 @@ Per compilare con il comando `make` è necessario aver installato `latexmk`, men
 
 Per i pacchetti necessari a LaTex in quanto inclusi e usati nel progetto è invece necessario consultare il file
 ```
-src/tex/preface.tex
+src/tex/settings.tex
 ```

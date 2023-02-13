@@ -21,7 +21,7 @@ MAIN = src/tex/main.tex
 BUILD = ../../build
 OUTPUT = $(BUILD)/output
 
-TEX_SRC = $(MAIN) src/tex/preface.tex $(shell find src/tex/sections/*.tex)
+TEX_SRC = $(MAIN) src/tex/settings.tex $(shell find src/tex/sections/*.tex)
 IMG = $(shell find src/img/*)
 
 # ---------------- PRIMA REGOLA ----------------- #
