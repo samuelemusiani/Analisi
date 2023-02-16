@@ -1,12 +1,24 @@
 \section{Funzioni} \label{funzioni}
 
 \dfn{
-    Dati due insiemi $A \neq \emptyset$ e $B \neq \emptyset$, una \textbf{funzione} $f$ da $A$ a $B$ ($f: A \to B$) è una corrispondenza univoca da $A$ a $B$, ovvero associa ogni $x \in A$ uno e un solo $y \in B$ (\textbf{legge di associazione}: $\forall x\in A, \exists\oc y\in B : f(x) = y$). Tale elemento è il \textbf{valore della funzione} in $x$ e si scrive $f(x) = y$.\\
-    
-    L'insieme $A$ è il \textbf{dominio} della funzione, mentre l'insieme $B$ è il \textbf{codominio} della funzione.  L'insieme dei valori di una funzione è invece l'\textbf{immagine} (si ottiene proiettando la funzione sull'asse y):
-    \begin{equation*}
-        \mathrm{Im}f = \left\{y \in B\,\middle|\, \exists x \in A : f(x) = y\right\}
-    \end{equation*}
+	Dati due insiemi $A \neq \emptyset$ e $B \neq \emptyset$, una \textbf{funzione} $f$ da $A$ a $B$ 
+	\begin{equation*}
+		f: A \to B
+	\end{equation*}
+	è una corrispondenza univoca da $A$ a $B$. Ovvero associa ad ogni $x \in A$ uno e un solo $y \in B$. Tale elemento è il \textbf{valore della funzione} in $x$ e si scrive. 
+	\begin{equation*}
+		f(x) = y
+	\end{equation*}
+	Questa associazione di un elemento di $A$ ad un elemento di $B$ è data dalla \textbf{legge di associazione}: 
+	\begin{equation*}
+		\forall x\in A, \exists\oc y\in B : f(x) = y
+	\end{equation*}
+
+	    
+	L'insieme $A$ è il \textbf{dominio} della funzione, mentre l'insieme $B$ è il \textbf{codominio} della funzione.  L'insieme dei valori di una funzione è invece l'\textbf{immagine} (si ottiene proiettando la funzione sull'asse y):
+	\begin{equation*}
+		\mathrm{Im}f = \left\{y \in B\,\middle|\, \exists x \in A : f(x) = y\right\}
+	\end{equation*}
 }
 
 Una funzione può essere anche chiamata \textit{corrispondenza} oppure \textit{mappa}. Essa è definita quindi da tre cose:
@@ -30,7 +42,9 @@ Affinché due funzioni siano uguali, il dominio, il codomionio e la legge di ass
 
 Esempio: data $f: \mathbb{R} \to \mathbb{R}\;\, f(x) = x^2$ e $g: \mathbb{R} \to \mathbb{R}_{+}\;\, g(x) = x^2$, le due funzioni sono diverse in quanto la seconda ha un codominio diverso dalla prima ($\mathbb{R}_{+} = \{x \in \mathbb{R}\, |\, 0 \leq x\}$).\\
 
+\imp{
 Il \textbf{dominio naturale} di una funzione è il più grande sottoinsieme in cui quella funzione è definita.
+}
 
 \subsection{Funzione iniettiva (1-1)}
 
@@ -83,11 +97,12 @@ La seconda funzione infatti non è iniettiva ($f(x) = -2$ non ha soluzione per e
 \subsection{Funzione biunivoca}
 
 \dfn{
-    Una funzione viene detta \textbf{biunivoca} (o riettiva) se è \textbf{iniettiva (1-1)} e \textbf{suriettiva (Su)}.
+	Una funzione viene detta \textbf{biunivoca} (o riettiva) se è \textbf{iniettiva (1-1)} e \textbf{suriettiva (Su)}.
 }
+Le funzioni biunivoche sono molto importanti perché ci permettono di definire le funzioni inverse. In pratica se una funzione ha questa proprietà significa che ad un elemento del codominio è associato uno e un solo elemento del dominio, ed inoltre tutti gli elementi del codominio hanno un corrispettivo nel dominio: in pratica l'immagine coincide con il codominio.
 
 \subsection{Funzione invertibile}
-Una funzione, affinché risulti invertibile, è necessario che sia \textbf{biunivoca}.
+Le funzioni inverse sono tutte quelle funzioni che ci permettono di passare da un elemento nell'immagine di un'altra funzione al valore associato ad esso nel dominio. Alcuni esempi di funzioni e il loro inverso (che vedremo più avanti) sono il \textit{seno} e \textit{arcoseno}, \textit{esponenziale} e \textit{logaritmo}, \textit{potenze} e \textit{radici}, ecc. Non tutte le funzioni sono invertivili, anzi molto poche perché una funzione, affinché risulti invertibile, è necessario che sia \textbf{biunivoca}.
 
 \dfn{
     Una funzione $f: A\to B $ si dice \textbf{invertibile} se $\exists \, f^{-1}: B\to A$ tale che:
@@ -152,21 +167,20 @@ Dato un numero $n \in \mathbb{N}$, il \textbf{fattoriale} di $n$ è definito:
 \begin{equation*}
     n!=
     \begin{cases}
-    1\cdot 2 \cdot 3 \cdot 4 \cdot \dots (n-1) \cdot n \qquad \mathrm{se}\;\, n \geq 1\\
-    1 \qquad \qquad \qquad \qquad \qquad \qquad \,\mathrm{se}\;\, n = 0
+    1 \qquad \qquad \qquad \qquad \qquad \qquad \,\mathrm{se}\;\, n = 0\\
+    1\cdot 2 \cdot 3 \cdot 4 \cdot \dots (n-1) \cdot n \qquad \mathrm{se}\;\, n \geq 1
     \end{cases}
 \end{equation*}
 oppure in maniera ricorsiva:
 \begin{equation*}
     n! =
     \begin{cases}
-    n \cdot (n-1)! \qquad \mathrm{se}\;\, n \geq 1\\
-    1 \qquad \qquad \qquad \, \mathrm{se}\;\, n = 0
+    1 \qquad \qquad \qquad \, \mathrm{se}\;\, n = 0\\
+    n \cdot (n-1)! \qquad \mathrm{se}\;\, n \geq 1
     \end{cases}
 \end{equation*}
 }
-
-Un modo per ricordarselo è che rappresenta il numero di permutazioni di $n$ oggetti, cioè in quanti modi diversi posso disporre $n$ elementi.
+Il fattoriale è solo una notazione introdotta per evitare di scrivere moltiplicazioni ripetute di numeri naturali.
 
 \subsection{Coefficiente binomiale} \label{coefficiente-binomiale}
 
@@ -201,12 +215,12 @@ Il caso $m \geq 1$ è possibile riscriverlo come segue:
 \begin{equation*}
 	\binom{n}{m} = \dfrac{n!}{(n-m)!m!} = \dfrac{m (m - 1) (m -2) \cdots (m - n + 1)}{n!}
 \end{equation*}
-Questo permette di togliere l'operazione fattoriale dal primo argomento e quindi permette di generalizzare la sua definzione a $n \in \mathbb{R}$. In questo caso si parla di coefficiente binomiale generalizzato:
+Questo permette di togliere l'operazione fattoriale dal primo argomento e quindi permette di generalizzare la sua definzione a $n \in \mathbb{R}$. In questo caso si parla di coefficiente binomiale generalizzato (con $\alpha \in \mathbb{R}$):
 \begin{equation*}
 	\binom{\alpha}{m} = 
 		\begin{cases}
-			1 \qquad \qquad \qquad \qquad \qquad \qquad \qquad \,\; \mathrm{se}\;\, m = 0\\[5pt]
-		\dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!} \quad \;\, \mathrm{se}\;\, m \geq 1\\
+			1 \qquad \qquad \qquad \qquad \qquad \qquad \qquad \,\; \mathrm{se}\;\, \alpha = 0\\[5pt]
+		\dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!} \quad \;\, \mathrm{se}\;\, \alpha \geq 1\\
 		\end{cases}
 \end{equation*}
 
@@ -268,141 +282,160 @@ La radice di un numero reale positivo esiste sempre ed è unica:
 \end{equation*}
 $b$ si chiama radice \textbf{aritmetica \textit{n}-esima} di $a$ e si scrive $\sqrt[n]{a} \vcentcolon = b$. In quanto $b\in \mathbb{R}_{+}$ la radice aritmetica è \textbf{sempre positiva}.
 }
-Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso in cui $n = 2$:
+Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso in cui $n = 2$. Prima però è necessario dimostrare un lemma:
+
+\mlem{
+	$\forall x, y \in \mathbb{R}: x, y \geq 0$
+	\begin{enumerate}[label=\Alph*)]
+	    \item $x^2 \leq y^2 \iff x \leq y$
+	    \item $x^2 \geq y^2 \iff x \geq y$
+	    \item $x^2 = y^2 \iff x = y$
+	    \item $x^2 < y \implies \exists \epsilon > 0: (x+\epsilon)^2 < y$
+	    \item $x^2 > y \implies \exists \epsilon > 0: (x-\epsilon)^2 > y$
+	\end{enumerate}
+}
+    
+\pf{
+	Assumiamo come ipotesi generale che: $\forall x, y \in \mathbb{R}: x, y \geq 0$.
+
+\begin{enumerate}[label=(\Alph*)]
+	\item Vogliamo dimostrare che 
+		\begin{equation*}
+			 x^2 \leq y^2 \iff x \leq y
+		\end{equation*}
+		\begin{align*}
+			&x^2 \leq y^2\\
+			&x^2 - y^2 \leq 0\\
+			&(x+y)(x-y) \leq 0
+		\end{align*}
+		Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, quindi possiamo dividere da ambo i lati:
+		\begin{gather*}
+			x-y \leq 0\\
+			x \leq y
+		\end{gather*}
+
+	\item La dimostrazione di questo punto è identica al precedente, di conseguenza non verrà riportata.
+
+	\item Vogliamo dimostrare che 
+		\begin{equation*}
+			x^2 = y^2 \iff x = y
+		\end{equation*}
+		Dai due punti precedenti:
+		\begin{equation*}
+			x^2 = y^2 \iff
+			\begin{cases}
+				x^2 \leq y^2 \iff x \leq y\\
+				x^2 \geq y^2 \iff x \geq y
+			\end{cases}
+			\iff x = y
+		\end{equation*}
+
+
+	\item Vogliamo dimostrare che:
+		\begin{equation*}
+			x^2 < y \implies \exists \epsilon > 0: (x + \epsilon)^2 < y
+		\end{equation*}
+		Assumiamo $x^2 < y$ per dimostrare:
+		\begin{equation*}
+			\exists \epsilon > 0: (x + \epsilon)^2 < y
+		\end{equation*}
+		Prendiamo $0 < \epsilon < 1$ in modo che $\epsilon^2 < \epsilon$:
+		\begin{equation*}
+			(x+\epsilon)^2 = x^2 + 2x\epsilon + \epsilon^2
+		\end{equation*}
+		Sostituendo ora $\epsilon^2$ con $\epsilon$ possiamo affermare che:
+		\begin{gather*}
+			x^2 + 2x\epsilon + \epsilon^2 \leq\\
+			\leq x^2 + 2x\epsilon + \epsilon =\\
+			= x^2 + \epsilon(2x + 1)
+		\end{gather*}
+		È possibile ora scegliere $y$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
+		\begin{gather*}
+			x^2 + \epsilon(2x + 1) < y\\
+			\epsilon(2x + 1) < y - x^2\\
+			\epsilon < \dfrac{y-x^2}{2x+1}
+		\end{gather*}
+		Si ricorda che $(2x+1) > 0$ per ipotesi generale ($x \geq 0$). Anche $y-x^2 > 0$ per ipotesi, quindi è possibile scegliere $\epsilon$ in maniera tale da verificare:
+		\begin{equation*}
+			0 < \epsilon < \dfrac{y-x^2}{2x+1}
+		\end{equation*}
+
+	\item Vogliamo dimostrare che:
+		\begin{equation*}
+			x^2 > y \implies \exists \epsilon > 0: (x - \epsilon)^2 > y
+		\end{equation*}
+		Assumiamo $x^2 > y$ per dimostrare:
+		\begin{equation*}
+			\exists \epsilon > 0: (x - \epsilon)^2 > y
+		\end{equation*}
+		Espandiamo il quadrato:
+		\begin{equation*}
+			(x-\epsilon)^2 = x^2 -2x\epsilon + \epsilon^2
+		\end{equation*}
+		Essendo $\epsilon^2 > 0$ e dovendo dimostrare un maggiore possiamo anche toglierlo in quanto se $x^2 -2x\epsilon > y$ sicuramente $x^2 -2x\epsilon + \epsilon^2 > y$:
+		\begin{align*}
+			x^2 -2x\epsilon &> y\\
+			x^2 - y &> 2x\epsilon\\
+			2x\epsilon < &x^2 - y\\
+			\epsilon < &\dfrac{x^2-y}{2x}
+		\end{align*}
+		Sempre per il lemma generale $x > 0$ e per ipotesi $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
+		\begin{equation*}
+			0 < \epsilon < \dfrac{x^2-y}{2x}
+		\end{equation*}
+\end{enumerate}
+\hfill Qed.
+}    
+
 
 \pf{
-\textbf{Ipotesi}: $\forall a \in \mathbb{R}_{+}$
+	Torniamo ora alla nostra dimostrazione principale. Vogliamo dimostrare che (visto che ci siamo ridotti solo al caso $n = 2$):
+	\begin{equation*}
+		\forall a\in \mathbb{R}_{+}, \exists \oc b\in \mathbb{R}_{+}: b^2 = a
+	\end{equation*}
+	Utilizzando la proprietà di completezza di $\mathbb{R}$ (Sezione: \ref{completezzaR}) definiamo un insieme $A$ tale che:
+	\begin{equation*}
+		A = \{c \in \mathbb{R} | c \geq 0 \land c^2 \leq a\}
+	\end{equation*}
+	Visto che $0 \in A \implies A \neq \emptyset$.
+	\begin{equation*}
+		\forall c\in A: c^2 \leq a \leq (a+1) \leq (a+1)^2
+	\end{equation*}
+	Da lemma \textbf{A} $\implies$ $c \leq a + 1$. $a + 1$ quindi è un \textit{maggiorante} di $A$ e conseguentemente $A$ è \textit{superiormente limitato}. Dalla proprietà di completezza:
+	\begin{equation*}
+		\exists\; \mathrm{sup}A = \vcentcolon b \in \mathbb{R}_{+} 
+	\end{equation*}
+	Ci riduciamo quindi a dimostrare che $b^2 = a$, cosicché $\sqrt{a} = b$. Assumiamo per assurdo che $b^2 \neq a$, di conseguenza $b^2 < a \lor b^2 > a$. Procediamo quindi per casi su questa ipotesi:
+	\begin{enumerate}
+		\item Caso $b^2 < a$: Dal lemma \textbf{D}:
+			\begin{equation*}
+				\exists \epsilon > 0: (b + \epsilon)^2 < a \implies b + \epsilon \in A \implies b + \epsilon \leq \mathrm{sup}A = b \implies \epsilon \leq 0
+			\end{equation*}
+			\textbf{Assurdo!}\\
 
-    \mlem{
-        $\forall x, y \in \mathbb{R}: x, y \geq 0$
-        \begin{enumerate}[label=\Alph*)]
-            \item $x^2 \leq y^2 \iff x \leq y$
-            \item $x^2 \geq y^2 \iff x \geq y$
-            \item $x^2 = y^2 \iff x = y$
-            \item $x^2 < y \implies \exists \epsilon > 0: (x+\epsilon)^2 < y$
-            \item $x^2 > y \implies \exists \epsilon > 0: (x-\epsilon)^2 < y$
-        \end{enumerate}
-    }
-    
-    Prima di procedere con la dimostrazione è necessario prima dimostrare il lemma. Dimostriamo il punto \textbf{A} del lemma:
-    \pf{
-        \textbf{Ipotesi:} $x^2 \leq y^2$
-        \begin{gather*}
-            x^2 \leq y^2\\
-            x^2 - y^2 \leq 0\\
-            (x+y)(x-y) \leq 0
-        \end{gather*}
-        Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, quindi possiamo dividere da ambo i lati:
-        \begin{gather*}
-            x-y \leq 0\\
-            x \leq y
-        \end{gather*}
-        
-        \textbf{Tesi}: $x \leq y$
-    }    
+		\item Caso $b^2 > a$: Da lemma \textbf{E}:
+			\begin{equation*}
+				\exists \epsilon > 0 : (b-\epsilon)^2 > a \implies \forall c\in A: c^2 \leq a < (b-\epsilon)^2 \implies c^2 \leq (b-\epsilon)^2
+			\end{equation*}
+			Da lemma \textbf{A}:
+			\begin{equation*}
+				c \leq b - \epsilon \quad \forall c \in A
+			\end{equation*}
+			Questo implica che $b-\epsilon$ sia un \textit{maggiorante} di $A$. Ma $b=\mathrm{sup}A$ e $b-\epsilon$ è un maggiorante ancora più piccolo. \textbf{Assurdo!}\\
+	\end{enumerate}
+	Quindi $b^2 = a$.\\
 
-    La dimostrazione del punto \textbf{B} del lemma è identica al punto \textbf{A} e di conseguenza non verrà riportata. Dimostriamo il punto \textbf{C}:
-    \pf{
-        \textbf{Ipotesi}: $x^2 = y^2$
-        \begin{equation*}
-        x^2 = y^2 \iff
-            \begin{cases}
-            x^2 \leq y^2 \iff x \leq y\\
-            x^2 \geq y^2 \iff x \geq y
-            \end{cases}
-            \iff x = y
-        \end{equation*}
-        \textbf{Tesi}: $x = y$
-    }
-    Dimostriamo ora il punto \textbf{D} del lemma:
-    \pf{
-        \textbf{Ipotesi}: $x^2 < y$\\
-        
-        Prendiamo $0 < \epsilon < 1$ in modo che $\epsilon^2 < \epsilon$:
-        \begin{equation*}
-            (x+\epsilon)^2 = x^2 + 2x\epsilon + \epsilon^2
-        \end{equation*}
-        Sostituendo ora $\epsilon^2$ con $\epsilon$ possiamo affermare che:
-        \begin{gather*}
-            x^2 + 2x\epsilon + \epsilon^2 \leq\\
-            \leq x^2 + 2x\epsilon + \epsilon =\\
-            = x^2 + \epsilon(2x + 1)
-        \end{gather*}
-        È possibile ora scegliere $y$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
-        \begin{gather*}
-            x^2 + \epsilon(2x + 1) < y\\
-            \epsilon(2x + 1) < y - x^2\\
-            \epsilon < \dfrac{y-x^2}{2x+1}
-        \end{gather*}
-        Si ricorda che $(2x+1) > 0$ per ipotesi del lemma ($x \geq 0$). Anche $y-x^2 > 0$ per ipotesi, quindi è possibile scegliere $\epsilon$ in maniera tale da verificare la tesi:
-        \begin{equation*}
-            0 < \epsilon < \dfrac{y-x^2}{2x+1}
-        \end{equation*}
-        
-        \textbf{Tesi}: $\exists \epsilon > 0: (x+\epsilon)^2 < y$
-    }
-    Dimostriamo ora il punto \textbf{E} del lemma:
-    \pf{
-        \textbf{Ipotesi}: $x^2 > y$
-        
-        \begin{equation*}
-            (x-\epsilon)^2 = x^2 -2x\epsilon + \epsilon^2
-        \end{equation*}
-        Essendo $\epsilon^2 > 0$ e dovendo dimostrare un maggiore possiamo anche toglierlo in quanto se $x^2 -2x\epsilon > y$ sicuramente $x^2 -2x\epsilon + \epsilon^2 > y$
-        \begin{gather*}
-            x^2 -2x\epsilon > y\\
-            x^2 - y > 2x\epsilon\\
-            2x\epsilon < x^2 - y\\
-            \epsilon < \dfrac{x^2-y}{2x}
-        \end{gather*}
-        Sempre per il lemma $x > 0$ e per ipotesi $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
-        \begin{equation*}
-            0 < \epsilon < \dfrac{x^2-y}{2x}
-        \end{equation*}
-        
-        \textbf{Tesi}: $\exists \epsilon > 0: (x-\epsilon)^2 < y$
-    }
-    Torniamo ora alla nostra dimostrazione principale. Utilizzando la proprietà di completezza di $\mathbb{R}$ (Sezione: \ref{completezzaR}) definiamo un insieme $A$ tale che:
-    \begin{equation*}
-        A = \{c \in \mathbb{R} | c \geq 0 \land c^2 \leq a\}
-    \end{equation*}
-    È facile notare che $0 \in A \implies A \neq \emptyset$.
-    \begin{equation*}
-        \forall c\in A: c^2 \leq a \leq (a+1) \leq (a+1)^2
-    \end{equation*}
-    Da lemma \textbf{A} $\implies$ $c \leq a + 1$. $a + 1$ quindi è un \textit{maggiorante} di $A$ e conseguentemente $A$ è \textit{superiormente limitato}. Dalla proprietà di completezza:
-    \begin{equation*}
-        \exists\; \mathrm{sup}A = \vcentcolon b \in \mathbb{R}_{+} 
-    \end{equation*}
-    Ci riduciamo quindi a dimostrare che $b^2 = a$, cosicché $\sqrt{a} = b$. Dimostriamo ora per assurdo che non può essere $b^2 < a$ e $b^2 > a$. Procediamo per casi dimostrando prima $b^2 < a$. Dal lemma \textbf{D}:
-    \begin{equation*}
-        \exists \epsilon > 0: (b + \epsilon)^2 < a \implies b + \epsilon \in A \implies b + \epsilon \leq \mathrm{sup}A = b \implies \epsilon \leq 0
-    \end{equation*}
-    \textbf{Assurdo!}\\
-    Procediamo con il secondo caso. Da lemma \textbf{E}:
-    \begin{equation*}
-        \exists \epsilon > 0 : (b-\epsilon)^2 > a \implies \forall c\in A: c^2 \leq a < (b-\epsilon)^2 \implies c^2 \leq (b-\epsilon)^2
-    \end{equation*}
-    Da lemma \textbf{A}:
-    \begin{equation*}
-        c \leq b - \epsilon\;\, \forall c \in A
-    \end{equation*}
-    Questo implica che $b-\epsilon$ sia un \textit{maggiorante} di $A$. Ma $b=\mathrm{sup}A$ e $b-\epsilon$ è un maggiorante ancora più piccolo. \textbf{Assurdo!}.\\
+	Proviamo ora l'unicità della radice. Supponiamo $\exists b_1, b_2 \in \mathbb{R}_{+}$:
+	\begin{equation*}
+		b_{1}^2 = a = b_{2}^2 \implies b_{1}^2=b_{2}^2
+	\end{equation*}
+	Da lemma \textbf{A}: $b_1 = b_2$\\
     
-    Quindi $b^2 = a$.\\
-    
-    Proviamo ora l'unicità della radice. Supponiamo $\exists b_1, b_2 \in \mathbb{R}_{+}$:
-    \begin{equation*}
-        b_{1}^2 = a = b_{2}^2 \implies b_{1}^2=b_{2}^2
-    \end{equation*}
-    Da lemma \textbf{A}: $b_1 = b_2$\\
-    
-    \textbf{Tesi}: $\exists \oc b \in \mathbb{R}_{+} : b^2 = a$
     \hfill Q.e.d.
 }
 Facciamo alcune osservazioni:
 \begin{itemize}
-    \item $\sqrt{(-2)^2}=\sqrt{4}= 2 \leq -2$
+    \item $\sqrt{(-2)^2}=\sqrt{4}= 2 \neq -2$
     \item $\sqrt{x^2} = |x|$
     \item $\sqrt[2n]{x^{2n}} = |x|$
 \end{itemize}
@@ -431,32 +464,64 @@ E l'equazione associata sarà:
     x^2+y^2=1
 \end{equation*}
 
-L'idea ora è di tracciare un raggio qualsiasi nella circonferenza, e indicare con $P(x_p, y_p)$ il punto in cui tocca la circonferenza. Ovviamente il raggio formerà un angolo rispetto all'asse delle ascisse che chiameremo per comodità $\alpha$. E ora arriva la domanda che ci poterà inevitabilmente alla funzioni goniometriche: \textit{è possibile trovare $x_p$ e $y_p$ soltanto sapendo $\alpha$}? La risposta sta proprio nelle funzioni goniometriche.
+L'idea ora è di tracciare un raggio qualsiasi nella circonferenza, e indicare con $P(x_p, y_p)$ il punto in cui tocca la circonferenza. Ovviamente il raggio formerà un angolo rispetto all'asse delle ascisse che chiameremo per comodità $\alpha$. E ora arriva la domanda che ci poterà inevitabilmente alla funzioni goniometriche: \textit{è possibile trovare $x_p$ e $y_p$ soltanto sapendo $\alpha$}? 
 
 \subsubsection{Radianti}
 Prima di continuare con le funzioni goniometriche è necessario fare alcune precisazioni sugli angoli. Infatti l'unità di misura che si è sempre adottata per misurare gli angoli è il grado sessagesimale ($30^\circ$, $180^\circ$, $90^\circ$ ...), ma questa, nonostante sia molto intuitiva, risulta poco pratica per indicare gli angoli. I matematici hanno quindi deciso di introdurre una nuova misura, chiamandola \textbf{radianti}.
 
 L'idea alla base dei radianti è utilizzare una circonferenza: data infatti una circonferenza con centro nel vertice dell'angolo è facile notare che quest'ultimo delimita sulla circonferenza stessa un arco. L'angolo in radianti è definito proprio dal \textbf{rapporto tra l'arco intercettato dall'angolo e il raggio della circonferenza}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.2\linewidth]{../img/radianti.png}
-    \caption{Definizione dell'angolo in radianti}
+
+\imp{
+	\begin{equation*}
+		\alpha_{rad} = \dfrac{l}{r}
+	\end{equation*}
+}
+
+
+\begin{figure}
+	\begin{center}
+
+	\def\myrad{2cm}
+	\def\myang{60}
+
+	\begin{tikzpicture}
+		% the origin
+		\coordinate (O) at (0,0);
+		% the circle and the dot at the origin
+		\draw (O) node[circle,inner sep=1.5pt,fill] {} circle [radius=\myrad];
+		% the ``\alpha'' arc
+		\draw 
+		(\myrad,0) coordinate (xcoord) -- 
+		node[midway,below] {$r$} (O) -- 
+		(\myang:\myrad) coordinate (slcoord)
+		pic [draw,->,angle radius=1cm,"$\alpha$"] {angle = xcoord--O--slcoord};
+		% the outer ``l'' arc
+		\draw[|-|]
+		(\myrad+10pt,0)
+		arc[start angle=0,end angle=\myang,radius=\myrad+10pt]
+		node[midway,fill=white] {$l$};
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Definizione dell'angolo in radianti}
 \end{figure}
+
+
 
 In realtà, nonostante i radianti semplifichino di molto gli angoli, questa definizione sembra effettivamente molto più complessa dei semplici gradi. Se però si comincia a fare qualche osservazione è facile vedere la bellezza dietro a questa misurazione degli angoli:
 \begin{enumerate}
-    \item La prima osservazione è notare che questa definizione \textbf{non dipende dal raggio} della circonferenza. Proviamo infatti a calcolare angolo giro in radianti:
+    \item La prima osservazione è notare che questa definizione \textbf{non dipende dal raggio} della circonferenza. Proviamo infatti a calcolare l'angolo giro in radianti:
         \begin{equation*}
-            t_{\mathrm{rad}} = \dfrac{l}{r} = \dfrac{2\pi r}{r} = 2\pi
+            \alpha_{\mathrm{rad}} = \dfrac{l}{r} = \dfrac{2\pi r}{r} = 2\pi
         \end{equation*}
         
     \item La seconda osservazione è che un angolo espresso in radianti \textbf{è un numero puro} (cioè non ha unità di misura), in quanto rapporto di due lunghezze.
     
-    \item La terza osservazione si basa sul girare la formula è arrivare a $l = t_\mathrm{rad}\cdot r$. In questo caso è facile vedere che avendo l'angolo e il raggio è possibile determinare la lunghezza dell'arco di circonferenza. Ma in una circonferenza goniometrica (dove per definizione il raggio è 1) \textbf{l'angolo è uguale alla misura dell'arco di circonferenza che intercetta}.
+    \item La terza osservazione si basa sul girare la formula è arrivare a $l = \alpha_\mathrm{rad}\cdot r$. In questo caso è facile vedere che avendo l'angolo e il raggio è possibile determinare la lunghezza dell'arco di circonferenza. Ma in una circonferenza goniometrica (dove per definizione il raggio è 1) \textbf{l'angolo è uguale alla misura dell'arco di circonferenza che intercetta}.
 \end{enumerate}
 È abbastanza immediato ricavare una proporzione per convertire gli angoli da radianti a gradi:
 \begin{equation*}
-    \alpha^\circ : 360^\circ = t : 2\pi
+	\alpha^\circ : 360^\circ = \alpha_{rad} : 2\pi
 \end{equation*}
 
 Riporto di seguito gli angoli più usati sia in gradi che in radianti:
@@ -477,7 +542,7 @@ $360^\circ$                                & $2\pi$
 \end{table}
 
 \subsubsection{Convenzione sul segno degli angoli}
-Esiste una convezione per indicare gli angoli sulla circonferenza goniometrica. Gli angoli si iniziano a contare dalla semiretta positiva dell'asse delle ascisse e se ci muoviamo in senso antiorario gli angoli aumentano, mentre se ci muoviamo in senso orario gli angoli diminuiscono. Questo è importante perché sulla circonferenza goniometrica è possibile rappresentare anche angoli negativi. Per esempio $-\frac{\pi}{4}$ è un angolo ampio $\frac{\pi}{4}$, ma si trova nel quarto quadrante invece che nel primo. Si noti che in realtà andando solo in senso antiorario (e cioè considerando solo angoli positivi) si può ottenere "lo stesso angolo", che in questo caso varrà $\frac{7}{4}\pi$. %FARE MEGLIO E NE CASO AGGIUNGERE FOTO
+Esiste una convezione per indicare gli angoli sulla circonferenza goniometrica. Gli angoli si iniziano a contare dalla semiretta positiva dell'asse delle ascisse e se ci muoviamo in senso antiorario gli angoli aumentano, mentre se ci muoviamo in senso orario gli angoli diminuiscono. Questo è importante perché sulla circonferenza goniometrica è possibile rappresentare anche angoli negativi. Per esempio $-\frac{\pi}{4}$ è un angolo ampio $\frac{\pi}{4}$, ma si trova nel quarto quadrante invece che nel primo. 
 
 \subsubsection{Seno, coseno e tangente}
 Eravamo rimasti a cerca di calcolare le coordinate di un punto P che giace sulla circonferenza goniometrica dato semplicemente l'angolo. È proprio da questo problema quindi che nascono le funzioni goniometriche:
@@ -499,16 +564,50 @@ Grazie quindi alla funzione \textbf{seno} e alla funzione \textbf{coseno} possia
 
 Proviamo a fare alcuni esempi: se volessimo calcolare le coordinate del punto che forma un angolo di $\frac{\pi}{2}$ ci basterebbe calcolare per l'ascissa $\cos{\frac{\pi}{2}} = 0$ e per l'ordinata $\sin{\frac{\pi}{2}} = 1$. Il punto infatti ha coordinate $(0, 1)$.\\
 
-Oltre al seno e al coseno esiste un'ulteriore funzione goniometrica chiamata \textbf{tangente}. La definizione geometrica della tangente richiede l'introduzione di una retta di equazione $x = 1$. Una retta quindi verticale tangente alla circonferenza nel punto $(1, 0)$. Se proviamo ora a prendere un qualsiasi punto su questa retta e ha tracciare un segmento che collega il punto al centro della circonferenza delimitiamo un angolo. La tangente di questo angolo sarà l'ordinata del punto. %AGGIUGERE FOTO
+Oltre al seno e al coseno esiste un'ulteriore funzione goniometrica chiamata \textbf{tangente}. La definizione geometrica della tangente richiede l'introduzione di una retta di equazione $x = 1$. Una retta quindi verticale tangente alla circonferenza nel punto $(1, 0)$. Se proviamo ora a prendere un qualsiasi punto su questa retta e ha tracciare un segmento che collega il punto al centro della circonferenza delimitiamo un angolo. La tangente di questo angolo sarà l'ordinata del punto.
+
+
+
+\begin{figure}
+	\begin{center}
+
+		\begin{tikzpicture}[scale=3]
+
+		\draw (0,0) circle (1cm);
+
+		\begin{scope}
+			\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+			\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+		\end{scope}
+
+		\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:45:3mm);
+			\draw (15:2mm) node {$\alpha$};
+
+		\draw[-] (0,0) -- (1,1); %Raggio
+		\draw[->] (1,0) -- (1,1.5) node[above] {$x = 1$}; %Retta x = 1
+
+		\draw[very thin, fill] (1,1) circle (0.4pt) node[left] {$Q(1, y_q)$}; %Punto
+
+		\draw[<->] (1.1,0.01) -- node[right] {$\tan{\alpha}$} (1.1, 0.99);
+
+
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Definizione tangente}
+\end{figure}
+
+
 
 \dfn{
-    Preso un punto $Q(1, y_q)$ qualsiasi sulla retta $x = 1$ tangente alla circonferenza goniometrica in $(1,0)$, tracciando il segmento che ha come estremi il punto e il centro della circonferenza si trova un angolo $\theta$. La \textit{tangente} di quell'angolo è l'ordinata del punto $Q$:
+    Preso un punto $Q(1, y_q)$ qualsiasi sulla retta $x = 1$ tangente alla circonferenza goniometrica in $(1,0)$, tracciando il segmento che ha come estremi il punto e il centro della circonferenza si trova un angolo $\alpha$. La \textit{tangente} di quell'angolo è l'ordinata del punto $Q$:
     \begin{equation*}
-        \tan{\theta} \vcentcolon = y_q
+        \tan{\alpha} \vcentcolon = y_q
     \end{equation*}
 }
 
-Per lavorare con seno, coseno e tangente è estremamente utile sapere dei valori "notevoli" che riporterò nella seguente tabella:
+%Per lavorare con seno, coseno e tangente è estremamente utile sapere dei valori "notevoli" che riporterò nella seguente tabella: %FARE TABELLA???
+
 
 \subsubsection{Identità fondamentali}
 Esistono due identità fondamentali nella goniometria. La prima si ricava dalla formula stessa della circonferenza goniometrica ($x^2+y^2=1$). Essendo infatti $x = \cos{t}$ e $y = \sin{t}$ possiamo scrivere:
@@ -526,7 +625,7 @@ Per la seconda bisogna fare qualche piccolo traffico geometrico che verrà trala
 
 \subsubsection{Dominio, codominio e immagine}
 Il dominio di seno e coseno è $\mathbb{R}$, il codominio è $[-1, 1]$.\\
-Il dominio della tangente è $D(\tan) = \{x \in \mathbb{R}\; |\; x \neq \frac{\pi}{2} + k\pi\;\; \mathrm{con}\;\; k \in \mathbb{Z}\}$, il codominio è $\mathbb{R}$.
+Il dominio della tangente è $Dom(\tan) = \{x \in \mathbb{R}\; |\; x \neq \frac{\pi}{2} + k\pi\;\; \mathrm{con}\;\; k \in \mathbb{Z}\}$, il codominio è $\mathbb{R}$.
 
 \subsubsection{Periodicità e parità delle funzioni goniometriche}
 
@@ -540,8 +639,6 @@ Il seno, il coseno e la tangente sono funzioni periodiche, cioè riassumono gli 
 Inoltre il seno e la tangente sono funzioni \textbf{dispari} mentre il coseno è una funzione \textbf{pari}.
 
 \subsubsection{Grafici}
-% DA FARE CON UN EDITOR INTEGRATO 
-
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
@@ -632,7 +729,7 @@ Formule di \textbf{duplicazione}:\label{formuleDuplicazione}
 \end{align*}
 Le ultime due formule per la duplicazione del coseno sono ricavate sostituendo a $\cos^2{\alpha} - \sin^2{\alpha}$ la prima identità fondamentale ($\sin^2{x} + \cos^2{x} = 1$). Si noti come la formula di duplicazione del coseno permette di passare \textbf{da un quadrato a una funzione lineare} e viceversa.
 
-Ulteriore formula:
+Ulteriore formule:
 \begin{gather*}
     \sin\left(\frac{\pi}{2}-\alpha\right) = \cos{\alpha}\\
     \cos\left(\frac{\pi}{2}-\alpha\right) = \sin{\alpha}\\
@@ -832,42 +929,44 @@ Arriviamo quindi a definire il caso generale dell'esponenziale: \label{esponenzi
 \end{center}}
 Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \ref{NumeroDiEulero}) e si dice che l'esponenziale in questa base è "naturale" perché ha moltissime proprietà che vedremo in seguito.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
-\begin{tikzpicture}
-\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
-             axis lines=middle, xlabel=$x$, ylabel=$y$,
-             xtick style={draw=none},
-             xticklabels={},
-             ytick={1},
-             yticklabels={$1$},
-             yticklabel style={anchor=north west},
-             width=0.8\linewidth,
-             height=0.5\linewidth
-            ]
-\addplot[domain=-5:5, samples=200]{2^x};
-\end{axis}
-\end{tikzpicture}
-\caption{Grafico di $y= a^x$ con $a > 1$}
-\end{figure}
-
-\begin{figure}[h]
+\begin{subfigure}{0.49\textwidth}
 \centering
-\begin{tikzpicture}
-\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
-             axis lines=middle, xlabel=$x$, ylabel=$y$, xlabel style={anchor=north west},
-             xtick style={draw=none},
-             xticklabels={},
-             ytick={1},
-             yticklabels={$1$},
-             yticklabel style={anchor=south west},
-             width=0.8\linewidth,
-             height=0.5\linewidth
-            ]
-\addplot[domain=-5:5, samples=200]{0.5^x};
-\end{axis}
-\end{tikzpicture}
-\caption{Grafico di $y= b^x$ con $0 < b < 1$}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$,
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		     yticklabel style={anchor=north west},
+		     %width=0.8\linewidth,
+		     %height=0.5\linewidth
+		    ]
+	\addplot[domain=-5:5, samples=200]{2^x};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 5, xmin = -5, ymax = 4, ymin = -0.5,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$, xlabel style={anchor=north west},
+		     xtick style={draw=none},
+		     xticklabels={},
+		     ytick={1},
+		     yticklabels={$1$},
+		     yticklabel style={anchor=south west},
+		     %width=0.8\linewidth,
+		     %height=0.5\linewidth
+		    ]
+	\addplot[domain=-5:5, samples=200]{0.5^x};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+	\caption{Grafico (da sinistra a destra) di $y= a^x$ con $a > 1$ e di $y= b^x$ con $0 < b < 1$} 
+\label{fig:ApproxEsponenziale1}
 \end{figure}
 
 \subsection{Logaritmo}
@@ -889,41 +988,55 @@ Essendo quindi il logaritmo l'inverso dell'esponenziale:
     a^{\log_a(y)} = y \qquad \forall y \in \mathbb{R}_{+}^{*}\\
     \log_a(a^x) = x \qquad \forall x \in \mathbb{R}
 \end{gather*}
+Il logaritmo naturale, cioè in base $e$ si indica come $\ln{x}$.
 
-\begin{figure}[h]
+
+\begin{figure}
 \centering
-\begin{tikzpicture}
-\begin{axis}[xmax = 4, xmin = -0.5, ymax = 4, ymin = -4,
-             axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east},
-             ytick style={draw=none},
-             yticklabels={},
-             xtick={1},
-             xticklabels={$1$},
-             xticklabel style={anchor=north west},
-             width=0.8\linewidth,
-             height=0.5\linewidth
-            ]
-\addplot[samples=800]{ln(x)};
-\end{axis}
-\end{tikzpicture}
-\caption{Grafico di $y= \log_a(x)$ con $ a > 1$}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -0.5, ymax = 4, ymin = -4,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east},
+		     ytick style={draw=none},
+		     yticklabels={},
+		     xtick={1},
+		     xticklabels={$1$},
+		     xticklabel style={anchor=north west},
+		     %width=0.8\linewidth,
+		     %height=0.5\linewidth
+		    ]
+	\addplot[samples=800]{ln(x)};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -0.5, ymax = 4, ymin = -4,
+		     axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east},
+		     ytick style={draw=none},
+		     yticklabels={},
+		     xtick={1},
+		     xticklabels={$1$},
+		     xticklabel style={anchor=north west},
+		     %width=0.8\linewidth,
+		     %height=0.5\linewidth
+		    ]
+	\addplot[samples=800]{ln(x)/ln(0.5)};
+	\end{axis}
+	\end{tikzpicture}
+\end{subfigure}
+	\caption{Grafico (da sinistra a destra) di $y= \log_a(x)$ con $ a > 1$ e di $y= \log_b(x)$ con $0 < b < 1$} 
+\label{fig:ApproxEsponenziale1}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}
-\begin{axis}[xmax = 4, xmin = -0.5, ymax = 4, ymin = -4,
-             axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east},
-             ytick style={draw=none},
-             yticklabels={},
-             xtick={1},
-             xticklabels={$1$},
-             xticklabel style={anchor=north west},
-             width=0.8\linewidth,
-             height=0.5\linewidth
-            ]
-\addplot[samples=800]{ln(x)/ln(0.5)};
-\end{axis}
-\end{tikzpicture}
-\caption{Grafico di $y= \log_b(x)$ con $0 < b < 1$}
-\end{figure}
+Ci sarebbe da discutere sulle proprietà del logaritmo, ma mi limiterò ad elencarle di seguito:
+\imp{
+	\begin{align*}
+		&\log_a(x \cdot y) = \log_a(x) + \log_a (y)\\[5pt]
+		&\log_a \left(\dfrac{x}{y} \right) = \log_a(x) - \log_a (y)\\[5pt]
+		&\log_a \left(x^y \right) = y \cdot \log_a(x)\\[5pt]
+		&\log_a \left(x \right) = \dfrac{\log_b(x)}{\log_b(a)}
+	\end{align*}
+}
