@@ -1,4 +1,4 @@
-\section{Funzioni} \label{funzioni}
+\section{Funzioni} \label{sec_funzioni}
 
 \dfn{
 	Dati due insiemi $A \neq \emptyset$ e $B \neq \emptyset$, una \textbf{funzione} $f$ da $A$ a $B$ 
@@ -181,7 +181,7 @@ oppure in maniera ricorsiva:
 }
 Il fattoriale è solo una notazione introdotta per evitare di scrivere moltiplicazioni ripetute di numeri naturali.
 
-\subsection{Coefficiente binomiale} \label{coefficiente-binomiale}
+\subsection{Coefficiente binomiale} \label{sec_coefficiente-binomiale}
 
 \dfn{
 Dati due numeri $n, m \in \mathbb{N}: m \leq n$ si definisce \textbf{coefficiente binomiale}:
@@ -225,9 +225,9 @@ Questo permette di togliere l'operazione fattoriale dal primo argomento e quindi
 
 
 
-\subsection{Binomio di Newton} \label{BinomioNewton}
+\subsection{Binomio di Newton} \label{sec_binomioNewton}
 Il binomio di Newton è metodo per esprimere lo sviluppo della potenza \textit{n}-esima di un binomio qualsiasi mediante una formula.
-\subsubsection{Sommatoria} \label{sommatoria}
+\subsubsection{Sommatoria} \label{sec_sommatoria}
 Prima però di introdurlo è necessario introdurre una notazione spesso usata in matematica per scrivere in maniera più agevole somme di un certo numero di addendi:
 \dfn{
 La \textbf{sommatoria} si indica con la lettera sigma maiuscola $(\Sigma)$, prevede un indice (generalmente $i$, $j$ o $k$), un espressione algebrica a destra della lettera sigma in cui viene usato l'indice e due valori per l'indice: uno di partenza e l'altro di terminazione, rispettivamente indicati sotto e sopra sigma. La notazione generale diventa quindi:
@@ -249,7 +249,7 @@ Tralasciando momentaneamente i coefficienti è facile notare un certo schema nel
 \begin{equation*}
     (a+b)^n = a^nb^0 + a^{n-1}b^1 + \dots + a^1b^{n-1} + a^0b^n
 \end{equation*}
-Per i coefficienti non faremo la dimostrazione ma sono legati al coefficiente binomiale (Sezione \ref{coefficiente-binomiale}), infatti:
+Per i coefficienti non faremo la dimostrazione ma sono legati al coefficiente binomiale (Sezione \ref{sec_coefficiente-binomiale}), infatti:
 \begin{align*}
     (a+b)^2 &= \binom{2}{2}a^2 + \binom{2}{1}ab + \binom{2}{0}b^2 = \\[2pt]
     &= \dfrac{2!}{(2-2)!2!}a^2 + \dfrac{2!}{(2-1)!1!}ab + \dfrac{2!}{(2-0)!0!}b^2 =\\[5pt]
@@ -260,7 +260,7 @@ Di conseguenza il caso generale diventa:
 \begin{equation*}
     (a+b)^n = \binom{n}{n} a^n b^0 + \binom{n}{n-1} a^{n-1} b^1 + \dots + \binom{n}{1} a^1b^{n-1} + \binom{n}{0} a^0b^n = 
 \end{equation*}
-Introducendo la notazione di sommatoria (\ref{sommatoria}) per semplificare e utilizzando qualche proprietà del coefficiente binomiale (\ref{coefficiente-binomiale}):
+Introducendo la notazione di sommatoria (\ref{sec_sommatoria}) per semplificare e utilizzando qualche proprietà del coefficiente binomiale (\ref{sec_coefficiente-binomiale}):
 \begin{equation*}
     = \sum \limits_{k = 0}^{n} \binom{n}{n-k} a^{n-k}b^k = \sum \limits_{k = 0}^{n} \binom{n}{k} a^{n-k}b^k
 \end{equation*}
@@ -273,7 +273,7 @@ Il \textbf{binomio di Newton} esprime lo sviluppo della potenza \textit{n}-esima
 }
 
 
-\subsection{Radice aritmetica} \label{RadiceAritmetica}
+\subsection{Radice aritmetica} \label{sec_radiceAritmetica}
 \thm{
 La radice di un numero reale positivo esiste sempre ed è unica:
 \begin{equation*}
@@ -392,7 +392,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
 	\begin{equation*}
 		\forall a\in \mathbb{R}_{+}, \exists \oc b\in \mathbb{R}_{+}: b^2 = a
 	\end{equation*}
-	Utilizzando la proprietà di completezza di $\mathbb{R}$ (Sezione: \ref{completezzaR}) definiamo un insieme $A$ tale che:
+	Utilizzando la proprietà di completezza di $\mathbb{R}$ (Sezione: \ref{sec_completezzaR}) definiamo un insieme $A$ tale che:
 	\begin{equation*}
 		A = \{c \in \mathbb{R} | c \geq 0 \land c^2 \leq a\}
 	\end{equation*}
@@ -758,7 +758,7 @@ Dalla prima identità è possibile ricavare una formula per passare dal seno al 
     \sin{x} = \pm \sqrt{1-\cos^2{x}}
 \end{equation*}
 
-Di seguito le formule di \textbf{addizione} e \textbf{sottrazione}: \label{FormuleAddSott}
+Di seguito le formule di \textbf{addizione} e \textbf{sottrazione}: \label{sec_formuleAddSott}
 \begin{gather*}
     \cos(\alpha + \beta) = \cos{\alpha}\cos{\beta} - \sin{\alpha}\sin{\beta}\\
     \cos(\alpha - \beta) = \cos{\alpha}\cos{\beta} + \sin{\alpha}\sin{\beta}\\
@@ -766,7 +766,7 @@ Di seguito le formule di \textbf{addizione} e \textbf{sottrazione}: \label{Formu
     \sin(\alpha - \beta) = \sin{\alpha}\cos{\beta} - \cos{\alpha}\sin{\beta}
 \end{gather*}
 
-Formule di \textbf{duplicazione}:\label{formuleDuplicazione}
+Formule di \textbf{duplicazione}:\label{sec_formuleDuplicazione}
 \begin{align*}
     \sin(2\alpha) &= 2\sin{\alpha}\cos{\alpha}\\
     \cos(2\alpha) &= \cos^2{\alpha} - \sin^2{\alpha} =\\
@@ -922,7 +922,7 @@ I grafici delle funzioni inverse sono i seguenti:
 \end{figure}
 
 \subsection{Esponenziale}
-Come abbiamo ricavato dalla radice aritmetica (sezione \ref{RadiceAritmetica}), siamo in grado di definire l'esponenziale per un qualsiasi esponente razionale positivo. Infatti qualsiasi numero razionale positivo è esprimibile nella forma $q = \frac{m}{n}$ e quindi, sempre per la radice aritmetica:
+Come abbiamo ricavato dalla radice aritmetica (sezione \ref{sec_radiceAritmetica}), siamo in grado di definire l'esponenziale per un qualsiasi esponente razionale positivo. Infatti qualsiasi numero razionale positivo è esprimibile nella forma $q = \frac{m}{n}$ e quindi, sempre per la radice aritmetica:
 \begin{equation*}
     a^q = a^{\frac{m}{n}} = \sqrt[n]{a^m} \qquad \forall q \in \mathbb{Q}_{+}, \forall a \in \mathbb{R}_{+},\; \mathrm{con}\; n,m \in \mathbb{N}\;\, \mathrm{e}\;\, n \neq 0
 \end{equation*}
@@ -934,7 +934,7 @@ Il primo passo per estendere questa definizione è chiederci come possiamo defin
 \begin{equation*}
     a^{-q} = a^{-\frac{m}{n}} = \dfrac{1}{a^{\frac{m}{n}}} = \dfrac{1}{\sqrt[n]{a^m}} \qquad \forall q \in \mathbb{Q}_{+}, \forall a \in \mathbb{R}_{+},\; \mathrm{con}\; n,m \in \mathbb{N}\;\, \mathrm{e}\;\, n \neq 0
 \end{equation*}
-Siamo quindi riusciti a definire l'esponenziale per tutti gli esponenti razionali, sia positivi che negativi. Ora ci manca estendere questa definizione ai numeri reali. Purtroppo per farlo sono necessarie due nozioni non ancora introdotte: quella di successione e quella di limite. Per comprendere quindi a pieno i passaggi successivi è necessario andare prima guardarsi le sezioni relative (cioè la sezione \ref{successioni} per le successioni e la sezione \ref{limiti} per i limiti).\\
+Siamo quindi riusciti a definire l'esponenziale per tutti gli esponenti razionali, sia positivi che negativi. Ora ci manca estendere questa definizione ai numeri reali. Purtroppo per farlo sono necessarie due nozioni non ancora introdotte: quella di successione e quella di limite. Per comprendere quindi a pieno i passaggi successivi è necessario andare prima guardarsi le sezioni relative (cioè la sezione \ref{sec_successioni} per le successioni e la sezione \ref{sec_limiti} per i limiti).\\
 
 La domanda è come facciamo a definire $3^{\sqrt{2}}$ o $5^{\sqrt{27}}$? Cioè come facciamo a definire l'esponenziale per gli esponenti appartenenti all'insieme $\mathbb{R}\setminus\mathbb{Q}$? L'idea è di \textbf{approssimare l'esponente con una successione} di numeri razionali. Se per esempio voglio calcolare $3^{\sqrt{2}}$, ho come esponente $\sqrt{2}$, quindi la successione diventa:
 \begin{align*}
@@ -950,7 +950,7 @@ La domanda è come facciamo a definire $3^{\sqrt{2}}$ o $5^{\sqrt{27}}$? Cioè c
 \begin{equation*}
     3^{\sqrt{2}} \vcentcolon = \lim_{n\to +\infty} 3^{q_n}
 \end{equation*}
-Arriviamo quindi a definire il caso generale dell'esponenziale: \label{esponenziale}
+Arriviamo quindi a definire il caso generale dell'esponenziale: \label{sec_esponenziale}
 \dfn{
     Si definisce \textbf{esponenziale} in base $a$ di $x$ ($\exp_a{x}$) e si indica con $a^x$, $\forall a > 0 \in \mathbb{R}$:
     \begin{enumerate}
@@ -973,7 +973,7 @@ Arriviamo quindi a definire il caso generale dell'esponenziale: \label{esponenzi
 \imp{\begin{center}
     L'esponenziale in \textbf{base naturale} è quello in base $e$
 \end{center}}
-Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \ref{NumeroDiEulero}) e si dice che l'esponenziale in questa base è "naturale" perché ha moltissime proprietà che vedremo in seguito.
+Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \ref{sec_numeroDiEulero}) e si dice che l'esponenziale in questa base è "naturale" perché ha moltissime proprietà che vedremo in seguito.
 
 \begin{figure}
 \centering
@@ -1008,7 +1008,6 @@ Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \
 	\end{tikzpicture}
 \end{subfigure}
 	\caption{Grafico (da sinistra a destra) di $y= a^x$ con $a > 1$ e di $y= b^x$ con $0 < b < 1$} 
-\label{fig:ApproxEsponenziale1}
 \end{figure}
 
 \subsection{Logaritmo}
@@ -1066,7 +1065,6 @@ Il logaritmo naturale, cioè in base $e$ si indica come $\ln{x}$.
 	\end{tikzpicture}
 \end{subfigure}
 	\caption{Grafico (da sinistra a destra) di $y= \log_a(x)$ con $ a > 1$ e di $y= \log_b(x)$ con $0 < b < 1$} 
-\label{fig:ApproxEsponenziale1}
 \end{figure}
 
 Ci sarebbe da discutere sulle proprietà del logaritmo, ma mi limiterò ad elencarle di seguito:
