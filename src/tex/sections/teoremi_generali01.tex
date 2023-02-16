@@ -62,12 +62,12 @@ Un paio di osservazioni utili sul teorema:
             1   \qquad \;\;\;(2 < x \leq 4)
         \end{cases*}
     \end{equation*}
-    Quest'ultima rispetta tutte le specifiche del teorema ($f(0) \cdot f(4) < 0$) tranne la continuità (non è infatti continua in $x = 2$). Se si osserva il grafico (Figura: \ref{Figura_TeoraZeri}) si nota subito che questa funzione non ammette nessun punto in cui si annulla come vorrebbe il teorema degli zeri.
+    Quest'ultima rispetta tutte le specifiche del teorema ($f(0) \cdot f(4) < 0$) tranne la continuità (non è infatti continua in $x = 2$). Se si osserva il grafico (Figura: \ref{fig_teoraZeri}) si nota subito che questa funzione non ammette nessun punto in cui si annulla come vorrebbe il teorema degli zeri.
     \begin{figure}[h]
         \centering
         \includegraphics[width=300px]{../img/TeoremaZeriFunzioneNonContinua.png}
         \caption{Funzione definita a tratti per far vedere che la continuità nel teorema degli zeri è una condizione necessaria}
-        \label{Figura_TeoraZeri}
+        \label{fig_teoraZeri}
     \end{figure}
 
     \item La seconda osservazione riguarda la quantità di punti in cui si può annullare la funzione. Come si legge dal teorema, il punto $c$ è garantito che esista ($\exists$) ma nessuno garantisce che è unico. Ci possono essere infatti un numero arbitrario di punti in cui la funzione si annulla, basti pensare al grafico delle funzioni goniometriche $\sin(x)$ e $\cos(x)$.
@@ -208,7 +208,7 @@ Tutti i polinomi di grado dispari assumono \textbf{tutti i valori reali}. Questo
 }
 
 \subsection{Teorema di Weierstrass} % Di questo teorema ho due formulazioni perché la seconda si basa sulla prima e sul teorema degli zeri. Non so se sono effettivamente imporanti entrambe, però sono leggermente diverse tra loro (la sconda è più generale) e quindi ho deciso di scriverle entrambe.
-\label{TeoremaWeierstrass}
+\label{theorem_weierstrass}
 \dfn {
 $f:A \to \mathbb{R}$
 \begin{enumerate}
@@ -241,7 +241,7 @@ E quindi:
 \end{equation*}
 Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$.
 }
-È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{WeierstrassIntervalloAperto},  \ref{WeierstrassIntervalloIllimitato} e \ref{WeierstrassNonContinuo})
+È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{fig_weierstrassIntervalloAperto},  \ref{fig_weierstrassIntervalloIllimitato} e \ref{fig_weierstrassNonContinuo})
 
 \begin{figure}[h]
 \centering
@@ -262,7 +262,7 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 \end{axis}
 \end{tikzpicture}
   \caption{Intervallo aperto $]0,1]$}
-  \label{WeierstrassIntervalloAperto}
+  \label{fig_weierstrassIntervalloAperto}
 \end{figure}
 
 
@@ -288,7 +288,7 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 \end{tikzpicture}
 
   \caption{Intervallo illimitato $[1,+\infty[$}
-  \label{WeierstrassIntervalloIllimitato}
+  \label{fig_weierstrassIntervalloIllimitato}
 \end{subfigure}
 \begin{subfigure}{0.49\textwidth}
 \centering
@@ -320,7 +320,7 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 \end{tikzpicture}
 
   \caption{Funzione non continua} 
-  \label{WeierstrassNonContinuo}
+  \label{fig_weierstrassNonContinuo}
 \end{subfigure}
 \caption{Altri due esempi per il teorema di Weierstrass}
 \end{figure}

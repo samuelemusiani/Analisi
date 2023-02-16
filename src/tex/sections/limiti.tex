@@ -1,4 +1,4 @@
-\section{Limiti} \label{limiti}
+\section{Limiti} \label{sec_limiti}
 Prendiamo una successione abbastanza semplice da definire, tipo:
 \begin{equation*}
     a_n = \frac{n-1}{n}
@@ -16,7 +16,7 @@ Cominciamo ora ad elencare i suoi termi e calcolariamo i suoi valori:
 \end{align*}
 È facile notare che più $n$ diventa grande più il valore della successione \textit{tende} a $1$. Come si formalizza questa cosa? Con il concetto di limite.
 
-\subsection{Limite di una successione} \label{lim_successioni}
+\subsection{Limite di una successione} \label{sec_lim_successioni}
 \dfn{
     Data una successione $(a)_n$, e un numero $L \in \mathbb{R}$, si dice che $(a)_n$ è \textbf{convergente} e si indica:
     \begin{equation*}
@@ -66,7 +66,7 @@ La successione è limitata in quanto i suoi valori sono $-1 e 1$, eppure non ha 
 \end{gather*}
 La successione in quanto caso non è limitata e non ha un limite in quanto "salta" tra valori positivi e valori negativi.
 
-\subsection{Numero di Eulero (o Nepero)} \label{NumeroDiEulero}
+\subsection{Numero di Eulero (o Nepero)} \label{sec_numeroDiEulero}
 Prendiamo in considerazione la serie
 \begin{equation*}
     a_n = \left(1+\dfrac{1}{n} \right)^n
@@ -121,7 +121,7 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 Facciamo ora la dimsotrazione riguardante il numero di Eulero:
 
 \pf{
-Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corollario_successioni}.
+Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corol_successioni}.
 \begin{enumerate}
     \item Dimostriamo che $(a_n)$ è (strettamente) crescente:
        Per dimostrare che $(a_n)_n \nearrow$ ci basta dimostrare che:
@@ -181,7 +181,7 @@ Per dimostrare che una successione è convergente ci basta dimostrare che è (st
     \begin{equation*}
         a_n = \left(1+\dfrac{1}{n}\right)^{n} < 3 \qquad \forall n \in \mathbb{N}
     \end{equation*}
-    Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corollario_successioni}:
+    Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corol_successioni}:
     \begin{equation*}
         \exists \lim_{x\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
     \end{equation*}
@@ -355,7 +355,7 @@ Non essendo presenti tutti i casi nell'algebra dei limiti nascono quelle che ven
 \textbf{NOTA}: Le espressioni che contengono i simboli $+\infty$ e $-\infty$ sono solo \textbf{espressioni formali}, non hanno alcun valore matematico!
 
 \subsection{Teoremi dei limiti}
-\thm{ \label{TeoremaPermanenzaSegno}
+\thm{ \label{theorem_permanenzaSegno}
 Teorema di \textbf{permanenza del segno}. Data $f: A \to \mathbb{R}$, $x_0 \in \mathcal{D}(A)$ e
 \begin{equation*}
     \lim_{x \to x_0} f(x) = l \in \mathbb{R} \;\; \land \;\; l > 0
@@ -367,7 +367,7 @@ Allora:
 Vale anche nel caso di $l < 0$.
 }
 
-\thm{\label{TeoremaConfronto}
+\thm{\label{theorem_confronto}
 Teorema del \textbf{confronto}. $f, g, h: A \to \mathbb{R}$, $x_0 \in \mathcal{D}(A)$ e 
 \begin{equation*}
     \lim_{x \to x_0} g(x) = \lim_{x \to x_0} h(x) = l \in \mathbb{R}
@@ -413,7 +413,7 @@ Teorema del \textbf{confronto}. $f, g, h: A \to \mathbb{R}$, $x_0 \in \mathcal{D
 	\end{enumerate}
 }
 
-\subsection{Limiti Notevoli} \label{LimitiNotevoli}
+\subsection{Limiti Notevoli} \label{sec_limitiNotevoli}
 I limiti notevoli sono particolari limiti che nonostante siano una forma indeterminata, il loro valore è conosciuto. In realtà molti limiti con forme indeterminate hanno un valore conosciuto perché attraverso tecniche e metodi di calcolo si riesce a ricavare. La differenza con i limiti notevoli però è che questi ultimi sono estremamente fondamentali per molte dimostrazioni e per molti esercizi. Inoltre comprendono solo funzioni elementari e vengono dimostrati una volta per tutte e poi vengono dati per buoni nel calcolo dei limiti.\\
 Il limite notevole più famoso e sicuramente più importante è:
 \imp{
@@ -488,7 +488,7 @@ Ed essendo il valore assoluto sempre maggiore o uguale a zero:
 \begin{equation*}
     0 \leq \left | \sin{x} \right | < \left | x \right |
 \end{equation*}
-Dal teorema del confronto (Sezione: \ref{TeoremaConfronto}) si ha che:
+Dal teorema del confronto (Sezione: \ref{theorem_confronto}) si ha che:
 \begin{equation*}
     \lim _{x \to 0} \left | \sin{x} \right | = 0
 \end{equation*}
@@ -503,7 +503,7 @@ Dobbiamo dimostrare:
 \begin{equation*}
     \lim_{x \to 0} \cos{x} = 1
 \end{equation*}
-Facciamo qualche trasformazione algebrica e usiamo la duplicazione del coseno (Sezione: \ref{formuleDuplicazione}):
+Facciamo qualche trasformazione algebrica e usiamo la duplicazione del coseno (Sezione: \ref{sec_formuleDuplicazione}):
 \begin{equation*}
     \cos{x} = \cos \left ( 2 \cdot \dfrac{x}{2} \right ) = 1 - 2\sin^2 \left(\dfrac{x}{2} \right)
 \end{equation*}
@@ -627,7 +627,7 @@ Questo vuol dire che la relazione scritta sopra vale anche per l'intervallo nega
 \begin{equation*}
     1 \geq \dfrac{\sin{x}}{x} \geq \cos{x} \qquad \left( 0 < |x| < \dfrac{\pi}{2} \right)
 \end{equation*}
-Per il lemma dimostrato precedentemente che prova che $\lim_{x \to 0} \cos{x} = 1$ e il teorema del confronto (Sezione: \ref{TeoremaConfronto}):
+Per il lemma dimostrato precedentemente che prova che $\lim_{x \to 0} \cos{x} = 1$ e il teorema del confronto (Sezione: \ref{theorem_confronto}):
 \begin{equation*}
     \lim_{x \to 0} = \dfrac{\sin{x}}{x} = 1
 \end{equation*}
@@ -782,7 +782,7 @@ $x = k$ è un \textbf{asintoto verticale} per $f(x)$ se
     \lim_{x\to k^{+}} f(x) = \pm \infty \qquad \text{oppure} \qquad \lim_{x\to k^{-}} f(x) = \pm \infty
 \end{equation*}
 }
-Ne cosegue che graficamente l'asinto verticale si verifca quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{AsintotVer}):
+Ne cosegue che graficamente l'asinto verticale si verifca quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{fig_asintotVer}):
 
 \begin{figure}[h]
 \begin{center}
@@ -801,7 +801,7 @@ Ne cosegue che graficamente l'asinto verticale si verifca quando la funzione sot
 
 \end{center}
 	\caption{Asinto veritcale}
-	\label{AsintotVer}
+	\label{fig_asintotVer}
 \end{figure}
 
 
@@ -830,7 +830,6 @@ Vale ovviamente anche il caso a $-\infty$. Nella stessa funzione ci possono esse
 
 \end{center}
 	\caption{Asinto orizzontale}
-	\label{AsintotOrizz}
 \end{figure}
 
 \subsection{Limiti di funzioni elementari}
@@ -909,7 +908,7 @@ Di seguito un elenco di limiti delle funzioni elementari. Alcuni sono abbastanza
 
 %NE MANCA QUALCUNA?
 
-\subsection{Confronto di infiniti} \label{sec:GerarchiaInfiniti}
+\subsection{Confronto di infiniti} \label{sec_gerarchiaInfiniti}
 
 Se si hanno due funzioni che vanno a $+\infty$ si possono confrontare. Il confronto ci permette di determinare qualche delle due funzioni "\textit{va a infinito più velocemente}". Si riesce quindi a stilare una sorta di "gerarchia" degli infiniti dove alcuni tendono a $+\infty$ più velocemente di altri. Questo è molto utile negli esercizi e soprattutto in analisi della complessità computazionale.\\
 
@@ -922,7 +921,7 @@ Date quindi due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$ se:
         l \neq 0 \qquad \; \text{$f$ e $g$ sono infinitesimi dello stesso ordine}
     \end{cases*}
 \end{equation*}
-Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim:GerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di ripotare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
+Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim_gerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di ripotare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
 \begin{enumerate}
 	\item $\log_a^m (x)$ con $a > 1$ e $m \in \mathbb{N}$
 	\item $p(x)$
