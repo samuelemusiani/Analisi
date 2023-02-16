@@ -101,7 +101,6 @@ Ne consegue che la nostra retta ha equazione:
 	y = 9x - 6
 \end{equation*}
 
-%RIFLETTERE SUL LIMITE E FARE UN ESEMPIO (?)
 
 \textbf{Derivata come misura del cambiamento:} Un altro modo di vedere la derivata è come \textit{misura del cambiamento}. Successivamente introdurremo un teorema che esplicita meglio questo concetto, ma per ora limitiamoci ad introdurlo informalmente. Come abbiamo appena visto la derivata è \textit{il coefficiente angolare della retta tangente una curva in un punto}. Se osserviamo le figure \ref{Tangente12} e \ref{Tangente3} si può vedere come il coefficiente sia proporzionalmente più grande in base a quanto sta crescendo (o diminuendo per coefficienti negativi) la funzione. In pratica la derivata in questo caso sta risponendo alla domanda \textbf{quanto sta cambiando la funzione in quel punto?} 
 
@@ -226,7 +225,7 @@ L'idea è la stessa dei limiti:
 }
 In questo ultimo caso, ad $f$ si può associare una nuova funzione: la sua derivata. In pratica la nuova funzione assume i valori della derivata di $f$ per ogni punto in cui è definita. Si indica generalmente con la notazione classica $f'(x)$.\\
 
-\textbf{Alcuni esempi:} Di seguito riporto qualche esempio molto semplice di calcolo della derivata tramita la sua definzione. In realtà raramente si usa questa definzione nei calcoli effettivi, ma piuttosto si ricavano prima le derivate delle funzioni elementari e applicando qualche regola si riesce a derivare senza calcolare limiti. È bello però far vedere comunque la definzione e la sua potenza in quanto tutto quello che verrà dopo sarà comunque frutto di questo. %% NON mi piace la formulazione
+\textbf{Alcuni esempi:} Di seguito riporto qualche esempio molto semplice di calcolo della derivata tramita la sua definzione. In realtà raramente si usa questa approccio nei calcoli effettivi, ma piuttosto si ricavano prima le derivate delle funzioni elementari e applicando qualche regola si riesce a derivare qualsiasi funzione senza calcolare limiti. È bello però far vedere comunque la definzione e la sua potenza in quanto tutto quello che verrà dopo sarà comunque frutto di questo.
 
 Proviamo a derivare $f(x) = x$:
 \begin{equation*}
@@ -247,7 +246,7 @@ Proviamo a derivare una funzione leggermente più complessa: $h(x) = x^2$ :
 	&\lim_{h \to 0} \dfrac{2xh + h^2}{h} = \lim_{h \to 0} 2x + h =  2x
 \end{align*}
 
-La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto che il grafico di $x^2$ cambia sempre di più all'aumentare di $x$. Se infatti si guarda la classica forma di una parabola di può facilmente notare che più aumenta $x$, più il grafico \textit{acquista pendenza}. % FORSE VA RIFORMULATO :)
+La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto che il grafico di $x^2$ cambia sempre di più all'aumentare di $x$. Se infatti si guarda la classica forma di una parabola si può facilmente notare che più aumenta $x$, più il grafico \textit{acquista pendenza}.
 
 
 
@@ -488,10 +487,8 @@ In questo caso abbiamo trovato la derivata di $x^n$ ma solo per $n \in \mathbb{N
 	\end{enumerate}
 	
 }
-% IN CODA VANNO LE DIMOSTRAZIONI 
 
-
-\subsection{Derivare un valore assoluto} % DA FARE
+\subsection{Derivare un valore assoluto}
 Proviamo a derivare il valore assoluto di $x$:
 \begin{equation*}
     f(x) = |x| =
@@ -605,8 +602,6 @@ Un esempio di funzione derivabile $k$ volte:
 	h(x) = x^k |x|  
 \end{equation*}
 Infatti $h \in C^k (\mathbb{R})$ ma $h \not \in C^{k+1} (\mathbb{R})$.
-
-%Li faccio come subsubsection i teoremi? Oppure gli dedico delle subsection per ognuno?
 
 \subsection{Teoremi}
 
@@ -942,7 +937,7 @@ Un esempio grafico di questo teorema è quello riportato in figura \ref{fig:Teor
 \begin{equation*}
 	\dfrac{f(b)-f(a)}{b-a}
 \end{equation*}
-può essere considerato come la pedenza media del percorso (che in questo caso è la funzione) tra il punto $a$ e il punto $b$. Esiste quindi, per questo teorema, un ulteriore punto in cui la tangente sarà esattamente come questa pendenza media. %Fare meglio? Non mi piace tantissimo :(
+può essere considerato come la pedenza media del percorso (che in questo caso è la funzione) tra il punto $a$ e il punto $b$. Esiste quindi, per questo teorema, un ulteriore punto in cui la tangente sarà esattamente come questa pendenza media. 
 
 \begin{figure}[h]
 \centering
@@ -1364,7 +1359,7 @@ Alcune considerazioni importanti da fare:
 		\end{equation*}
 		Che però è in contrasto con la seconda ipotesi del teorema.
 
-	\item È estremamente importanete da direzione dell'implicazione: se esiste il limite del rapporto delle derivate allora esiste il limite del rapporto delle funzioni ed è uguale al limite del rapporto delle derivate. Se però il limite delle derivate non esiste, il teorema non si può applicare, ma nessuno ci dice il limite in se non esiste. Non vale quindi il contrario. Se esiste il limite di un rapporto di funzioni non è detto che esista il limite del rapporto delle derivate. %Fare meglio??
+	\item È estremamente importanete la direzione dell'implicazione: se esiste il limite del rapporto delle derivate allora esiste il limite del rapporto delle funzioni ed è uguale al limite del rapporto delle derivate. Se però il limite delle derivate non esiste, il teorema non si può applicare. Nessuno però ci dice il limite in se non esiste. Non vale quindi il contrario. Se esiste il limite di un rapporto di funzioni non è detto che esista il limite del rapporto delle derivate.
 
 		Consideriamo le funzioni:
 		\begin{align*}
@@ -1547,7 +1542,7 @@ Dimostriamo ora il teorema:
 }
 Dei seguenti teoremi non vi è la dimostrazione:
 
-\thm{ %La formulazione cambia partecchio rispetto al primo caso. Cosa faccio? Le tengo così diverse?
+\thm{ 
 	\textbf{Caso 2 limite al finito}: Prese due funzioni $f, g:]a,b[ \to \mathbb{R}$ derivabili:
 	\begin{enumerate}
 		\item
