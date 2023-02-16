@@ -77,7 +77,7 @@ Un paio di osservazioni utili sul teorema:
 \pf{
   Questa dimostrazione a differenza delle altre è di tipo \textit{costruttivo}, cioè oltre a dimostrare il teorema fornisce un algoritmo di calcolo per trovare il punto $c$.\\
 
-  Assumiamo $f(a) < 0$ e $f(b) > 0$. %Seguiamo una procedura iterativa che ci permetterà di costruire due successioni: $(a_n)_n$ e $(b_n)_n$ dove $a_1 = a$, $b_1 = b$, $\forall n, f(a_n) < 0$ e $\forall n, f(b_n) > 0$. 
+  Assumiamo $f(a) < 0$ e $f(b) > 0$. 
   L'idea dietro questa dimostrazione è appunto trovare un algoritmo di calcolo che permetta di determinare il punto $c$. Avendo un punto $a$ in cui la funzione è \textbf{negativa} e un punto $b$ in cui la funzione è \textbf{positiva} ci deve essere un punto che giace tra $a$ e $b$ in cui la funzione si annulla. Per trovarlo andiamo a "tentativi" dividendo l'intervallo a metà con la formula:
   \begin{equation*}
     \dfrac{a+b}{2}
@@ -188,8 +188,6 @@ Un paio di osservazioni utili sul teorema:
 
 \subsection{Radici di un polinomio di grado dispari}
 
-%AGGIUNGERE DIMOSRAZIONE 
-
 \thm{
 Ogni polinomio di grado dispari ha almeno un radice reale.
 }
@@ -245,7 +243,6 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 }
 È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{WeierstrassIntervalloAperto},  \ref{WeierstrassIntervalloIllimitato} e \ref{WeierstrassNonContinuo})
 
-% Questi grafici sono completamente sparsi tra le pagine. Si può fare qualcosa per evitarlo?
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
@@ -268,17 +265,20 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
   \label{WeierstrassIntervalloAperto}
 \end{figure}
 
-\begin{figure}[h]
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[xmax = 10, xmin = -0.5, ymax = 1.5, ymin = -0.5,
+\begin{axis}[xmax = 10, xmin = -0.5, ymax = 2, ymin = -0.5,
              axis lines=middle, xlabel=$x$, ylabel=$y$,
              xtick={2, 4, 6, 8},
-             ytick={0.5, 1},
+             ytick={0.5, 1, 1.5},
              xlabel style={anchor=north east},
              xticklabel style={anchor=north},
              yticklabel style={anchor=east},
-             width=0.6\linewidth,
             ]
 \addplot[domain=1:10, samples=200]{1/x};
 \addplot [only marks] table {
@@ -286,11 +286,11 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 };
 \end{axis}
 \end{tikzpicture}
+
   \caption{Intervallo illimitato $[1,+\infty[$}
   \label{WeierstrassIntervalloIllimitato}
-\end{figure}
-
-\begin{figure}[h]
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[xmax = 8, xmin = -0.5, ymax = 2, ymin = -0.5,
@@ -300,7 +300,6 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
              xlabel style={anchor=north east},
              xticklabel style={anchor=north},
              yticklabel style={anchor=east},
-             width=0.6\linewidth,
             ]
 \addplot[domain=1:2, samples=200]{-0.5 * x + 1.5};
 \addplot[domain=2:4, samples=200]{0.4 * x + 0.2};
@@ -319,10 +318,12 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 };
 \end{axis}
 \end{tikzpicture}
+
   \caption{Funzione non continua} 
   \label{WeierstrassNonContinuo}
+\end{subfigure}
+\caption{Altri due esempi per il teorema di Weierstrass}
 \end{figure}
-
 
 \subsubsection{Formulazione 2} 
 La seconda formulazione di questo teorema è più generale rispetto alla prima e utilizza il teorema degli zeri in combinazione con la prima formulazione di questo terorema.
@@ -344,8 +345,30 @@ e vale che l'immagine di $f$ nell'intervallo $[a,b]$ corrisponde esattamente a $
 
 \pf{
 	\begin{center}
-		\includegraphics[width=250px]{../img/WeierstrassCostruzione.png}
+		\begin{tikzpicture}[scale=2]
+
+		\begin{scope}
+			\draw[->] (-0.5,0) -- (3,0) node[right] {$x$};
+			\draw[->] (0,-0.5) -- (0,3) node[above] {$y$};
+		\end{scope}
+
+			\draw[-] (0,1) -- (1,1);
+			\draw[-] (1,0) -- (1,1);
+			\draw[-] (0,2) -- (2.5,2);
+			\draw[-] (0,1.3) -- (2.5,1.3);
+			\draw[-] (2.5,0) -- (2.5,2);
+
+		\draw[very thin, fill] (1,0) circle (0.4pt) node[right, yshift=6pt] {$x_1$}; %Punto
+		\draw[very thin, fill] (2.5,0) circle (0.4pt) node[right, yshift=6pt] {$x_2$}; %Punto
+		\draw[very thin, fill] (0,1) circle (0.4pt) node[left, yshift=5pt] {$m$}; %Punto
+		\draw[very thin, fill] (0,1.3) circle (0.4pt) node[left, yshift=5pt] {$y$}; %Punto
+		\draw[very thin, fill] (0,2) circle (0.4pt) node[left, yshift=5pt] {$M$}; %Punto
+
+	\end{tikzpicture}
+
 	\end{center}
+
+
 	%Chi mi assicura l'esistenza di questi due punti? Il teorema prima?
 
 	\begin{equation*}
