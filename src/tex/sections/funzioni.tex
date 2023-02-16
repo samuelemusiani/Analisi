@@ -28,7 +28,6 @@ Una funzione può essere anche chiamata \textit{corrispondenza} oppure \textit{m
     \item Una \textbf{legge di associazione}
 \end{enumerate}
 
-%AGGIUNGERE IMMAGINI DI FUNZIONI
 
 Affinché due funzioni siano uguali, il dominio, il codomionio e la legge di associazione devono corrispondere. In altri termini date due funzioni $f: A \to B$ e $g: A' \to B'$, le funzioni risultano uguali se e solo se:
 
@@ -453,11 +452,30 @@ Si ricava con lo stesso procedimento che:
 \subsection{Funzioni goniometriche}
 \subsubsection{Introduzione}
 L'idea alla base goniometria nasce da quella che viene chiama \textbf{circonferenza goniometrica}. Questa circonferenza non ha nulla di speciale se non avere il \textit{centro nell'origine} degli assi cartesiani e avere \textit{raggio 1}. In particolare il suo grafico sarà:
-\begin{figure}[H] %DA CAMBIARE
-    \centering
-    \includegraphics[width=0.3\linewidth]{../img/unitCircle.jpg}
-    \caption{Circonferenza goniometrica}
+\begin{figure}[H]
+	\begin{center}
+
+		\begin{tikzpicture}[scale=2]
+
+		\draw (0,0) circle (1cm);
+
+		\begin{scope}
+			\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+			\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+		\end{scope}
+
+		\draw[very thin, fill] (1,0) circle (0.4pt) node[right, yshift=10pt] {$(1, 0)$}; %Punto
+		\draw[very thin, fill] (0,1) circle (0.4pt) node[right, yshift=10pt] {$(0, 1)$}; %Punto
+		\draw[very thin, fill] (0,-1) circle (0.4pt) node[right, yshift=-10pt] {$(0, -1)$}; %Punto
+		\draw[very thin, fill] (-1,0) circle (0.4pt) node[left, yshift=10pt] {$(-1, 0)$}; %Punto
+
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Circonferenza goniometrica}
 \end{figure}
+
+
 
 E l'equazione associata sarà:
 \begin{equation*}
@@ -547,18 +565,46 @@ Esiste una convezione per indicare gli angoli sulla circonferenza goniometrica. 
 \subsubsection{Seno, coseno e tangente}
 Eravamo rimasti a cerca di calcolare le coordinate di un punto P che giace sulla circonferenza goniometrica dato semplicemente l'angolo. È proprio da questo problema quindi che nascono le funzioni goniometriche:
 \dfn{
-Dato un angolo $t$ formato da un raggio sulla circonferenza goniometrica e indicato con $P(x_p, y_p)$ l'estremo del raggio che non è il centro della circonferenza, definiamo:
+Dato un angolo $\alpha$ formato da un raggio sulla circonferenza goniometrica e indicato con $P(x_p, y_p)$ l'estremo del raggio che non è il centro della circonferenza, definiamo:
 \begin{gather*}
-    \sin{t} \vcentcolon = y_p\\
-    \cos{t} \vcentcolon = x_p
+    \sin{\alpha} \vcentcolon = y_p\\
+    \cos{\alpha} \vcentcolon = x_p
 \end{gather*}
 }
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.3\linewidth]{../img/unitCircle1.png}
-    \caption{Circonferenza goniometrica con seno e coseno}
+	\begin{center}
+
+
+		\def\tmpval{0.7071067812}
+
+		\begin{tikzpicture}[scale=3]
+
+		\draw (0,0) circle (1cm);
+
+		\begin{scope}
+			\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+			\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+		\end{scope}
+
+		\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:45:3mm);
+			\draw (15:2mm) node {$\alpha$};
+
+		\draw[-] (0,0) -- (\tmpval,\tmpval);
+			\draw[->] (\tmpval,0) -- (\tmpval,\tmpval);
+
+			\draw[very thin, fill] (\tmpval,\tmpval) circle (0.4pt) node[right, yshift=5pt] {$P(\cos{\alpha}, \sin{\alpha})$}; %Punto
+		\draw[very thin, fill] (0,0) circle (0.4pt);
+		\draw[very thin, fill] (\tmpval,0) circle (0.4pt);
+
+
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Definizione tangente}
 \end{figure}
+
+
 
 Grazie quindi alla funzione \textbf{seno} e alla funzione \textbf{coseno} possiamo calcolare le coordinate di qualsiasi punto sulla circonferenza goniometrica sapendo semplicemente l'angolo che il punto forma con la semiretta positiva dell'asse delle ascisse.\\
 
@@ -586,7 +632,7 @@ Oltre al seno e al coseno esiste un'ulteriore funzione goniometrica chiamata \te
 		\draw[-] (0,0) -- (1,1); %Raggio
 		\draw[->] (1,0) -- (1,1.5) node[above] {$x = 1$}; %Retta x = 1
 
-		\draw[very thin, fill] (1,1) circle (0.4pt) node[left] {$Q(1, y_q)$}; %Punto
+		\draw[very thin, fill] (1,1) circle (0.4pt) node[left, yshift=5pt] {$Q(1, y_q)$}; %Punto
 
 		\draw[<->] (1.1,0.01) -- node[right] {$\tan{\alpha}$} (1.1, 0.99);
 
@@ -941,8 +987,6 @@ Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \
 		     ytick={1},
 		     yticklabels={$1$},
 		     yticklabel style={anchor=north west},
-		     %width=0.8\linewidth,
-		     %height=0.5\linewidth
 		    ]
 	\addplot[domain=-5:5, samples=200]{2^x};
 	\end{axis}
@@ -958,8 +1002,6 @@ Il numero $e$ è descritto nella sezione relativa al numero di Eulero (Sezione \
 		     ytick={1},
 		     yticklabels={$1$},
 		     yticklabel style={anchor=south west},
-		     %width=0.8\linewidth,
-		     %height=0.5\linewidth
 		    ]
 	\addplot[domain=-5:5, samples=200]{0.5^x};
 	\end{axis}
@@ -1003,8 +1045,6 @@ Il logaritmo naturale, cioè in base $e$ si indica come $\ln{x}$.
 		     xtick={1},
 		     xticklabels={$1$},
 		     xticklabel style={anchor=north west},
-		     %width=0.8\linewidth,
-		     %height=0.5\linewidth
 		    ]
 	\addplot[samples=800]{ln(x)};
 	\end{axis}
@@ -1020,8 +1060,6 @@ Il logaritmo naturale, cioè in base $e$ si indica come $\ln{x}$.
 		     xtick={1},
 		     xticklabels={$1$},
 		     xticklabel style={anchor=north west},
-		     %width=0.8\linewidth,
-		     %height=0.5\linewidth
 		    ]
 	\addplot[samples=800]{ln(x)/ln(0.5)};
 	\end{axis}
