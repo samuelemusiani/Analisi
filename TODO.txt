@@ -4,26 +4,16 @@ DA RICOPIARE:
   Analisi_pt3: In fondo c'è una considerazione sui punti di minimo e massimo relativi. La aggiungo?
 
 
-- Introduzione agli appunti:
-    - Spiegare perché li ho fatti e a cosa servono. Come vanno letti.
-    - NON FARLA TROPPO LUNGA!! :)
-
-    - Aggiungere contatti (mail, telegram e git) per segnalare errori
-    - Se si vuole contribuire si può (git)
-
 - LIMITI:
   - Spiegare un po' meglio \epslin e \delta nella def. di limite:
     soprattutto i casi limite dx e sx non sono spiegati. Per rendere l'idea almeno un accenno
     andrebb fatto. Sarebbero in Analisi_pt2 all'inizio. Se avrò tempo alla fine ci ritorno.
 
-
 - Agginge una parte sullo studio di funzione? Cioè punti di massimo, minimo, flesso, ecc.?
 
 - GENERALE
-  - Le dimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGEREEEE!! :((
-
-  - La data all'inzio del file la metterei alla fine del corso. Aggiungerei una secona data che comprende l'ultima modifica.
-
   - Modificare le label in modo che ogni nome inzi con il tipo. Es le figure iniziano con "fig:", le sezioni con "sec:". (non so se i : piacciono a latex)
 
   - Il compilatore di LaTeX da alcuni errori (?), soprattutto sulle \label e \ref
+
+
