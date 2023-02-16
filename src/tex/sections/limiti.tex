@@ -67,28 +67,64 @@ La successione è limitata in quanto i suoi valori sono $-1 e 1$, eppure non ha 
 La successione in quanto caso non è limitata e non ha un limite in quanto "salta" tra valori positivi e valori negativi.
 
 \subsection{Numero di Eulero (o Nepero)} \label{NumeroDiEulero}
-%DA FARE MOLTO MEGLIO
 Prendiamo in considerazione la serie
 \begin{equation*}
-    a_n = (1+\dfrac{1}{n})^n
+    a_n = \left(1+\dfrac{1}{n} \right)^n
 \end{equation*}
 Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \textbf{\textit{e}}. Quindi:
 \begin{equation*}
-    \lim_{x\to +\infty} (1+\dfrac{1}{n})^n = e \in \mathbb{R}
+    \lim_{x\to +\infty} \left(1+\dfrac{1}{n}\right)^n = e \in \mathbb{R}
 \end{equation*}
+
+\mlem{
+	È necessario, per questa dimostrazione, introdurre la \textit{disuguaglianza di Bernulli}. 
+	\begin{equation*}
+		\forall x \in \mathbb{R} : x \geq -1, \forall n \in \mathbb{N}: (1+x)^n \geq 1 + nx
+	\end{equation*}
+}
+\pf{
+	Proviamo la disuguaglianza di Bernulli per induzione. 
+	\begin{enumerate}
+		\item Caso $n = 1$:
+			\begin{align*}
+				(1+x)^1 &\geq 1 + 1 \cdot x\\[5pt]
+				1 + x &\geq 1 + x
+			\end{align*}
+
+		\item Caso $n+1$:
+			Ipotesi induttiva sappio che vale $(1+x)^n \geq 1 + nx$.
+			Dimostriamo che:
+			\begin{align*}
+				(1+x)^{n+1} \geq 1 + (n+1)x
+			\end{align*}
+			Considerando solo la parte destra:
+			\begin{align*}
+				(1+x)^{n+1} = (1+x)^n \cdot (1+x)
+			\end{align*}
+			Usando l'ipotesi induttiva:
+			\begin{align*}
+				(1+x)^n \cdot (1+x) &\geq (1+nx) \cdot (1+x) = 1 + x + nx + nx^2\\
+				&= 1 + (n+1) \cdot x + nx^2
+			\end{align*}
+			Quindi:
+			\begin{equation*}
+				(1+x)^{n+1} \geq 1 + (n+1) \cdot x + nx^2
+			\end{equation*}
+			Ed essendo $nx^2 \geq 0$ si può togliere in quanto non cambierebbe la disequazione:
+			\begin{equation*}
+				(1+x)^{n+1} \geq 1 + (n+1) \cdot x
+			\end{equation*}
+	\end{enumerate}
+	\hfill Qed.
+}
+
+Facciamo ora la dimsotrazione riguardante il numero di Eulero:
 
 \pf{
 Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corollario_successioni}.
 \begin{enumerate}
     \item Dimostriamo che $(a_n)$ è (strettamente) crescente:
-    
-    \mlem{
-        È necessario, per questa dimostrazione, introdurre la \textit{disuguaglianza di Bernulli}. Tuttavia non la dimostreremo.
-        \begin{equation*}
-            \forall x \in R : x \geq -1, \forall x \in \mathbb{N}: (1+x)^n \geq 1 + nx
-        \end{equation*}
-    }
-    Per dimostrare che $(a_n)_n \nearrow$ ci basta dimostrare che:
+       Per dimostrare che $(a_n)_n \nearrow$ ci basta dimostrare che:
     \begin{equation*}
         \dfrac{a_{n+1}}{a_n} > 1
     \end{equation*}
@@ -145,7 +181,7 @@ Per dimostrare che una successione è convergente ci basta dimostrare che è (st
     \begin{equation*}
         a_n = \left(1+\dfrac{1}{n}\right)^{n} < 3 \qquad \forall n \in \mathbb{N}
     \end{equation*}
-    Dunque $(a_n)_n \nearrow e superiormente limitata$. Ne consegue che, dal corollario presente nella sezione \ref{corollario_successioni}:
+    Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corollario_successioni}:
     \begin{equation*}
         \exists \lim_{x\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
     \end{equation*}
@@ -178,28 +214,51 @@ $x_0$ si dice \textbf{punto di accumulazione} di $\mathbb{A} \subseteq \mathbb{R
     \forall r > 0: A\cap \left( I_r (x_0) \setminus \{x_0\} \right) \neq \emptyset
 \end{equation*}
 }
-Comunque prendo piccolo $r$ c'è sempre un elemento di $\mathbb{A}$ diverso da $x_0$. L'insieme dei punti di accumulazione di un insieme è indicato come segue (la D dovrebbe essere celtica??):
+Comunque prendo piccolo $r$ c'è sempre un elemento di $\mathbb{A}$ diverso da $x_0$. L'insieme dei punti di accumulazione di un insieme è indicato come segue\footnote{La lettera che indica l'insieme dei punti di accumulazione è una "D" che dovrebbe essere celtica. Fate riferimento agli appunti del prof in questo caso perché non riesco a trovare su \LaTeX\; il simbolo esatto che usa lui. Il fatto è che ci si può confondere perché si usa la lettera "D" anche per indicare il dominio di una funzione. In questi appunti il dominio è indicato con $Dom()$ mentre l'insieme dei punti di accumulazione è indicato con $\mathcal{D}$.}:
 \begin{equation*}
-    \mathcal{D} (\mathbb{A}) = \left\{ x \in \mathbb{R}\; |\; x\; \text{è un punto di accumulazione di}\; \mathbb{A} \right\}
+	\mathcal{D} (\mathbb{A}) = \left\{ x \in \mathbb{R}\; |\; x\; \text{è un punto di accumulazione di}\; \mathbb{A} \right\}
 \end{equation*}
 Posso in pratica avvicinarmi indefinitivamente ad $x_0$ sempre rimanendo in $\mathbb{A}$
 
 \textbf{Proposizione:}\\
 $\mathbb{A} \subseteq \mathbb{R}, x_o \in \mathbb{R}$. $x_0$ è un punto di accumulazione per A se e solo se $\exists (a_n)_n \subseteq \mathbb{A}$ t.c.
 \begin{enumerate}
-    \item $a_n \neq x_0 \forall n$
-    \item $a_n \xrightarrow{n\to +\infty} x_0$
+	\item $a_n \neq x_0 \quad \forall n \in \mathbb{N}$
+	\item $a_n \xrightarrow[n\to +\infty]{} x_0$
 \end{enumerate}
 Esempio:
-$\mathbb{A} = \{\dfrac{1}{n} | n \in \mathbb{N}*\}$
+$\mathbb{A} = \left\{\dfrac{1}{n} \;\middle|\; n \in \mathbb{N} \setminus \{0\} \right\}$
 \begin{equation*}
     \lim_{x\to + \infty} \dfrac{1}{x} = 0 \implies \mathcal{D}(\mathbb{A}) = {0}
 \end{equation*}
 
 Un insieme con $\mathcal{D} = \emptyset $ è un \textbf{insieme discreto}
 
-\subsubsection{SCHEMA RIASSUNTIVO LIMITI:} %Mettere a posto la formattazione della prima parte
-$\lim$
+\subsection{Limite destro e limite sinistro}
+Se si vuole indicare il limite per $x \to x_0$ di una funzione $f(x)$ si indica:
+\begin{equation*}
+	\lim_{x \to x_0} f(x)
+\end{equation*}
+\textbf{Questo limite esiste solo se sono rispettate le seguenti condizioni:}
+\begin{equation*}
+	\exists \lim_{x \to x_0} f(x) = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}\iff 
+	\begin{cases*}
+		\exists \lim_{x \to x_o^-} f(x)\\
+		\exists \lim_{x \to x_o^+} f(x)\\
+		\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} = l \in \mathbb{R} \cup \{+\infty\} \cup \{-\infty\}
+	\end{cases*}
+\end{equation*}
+In pratica il limite destro e sinistro devono esistere e il loro valore deve coincidere.
+
+Se ci avvicininiamo da destra (cioè da valori più grandi) ad un punto $x_0$ si scrive che $x_0^+$, se invece ci avviciniamo da sinistra (cioè da valori più piccoli) si scrive $x_0^-$.
+
+\subsubsection{SCHEMA RIASSUNTIVO LIMITI:} 
+Per tradurre un limite nella notazione epsilon-delta il seguente schema può tornare effettivamente molto utile.
+\begin{equation*}
+	\lim_{\cdots} f(x) = \cdots
+\end{equation*}
+
+Nella parte inferiore del limite i casi sono i seguenti:
 \begin{enumerate}[label=(\roman*)]
     \item $x\to x_0$
     \item $x\to x_0^+$
@@ -207,7 +266,8 @@ $\lim$
     \item $x\to +\infty$
     \item $x\to -\infty$
 \end{enumerate}
-$f(x)$
+
+Mentre per la parte destra dell'uguale i casi sono i seguenti:
 \begin{enumerate}
     \item $l \in \mathbb{R}$
     \item $+ \infty$
@@ -233,6 +293,15 @@ $f(x)$
     \end{cases*}
 \end{equation*}
 
+Quindi se per esempio devo tradurre il seguente limite:
+\begin{equation*}
+	\lim_{x \to 5^-} f(x) = +\infty
+\end{equation*}
+Vedo che $x \to 5^-$ è l'opzione numero (iii), mentre a destra dell'uguale ($+\infty$) ho l'opzione 2. Qindi diventa:
+\begin{equation*}
+	\forall \epsilon > 0, \exists \delta > 0 : \forall x \in \mathcal{D}(f): 5 - \delta < x < 5 \implies f(x) > \epsilon
+\end{equation*}
+
 \subsection{Algebra dei limiti}
 L'algebra dei limiti vale sie per le successioni che per le funzioni. Per comodità in seguito è riportata con il caso delle funzioni:\\
 Siano $f(x)$ e $g(x)$ due funzioni tale che
@@ -246,7 +315,7 @@ Alora:
         l_1 + l_2 \qquad \text{se}\;\;\, l_1,l_2 \in \mathbb{R}\\
         +\infty \quad\, \qquad \text{se}\;\;\, l_1 = +\infty \land (l_2 \in \mathbb{R} \lor l_2 = +\infty)\\
         -\infty \quad\, \qquad \text{se}\;\;\, l_1 = -\infty \land (l_2 \in \mathbb{R} \lor l_2 = -\infty)\\
-        \textit{Stessa cosa se si scambia $l_1$ con $l_2$}
+        \text{Stessa cosa se si scambia $l_1$ con $l_2$}
     \end{cases*}
 \end{equation*}
 
@@ -258,10 +327,10 @@ Alora:
         +\infty \quad\, \qquad \text{se}\;\;\, l_1 = -\infty \land (l_2 \in \mathbb{R}_-^* \lor l_2 = -\infty)\\
         -\infty \quad\, \qquad \text{se}\;\;\, l_1 = +\infty \land (l_2 \in \mathbb{R}_-^* \lor l_2 =-\infty)\\
         -\infty \quad\, \qquad \text{se}\;\;\, l_1 = -\infty \land (l_2 \in \mathbb{R}_+^* \lor l_2 = +\infty)\\
-        \textit{Stessa cosa se si scambia $l_1$ con $l_2$}
+        \text{Stessa cosa se si scambia $l_1$ con $l_2$}
     \end{cases*}
 \end{equation*}
-\textit{con $g(x) \neq 0$}
+con $g(x) \neq 0$
 \begin{equation*}
     \dfrac{f(x)}{g(x)} \xrightarrow{\qquad}
     \begin{cases*}
@@ -269,7 +338,7 @@ Alora:
         0 \quad\, \qquad \text{se}\;\;\, l_1 \in \mathbb{R} \land l_2 = \pm \infty\\
         \pm \infty \quad\, \qquad \text{se}\;\;\, l_1 = \pm \infty \land l_2 \in \mathbb{R}_+^*\\
         \mp \infty \quad\, \qquad \text{se}\;\;\, l_1 = \pm \infty \land l_2 \in \mathbb{R}_-^*\\
-        \textit{Stessa cosa se si scambia $l_1$ con $l_2$}
+        \text{Stessa cosa se si scambia $l_1$ con $l_2$}
     \end{cases*}
 \end{equation*}
 
@@ -308,13 +377,43 @@ Teorema del \textbf{confronto}. $f, g, h: A \to \mathbb{R}$, $x_0 \in \mathcal{D
 \end{equation*}
 }
 
-Il limite per $x->x_{0}$ esiste soltanto se sia il limite dx e il limite sx esistono e sono uguali.\\ %DA FARE MEGLIO
-Gerarchia degli infiniti e limite di un polinomio + dimostrazione. (27-10-2022) %FARE MOLTO MEGLIO
+\thm{ %Ma che teorema è questo??
+	Aiuta i calcoli con le forme indeterminate $\dfrac{k}{0}$ con $k \neq 0$. Data una funzione $f:A \to \mathbb{R}$ e un punto $x_0 \in \mathcal{A}$. $\exists \delta > 0$:
+	\begin{enumerate}
+		\item Sx: 
+			\begin{equation*}
+				f(x) > 0 \quad \forall x \in A : x_0 - \delta < x < x_0
+			\end{equation*}
+			Quindi:
+			\begin{equation*}
+				\lim_{x \to x_0^-} f(x) = 0^{+}
+			\end{equation*}
+			Allora:
+			\begin{equation*}
+				\lim_{x \to x_0^-} \dfrac{1}{f(x)} = + \infty
+			\end{equation*}
 
-%Aggiungere teorema utile per i calcoli? p.7 Analisi_pt2 (Miei appunti)
+			Se $f < 0$ allora $0^-$ e $-\infty$.
+
+		\item Dx:
+			\begin{equation*}
+				f(x) > 0 \quad \forall x \in A : x_0 < x < x_0 + \delta
+			\end{equation*}
+			Quindi:
+			\begin{equation*}
+				\lim_{x \to x_0^+} f(x) = 0^{+}
+			\end{equation*}
+			Allora:
+			\begin{equation*}
+				\lim_{x \to x_0^+} \dfrac{1}{f(x)} = + \infty
+			\end{equation*}
+
+			Se $f < 0$ allora $0^-$ e $-\infty$.
+
+	\end{enumerate}
+}
 
 \subsection{Limiti Notevoli} \label{LimitiNotevoli}
-%Da aggiungere. Dovrebbero essere nella lezione del 20 Ottobre i primi. Ci sono anche delle dimostrazioni
 I limiti notevoli sono particolari limiti che nonostante siano una forma indeterminata, il loro valore è conosciuto. In realtà molti limiti con forme indeterminate hanno un valore conosciuto perché attraverso tecniche e metodi di calcolo si riesce a ricavare. La differenza con i limiti notevoli però è che questi ultimi sono estremamente fondamentali per molte dimostrazioni e per molti esercizi. Inoltre comprendono solo funzioni elementari e vengono dimostrati una volta per tutte e poi vengono dati per buoni nel calcolo dei limiti.\\
 Il limite notevole più famoso e sicuramente più importante è:
 \imp{
@@ -330,8 +429,47 @@ Dobbiamo dimostrare:
 \end{equation*}
 Costruiamo una circonferenza goniometrica come in figura:
 \begin{center}
-\includegraphics[width=300px]{../img/CfrSinDim.png}    %% DA FARE MOOOLTO MEGLIO
+
+
+	\def\tmpval{0.7071067812}
+
+	\begin{tikzpicture}[scale=3]
+
+	\draw (0,0) circle (1cm);
+
+	\begin{scope}
+		\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+		\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+	\end{scope}
+
+	\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:45:3mm);
+		\draw (15:2mm) node {$x$};
+
+	\draw[-] (0,0) -- (\tmpval,\tmpval);
+	\draw[-] (0,0) -- (\tmpval,-\tmpval);
+	\draw[-] (\tmpval,0) -- (\tmpval,\tmpval);
+	\draw[-] (\tmpval,0) -- (\tmpval,-\tmpval);
+
+	\draw[very thin, fill] (\tmpval,\tmpval) circle (0.4pt) node[right, yshift=5pt] {$P$};
+	\draw[very thin, fill] (\tmpval,0) circle (0.4pt) node[right, yshift=5pt] {$H$};
+	\draw[very thin, fill] (\tmpval,-\tmpval) circle (0.4pt) node[right, yshift=-5pt] {$P'$};
+
+
+
+	\draw[very thin, fill] (1,0) circle (0.4pt) node[right, yshift=10pt] {$A$};
+	%\draw[very thin, fill] (1,0) circle (0.4pt) node[right, yshift=10pt] {$A(1, 0)$};
+	%\draw[very thin, fill] (0,1) circle (0.4pt) node[right, yshift=10pt] {$(0, 1)$};
+	%\draw[very thin, fill] (0,-1) circle (0.4pt) node[right, yshift=-10pt] {$(0, -1)$};
+	%\draw[very thin, fill] (-1,0) circle (0.4pt) node[left, yshift=10pt] {$(-1, 0)$};
+	\draw[very thin, fill] (0,0) circle (0.4pt) node[left, yshift=10pt] {$(0, 0)$};
+
+
+\end{tikzpicture}
+
 \end{center}
+
+
+
 Per la definizione di seno e coseno: $\sin{x} = \overline{HP}$ e $\cos{x} = \overline{OH}$. Inoltre $\overline{PP'} < \arc{PP'}$ perché il "percorso" più breve tra due punti in geometria euclidea è il segmento che li congiunge. Facendo qualche semplificazione:
 \begin{align*}
     \overline{PP'} &< \arc{PP'}\\
@@ -407,7 +545,46 @@ Dobbiamo dimostrare:
 Disegniamo un arco di circonferenza goniometrica (quindi con centro nell'origine e raggio 1). Il segmento $\overline{AH}$ è perpendicolare a $\overline{OB}$. Il segmento $\overline{AD}$ è perpendicolare a $\overline{AC}$.
 
 \begin{center}
-    \includegraphics[width=300px]{../img/CfrSinDim-2.png}
+
+
+	\def\cosval{0.5}
+	\def\sinval{0.8660254038}
+	\def\tanval{\sinval / \cosval}
+	\def\xval{0.640718}
+	\def\yval{0.900251}
+	
+
+	\begin{tikzpicture}[scale=3]
+
+	\draw (0,0) circle (1cm);
+
+	\begin{scope}
+		\draw[->] (-2,0) -- (2,0) node[right] {$x$};
+		\draw[->] (0,-2) -- (0,2) node[above] {$y$};
+	\end{scope}
+
+	\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:60:3mm);
+		\draw (15:2mm) node {$x$};
+
+	\draw[-] (0,0) -- (1, \tanval);
+	\draw[-] (\cosval,0) -- (\cosval,\sinval);
+	\draw[-] (\cosval,\sinval) -- (1, 1 / \sinval -\cosval / \sinval);
+	\draw[->] (1,0) -- (1,2);
+
+
+	\draw[-] (\cosval * 1.1, \sinval * 1.1) -- (\xval, \yval);
+	\draw[-] (0.5907186, 0.8136489) -- (\xval, \yval);
+
+	\draw[very thin, fill] (\cosval,\sinval) circle (0.4pt) node[left, xshift=5pt, yshift=10pt] {$A$};
+	\draw[very thin, fill] (\cosval,0) circle (0.4pt) node[right, yshift=5pt] {$H$};
+	\draw[very thin, fill] (1,0) circle (0.4pt) node[right, yshift=10pt] {$B$};
+	\draw[very thin, fill] (1,\tanval) circle (0.4pt) node[right] {$C$};
+	\draw[very thin, fill] (1, 1 / \sinval - \cosval / \sinval) circle (0.4pt) node[right] {$D$};
+	\draw[very thin, fill] (0,0) circle (0.4pt) node[left, yshift=10pt] {$(0, 0)$};
+
+
+\end{tikzpicture}
+
 \end{center}
 
 Assumiamo per iniziare $0 < x < \dfrac{\pi}{2}$. Per definizione di seno, coseno e tangente abbiamo che:
@@ -505,6 +682,28 @@ $x = k$ è un \textbf{asintoto verticale} per $f(x)$ se
     \lim_{x\to k^{+}} f(x) = \pm \infty \qquad \text{oppure} \qquad \lim_{x\to k^{-}} f(x) = \pm \infty
 \end{equation*}
 }
+Ne cosegue che graficamente l'asinto verticale si verifca quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{AsintotVer}):
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -0.5, ymax = 10, ymin = -10,
+		axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east}, xlabel style={anchor=north},
+		     ytick style={draw=none},
+		     yticklabels={},
+		     xtick={2},
+		     xticklabels={$k$},
+		     xticklabel style={anchor=north west},
+		    ]
+		\addplot[samples=800]{1/(x-2) + 3 * x - 5};
+	\end{axis}
+	\end{tikzpicture}
+
+\end{center}
+	\caption{Asinto veritcale}
+	\label{AsintotVer}
+\end{figure}
+
 
 \dfn{
 $y = l$ si dice \textbf{asintoto orizzontale} se: $f: A\to \mathbb{R}$, $\sup A = +\infty$ e 
@@ -513,6 +712,26 @@ $y = l$ si dice \textbf{asintoto orizzontale} se: $f: A\to \mathbb{R}$, $\sup A 
 \end{equation*}
 Vale ovviamente anche il caso a $-\infty$. Nella stessa funzione ci possono essere al massimo 2 asintoti orizzontali.
 }
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -2, ymax = 10, ymin = -10,
+		axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east}, xlabel style={anchor=north},
+		     yticklabel style={anchor=north east},
+		     ytick={-3},
+		     yticklabels={$l$},
+		     xticklabel style={draw=none},
+		    ]
+		\addplot[samples=800]{e^(-1.5* x) - 3};
+		\addplot[samples=800]{-3};
+	\end{axis}
+	\end{tikzpicture}
+
+\end{center}
+	\caption{Asinto orizzontale}
+	\label{AsintotOrizz}
+\end{figure}
 
 \subsection{Limiti di funzioni elementari}
 IL limite di un polinomio $p(x)$ è il polinomio calcolato nel punto:
@@ -636,7 +855,7 @@ dove $\mathcal{C}(A)$ è l'insieme delle funzioni continue su $A$, ed è definit
     \mathcal{C}(A) = \{ f:A\to \mathbb{R}\; |\; f\; \text{è continua in x}, \forall x \in A \}
 \end{equation*}
 La continuità è un grado molto importante per "classificare" la regolarità di una funzione. Inoltre moltissimi teoremi che riguardano una o più funzioni richiedono che queste siano continue. L'idea che ci sta dietro alla continuità e il voler classificare rigorosamente tutte quelle funzioni "belle" che puoi disegnare senza staccare la mano dal foglio\footnote{In realtà non è esattamente così, però è un buon modo per iniziare a capire l'argomento}.\\
-Come vi diranno tutti i professori di analisi però, la definizione di continuità che si basa sul disegnare una funzione senza staccare la mano dal foglio è sbagliata. Questo perché vale solo per quelle funzioni che sono continue su tutto $\mathbb{R}$, mentre per quelle che sono continue nel loro dominio, ma proprio questo dominio è composto dall'unione di molteplici intervalli disgiunti, allora restano continue, ma per disegnarle è necessario comunque staccare la mano dal foglio. %% DA RIGUARDARE
+Come vi diranno tutti i professori di analisi però, la definizione di continuità che si basa sul disegnare una funzione senza staccare la mano dal foglio è sbagliata. Questo perché vale solo per quelle funzioni che sono continue su tutto $\mathbb{R}$, mentre per quelle che sono continue nel loro dominio, ma proprio questo dominio è composto dall'unione di molteplici intervalli disgiunti, allora restano continue, ma per disegnarle è necessario comunque staccare la mano dal foglio.
 
 \dfn{
 Il \textbf{dominio naturale} è il più grande sottoinsieme in cui una funzione è definita

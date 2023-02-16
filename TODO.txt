@@ -1,5 +1,5 @@
 DA RICOPIARE:
-  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3, 11-11-2022, 17-11-2022, 18-11-2022}
+  -TUTTO \ {Analisi_pt1, Analisi_pt2, Analisi_pt3, 11-11-2022, 17-11-2022, 18-11-2022, Bernulli}
   
   Analisi_pt3: In fondo c'è una considerazione sui punti di minimo e massimo relativi. La aggiungo?
 
@@ -11,17 +11,11 @@ DA RICOPIARE:
     - Aggiungere contatti (mail, telegram e git) per segnalare errori
     - Se si vuole contribuire si può (git)
 
-- FUNZIONI:
-  - Accentuare alcune belle proprietà del logaritmo
-
 - LIMITI:
   - Spiegare un po' meglio \epslin e \delta nella def. di limite:
     soprattutto i casi limite dx e sx non sono spiegati. Per rendere l'idea almeno un accenno
     andrebb fatto. Sarebbero in Analisi_pt2 all'inizio. Se avrò tempo alla fine ci ritorno.
 
-  - Fare meglio schema riassuntivo limiti (è orribile :) )
-
-  - Spiegare asintoti limiti
 
 - Agginge una parte sullo studio di funzione? Cioè punti di massimo, minimo, flesso, ecc.?
 
