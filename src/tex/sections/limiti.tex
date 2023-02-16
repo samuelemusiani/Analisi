@@ -633,7 +633,107 @@ Per il lemma dimostrato precedentemente che prova che $\lim_{x \to 0} \cos{x} = 
 \end{equation*}
 \hfill Qed.
 }
-% IN RELAZIONE AL TEOREMA CI SAREBBE LA PROVA DELL'AREA DELLA CIRCONFERENZA. La metto? Se si dove? Nel caso sarebbe in fondo al file Analisi-1 scritto da me.
+Da questo teorema è possibile dimostrare l'area della circonferenza. Se infatti prendiamo una circonferenza generica $C$ di raggio $r$ e ci inscriviamo un poligono regolare $S_n$ di $n$ lati (come in figura \ref{fig_cfrPoligon}):
+\begin{equation*}
+	\mathcal{A}(\mathcal{C}) = \lim_{n \to + \infty} \mathcal{A} (S_n)
+\end{equation*}
+In questo caso $\mathcal{A}$ rappresenta l'area. Osserviamo che:
+\begin{equation*}
+	\alpha = \dfrac{2\pi}{n} \implies \dfrac{a}{2}= \dfrac{\pi}{n}
+\end{equation*}
+Inoltre usando un po' di trigonometria:
+\begin{align*}
+	\overline{OH_1} &= \overline{OA_1} \cdot \cos \left( \dfrac{\alpha}{2}\right) = r \cdot \cos \left(\dfrac{\pi}{n}\right)\\[5pt]
+	\overline{A_1H_1} &= \overline{OA_1} \cdot \sin \left( \dfrac{\alpha}{2}\right) = r \cdot \sin \left(\dfrac{\pi}{n}\right)
+\end{align*}
+Quindi:
+Ne consegue che:
+\begin{equation*}
+	\mathcal{A} (\stackrel{\triangle}{OA_1A_2}) = 2 \cdot \mathcal{A} (\stackrel{\triangle}{OA_1H}) = \overline{A_1H} \cdot \overline{OH} = r^2 \cdot \sin \left(\dfrac{\pi}{n} \right) \cdot \cos \left(\dfrac{\pi}{n} \right)
+\end{equation*}
+
+L'area di tutto il poligono quindi risulta:
+\begin{equation*}
+	\mathcal{A} (S_n) = n \cdot \mathcal{A} (\stackrel{\triangle}{OA_1A_2}) = n \cdot r^2 \cdot \sin \left(\dfrac{\pi}{n} \right) \cdot \cos \left(\dfrac{\pi}{n} \right)
+\end{equation*}
+
+Ora se calcoliamo il limite:
+\begin{equation*}
+	\lim_{n \to + \infty} \mathcal{A}(s_n) = \lim_{n \to + \infty} n \cdot r^2 \cdot \sin \left(\dfrac{\pi}{n} \right) \cdot \cos \left(\dfrac{\pi}{n} \right) = \lim_{n \to + \infty} r^2 \cdot \pi \cdot \dfrac{\sin \left(\dfrac{\pi}{n} \right)}{\dfrac{\pi}{n}} \cdot \cos \left(\dfrac{\pi}{n} \right)
+\end{equation*}
+Facendo un piccolo cambio di variabile:
+\begin{equation*}
+	m := \dfrac{\pi}{n} \qquad m \xrightarrow[n \to +\infty]{} 0
+\end{equation*}
+Quindi:
+\begin{equation*}
+	\lim_{m \to 0} r^2 \cdot \pi \cdot \dfrac{\sin(m)}{m} \cdot \cos (m) =  r^2 \cdot \pi \cdot 1 \cdot 1
+\end{equation*}
+Ne consegue che l'area della circonferenza:
+\begin{equation*}
+	\mathcal{A}(\mathcal{C}) = \lim_{n \to + \infty} \mathcal{A} (S_n) = \pi \cdot r^2
+\end{equation*}
+
+
+
+
+\begin{figure}
+\begin{center}
+	\begin{tikzpicture}[scale=3]
+
+	\def\tmpval{0.707106}
+
+	\draw (0,0) circle (1cm);
+
+	\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:45:3mm);
+		\draw (15:2mm) node[xshift=15pt, yshift=5pt] {$\alpha$};
+
+	
+	\draw[] (0,0) -- (0.5, 0.2071) arc(22.5:45:5.45mm);
+	\draw[] (0,0) -- (0.52, 0.4142135 * 0.52) arc(22.5:45:5.57mm) node[right, xshift=3pt, yshift=-3pt] {$\frac{\alpha}{2}$};
+
+
+	%\filldraw[fill=green!20] (0,0) -- (3mm,0pt) arc(0:45:3mm);
+
+	\draw[-] (0,0) -- (\tmpval, \tmpval);
+	\draw[-] (0,0) -- (1, 0);
+	\draw[-] (0,0) -- (0.8535539, 0.35355339);
+
+
+	\draw[-] (1,0) -- (\tmpval, \tmpval);
+	\draw[-] (\tmpval, \tmpval) -- (0, 1);
+	\draw[-] (\tmpval, -\tmpval) -- (0, -1);
+	\draw[-] (1,0) -- (\tmpval, -\tmpval);
+
+	\draw[-] (0, 1) -- (-\tmpval, \tmpval);
+	\draw[-] (-\tmpval, \tmpval) -- (-1, 0);
+	\draw[-] (-\tmpval, -\tmpval) -- (-1, 0);
+	\draw[-] (0,-1) -- (-\tmpval, -\tmpval);
+
+
+
+	\draw[very thin, fill] (0,0) circle (0.4pt) node[left] {$O$};
+	\draw[very thin, fill] (1,0) circle (0.4pt) node[right] {$A_2$};
+	\draw[very thin, fill] (0.8535539, 0.35355339) circle (0.4pt) node[right, xshift=5pt, yshift=5pt] {$H$};
+	\draw[very thin, fill] (\tmpval,\tmpval) circle (0.4pt) node[right, yshift=3pt] {$A_1$};
+	\draw[very thin, fill] (0,1) circle (0.4pt);
+	\draw[very thin, fill] (-\tmpval,\tmpval) circle (0.4pt);
+	\draw[very thin, fill] (-1,0) circle (0.4pt);
+	\draw[very thin, fill] (-\tmpval,-\tmpval) circle (0.4pt);
+	\draw[very thin, fill] (0,-1) circle (0.4pt);
+	\draw[very thin, fill] (\tmpval,-\tmpval) circle (0.4pt);
+
+
+\end{tikzpicture}
+	\end{center}
+	\caption{Circonferenza con inscritto un poligono regolare di $n$ lati}
+	\label{fig_cfrPoligon}
+\end{figure}
+
+
+
+
+
 
 Un secondo limite notevole:
 \imp{
