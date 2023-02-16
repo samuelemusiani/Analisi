@@ -11,9 +11,4 @@ DA RICOPIARE:
 
 - Agginge una parte sullo studio di funzione? Cioè punti di massimo, minimo, flesso, ecc.?
 
-- GENERALE
-  - Modificare le label in modo che ogni nome inzi con il tipo. Es le figure iniziano con "fig:", le sezioni con "sec:". (non so se i : piacciono a latex)
-
-  - Il compilatore di LaTeX da alcuni errori (?), soprattutto sulle \label e \ref
-
 
