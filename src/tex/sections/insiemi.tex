@@ -119,7 +119,30 @@ L'ultimo insieme che introduciamo è l'insieme dei \textbf{numeri reali}. Viene 
 
 Proviamo infatti a prendere una retta e a inserirci tutti i numeri che conosciamo per ora (cioè quelli contenuti in Q). Costruiamo ora un quadrato di lato 1, e proviamo a calcolare la lunghezza della sua diagonale con il teorema di Pitagora. Il numero che otterremo sarà $\sqrt{1^2+1^2} = \sqrt{2}$. Se proiettiamo questo numero sulla retta vediamo chiaramente che esiste un punto che corrisponde a $\sqrt{2}$.
 
-\includegraphics[]{../img/sqrt2.png}
+\begin{figure}[h]
+	\begin{center}
+
+	\begin{tikzpicture}[scale=4]
+
+		\draw[->] (0, 0) -- (2, 0);
+		\draw[->] (0, 0) -- (0, 1.5);
+		\draw[-] (1, 0) -- (1, 1);
+		\draw[-] (0, 1) -- (1, 1);
+		\draw[-] (0, 0) -- node[left, yshift=5pt] {$\sqrt{2}$} (1, 1);
+			
+
+		\draw (0,0) -- (1.414,0) arc(0:45:1.414);
+
+
+		\draw[very thin, fill] (0,0) circle (0.4pt) node[left, yshift=10pt] {$0$};
+		\draw[very thin, fill] (1,0) circle (0.4pt) node[left, yshift=10pt] {$1$};
+		\draw[very thin, fill] (1.414,0) circle (0.4pt) node[right, yshift=10pt] {$\sqrt{2}$};
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Definizione dell'angolo in radianti}
+\end{figure}
+
 
 Questo punto è contenuto nell'insieme $\mathbb{Q}$? 
 

@@ -63,10 +63,32 @@ Un paio di osservazioni utili sul teorema:
         \end{cases*}
     \end{equation*}
     Quest'ultima rispetta tutte le specifiche del teorema ($f(0) \cdot f(4) < 0$) tranne la continuità (non è infatti continua in $x = 2$). Se si osserva il grafico (Figura: \ref{fig_teoraZeri}) si nota subito che questa funzione non ammette nessun punto in cui si annulla come vorrebbe il teorema degli zeri.
+
     \begin{figure}[h]
         \centering
-        \includegraphics[width=300px]{../img/TeoremaZeriFunzioneNonContinua.png}
-        \caption{Funzione definita a tratti per far vedere che la continuità nel teorema degli zeri è una condizione necessaria}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -1.5, ymax = 2, ymin = -2,
+			     axis lines=middle, xlabel=$x$, ylabel=$y$,
+			     xtick={-1, 0, 1, 2, 3, 4, 5, 6},
+			     ytick={-1, 1},
+			     xlabel style={anchor=north east},
+			     xticklabel style={anchor=north},
+			     yticklabel style={anchor=east},
+			    ]
+		\addplot[domain=0:2, samples=200]{-1};
+		\addplot[domain=2:4, samples=200]{1};
+		\addplot [only marks, mark options={scale=1.5}] table {
+		2 1
+		2 -1
+		};
+		\addplot [only marks, white] table {
+		2 1
+		};
+	\end{axis}
+	\end{tikzpicture}
+
+
+	\caption{Funzione definita a tratti per far vedere che la continuità nel teorema degli zeri è una condizione necessaria}
         \label{fig_teoraZeri}
     \end{figure}
 
