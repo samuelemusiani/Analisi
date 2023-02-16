@@ -12,13 +12,6 @@ DA RICOPIARE:
     - Se si vuole contribuire si può (git)
 
 - FUNZIONI:
-  - La parte sulle funzioni biunivoche e invertibili è spiegata veramente poco. Sopratutto
-    se voglio tenere l'idea di "dare le idee di fondo" per ogni concetto va migliorata.
-
-  - Valore assoluto, fattoriale e coefficiente binomiale vanno introdotti meglio con un senso.
-
-  - Introdurre la radice aritmetica com euna funzione inenversa. Far capire perché serve.
-
   - Accentuare alcune belle proprietà del logaritmo
 
 - LIMITI:
@@ -33,9 +26,10 @@ DA RICOPIARE:
 - Agginge una parte sullo studio di funzione? Cioè punti di massimo, minimo, flesso, ecc.?
 
 - GENERALE
-  - Le mimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGEREEEE!! :((
+  - Le dimostrazioni usano i termini IPOTESI e TESI nel modo sbagliato. CORREGGEREEEE!! :((
 
   - La data all'inzio del file la metterei alla fine del corso. Aggiungerei una secona data che comprende l'ultima modifica.
-  - Modificare le label in modo che ogni nome inzi con il tipo. Es le figure iniziano con "fig:", le sezioni con "sec:"
 
-  - Il compilatore di LaTeX da alcuni errori, soprattutto sulle \label e \ref
+  - Modificare le label in modo che ogni nome inzi con il tipo. Es le figure iniziano con "fig:", le sezioni con "sec:". (non so se i : piacciono a latex)
+
+  - Il compilatore di LaTeX da alcuni errori (?), soprattutto sulle \label e \ref
