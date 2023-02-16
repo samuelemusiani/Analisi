@@ -539,7 +539,7 @@ Applicando la definzione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2
 \begin{equation*}
 	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} = 0
 \end{equation*}
-A tal fine usiamo il teorema di De L'Hôpital (Sezione: \ref{sec:DeLHopital}) assumendo che la funzione sia derivabile due volte in $x = 0$:
+A tal fine usiamo il teorema di De L'Hôpital (Sezione: \ref{sec_deLHopital}) assumendo che la funzione sia derivabile due volte in $x = 0$:
 \begin{align*}
 	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - 2! \cdot a_2 \cdot x}{2! \cdot x} \stackrel{\text{H}}{=}\\[10pt]
 	&\lim_{x \to 0} \left(\dfrac{f'(x) - f'(0)}{2! \cdot x} - a_2\right) = \dfrac{1}{2!} \left(\lim_{x \to 0} \dfrac{f'(x) - f'(0)}{x} \right) - a_2 =  \dfrac{1}{2!} f''(0) - a_2
@@ -904,7 +904,7 @@ L'unico caso in cui la "formula generale" per la derivata non funzione è il pri
 	&\dfrac{1}{1 - x} = 1 + x + x^2 + \cdots + x^n + o(x^n)\\[10pt]
 	&(1 + x)^\alpha = 1 + \alpha x + \dfrac{\alpha(\alpha - 1)}{2} x^2 + \cdots +  \binom{\alpha}{n} x^n + o(x^n)
 \end{align*}
-Quando $\alpha \in \mathbb{R}$ bisogna utilizzare il coefficiente binomiale generalizzato (Sezione: \ref{sec:coefficiente-binomiale-gen}) definito come segue:
+Quando $\alpha \in \mathbb{R}$ bisogna utilizzare il coefficiente binomiale generalizzato (Sezione: \ref{sec_coefficiente-binomiale-gen}) definito come segue:
 
 \begin{equation*}
 	\binom{\alpha}{n} = \dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!}
