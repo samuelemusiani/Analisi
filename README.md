@@ -32,6 +32,7 @@ make fast{numeroModulo}
 
 make clean{numeroModulo}
 ```
+Cioè se per esempio voglio compilare velocemente solo il secondo modulo scriverò 'make fast2'
 
 ## Structure
 La direcotry `build/` viene usata per tutti i file temporanei che servono a latex per compilare il pdf finale
