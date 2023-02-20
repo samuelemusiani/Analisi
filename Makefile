@@ -41,12 +41,12 @@ mod1: Analisi1.pdf
 
 mod2: Analisi2.pdf
 
-Analisi1.pdf: $(TEX_SRC) $(IMG)
+Analisi1.pdf: $(TEX_SRC_1) $(IMG_1)
 	mkdir -p build/modulo1/sections 	#latexmk non sa creare cartelle da solo 
 	latexmk -pdf -cd -emulate-aux-dir -auxdir=$(BUILD)/modulo1 -outdir=$(OUTPUT)/modulo1 $(MAIN_1)
 	mv build/output/modulo1/main.pdf Analisi1.pdf
 
-Analisi2.pdf: $(TEX_SRC) $(IMG)
+Analisi2.pdf: $(TEX_SRC_2) $(IMG_2)
 	mkdir -p build/modulo2/sections 	#latexmk non sa creare cartelle da solo 
 	latexmk -pdf -cd -emulate-aux-dir -auxdir=$(BUILD)/modulo2 -outdir=$(OUTPUT)/modulo2 $(MAIN_2)
 	mv build/output/modulo2/main.pdf Analisi2.pdf
@@ -59,13 +59,13 @@ fast1: Analisi1_fast.pdf
 
 fast2: Analisi2_fast.pdf
 
-Analisi1_fast.pdf: $(TEX_SRC) $(IMG)
+Analisi1_fast.pdf: $(TEX_SRC_1) $(IMG_1)
 	mkdir -p build/modulo1_fast/sections		#pdflatex non sa creare cartelle da solo 
 	cd src/modulo1/tex; pdflatex -output-directory=$(BUILD)/modulo1_fast main.tex #MI TOCCA ENTRARE NELLA CARTELLA
 	mv build/modulo1_fast/main.pdf Analisi1_fast.pdf
 
 
-Analisi2_fast.pdf: $(TEX_SRC) $(IMG)
+Analisi2_fast.pdf: $(TEX_SRC_2) $(IMG_2)
 	mkdir -p build/modulo2_fast/sections		#pdflatex non sa creare cartelle da solo 
 	cd src/modulo2/tex; pdflatex -output-directory=$(BUILD)/modulo2_fast main.tex #MI TOCCA ENTRARE NELLA CARTELLA
 	mv build/modulo2_fast/main.pdf Analisi2_fast.pdf
