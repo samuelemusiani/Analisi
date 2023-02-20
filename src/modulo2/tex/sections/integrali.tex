@@ -1,0 +1,196 @@
+\section{Integrali}
+
+\subsection{Calcolo dell'area sottesa ad una curva}
+\imp{
+	Data una funzione $f:[a,b] \to \mathbb{R}$ con $f(x) \geq 0 \; \forall x \in [a,b]$. IL suo \textbf{sottografico} è:
+	\begin{equation*}
+		= \{(x,y) \in \mathbb{R}^2 \; | \; x \in [a,b],\, 0 \leq y \leq f(x)\}
+	\end{equation*}
+}
+Il sottografico è quindi un insieme e corrisponde e tutti i punti che soddisfano per le ordinate le disuguaglianza $a \leq x \leq b$ e per le ascisse $0 \leq y \leq f(x)$.
+
+%Aggiungere immagine
+
+Come si calcola il sottografico? 
+
+\subsection{Somme di Riemann}
+\subsubsection{Scomposizione di un intervallo}
+Sia dato un interallo $[a,b] \subseteq \mathbb{R}$ lo divido in $n \in \mathbb{N}$ intervalli uguali:
+%Aggiungere immagine della retta con le tacchette a x_0, x_1, ...
+\begin{align*}
+	x_0 &= a\\
+	x_1 &= x_0 + \frac{b-a}{2} = a + \dfrac{b-a}{n}\\
+	x_2 &= x_1 + \frac{b-a}{2} = a + 2 \cdot \dfrac{b-a}{n}\\
+	\vdots\\
+	x_k &= a + k \cdot \dfrac{b-a}{n}
+\end{align*}
+Il primo punto corrisponde all'inizio dell'intervallo $x_0 = a$, l'ultimo punto alla fine dell'intervallo $x_n = b$ in quanto:
+\begin{equation*}
+	x_n = a + n \cdot \dfrac{b-a}{n} = a + b - a = b
+\end{equation*}
+
+Posso inoltre scegliere dei punti all'interno di questi intervalli: 
+\begin{equation*}
+	\forall k \in \mathbb{N} : 0 < k \leq n \quad \text{scelgo} \quad \xi_k \in [x_{k-1}, x_k]
+\end{equation*}
+È importante notare alcune cose:
+\begin{enumerate}
+	\item $\xi_k$ è un semplicissimo punto, lo si indica con la lettera greca $\xi$ (xi) per evitare di far confuzione successivamente.
+
+	\item La scelta della posizione del punto $\xi_k$ è \textbf{totalmente arbitraria}. Può quindi essere il punto medio, coincidere con un estremo o essere completamente casuale purché rispetti la condizione imposta, cioè: $\xi_k \in [x_{k-1}, x_k]$
+
+	\item Abbiamo una serie di punti, non solo 1, in quanto questo vale \textit{per ogni k}.
+	\begin{align*}
+		\xi_1 &\in [x_0, x_1] = \left[a, a + \dfrac{b-a}{n} \right]\\
+		\xi_2 &\in [x_1, x_2] = \left[a + \dfrac{b-a}{n}, a + 2 \cdot \dfrac{b-a}{n} \right]\\
+		\vdots\\
+		\xi_n &\in [x_{n-1}, x_n] = \left[a + (n-1) \cdot \dfrac{b-a}{n}, b \right]
+	\end{align*}
+
+\end{enumerate}
+
+\dfn{
+	Sia $f:[a,b] \to \mathbb{R}$, continua su $[a, b]$. Sia inoltre $n \in \mathbb{N}$ e siano $x_0, x_1, \cdots x_n$ e $\xi_1, \xi_2, \cdots \xi_n$ i punti introdotti precedentemente. Si definisce \textbf{La somma di Riemann \textit{n-esima}} è il numero:
+	\begin{equation*}
+		S_n = \sum \limits_{k = 1}^n f(\xi_k) \cdot (x_k - x_{k-1})
+	\end{equation*}
+	Notando che il termine $(x_k - x_{k-1})$ è sempre uguale si può riscrivere la somma come segue:
+	\begin{equation*}
+		S_n = \dfrac{b-a}{n} \cdot \sum \limits_{k = 1}^n f(\xi_k) 
+	\end{equation*}
+}
+La somma dipende dalla scelta dei punti $\xi_k$, non è quindi sempre la stessa. Rappresenta inoltre la somma delle aree dei rettangoli che approssimano il sottografico della funzione $f$ nell'intervallo $[a,b]$. %Fare figura
+
+\subsection{Integrale dalle somme di Riemann} %Non so bene ancora come gestire le sezioni e le sottosezioni
+
+\thm{
+	Sia $f:[a,b] \to \mathbb{R}$ continua su $[a,b]$ e $(S_n)_{n \in \mathbb{N}}$ una famiglia di somme di Riemann\footnote{Si noti che questa famiglia in realtà è una successione}. 
+	\begin{equation*}
+		\exists \lim_{n \to +\infty} S_n \in \mathbb{R}
+	\end{equation*}
+	Inoltre \textbf{il valore NON dipende dalla scelta dei punti} $\xi_k$. Tale limite si chiama \textbf{integrale di $f$}:
+	\begin{equation*}
+		\int_a^b f(x) \diff x \vcentcolon = \lim_{n \to +\infty} S_n \in \mathbb{R}
+	\end{equation*}
+}
+Note importanti:
+\begin{itemize}
+	\item Il valore del limite, essendo in $\mathbb{R}$ è finito.
+	
+	\item $a$ e $b$ si chiamo \textbf{estremi di integrazione}.
+
+	\item La varibile dentro la funzione è una \textit{variabile muta}. Non indica effettivamente nulla. Le seguenti notazioni sono equvalenti:
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \int_a^b f(t) \diff t = \int_a^b f
+		\end{equation*}
+		Si adotta generalmente la variabile muta è il termine $\diff x$ che NON ha alcune definzione o qualsivoglia introduzione matematica per comodità.
+\end{itemize}
+
+Vediamo come è definita questa somma in alcuni esempi particolari:
+\begin{itemize}
+	\item Se $f(x) \leq 0 \;\; \forall x \in \mathbb[a, b]$
+		\begin{equation*}
+			\int_a^b f(x) \diff x = - (\text{area del sottografico}) %Da fare il disegno e scrivere area(A)
+		\end{equation*}
+
+	\item Se (\textit{DA fare il disegno: in pratica si ha un area positiva ($A_1$) e una negativa ($A_2$)}):
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \text{area}(A_1) - \text{area}{A_2}  %Da fare il disegno
+		\end{equation*}
+
+	\item Se (\textit{Il sottografico è fatto da due aree positive divise da un punto che tocca lo 0}):
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \text{area}(A_1) + \text{area}{A_2}  %Da fare il disegno
+		\end{equation*}
+
+	\item Se $f(x) = k \;\; \forall x \in [a,b]$, cioè in pratica la funzione è costante. Consideriamo prima la somma di Riemann: 
+		\begin{equation*}
+			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}\right) = \sum \limits_{i = 0}^n k \cdot \left(\dfrac{b-a}{n}\right) = n \cdot k \cdot \dfrac{b-a}{n} = k \cdot (b-a)
+		\end{equation*}
+		Ne consegue che:
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \lim_{n \to +\infty} S_n = k \cdot (b-a)
+		\end{equation*}
+		Coindice con infatti l'area di un rettangolo di base $b-a$ e di altezza $k$. %Disegno di un rettangolo e qualche considerazione :)
+	
+	\item Se $a = b$ allora:
+		\begin{equation*}
+			\int_a^a f(x) \diff x = 0
+		\end{equation*}
+		In quanto:
+		\begin{equation*}
+			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}\right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{a-a}{n}\right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot 0 = 0
+		\end{equation*}
+\end{itemize}
+
+\subsubsection{Proprietà dell'integrale}
+\begin{enumerate}
+	\item \textbf{Linearità}: Date due funzioni $f,g:[a,b] \to \mathbb{R}$ continue su $[a,b]$. Deti inoltre due punti $c_1, c_2 \in \mathbb{R}$
+		\begin{equation*}
+			\int_a^b (c_1 \cdot f(x) + c_2 \cdot g(x)) \diff x = \int_a^b c_1 \cdot f(x) \diff x \int_a^b c_2 \cdot g(x) \diff x = 
+		\end{equation*}
+
+	\item \textbf{Additività} Data una funzione $f:[a,b] \to \mathbb{R}$ e dato $c \in [a,b]$:
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) \diff x
+		\end{equation*}
+		In generale si tende ad adottare la \textbf{convenzione} che se $b < a$:
+		\begin{equation*}
+			\int_a^b f(x) \diff x = -\int_b^a f(x) \diff x
+		\end{equation*}
+		Ne consegue quindi che si può \textbf{generalizzare la seconda proprietà} a: $f:\mathbb{R} \to \mathbb{R},\; \forall a,b,c \in \mathbb{R}$ implica:
+		\begin{equation*}
+			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) \diff x 
+		\end{equation*}
+
+	\item Con $f:[a,b] \to \mathbb{R}$ e $f(x) \geq 0 \;\; \forall x \in [a,b]$ allora:
+		\begin{equation*}
+			\int_a^b f(x) \diff x \geq 0
+		\end{equation*}
+		Si può \textbf{generalizzare}\footnote{Questo si dimostra con il caso non generalizzato e una funzione ausiliaria $h(x) = f(x) - g(x)$}: data un'ulteriore funzione $g:[a,b] \to \mathbb{R}$, se $f(x) \leq g(x) \quad \forall x \in [a,b]$ allora:
+		\begin{equation*}
+			\int_a^b f(x) \diff x \geq \int_a^b g(x) \diff x
+		\end{equation*}
+\end{enumerate}
+
+\subsection{Media integrale}
+\thm{
+	Se $f:[a, b] \to \mathbb{R}$ continua su $[a,b]$, allora:
+	\begin{equation*}
+		\exists c \in [a,b] : \dfrac{1}{b-a} \int_a^b f(x) \diff x = f(c)
+	\end{equation*}
+	Il valore di $f(c)$ si definisce \textbf{media integrale di $f$ in $[a,b]$}.
+}
+Il nome media deriva dal datto che:
+\begin{equation*}
+	\dfrac{1}{b-a} S_n = \sum \limits_{k = 1}^n \dfrac{f(\xi_k)}{n}
+\end{equation*}
+Che non è altro che una media aritmetica.
+
+\pf{
+	Dimostraimo il teorema della media integrale: per il teorema di Weierstrass $\exists x_1, x_2$ punti di minimo e massimo assoluti:
+	\begin{equation*}
+		f(x_1) \leq f(x) \leq f(x_2) \quad \forall x \in [a,b]
+	\end{equation*}
+	Usando la proprietà della monotonia degli integrali:
+	\begin{equation*}
+		\int_a^b f(x_1) \diff x \leq \int_a^b f(x) \diff x \leq \int_a^b f(x_2) \diff x
+	\end{equation*}
+	Ed essendo $f(x_1)$ e $f(x_2)$ valori costanti:
+	\begin{equation*}
+		(b-a)f(x_1) \leq \int_a^b f(x) \diff x \leq (b-a) f(x_2)
+	\end{equation*}
+	Che quindi dividendo per $(b-a)$
+	\begin{equation*}
+		f(x_1) \leq \dfrac{1}{b-a} \int_a^b f(x) \diff x \leq f(x_2)
+	\end{equation*}
+	Dal teorema dei valori intermedi\footnote{Non mi ricordo di averlo fatto ne di averlo copiato. È sugli appunti del 2023-02-20. CONTROLLARE! :)}:
+	\begin{equation*}
+		\exists x \in [a,b] : f(x) = y
+	\end{equation*}
+	Cioè:
+	\begin{equation*}
+		f(c) = \dfrac{1}{b-a} \int_a^b f(x) \diff x
+	\end{equation*}
+	\hfill Qed.
+}
