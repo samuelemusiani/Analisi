@@ -37,9 +37,9 @@ all: mod
 
 mod: mod1 mod2
 
-mod1: Analisi1.pdf
+mod1: Analisi1.pdf $(TEX_SRC_1) $(IMG_1)
 
-mod2: Analisi2.pdf
+mod2: Analisi2.pdf $(TEX_SRC_2) $(IMG_2)
 
 Analisi1.pdf: $(TEX_SRC_1) $(IMG_1)
 	mkdir -p build/modulo1/sections 	#latexmk non sa creare cartelle da solo 
@@ -55,9 +55,8 @@ Analisi2.pdf: $(TEX_SRC_2) $(IMG_2)
 
 fast: fast1 fast2
 
-fast1: Analisi1_fast.pdf 
-
-fast2: Analisi2_fast.pdf
+fast1: Analisi1_fast.pdf $(TEX_SRC_1) $(IMG_1)
+fast2: Analisi2_fast.pdf $(TEX_SRC_2) $(IMG_2)
 
 Analisi1_fast.pdf: $(TEX_SRC_1) $(IMG_1)
 	mkdir -p build/modulo1_fast/sections		#pdflatex non sa creare cartelle da solo 
