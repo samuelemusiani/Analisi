@@ -9,7 +9,30 @@
 }
 Il sottografico è quindi un insieme e corrisponde e tutti i punti che soddisfano per le ordinate le disuguaglianza $a \leq x \leq b$ e per le ascisse $0 \leq y \leq f(x)$.
 
-%Aggiungere immagine
+\begin{figure}[h]
+	\begin{center}
+
+	\begin{tikzpicture}
+		\begin{axis}[xmax = 15, xmin = -0.5, ymax = 8, ymin = -0.5,
+			axis lines=middle, xlabel=$x$, ylabel=$y$,
+			xtick={2, 10},
+			xticklabels={$a$, $b$},
+			ytick={10},
+			xlabel style={anchor=north east},
+			xticklabel style={anchor=north},
+			yticklabel style={anchor=east},
+		]
+		\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * sin(0.4 * deg(x) + 2) + 3};
+		\addplot[domain=-1:15,draw=none,name path=B] {0};     % “fictional” curve
+		\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=2:10}]; % filling
+		\end{axis}
+	\end{tikzpicture}
+
+	\end{center}
+	\caption{Area del sottografico rappresentata in grigio}
+	%\label{fig:}
+\end{figure}
+
 
 Come si calcola il sottografico? 
 
