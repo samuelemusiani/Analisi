@@ -390,7 +390,7 @@ Che non è altro che una media aritmetica.
 		\textbf{Ci sono infinite primitive di una funzione}
 	\end{center}
 }
-\thm{
+\thm{ \label{theorem_caratterizzazionePrimitive}
 	\textbf{Teorema di caratterizzazione delle primitive su un intervallo:} Se $F:]a,b[ \to \mathbb{R}$ e $G:]a,b[ \to \mathbb{R}$ sono primitive di $f:]a,b[ \to \mathbb{R}$, allora:
 	\begin{equation*}
 		\exists k \in \mathbb{R} : F(x) - G(x) = k \qquad \forall x \in ]a,b[
@@ -530,10 +530,51 @@ Il seguente viene spesso indicato come il primo teorema fondamentale del calcolo
 \thm{
 	Sia $f:]a_0,b_0[ \to \mathbb{R}$ continua. Sia inoltre $F:]a_0,b_0[ \to \mathbb{R}$ la primitiva di $f$ su $]a_0,b_0[$, allora:
 	\begin{equation*}
-		\forall [a,b] \subseteq ]a_0,b_0[ \quad \int_a^b f(x) dx = F(b) - F(a) = [F(x)]_a^b = F(x) |_{x=a}^{x=b} %Da fare meglio il simbolo
+		\forall [a,b] \subseteq ]a_0,b_0[ \quad \int_a^b f(x) \diff x = F(b) - F(a) = [F(x)]_a^b = F(x) |_{x=a}^{x=b} %Da fare meglio il simbolo
 	\end{equation*}
 }
 Esempio: $f(x) = x^2$ e $F(x) = \dfrac{x^3}{3}$ è primitiva di $f$.
 \begin{equation*}
 	\int_2^3 x^2 \diff x = \left[\dfrac{x^3}{3}\right]_{x=2}^{x = 3} = \dfrac{3^3}{3} - \dfrac{2^3}{3} = \dfrac{19}{3}
 \end{equation*}
+
+\pf{
+	Vogliamo dimostrare il teorema appena enunciato. Prendiamo una funzione $f:]a_0,b_0[ \to \mathbb{R}$ continua. Assumiamo inoltre che $F:]a_0,b_0[ \to \mathbb{R}$ sia la primitiva di $f$ su $]a_0,b_0[$. Prendiamo ora un punto $c \in ]a_0, b_0[$. La funzione integrale di $f$ con punto base $c$ è definita come segue:
+	\begin{equation*}
+		I_c(x) = \int_c^x f(t) \diff t \qquad \forall x \in ]a_0, b_0[
+	\end{equation*}
+	Per il "secondo"\footnote{Generalmente nei libri è indicato come secondo, ma il prof lo ha fatto per primo quindi è il primo teorema che si trova in questa sezione.} teorema del calcolo integrale vale che:
+	\begin{equation*}
+		I_c'(x) = f(x) \qquad \forall x \in ]a_0, b_0[
+	\end{equation*}
+	Abbiamo quindi due primitive di $f$ in $]a_0, b_0[$: la prima è $F$ per ipotesi e la seconda è $I_c$ per quanto appena dimostrato. Per il teorema di caratterizzazione delle derivate (Sezione: \ref{theorem_caratterizzazionePrimitive}):
+\begin{equation*}
+	\exists k \in \mathbb{R}: F(x) = I_c(x) + k \qquad \forall x \in ]a_0,b_0[
+\end{equation*}
+Ricordiamoci che vogliamo dimostrare che $\forall [a,b] \subseteq ]a_0,b_0[$ :
+	\begin{align*}
+		\int_a^b f(x) \diff x &= F(b) - F(a) = I_c(b) + k - I_c(a) - k = I_c(b) - I_c(a) = \\[5pt]
+		&= \int_c^b f(t) \diff t - \int_c^a f(t) \diff t = \int_c^b f(t) \diff t + \int_a^c f(t) \diff t = \int_a^b f(t) \diff t
+	\end{align*}
+	Ed essendo la variabile interna all'integrale una varibile muta (cioè è indifferente come la chiamiamo). 
+	\hfill Qed.
+}
+
+\subsection{Tabella primitive elementari}
+Di seguito riporto la tabella delle derivate al contrario, che serve appunto per calcolare gli integrali immediati. Gli integrali sono riportati volutamente senza estremi. Non è inoltre riportata la costante $C$ che si mette per gli integrale indefiniti in quanto non mi interessa indicare l'infinità delle primitive, ma soltanto una di esse (in quanto caso con $C = 0$).
+\imp{
+\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\displaystyle \int x^n \diff x = \dfrac{x^{n+1}}{n+1}$ con $n \in \mathbb{R}\setminus\{-1\}$. Se per caso $n < 0$ bisogna controllare che $x \neq 0$.
+
+		\item $\displaystyle \int \dfrac{1}{x} \diff x = \ln{|x|}$
+		\item $\displaystyle \int e^x \diff x = e^x$
+		\item $\displaystyle \int \sin{x} \diff x = -\cos{x}$
+		\item $\displaystyle \int \cos{x} \diff x = \sin{x}$
+		\item $\displaystyle \int \dfrac{1}{\cos^2(x)} \diff x = \displaystyle \int 1 + \tan^2 (x) \diff x = \tan{x}$
+		\item $\displaystyle \int \dfrac{1}{\sqrt{1-x^2}} \diff x = \arcsin{x}$
+		\item $\displaystyle \int -\dfrac{1}{\sqrt{1-x^2}} \diff x = \arccos{x}$
+		\item $\displaystyle \int \dfrac{1}{1+x^2} \diff x = \arctan{x}$
+	\end{enumerate}
+\end{multicols}
+}
