@@ -1,0 +1,139 @@
+\section{Lo spazio $\mathbb{R}^n$}
+\subsection{La struttura lineare}
+\dfn{
+	$\mathbb{R}^n$ è l'insieme delle \textit{n}-uple ordinate di numeri:
+	\begin{equation*}
+		\mathbb{R}^n = \{x = (x_1, x_2, \cdots , x_n) \; | \; x_1, x_2, \cdots, x_n \in \mathbb{R}\}
+	\end{equation*}
+}
+Gli elementi di $\mathbb{R}^n$ si dicono vettori. In generale si possono pensare i sui elementi come vettori applicati nell'origine. Lo spazio $\mathbb{R}^n$ ha una struttra lineare. In esso sono definite due operazioni di base: la somma tra vettori e il prodotto di un vettore per uno scalare.
+
+\subsubsection{Somma tra vettori}
+\dfn{
+	Presi due vettori $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e $y = (y_1, \cdots, y_n)$ definiamo la somma tra vettori:
+	\begin{equation*}
+		x + y \vcentcolon = (x_1 + y_1, \cdots, x_n + y_n) \in \mathbb{R}^n
+	\end{equation*}
+}
+
+Se ci si riduce ad $\mathbb{R}^2$ la somma tra vettori è la stessa della \textit{regola del parallelogramma} che spesso si studia in fisica.
+
+\subsubsection{Prodotto di un vettore per uno scalare}
+\dfn{
+	Dato un vettore $x = (x_1, \cdots, x_n) \in \mathbb{R}^n$ e uno scalare $\lambda \in \mathbb{R}$ definiamo il prodotto di un vettore per uno scalare:
+	\begin{equation*}
+		\lambda x \vcentcolon = (\lambda \cdot x_1, \cdots, \lambda \cdot x_n)
+	\end{equation*}
+}
+I numeri in $\mathbb{R}$ vengono chiamati scalari perché se moltiplicati per un vettore visivamente lo scalano proprio del loro valore. Cioè se $\lambda = 2$ allora il vettore che viene moltiplicato per $\lambda$ è il doppio del vettore originale.
+
+\subsubsection{Vettori coordinati}
+%(Non so se è una definzione) DA RIGUARDARE
+\dfn{
+	In $\mathbb{R}^n$ i \textbf{vettori coordinati} sono:
+	\begin{align*}
+		e_1 &= (1, 0, 0, \cdots, 0)\\
+		e_2 &= (0, 1, 0, \cdots, 0)\\
+		\vdots\\
+		e_n&= (0, 0, 0, \cdots, 1)\\
+	\end{align*}
+}
+
+I vettori coordinati sono ortogonali a coppie (per la definzione di ortogonalità fare riferimento alla sezione \ref{sec_ortogonalita}):
+\begin{equation*}
+	\forall j \neq k, \;\;j,k = 1\cdots n \quad \langle e_j, e_k \rangle = 0
+\end{equation*}
+
+\subsection{Prodotto scalare euclideo}
+\dfn{
+	Dati $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e $y = (y_1, \cdots, y_n)$ definiamo il prodotto scalare euclideo:
+	\begin{equation*}
+		\langle x, y \rangle = x_1 \cdot y_1 + \cdots + x_n \cdot y_n = \sum_{k = 1}^n x_k \cdot y_k \in \mathbb{R}
+	\end{equation*}
+	È importante notare che questo prodotto restituisce \textbf{un numero in} $\mathbb{R}$. Esiste anche un altra notazione per scrivere il prodotto scalare: 
+	\begin{equation*}
+		\langle x, y \rangle = x \cdot y
+	\end{equation*}
+}
+Esempio:
+\begin{equation*}
+	\langle (2, 3), (-1, 4) \rangle = 2 \cdot -1 + 3 \cdot 4 = 10
+\end{equation*}
+Altro esempio:
+\begin{equation*}
+	\langle (2, 1, 3), (-1, 4, 1) \rangle = 2 \cdot -1 + 1 \cdot 4 + 3 \cdot 1 = 5
+\end{equation*}
+
+\textbf{Proprietà:}
+\begin{enumerate}
+	\item $\langle x, y \rangle = \langle y, x \rangle \quad \forall x, y \in \mathbb{R}^n$
+
+	\item Dati $x, y, z \in \mathbb{R}^n$ e $\lambda, \mu \in \mathbb{R}$ 
+		\begin{equation*}
+			\langle \lambda x + \mu y, z \rangle = \lambda \langle x, y \rangle + \mu \langle y, z \rangle
+		\end{equation*}
+		Ovviamente per la proprietà 1 vale:
+		\begin{equation*}
+			\langle z, \lambda x + \mu y \rangle = \lambda \langle z, x \rangle + \mu \langle z, y \rangle
+		\end{equation*}
+
+	\item $\forall x \in \mathbb{R}^n \quad \langle x, x \rangle \geq 0$
+	
+	\item $\langle x, x \rangle = 0 \iff x = \underline{0} = (0, \cdots, 0)$
+\end{enumerate}
+
+\subsection{Vettori ortogonali} \label{sec_ortogonalita}
+\dfn{
+	I vettori $x, y \in \mathbb{R}^n$ si dicono ortogonali (o perpendicolari) se $\langle x, y \rangle = 0$
+}
+Esempi:
+\begin{itemize}
+	\item Se un vettore è il vettore nullo $x = \underline{0}$ allora tutti i vettori sono ortogonali a lui:
+		\begin{equation*}
+			\langle \underline{0}, y \rangle = 0 \quad \forall y \in \mathbb{R}^n
+		\end{equation*}
+	
+	\item Se prendiamo $(x, y) = (\cos{\theta}, \sin{\theta})$ e $(\overline{x}, \overline{y}) = \left(\cos(\theta + \dfrac{\pi}{2}), \sin(\theta + \dfrac{\pi}{2}) \right) = (-\sin{\theta}, \cos{\theta})$
+		\begin{equation*}
+			\langle (x, y), (\overline{x}, \overline{y}) \rangle = \langle (\cos{\theta}, \sin{\theta}), (-\sin{\theta}, \cos{\theta}) \rangle = -\cos{\theta} \cdot \sin{\theta} + \sin{\theta} \cdot \cos{\theta} = 0
+		\end{equation*}
+	
+	\item $(a, b) \in \mathbb{R}^2, (-b, a ) \in \mathbb{R}^2$
+		\begin{equation*}
+			\langle (a, b), (-b, a) \rangle = -ba + ba = 0
+		\end{equation*}
+\end{itemize}
+Un esempio meno astratto e che in realtà conosciamo già e trovare la retta perpendicolare ad un'altra. Se infatti abbiamo due rette generiche $r_1: y = mx$ e $r_2: y = px$ possiamo chiederci per quali valori di $p$ la la seconda sia perpendicolare (o ortogonale) alla prima. Assumiamo per semplicità $m \neq 0$ e prendiamo due punti generici, uno su $r_1$ e l'altro su $r_2$:
+\begin{equation*}
+	(1, m) \in r_1 \qquad (1, p) \in r_2
+\end{equation*}
+Ora imponiamo che siano perpendicolari, in particolare:
+\begin{gather*}
+	\langle (1, m), (1, p) \rangle = 0\\[10pt]
+	1 + mp = 0 \\[10pt]
+	p = -\dfrac{1}{m}
+\end{gather*}
+Abbiamo quindi ottenuto la condizione di perpendicolarità che ci è familiare nel piano.
+
+\subsection{Norma di un vettore}
+\dfn{
+	Dato $x \in \mathbb{R}^n$, definiamo\footnote{Il prof la indica senza le doppie barre ma come un semplice valore assoluto. Secondo me fa molta confusione quindi io userò sempre le doppie barrette.} la norma come:
+	\begin{equation*}
+		\lVert x \rVert \vcentcolon = \sqrt{\langle x, x \rangle} = \sqrt{\sum_{k = 1}^n x^2_k}
+	\end{equation*}
+}
+La norma viene spesso chiamata \textbf{lunghezza} perché in effetti rappresenta la lunghezza del vettore su cui è calcolata. In $\mathbb{R}$ è il modulo del vettore stesso, in $\mathbb{R}^2$ è il semplice teorema di pitagora, mentre in spazi di dimensione più grade è già difficile da visualizzare.\\
+
+\textbf{Proprietà:} 
+\begin{enumerate}
+	\item $\forall \lambda \in \mathbb{R}, \;\forall x \in \mathbb{R}^n$ vale: $\lVert \lambda x \rVert = |\lambda| \cdot \lVert x \rVert$. Questo perché:
+		\begin{equation*}
+			\lVert \lambda x \rVert = \sqrt{(\lambda x_1)^2 + \cdots + (\lambda x_n)^2} = \sqrt{\lambda^2 (x_1^2 + \cdots + x_n^2)} = |\lambda| \sqrt{x_1^2 + \cdots x_n^2} = |\lambda| \cdot \lVert x \rVert
+		\end{equation*}
+	
+	\item $\forall x \in \mathbb{R}^n \quad \lVert x \rVert \leq 0$
+	
+	\item $\lVert x \rVert = 0 \iff x = \underline{0}$
+
+	\item $\forall x, y \in \mathbb{R}^n$ vale: $\lVert x + y \rVert \leq \lVert x \rVert + \lVert y \rVert$
+\end{enumerate}
