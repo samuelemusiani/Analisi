@@ -704,7 +704,156 @@ In questo caso bisogna aggiungere $+ C$ in quanto stiamo sempre trattando con tu
 \end{equation*}
 
 \subsubsection{Integrazione per sostituzione}
+Gli integrali per sostituzione ci permettono di sotituire delle funzioni all'interno dell'integrale con delle funzioni "più semplici", in generale per semplificare notevolmente i calcoli. Per sempio se abbiamo il seguente integrale:
+\begin{equation*}
+	\int \dfrac{\sin(x)}{\cos(x)} \diff x
+\end{equation*}
+Possiamo fare una sostituzione tipo $t = \cos(x)$ e l'integrale diventa:
+\begin{equation*}
+	\int \dfrac{-1}{t} \diff t = -\ln (t) + C = -\ln(\cos(x)) + C
+\end{equation*}
+Non importa capire adesso come ha fatto la funzione $\sin(x)$ ha sparire completamente, ma piuttosto apprezzare la semplificazione dei calcoli data dalla sostituzione.
+
+\thm{
+	\textbf{Teorema del cambio di variabile}: Siano $I, A \subseteq \mathbb{R}$ intervalli aperti. Data $h: I \to A$ continua e con derivata continua e $f: A \to \mathbb{R}$ continua, vale che:
+	\begin{equation*}
+		\forall \alpha, \beta \in I \quad \int_{h(\alpha)}^{h(\beta)} f(x) \diff x = \int_\alpha^\beta f(h(t)) \cdot h'(t) \diff t
+	\end{equation*}
+}
+\pf{
+	Siano $h$ ed $f$ come da enunciato. Definisco $F: I \to \mathbb{R}$ dove:
+	\begin{equation*}
+		F(z) = \int_{h(\alpha)}^{h(z)} f(x) \diff x
+	\end{equation*}
+	Inoltre definisco $G: I \to \mathbb{R}$ dove:
+	\begin{equation*}
+		G(z) = \int_\alpha^z f(h(t)) \cdot h'(t) \diff t
+	\end{equation*}
+	Vogliamo quindi provare che sono la stessa funzione. Per il teorema di Lagrange abiamo che se due funzione hanno la stessa derivata allora differiscono per una costante. Se riusciamo a provare che hanno la stessa derivata e che la costante che le differenzia è 0 allora sono la stessa funzione\footnote{Sarebbe da chiedere meglio al prof perché non lo ha specificato nella prova ed è una mia supposizione che funzioni così.}. 
+
+	Dimostriamo che hanno la stessa derivata, cioè:
+	\begin{equation*}
+		F'(x) = G'(x)
+	\end{equation*}
+	Usando il teorema del calcolo integrale e quello generalizzato:
+	\begin{equation*}
+		f(h(z)) \cdot h'(z) = f(h(z)) \cdot h'(z)
+	\end{equation*}
+	Dimostriamo ora che la costante per cui differiscono è 0. In particolare scelto un punto a caso la loro differenza deve essere 0. Scegliamo per comodità il punto $z = \alpha$:
+	\begin{equation*}
+		F(\alpha) - G(\alpha) = \int_{h(\alpha)}^{h(\alpha)} \cdots - \int_{\alpha}^{\alpha} \cdots = 0 - 0 = 0
+	\end{equation*}
+	Non ho riportato il contenuto degli integrali volutamente perché non era necessario per far vedere che erano entrambi 0. 
+
+	\hfill Qed.
+}
+Facciamo degli esempi:
+\begin{equation*}
+	\int_3^5 e^{\sqrt{x}} \diff x 
+\end{equation*}
+Scegliamo $t = \sqrt{x}$, quindi $x = t^2$ e quindi $\diff x = 2t \diff t$: 
+\begin{align*}
+	\int_{\sqrt{3}}^{\sqrt{5}} e^t \cdot 2t \diff t &= 2\left( [e^t \cdot t]_{\sqrt{3}}^{\sqrt{5}} \;- \int_{\sqrt{3}}^{\sqrt{5}} e^t \diff t\right) = 2 \cdot [e^t (t - 1)]_{\sqrt{3}}^{\sqrt{5}}
+\end{align*}
+Un altro esempio potrebbe essere (lo faccio indefinito per evitare di portarmi dietro gli estremi di integrazione per tutto il calcolo):
+\begin{align*}
+	\int \sin(x^{\frac{1}{3}}) \diff x
+\end{align*}
+Facciamo la sostituzione $t = x^{\frac{1}{3}}$, quindi $x = t^3$ e quindi $\diff x = 3 t^2 \diff t$:
+\begin{align*}
+	\int \sin(x^{\frac{1}{3}}) \diff x &= \int \sin(t) \cdot 3t^2 \diff t = 3 \int t^2 \sin(t) \diff t = 3 \left(-\cos(t) \cdot t^2 + 2\int t \cdot \cos(t) \diff t \right) =\\
+	&= 3 \left(-\cos(t) \cdot t^2 + 2\left(t \cdot \sin(t) - \int \sin(t) \diff t \right)\right) =\\
+	&= 3 (-\cos(t) \cdot t^2 + 2(t \cdot \sin(t) + \cos (t) )) + C = 3 (-\cos(t) \cdot t^2 + 2t \cdot \sin(t) + 2\cos (t) ) + C=\\
+	&= -3\cos(t) \cdot t^2 + 6t \cdot \sin(t) + 6\cos (t) + C =  -3\cos(x^{\frac{1}{3}}) \cdot x^{\frac{2}{3}} + 6x^{\frac{1}{3}} \cdot \sin(x^\frac{1}{3}) + 6\cos (x^\frac{1}{3}) + C
+\end{align*}
+
+Un ulteriore esempio che può essere considerato "utile" è il calcolo dell'area del cerchio. In particolare, essendo la circonferenza unitaria definita dall'equazione $x^2 + y^2 = 1$, possiamo considerare solo la porzione nel primo quadrante del piano, che ha equazione $\sqrt{1-x^2}$ e successivamente moltiplicare per $4$ l'area ottenuta. In particolare dobbiamo calcolare:
+\begin{equation*}
+	4 \int_0^1 \sqrt{1-x^2} \diff x
+\end{equation*}
+In questo caso la sostituzione da fare è $x = \cos(t)$, quindi $\diff x = -\sin(t) \diff t$:
+\begin{align*}
+	4 \int_0^1 \sqrt{1-x^2} \diff x &= 4 \int_{\arccos(0)}^{\arccos{1}} \sqrt{1-\cos^2(t)} \cdot - \sin(t) \diff t = \\[10pt]
+	&= -4 \int_{\frac{\pi}{2}}^0 \sin(t) \cdot \sin(t) \diff t = 4 \int_0^{\frac{\pi}{2}} \sin^2(t)\diff t = \\[10pt]
+	&= 4 \int_0^{\frac{\pi}{2}} \dfrac{1 - \cos(2t)}{2}\diff t = 2 \int_0^{\frac{\pi}{2}} 1 \diff t - 2 \int_0^{\frac{\pi}{2}} \cos(2t) \diff t = \\[10pt]
+	&= 2[t]_0^{\frac{\pi}{2}} - 2\left[\dfrac{1}{2} \sin(2t) \right]_0^{\frac{\pi}{2}} = 2 \left[\dfrac{\pi}{2} - 0\right] - [\sin(\pi) - \sin(0)] = \\[10pt]
+	&= \pi - 0 = \pi
+\end{align*}
 
 
 \subsubsection{Integrali di fratte}
 Il prof non li ha fatti molto e ha detto al tutor di coprirli. Per completezza mi sento in dovere di scrivere comunque qualcosa al riguardo. DA FARE :) %%DA FARE 
+
+\subsection{Integrali su intervalli non limitati (integrali generalizzati)}
+
+\dfn{
+	Data $f:[a, +\infty[ \to \mathbb{R}$ continua, si dice che $f$ è integrabile su $[a, +\infty[$ se esiste \textbf{finito}: 
+	\begin{equation*}
+		\lim_{z \to +\infty} \int_a^z f(x) \diff x = \vcentcolon \int_a^{+\infty} f(x) \diff x
+	\end{equation*}
+}
+Il limite infatti può divergere o anche non esistere. È però richiesto che se la funzione è integrabile in quell'intervallo allora il limite è finito.
+
+Esempio:
+\begin{equation*}
+	f(x) = \dfrac{1}{x^2} \qquad x \geq 1
+\end{equation*}
+Diventa quindi che:
+\begin{equation*}
+	\int_1^{+\infty} \dfrac{1}{x^2} \diff x = \lim_{z \to +\infty} \left[-\dfrac{1}{x}\right]_1^z = \lim_{z \to +\infty} \left[-\dfrac{1}{z} + \dfrac{1}{1}\right] = -0 + 1 = 1
+\end{equation*}
+Un altro esempio:
+\begin{equation*}
+	\int_1^{+\infty} \dfrac{1}{x} \diff x = \lim_{z \to +\infty} [\ln|x|]_1^z = \lim_{z \to +\infty} [\ln|z| - 0] = +\infty
+\end{equation*}
+In questo caso il limite non converge. In generale:
+\begin{equation*}
+	\int_1^{+\infty} \dfrac{1}{x^p} \diff x =
+	\begin{cases}
+		\text{converge} &\text{ se } p > 1\\[5pt]
+		\text{diverge} &\text{ se } p \leq 1 \\
+	\end{cases}
+\end{equation*}
+Infatti per $p = 1$ lo abbiamo già dimostrato che diverge, mentre per $p \neq 1$:
+\begin{equation*}
+	\int_1^{+\infty} \dfrac{1}{x^p} = \lim_{z \to +\infty}\left[\dfrac{x^{-p+1}}{-p+1}\right]_1^z = \lim_{z \to +\infty} \dfrac{z^{1-p}}{1-p} - \dfrac{1}{1-p} = 
+	\begin{cases}
+		-\dfrac{1}{1-p} &\text{ se } p > 1\\[5pt]
+		+\infty &\text{ se } p < 1\\
+	\end{cases}
+\end{equation*}
+
+\dfn{
+	Data $f:]a,b] \to \mathbb{R}$ continua, si dice che $f$ è integrabile su $]a,b]$ se esiste \textbf{finito}:
+	\begin{equation*}
+		\int_a^b f(x) \diff x = \lim_{z \to a^+} \int_z^b f(x) \diff x
+	\end{equation*}
+}
+Esempio:
+\begin{equation*}
+	\int_0^1 \dfrac{1}{\sqrt{x}} \diff x = \lim_{z \to 0} [2 \sqrt{x}]_z^1 = \lim_{z \to 0} [2 \sqrt{1} - 2 \sqrt{z}] = 2 
+\end{equation*}
+Altro esepio:
+\begin{equation*}
+	\int_0^1 \dfrac{1}{x} = \lim_{z \to 0} [2 \ln(x)]_z^1 = \lim_{z \to 0} [2 \ln(1) - 2 \ln(z)] = +\infty
+\end{equation*}
+
+
+\subsection{Altro}
+Il prof ha fatto le seguenti proposizioni, io le riporto per completezza ma mi sembra veramente inutile.\\
+\textbf{Proposizione:} Se $f$ è dispari e continua in $\mathbb{R}$:
+\begin{equation*}
+	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = - \int_{-b}^{-a} \diff x
+\end{equation*}
+\textbf{Dimostrazione:} 
+\begin{equation*}
+	\int_a^b f(x) \diff x
+\end{equation*}
+Sostituiamo $t = -x$, cioè $x = -t$ e quindi $\diff x = - \diff t$. 
+\begin{align*}
+	\int_a^b f(x) \diff x = \int_{-a}^{-b} f(-t) \cdot -1 \diff t = - \int_{-a}^{-b} - f(t) \diff t = -\int^{-a}_{-b} f(t) \diff t
+\end{align*}
+\textbf{Proposizione:} Se $f$ è pari:
+\begin{equation*}
+	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = \int_{-b}^{-a} \diff x
+\end{equation*}
