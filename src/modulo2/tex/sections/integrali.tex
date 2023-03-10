@@ -560,6 +560,43 @@ Ricordiamoci che vogliamo dimostrare che $\forall [a,b] \subseteq ]a_0,b_0[$ :
 	\hfill Qed.
 }
 
+Generalizziamo ora il teorema fondamentale del calcolo integrarle:
+\thm{
+	Siano $A, I \subseteq \mathbb{R}$ intervalli aperti. Sia inoltre $f: A \to \mathbb{R}$ continua e $h: I \to A$ derivabile con derivata continua. Se $c \in A$ allora:
+	\begin{equation*}
+		\dv{}{x} \int_c^{h(x)} f(t) \diff t = f(h(x)) \cdot h'(x)
+	\end{equation*}
+}
+Esempio:
+\begin{equation*}
+	\dv{}{x} \int_0^{\sin(x)} e^{t^2} \diff t = e^{\sin^2(x)} \cdot \cos(x)
+\end{equation*}
+
+\pf{
+	Dimostraimo il teorema fondamentale del calcolo generalizzato. Chiamiamo in particolare:
+	\begin{equation*}
+		G(x) = \int_c^{h(x)} f(t) \diff t
+	\end{equation*}
+	Ora definiamo una funzione integrale $I_c(x)$:
+	\begin{equation*}
+		I_c (x) = \int_c^z f(t) \diff t
+	\end{equation*}
+	Per il teorema fondamentale del calcolo integrale vale che:
+	\begin{equation*}
+		I_c' (z) = f(z)
+	\end{equation*}
+	La nostra funzione $G$ possiamo riscriverla come:
+	\begin{equation*}
+		G(x) = I_c(h(x))
+	\end{equation*}
+	Facendo quindi la derivata:
+	\begin{equation*}
+		G'(x) = I_c'(h(x)) \cdot h'(x) = f(h(x)) \cdot h'(x)
+	\end{equation*}
+
+	\hfill Qed.
+}
+
 \subsection{Tabella primitive elementari}
 Di seguito riporto la tabella delle derivate al contrario, che serve appunto per calcolare gli integrali immediati. Gli integrali sono riportati volutamente senza estremi. Non è inoltre riportata la costante $C$ che si mette per gli integrale indefiniti in quanto non mi interessa indicare l'infinità delle primitive, ma soltanto una di esse (in quanto caso con $C = 0$).
 \imp{
@@ -578,3 +615,96 @@ Di seguito riporto la tabella delle derivate al contrario, che serve appunto per
 	\end{enumerate}
 \end{multicols}
 }
+
+\subsection{Tecniche di integrazione}
+\subsubsection{Integrazione per parti}
+Consideriamo due funzioni $F, g:[a,b] \to \mathbb{R}$ dove $g$ è continua, $g'$ continua, $F$ è derivabile, $F'(x) = f(x) \;\forall x \in [a,b]$, $f$ continua. Dalla regola di derivazione del prodotto di due funzioni ci ricordiamo che:
+\begin{equation*}
+	\dv{}{x} \left[F(x) \cdot g(x)\right] = f(x)g(x) + F(x)g'(x)
+\end{equation*}
+Vogliamo ora calcolare il seguente integrale:
+\begin{equation*}
+	\int_a^b \dv{}{x} \left[F(x) \cdot g(x)\right] \diff x = \int_a^b [f(x)g(x) + F(x)g'(x)] \diff x
+\end{equation*}
+Usando il teorema fondamentale del calcolo integrale e spezzando l'integrale di destra:
+\begin{equation*}
+	\left[F(x) \cdot g(x)\right]_a^b = \int_a^b f(x)g(x) \diff x + \int_a^b F(x)g'(x) \diff x
+\end{equation*}
+Ne consegue quindi che:
+\imp{
+\begin{equation*}
+	\int_a^b f(x)g(x) \diff x = \left[F(x) \cdot g(x)\right]_a^b - \int_a^b F(x)g'(x) \diff x
+\end{equation*}
+}
+
+Questa formula ci permette quindi di semplificare alcuni tipi di integrali del prodotto di funzioni. Se infatti per una di esse riusciamo a trovare una primitiva, allora possiamo riscrivere il nostro integrale usando quella primitiva e la derivata dell'altra funzione. È importante notare che abbiamo due funzioni e di una di esse dobbiamo trovare una primitiva, mentre per l'altra la sua derivata. La scelta è generalmente arbitraria su quale derivare e quale invece riscrivere come primitiva, ma di solito solo uno modo porta alla soluzione. Non ci sono particolari consigli da dare in questo caso se non fare molti esercizi.\\
+
+Un classico esempio che si porta di solito per far vedere l'utilità di questa formula (o in generale tecnica) è il calcolo del seguente integrale:
+\begin{equation*}
+	\int_a^b e^x \cdot x\diff x
+\end{equation*}
+In questo caso scegliamo di derivare $x$ e di trovare una primitiva di $e^x$. È facile notare che la primitiva di quest'ultima è la funzione stessa $e^x$. Possiamo quindi riscrivere il nostro integrale nel seguente modo:
+\begin{equation*}
+	\int_a^b e^x \cdot x \diff x = [e^x \cdot x]_a^b - \int_a^b e^x \cdot 1 \diff x = [e^x \cdot x]_a^b - [e^x]_a^b
+\end{equation*}
+Notiamo che se avessimo fatto la scelta inversa, cioè di derivare $e^x$ e di trovare una primitiva di $x$ l'integrale si sarebbe complicato e non saremmo riusciti a risolverlo:
+\begin{equation*}
+	\int_a^b e^x \cdot x\diff x = \left[e^x \cdot \dfrac{x^2}{2}\right]_a^b - \int_a^b e^x \cdot \dfrac{x^2}{2} \diff x
+\end{equation*}
+Alcuni integrali possono richiedere \textbf{un'applicazione ripetuta} della formula di integrazione per parti. Un esempio è il seguente\footnote{Non ripoterò gli estremi di integrazione ma farò solo l'integrale indefinito per semplicità. In pratica mi riduco solo a trovare le primitive della funzione. Nel caso in cui si voglia trovare l'integrale della funzione tra due estremi basta prendere una delle primitive finali trovate e fare la classica formula data nel teorema fondamentale del calcolo integrale.}:
+\begin{align*}
+	\int x^2 \cdot e^x \diff x &= e^x \cdot x^2 - \int e^x \cdot 2 x \diff x = e^x \cdot x^2 - 2 \int e^x \cdot x \diff x = \\
+	&= e^x \cdot x^2 - 2 \left(e^x \cdot x - \int e^x \diff x \right) = e^x \cdot x^2 - 2 (e^x \cdot x - e^x) + C
+\end{align*}
+
+Come è facile notare questo tipo di integrali hanno in comune le così dette \textbf{funzioni circolari}, cioè quelle che hanno come derivata o se stesse oppure una funzione molto simile (tipo $\sin$ e $\cos$). Infatti il seguente integrale si calcola sempre con la formula appena introdotta:
+
+\begin{align*}
+	\int x \sin(x) \diff x &= -\cos(x) \cdot x - \int -\cos(x) \diff x = -\cos(x) \cdot x + \sin(x) + C
+\end{align*}
+
+Un altro tipo particolare di integrali che si fa con questa tecnica sono i seguenti:
+\begin{equation*}
+	\int \ln(x) \diff x
+\end{equation*}
+In particolare possiamo osservare che apparentemente non ci sono due funzioni, quindi sembrerebbe che la formula non si possa applicare. In realtà possiamo riscrivere l'integrale come segue:
+\begin{equation*}
+	\int 1 \cdot \ln(x) \diff x
+\end{equation*}
+In questo caso la funzione che dobbiamo integrare $f(x) = 1$, cioè la funzione costante. Una delle sue primitive è $x$, qindi possiamo applicare la formula di integrazione per parti:
+\begin{equation*}
+	\int 1 \cdot \ln(x) \diff x = x \cdot \ln(x) - \int x \cdot \dfrac{1}{x} \diff x = x \cdot \ln(x) - \int 1 \diff x = x \ln(x) - x + C
+\end{equation*}
+Un ulteriore intgrale che si fa con la stessa tecnica è il seguente:
+\begin{align*}
+	\int \arctan(x) \diff x &= x \cdot \arctan x - \int x \cdot \dfrac{1}{1 + x^2} \diff x = x \cdot \arctan(x) - \dfrac{1}{2} \int \dfrac{2x}{1+x^2} \diff x = \\
+	&= x \arctan(x) - \dfrac{1}{2} \ln(1 + x^2) + C
+\end{align*}
+
+Esistono anche integrali che sono il prodotto di due funzioni circolari, ad esempio:
+\begin{equation*}
+	\int e^x \cdot sin(x) \diff x
+\end{equation*}
+In questo caso si nota che se si prova ad applicare la formula di intgrazione per parti vista sopra si entra in un "loop". Per risolvere questo tipo di integrali bisogna applicarla due volte e fare qualche manipolazione algebrica. In questi casi è indifferente la scelta della funzione da derivare e quella da integrare:
+\begin{align*}
+	\int e^x \cdot \sin(x) \diff x &= e^x \cdot \sin(x) - \int e^x \cos(x) \diff x = e^x \cdot \sin(x) - \left(e^x \cdot \cos(x) - \int e^x \cdot -\sin(x) \diff x\right) = \\
+	&= e^x \cdot \sin(x) - e^x \cdot \cos(x) - \int e^x \cdot \sin(x) \diff x
+\end{align*}
+Notiamo ora che $\int e^x \sin(x) \diff x$ compare da entrambe le parti dell'uguaglianza, quindi per comodità chiamiamo il nostro integrale $I$ e riscriviamo:
+\begin{equation*}
+	I = e^x \cdot \sin(x) - e^x \cdot \cos(x) - I
+\end{equation*}
+Risolvendo per $I$:
+\begin{equation*}
+	I = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) + C
+\end{equation*}
+In questo caso bisogna aggiungere $+ C$ in quanto stiamo sempre trattando con tutte le primitive della funzione. Però possiamo finalmente concludere che:
+\begin{equation*}
+	\int e^x \cdot \sin(x) \diff x = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) + C
+\end{equation*}
+
+\subsubsection{Integrazione per sostituzione}
+
+
+\subsubsection{Integrali di fratte}
+Il prof non li ha fatti molto e ha detto al tutor di coprirli. Per completezza mi sento in dovere di scrivere comunque qualcosa al riguardo. DA FARE :) %%DA FARE 
