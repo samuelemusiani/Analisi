@@ -707,4 +707,358 @@ Ne consegue che l'area della circonferenza:
 
 	\draw[-] (0, 1) -- (-\tmpval, \tmpval);
 	\draw[-] (-\tmpval, \tmpval) -- (-1, 0);
-	\draw[-] (-\tmpval, -\tmpval) -- (-1, 0)
+	\draw[-] (-\tmpval, -\tmpval) -- (-1, 0);
+	\draw[-] (0,-1) -- (-\tmpval, -\tmpval);
+
+
+
+	\draw[very thin, fill] (0,0) circle (0.4pt) node[left] {$O$};
+	\draw[very thin, fill] (1,0) circle (0.4pt) node[right] {$A_2$};
+	\draw[very thin, fill] (0.8535539, 0.35355339) circle (0.4pt) node[right, xshift=5pt, yshift=5pt] {$H$};
+	\draw[very thin, fill] (\tmpval,\tmpval) circle (0.4pt) node[right, yshift=3pt] {$A_1$};
+	\draw[very thin, fill] (0,1) circle (0.4pt);
+	\draw[very thin, fill] (-\tmpval,\tmpval) circle (0.4pt);
+	\draw[very thin, fill] (-1,0) circle (0.4pt);
+	\draw[very thin, fill] (-\tmpval,-\tmpval) circle (0.4pt);
+	\draw[very thin, fill] (0,-1) circle (0.4pt);
+	\draw[very thin, fill] (\tmpval,-\tmpval) circle (0.4pt);
+
+
+\end{tikzpicture}
+	\end{center}
+	\caption{Circonferenza con inscritto un poligono regolare di $n$ lati}
+	\label{fig_cfrPoligon}
+\end{figure}
+
+
+
+
+
+
+Un secondo limite notevole:
+\imp{
+\begin{equation*}
+    \lim_{x \to 0} \dfrac{1 - \cos{x}}{x^2} = \dfrac{1}{2}
+\end{equation*}
+}
+\pf{
+\begin{align*}
+    &\lim_{x \to 0} \dfrac{1 - \cos{x}}{x^2} = \lim_{x \to 0} \dfrac{1-\cos^2{x}}{x^2} \cdot \dfrac{1}{1 + \cos{x}} =\\
+    =&\lim_{x \to 0} \dfrac{\sin^2{x}}{x^2} \cdot \dfrac{1}{1 + \cos{x}} = \lim_{x \to 0} \left( \dfrac{\sin{x}}{x} \right)^2 \cdot \dfrac{1}{1 + \cos{x}} = \\
+    =&\lim_{x \to 0} \left( \dfrac{\sin{x}}{x} \right)^2 \cdot \lim_{x \to 0} \dfrac{1}{1 + \cos{x}} = 1 + \dfrac{1}{2} = \dfrac{1}{2}
+\end{align*}
+}
+
+Un terzo limite notevole che deriva dal secondo:
+\imp{
+\begin{equation*}
+    \lim_{x \to 0} \dfrac{1 - \cos{x}}{x} = 0
+\end{equation*}
+}
+
+\pf{
+\begin{equation*}
+    \lim_{x \to 0} \dfrac{1 - \cos{x}}{x} = \lim_{x \to 0} \dfrac{1 - \cos{x}}{x^2} \cdot x = \dfrac{1}{2} \cdot 0 = 0
+\end{equation*}
+}
+Altri limiti notevoli:
+\imp{
+\begin{equation*}
+    \lim_{x \to 0} \dfrac{a^x-1}{x} = \ln{a} \qquad (0 < a,\;\; a \neq 1)
+\end{equation*}
+}
+
+Il caso particolare in qui $a = e$:
+\imp{
+\begin{equation*}
+    \lim_{x \to 0} \dfrac{e^x-1}{x} = 1
+\end{equation*}
+}
+
+\subsection{Asintoti}
+\dfn{
+$x = k$ è un \textbf{asintoto verticale} per $f(x)$ se
+\begin{equation*}
+    \lim_{x\to k^{+}} f(x) = \pm \infty \qquad \text{oppure} \qquad \lim_{x\to k^{-}} f(x) = \pm \infty
+\end{equation*}
+}
+Ne consegue che graficamente l'asintoto verticale si verifica quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{fig_asintotVer}):
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -0.5, ymax = 10, ymin = -10,
+		axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east}, xlabel style={anchor=north},
+		     ytick style={draw=none},
+		     yticklabels={},
+		     xtick={2},
+		     xticklabels={$k$},
+		     xticklabel style={anchor=north west},
+		    ]
+		\addplot[samples=800]{1/(x-2) + 3 * x - 5};
+	\end{axis}
+	\end{tikzpicture}
+
+\end{center}
+	\caption{Asinto veritcale}
+	\label{fig_asintotVer}
+\end{figure}
+
+
+\dfn{
+$y = l$ si dice \textbf{asintoto orizzontale} se: $f: A\to \mathbb{R}$, $\sup A = +\infty$ e 
+\begin{equation*}
+    \lim_{x\to + \infty} f(x) = l \in \mathbb{R}
+\end{equation*}
+Vale ovviamente anche il caso a $-\infty$. Nella stessa funzione ci possono essere al massimo 2 asintoti orizzontali.
+}
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[xmax = 4, xmin = -2, ymax = 10, ymin = -10,
+		axis lines=middle, xlabel=$x$, ylabel=$y$, ylabel style={anchor=east}, xlabel style={anchor=north},
+		     yticklabel style={anchor=north east},
+		     ytick={-3},
+		     yticklabels={$l$},
+		     xticklabel style={draw=none},
+		    ]
+		\addplot[samples=800]{e^(-1.5* x) - 3};
+		\addplot[samples=800]{-3};
+	\end{axis}
+	\end{tikzpicture}
+
+\end{center}
+	\caption{Asinto orizzontale}
+\end{figure}
+
+\subsection{Limiti di funzioni elementari}
+IL limite di un polinomio $p(x)$ è il polinomio calcolato nel punto:
+\begin{equation*}
+    \lim_{x \to x_0} p(x) = p(x_0)
+\end{equation*}
+\pf{
+Dimostriamo che il limite di un polinomio $p(x)$ è il polinomio calcolato nel punto:
+\begin{equation*}
+    \lim_{x \to x_0} p(x) = p(x_0)
+\end{equation*}
+dove $x_0 \in \mathbb{R}$. Partiamo dal caso base:
+\begin{equation*}
+    \lim_{x \to x_0} x = x_0
+\end{equation*}
+Questo deriva direttamente dalla definizione di limite con $\delta = \epsilon$. Ora dall'algebra dei limiti:
+\begin{align*}
+    &\lim_{x \to x_0} x^2 = \lim_{x \to x_0} x \cdot \lim_{x \to x_0} x = x_0^2\\
+    &\lim_{x \to x_0} x^3 = \lim_{x \to x_0} x^2 \cdot \lim_{x \to x_0} x = x_0^3\\
+    & \qquad \qquad \vdots \\
+    &\lim_{x \to x_0} x^j = x_0^j \qquad (j \in \mathbb{R} )\\
+\end{align*}
+Se aggiungiamo un coefficiente ($a \in \mathbb{R}$) davanti al polinomio non cambia nulla, infatti:
+\begin{equation*}
+    \lim_{x \to x_0} ax^j = \lim_{x \to x_0} a \cdot \lim_{x \to x_0} x_0^j = a x_0^j
+\end{equation*}
+Possiamo quindi provare una importante proprietà dei polinomi. Dato infatti un polinomio generico di grado $n$:
+\begin{equation*}
+    p(x) = \sum _{i = 0}^n a_i \cdot x^i
+\end{equation*}
+Vale che quello che vogliamo dimostrare, infatti:
+\begin{equation*}
+    \lim_{x \to x_0} \sum _{i = 0}^n a_i \cdot x^i = \sum _{i = 0}^n \lim_{x \to x_0} a_i \cdot x^i = \sum _{i = 0}^n a_i \cdot x_0^i = p(x_0)
+\end{equation*}
+\hfill Qed.
+}
+
+
+
+Di seguito un elenco di limiti delle funzioni elementari. Alcuni sono abbastanza ovvi quindi non ci sono dimostrazioni allegate:
+
+\begin{multicols}{2}
+    \begin{equation*}
+        \lim _{x \to +\infty} \ln(x) = +\infty
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim _{x \to 0^+} \ln(x) = -\infty
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim _{x \to +\infty} e^x = +\infty
+    \end{equation*}
+
+    \begin{equation*}
+        \lim _{x \to -\infty} e^x = 0^+
+    \end{equation*}
+
+    \begin{equation*}
+        \lim _{x \to +\infty} \sqrt{x} = +\infty
+    \end{equation*}
+
+    \begin{equation*}
+        \lim _{x \to 0^+} \sqrt{x} = 0^+
+    \end{equation*}
+
+    \begin{equation*}
+        \not \exists \lim _{x \to \pm \infty} \sin{x}
+    \end{equation*}
+    
+    \begin{equation*}
+        \not \exists \lim _{x \to \pm \infty} \cos{x}
+    \end{equation*}
+\end{multicols}
+
+%NE MANCA QUALCUNA?
+
+\subsection{Confronto di infiniti} \label{sec_gerarchiaInfiniti}
+
+Se si hanno due funzioni che vanno a $+\infty$ si possono confrontare. Il confronto ci permette di determinare qualche delle due funzioni "\textit{va a infinito più velocemente}". Si riesce quindi a stilare una sorta di "gerarchia" degli infiniti dove alcuni tendono a $+\infty$ più velocemente di altri. Questo è molto utile negli esercizi e soprattutto in analisi della complessità computazionale.\\
+
+Date quindi due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$ se:
+\begin{equation*}
+    \lim \dfrac{f(x)}{g(x)} =
+    \begin{cases*}
+        0 \qquad \qquad g \text{ cresce più velocemente di } f\\
+        +\infty \qquad \;\;\; f \text{ cresce più velocemente di } g\\
+        l \neq 0 \qquad \; \text{$f$ e $g$ sono infinitesimi dello stesso ordine}
+    \end{cases*}
+\end{equation*}
+Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim_gerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di riportare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
+\begin{enumerate}
+	\item $\log_a^m (x)$ con $a > 1$ e $m \in \mathbb{N}$
+	\item $p(x)$
+	\item $a^x$ con $a > 1$
+	\item $x^x$
+\end{enumerate}
+Ne consegue quindi che, per esempio, $x^{100^{100^{100}}}$ è "più lento" di $(1,000001)^x$, cioè che:
+\begin{equation*}
+    \lim_{x \to + \infty} \dfrac{x^{100^{100^{100}}}}{(1,000001)^x} = 0
+\end{equation*}
+
+\subsection{Continuità di una funzione}
+\dfn{
+$x_0 \in A$ si dice \textbf{punto isolato di} $A\subseteq \mathbb{R}$ se $x_o \not \in \mathcal{D}(A)$. In pratica se non è un punto di accumulazione
+}
+\dfn{
+Una funzione $f: A \to \mathbb{R}$ si dice \textbf{continua} in $x_0 \in A$ se:
+\begin{enumerate}
+    \item $x_0 \not \in \mathcal{D}(A)$ (cioè $x_0$ è un punto isolato di $A$)
+    \item $x_0 \in \mathcal{D}(A) \implies \lim \limits_{x\to x_0} f(x) = f(x_0)$
+\end{enumerate}
+(Si noti che le due opzioni non possono valere contemporaneamente, sono quindi congiunte da un \textit{or} invece che un \textit{and}).
+}
+Se $f:A \to \mathbb{R}$ è continua $\forall x \in A$. allora è continua su $A$. Si scrive
+\begin{equation*}
+    f \in \mathcal{C} (A)
+\end{equation*}
+dove $\mathcal{C}(A)$ è l'insieme delle funzioni continue su $A$, ed è definito come:
+\begin{equation*}
+    \mathcal{C}(A) = \{ f:A\to \mathbb{R}\; |\; f\; \text{è continua in x}, \forall x \in A \}
+\end{equation*}
+La continuità è un grado molto importante per "classificare" la regolarità di una funzione. Inoltre moltissimi teoremi che riguardano una o più funzioni richiedono che queste siano continue. L'idea che ci sta dietro alla continuità e il voler classificare rigorosamente tutte quelle funzioni "belle" che puoi disegnare senza staccare la mano dal foglio\footnote{In realtà non è esattamente così, però è un buon modo per iniziare a capire l'argomento}.\\
+Come vi diranno tutti i professori di analisi però, la definizione di continuità che si basa sul disegnare una funzione senza staccare la mano dal foglio è sbagliata. Questo perché vale solo per quelle funzioni che sono continue su tutto $\mathbb{R}$, mentre per quelle che sono continue nel loro dominio, ma proprio questo dominio è composto dall'unione di molteplici intervalli disgiunti, allora restano continue, ma per disegnarle è necessario comunque staccare la mano dal foglio.
+
+\dfn{
+Il \textbf{dominio naturale} è il più grande sottoinsieme in cui una funzione è definita
+}
+
+Dai teoremi di algebra dei limiti segue che date due funzioni $f: A \to \mathbb{R}$ e $g: B \to \mathbb{R}$ continue in $x_0 \in A \cap B$ allora:
+\begin{multicols}{2}
+    \begin{itemize}
+        \item $f \pm g$ è continua in $x_0$
+        \item $c \in \mathbb{R}$ : $c\cdot f$ è continua in $x_0$
+        \item $f \cdot g$ è continua in $x_0$
+        \item $\dfrac{f}{g}$ è continua in $x_0$ (se $g(x_0) \neq 0$)
+        \item $|f|$ è continua in $x_0$
+        \item $g(f(x_0))$ è continua in $x_0$ se $x_0 \in A \land f(x_0) \in B$ e $f$ è continua in $x_0$ e $g$ è continua in $f(x_0)$
+    \end{itemize}
+\end{multicols}
+
+\pf{
+Dimostriamo che $|x|$ è una funzione continua.
+\begin{equation*}
+    f(x) = |x| =
+    \begin{cases*}
+        x \quad \;\;\, \text{se} \quad x \geq 0\\
+        -x \quad \text{se} \quad x < 0
+    \end{cases*}
+\end{equation*}
+Prendiamo un punto $x_0 \in \mathbb{R}$, abbiamo due casi:
+\begin{itemize}
+    \item Caso $x_0 \neq 0$:
+        \begin{equation*}
+            \lim_{x \to x_0} |x| =
+            \begin{cases*}
+                \text{se} \quad x_0 > 0: \lim_{x \to x_0} |x| = \lim_{x \to x_0} x = x_0 = |x_0|\\
+                \\
+                \text{se} \quad x_0 < 0: \lim_{x \to x_0} |x| = \lim_{x \to x_0} -x = -x_0 = |x_0|
+            \end{cases*}
+        \end{equation*}
+
+    \item Caso $x_0 = 0$:
+        \begin{align*}
+            &\lim_{x \to 0^-} |x| = \lim_{x \to x^-} -x = 0\\
+            &\lim_{x \to 0^+} |x| = \lim_{x \to x^+} x = 0
+        \end{align*}
+        Questo implica che:
+        \begin{equation*}
+            \lim_{x \to 0} |x| = 0 = |0|
+        \end{equation*}
+\end{itemize}
+E quindi dalla definizione di continuità, $|x|$ è una funzione continua su tutto $\mathbb{R}$.
+\hfill Qed.
+}
+
+\pf{
+Dimostriamo che $\sin(x)$ è una funzione continua. In pratica dobbiamo provare che
+\begin{equation*}
+    \lim_{x \to x_0} \sin(x) = \sin(x_0) \qquad (\forall x_0 \in \mathbb{R})
+\end{equation*}
+Possiamo riscrivere $\sin(x)$ come $\sin (x_0 + (x - x_0))$. Chiamiamo $h$ il fattore $h :=(x-x_0)$. Quando $x \to x_0$, $h \to 0$. Quindi possiamo riscrivere il limite da dimostrare nel seguente modo:
+\begin{equation*}
+    \lim_{x \to h} \sin(x_0 + h) = \sin(x_0) \qquad (\forall x_0 \in \mathbb{R})
+\end{equation*}
+Avendo riscritto l'argomento del seno attraverso una somma, possiamo applicare le formule di addizione del seno:
+\begin{equation*}
+    \sin(x_0 + h) = \sin(x_0)\cos(h) + \sin(h)\cos(x_0)
+\end{equation*}
+Sostituendo quindi nel limite (in quanto per $h \to 0$, $\cos(h) \to 1$ e $\sin(h) \to 0$):
+\begin{equation*}
+    \lim_{x \to h} \sin(x_0 + h) =  \lim_{x \to h} \sin(x_0)\cos(h) + \sin(h)\cos(x_0) = \sin(x_0)
+\end{equation*}
+\hfill Qed.
+}
+\pf{
+Dimostriamo che $\cos(x)$ è una funzione continua. In pratica dobbiamo provare che
+\begin{equation*}
+    \lim_{x \to x_0} \cos(x) = \cos(x_0) \qquad (\forall x_0 \in \mathbb{R})
+\end{equation*}
+Con lo stesso trucco usato nella dimostrazione precedente ci riduciamo dimostrare:
+\begin{equation*}
+     \lim_{x \to h} \cos(x_0 + h) = \cos(x_0) \qquad (\forall x_0 \in \mathbb{R})
+\end{equation*}
+Usando le formule di addizione del coseno:
+\begin{equation*}
+    \cos(x_0 + h) = \cos(x_0)\cos(h) - \sin(x_0)\sin(h)
+\end{equation*}
+Sostituiamo nel limite e calcoliamo (in quanto per $h \to 0$, $\sin(h) \to 0$ e $\cos(h) \to 1$):
+\begin{equation*}
+    \lim_{x \to h} \cos(x_0 + h) = \lim_{x \to h} \cos(x_0)\cos(h) - \sin(x_0)\sin(h) = \cos(x_0)
+\end{equation*}
+\hfill Qed.
+}
+
+La \textbf{continuità della tangente} nel suo dominio naturale è dovuta dal fatto che la tangente può essere definita come rapporto tra \textit{seno} e \textit{coseno}, e il rapporto di funzioni continue è anch'esso continuo. L'\textbf{esponenziale} è continuo. Tutte le \textbf{funzioni inverse delle funzioni elementari} sono continue ($\ln{x}$, $\sqrt{x}$, $\arcsin{x}$, $\arccos{x}$ e $\arctan{x}$).\\
+
+\subsubsection{Funzioni definite a tratti}
+Per le funzioni definite a tratti il caso è un po' più particolare perché non si sa a priori se sono continue o no. In generale il metodo per scoprire se sono continue è il seguente. Prendiamo una funzione $f$ definita a tratti in questo modo:
+\begin{equation*}
+    f(x) =
+    \begin{cases*}
+        g(x) \qquad (x \leq a)\\
+        h(x) \qquad (x > a)
+    \end{cases*}
+\end{equation*}
+Di solito sia $g$ che $h$ sono funzioni formate da composizioni di funzioni elementari, che rendono automaticamente continue le due funzioni. Il problema sorge quindi nel punto di separazione $a$. Per verificare che sia continua la funzione $f$ bisogna fare in modo che sia $g$ sia $h$ si avvicinino ad $a$ con lo stesso valore, cioè che abbiano lo stesso limite per $x \to a$.
+\begin{equation*}
+    \lim_{x \to a^-} g(x) = \lim_{x \to a^+} h(x)
+\end{equation*}
+Inoltre è richiesto che il limite coincida con il valore della funzione $f(a)$. In questo caso non abbiamo fatto il test perché il valore della funzione era compreso nella funzione $g$ in quanto era definito per $\leq$ invece che un minore stretto. Se però questo non fosse il caso va inserito $f(a)$ nelle uguaglianze dei limiti scritti sopra.
