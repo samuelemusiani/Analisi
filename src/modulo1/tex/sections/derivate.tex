@@ -17,9 +17,9 @@ L'insieme dei punti interni si indica con un piccolo \textit{tondino} in alto:
 Questi punti sono diversi rispetto ai punti di accumulazione dei limiti per un paio di motivi. Il primo è che devono appartenere innanzitutto all'insieme. Se infatti si considera un insieme del tipo $\mathbb{R} \setminus \{0\}$, lo $0$ è un punto di accumulazione pur non appartenendo all'insieme. Non è però un punto interno. La seconda differenza principale con i punto di accumulazione è che, mentre questi ultimi possono essere "al bordo" di un insieme, i punti interni no, e devono avere l'intorno sferico completamente interno all'insieme. Cioè preso l'intervallo $[2, 4]$, mentre sia $2$ sia $4$ sono punti di accumulazione, nessuno dei due è interno all'insieme. In questo caso i punti interni a questo insieme sono $]2,4[$.
 
 \subsection{Introduzione informale}
-Pirma di dare la definizione formale di derivata vorrei spendere qualche riga per cercare di spiegare l'idea che si trova dietro a questo potentissimo oggetto matematico. Il problema è che spesso ci si perde nelle definzioni formali e negli esercizi, senza apprezzare veramente quello che si sta facendo. Perché alla fine si spera che ognuno, dopo aver seguito un corso di analisi, sappia che la derivata di $x^2$ è $2x$, oppure che la derivata del seno è il coseno, però veramente in pochi hanno capito cosa significa e perché è così.\\
+Prima di dare la definizione formale di derivata vorrei spendere qualche riga per cercare di spiegare l'idea che si trova dietro a questo potentissimo oggetto matematico. Il problema è che spesso ci si perde nelle definizioni formali e negli esercizi, senza apprezzare veramente quello che si sta facendo. Perché alla fine si spera che ognuno, dopo aver seguito un corso di analisi, sappia che la derivata di $x^2$ è $2x$, oppure che la derivata del seno è il coseno, però veramente in pochi hanno capito cosa significa e perché è così.\\
 
-\textbf{Derivata come tangente una curva:} Vi siete mai chiesti (probabilmente no ma la domanda retorica andava fatta) quale sia la retta tangete a una curva? Cioè, se io vi disegno una curva su un foglio e vi traccio un punto sopra e vi chiedo di disegnare la tangente a quella curva, probabilmente la richiesta non risulta così difficile. Magari la retta non verrà perfetta, però il disegno si avvicinerebbe parecchio ad una vera e propria tangente. Se però io invece di darvi un disegno di una curva vi do una funzione e un punto, trovare la tangente ora è molto più complicato perché dovreste prima disegnare la funzione e poi finalmente tracciare la tangente. Però poi nasce il problema di come si disegna una funzione in modo abbastanza preciso e quindi la situazione diventa piuttosto complicata. 
+\textbf{Derivata come tangente una curva:} Vi siete mai chiesti (probabilmente no ma la domanda retorica andava fatta) quale sia la retta tangente a una curva? Cioè, se io vi disegno una curva su un foglio e vi traccio un punto sopra e vi chiedo di disegnare la tangente a quella curva, probabilmente la richiesta non risulta così difficile. Magari la retta non verrà perfetta, però il disegno si avvicinerebbe parecchio ad una vera e propria tangente. Se però io invece di darvi un disegno di una curva vi do una funzione e un punto, trovare la tangente ora è molto più complicato perché dovreste prima disegnare la funzione e poi finalmente tracciare la tangente. Però poi nasce il problema di come si disegna una funzione in modo abbastanza preciso e quindi la situazione diventa piuttosto complicata. 
 
 Facciamo un piccolo salto indietro e chiediamoci prima come si disegna una retta. Una retta, nella sua forma più classica, è data dalla seguente formula:
 \begin{equation*}
@@ -64,9 +64,9 @@ In realtà questo metodo di calcolare la retta presi due punti ci potrebbe venir
 	\label{fig_approxTangenteCurva}
 \end{figure}
 
-Il calcolo difficile non è tanto però il termine noto $q$, ma piuttosto il coefficiente angolare $m$. Questo perché dobbiamo prendere punti sempre più vicini e non è facile farlo venire preciso. Questo avvicinarci indefinitivamente ad un punto dovrebbe però far accendere una piccola lapadina in testa: abbiamo già uno strumento matematico che ci permette di avvicinarci indefinitivamente ad un punto: \textbf{il limite}. 
+Il calcolo difficile non è tanto però il termine noto $q$, ma piuttosto il coefficiente angolare $m$. Questo perché dobbiamo prendere punti sempre più vicini e non è facile farlo venire preciso. Questo avvicinarci indefinitamente ad un punto dovrebbe però far accendere una piccola lampadina in testa: abbiamo già uno strumento matematico che ci permette di avvicinarci indefinitamente ad un punto: \textbf{il limite}. 
 
-Prendiamo ora una funzione $f(x)$ per il momento generica\footnote{Per correttezza questa funzione non può essere generica perché non tutte le funzioni sono effettivamente derivabili, però rimaniamo così per il momento. In seguito viene definita rigorosamente.} e decidiamo di vole cacolare la tangente nel punto $x_0$. Come abbiamo appena visto ci servono due punti per calcolare la tangente: uno che resta fermo (in questo caso $x_0$) e uno che si avvicina a quest'ultimo. Per correttezza $x_0$ non è un punto, ma bensì $P(x_0, f(x_0))$. Il secondo punto che ci serve deve essere anchesso sulla funzione e quindi imponiamo questa condizione per la sua ordinata: $Q(x, f(x))$. Il coefficiente angolare tra i due risulta quindi:
+Prendiamo ora una funzione $f(x)$ per il momento generica\footnote{Per correttezza questa funzione non può essere generica perché non tutte le funzioni sono effettivamente derivabili, però rimaniamo così per il momento. In seguito verrà definita rigorosamente.} e decidiamo di voler calcolare la tangente nel punto $x_0$. Come abbiamo appena visto ci servono due punti per calcolare la tangente: uno che resta fermo (in questo caso $x_0$) e uno che si avvicina a quest'ultimo. Per correttezza $x_0$ non è un punto, ma bensì $P(x_0, f(x_0))$. Il secondo punto che ci serve deve essere anch'esso sulla funzione e quindi imponiamo questa condizione per la sua ordinata: $Q(x, f(x))$. Il coefficiente angolare tra i due risulta quindi:
 \begin{equation*}
 	m = \dfrac{Q_y - P_y}{Q_x - P_x} = \dfrac{f(x) - f(x_0)}{x-x_0}
 \end{equation*}
@@ -74,7 +74,7 @@ Facendo in modo che il punto $Q$ si avvicini a $P$ indefinitamente:
 \begin{equation*}
 	\lim_{x \to x_0} \dfrac{f(x) - f(x_0)}{x-x_0}
 \end{equation*}
-E tadà, siamo arrivati alla definizione (informale) di derivata. La \textit{derivata della funzione $f$ nel punto $x_0$} è proprio il valore di quel limite, cioè il \textbf{coefficiente angolare della retta tangente alla funzione f nel punto $x_0$}. 
+Et voilà, siamo arrivati alla definizione (informale) di derivata. La \textit{derivata della funzione $f$ nel punto $x_0$} è proprio il valore di quel limite, cioè il \textbf{coefficiente angolare della retta tangente alla funzione f nel punto $x_0$}. 
 
 Se si vuole trovare più comodamente la retta tangente una funzione $f(x)$ in un punto $x_0$ basta usare la formula:
 \begin{equation*}
@@ -102,7 +102,7 @@ Ne consegue che la nostra retta ha equazione:
 \end{equation*}
 
 
-\textbf{Derivata come misura del cambiamento:} Un altro modo di vedere la derivata è come \textit{misura del cambiamento}. Successivamente introdurremo un teorema che esplicita meglio questo concetto, ma per ora limitiamoci ad introdurlo informalmente. Come abbiamo appena visto la derivata è \textit{il coefficiente angolare della retta tangente una curva in un punto}. Se osserviamo le figure \ref{fig_tangente12} e \ref{fig_tangente3} si può vedere come il coefficiente sia proporzionalmente più grande in base a quanto sta crescendo (o diminuendo per coefficienti negativi) la funzione. In pratica la derivata in questo caso sta risponendo alla domanda \textbf{quanto sta cambiando la funzione in quel punto?} 
+\textbf{Derivata come misura del cambiamento:} Un altro modo di vedere la derivata è come \textit{misura del cambiamento}. Successivamente introdurremo un teorema che esplicita meglio questo concetto, ma per ora limitiamoci ad introdurlo informalmente. Come abbiamo appena visto la derivata è \textit{il coefficiente angolare della retta tangente una curva in un punto}. Se osserviamo le figure \ref{fig_tangente12} e \ref{fig_tangente3} si può vedere come il coefficiente sia proporzionalmente più grande in base a quanto sta crescendo (o diminuendo per coefficienti negativi) la funzione. In pratica la derivata in questo caso sta rispondendo alla domanda \textbf{quanto sta cambiando la funzione in quel punto?} 
 
 \begin{figure}
 \centering
@@ -193,10 +193,10 @@ Essendo che $c$ si sta avvicinando a $x_0$, è possibile riscrivere la derivata 
 	\lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h}
 \end{equation*}
 
-Infati $x_0 = x + h$ e il denominatore si semplifica in quanto $x - x_0 = x - x - h = -h$. Cambiando segno anche al numerato il risultato è lo stesso.
+Infatti $x_0 = x + h$ e il denominatore si semplifica in quanto $x - x_0 = x - x - h = -h$. Cambiando segno anche al numerato il risultato è lo stesso.
 
 \dfn{
-	Derivata destra e sinitra: $f: I \to \mathbb{R}$, $x_0 \in \mathring{I}$. 
+	Derivata destra e sinistra: $f: I \to \mathbb{R}$, $x_0 \in \mathring{I}$. 
 
 	\begin{itemize}
 		\item $f$ si dice \textbf{derivabile a sinistra in $x_0$}, e si indica $f'_-(x_0)$, se:
@@ -225,20 +225,20 @@ L'idea è la stessa dei limiti:
 }
 In questo ultimo caso, ad $f$ si può associare una nuova funzione: la sua derivata. In pratica la nuova funzione assume i valori della derivata di $f$ per ogni punto in cui è definita. Si indica generalmente con la notazione classica $f'(x)$.\\
 
-\textbf{Alcuni esempi:} Di seguito riporto qualche esempio molto semplice di calcolo della derivata tramita la sua definzione. In realtà raramente si usa questa approccio nei calcoli effettivi, ma piuttosto si ricavano prima le derivate delle funzioni elementari e applicando qualche regola si riesce a derivare qualsiasi funzione senza calcolare limiti. È bello però far vedere comunque la definzione e la sua potenza in quanto tutto quello che verrà dopo sarà comunque frutto di questo.
+\textbf{Alcuni esempi:} Di seguito riporto qualche esempio molto semplice di calcolo della derivata tramite la sua definizione. In realtà raramente si usa questo approccio nei calcoli effettivi, ma piuttosto si ricavano prima le derivate delle funzioni elementari e applicando qualche regola si riesce a derivare qualsiasi funzione senza calcolare limiti. È bello però far vedere comunque la definizione e la sua potenza in quanto tutto quello che verrà dopo sarà comunque frutto di questo.
 
 Proviamo a derivare $f(x) = x$:
 \begin{equation*}
 	\lim_{h \to 0} \dfrac{f(x_0 + h) - f(x_0)}{h} = \lim_{h \to 0} \dfrac{x_0 + h -x_0}{h} = \lim_{h \to 0} 1 = 1
 \end{equation*}
 
-Quindi $f'(x) = 1$. È facile verificare che questo è vero perché la fuznione $x$ è semplcemente una retta, che ha lo stesso coefficiente angolare $\forall x \in \mathbb{R}$. Inoltre alla domanda "\textit{quanto sta cambiando questa funzione?}" è facile vedere che la funzione cambia sempre nello stesso modo, quindi il valore della sua derivata è costante.
+Quindi $f'(x) = 1$. È facile verificare che questo è vero perché la funzione $x$ è semplicemente una retta, che ha lo stesso coefficiente angolare $\forall x \in \mathbb{R}$. Inoltre alla domanda "\textit{quanto sta cambiando questa funzione?}" è facile vedere che la funzione cambia sempre nello stesso modo, quindi il valore della sua derivata è costante.
 
 La funzione costante $g(x) = k$ invece che derivata ci aspettiamo che abbia? In teoria, essendo costante, la funzione non cambia mai. Quindi possiamo aspettarci che la sua derivata sia nulla. Verifichiamolo:
 \begin{equation*}
 	\lim_{h \to 0} \dfrac{f(x_0 + h) - f(x_0)}{h} = \lim_{h \to 0} \dfrac{5 - 5}{h} = 0
 \end{equation*}
-In questo caso il limite non è una forma indeterminata perché il numeratore è \textbf{esattamente} $0$, mentre il denominatore si avvicinerà sempre di più a quel valore, ma non lo raggiungerà mai (come da definzione di limite).
+In questo caso il limite non è una forma indeterminata perché il numeratore è \textbf{esattamente} $0$, mentre il denominatore si avvicinerà sempre di più a quel valore, ma non lo raggiungerà mai (come da definizione di limite).
 
 Proviamo a derivare una funzione leggermente più complessa: $h(x) = x^2$ :
 \begin{align*}
@@ -251,7 +251,7 @@ La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto
 
 
 \subsection{Regole di derivazione} \label{sec_regoleDerivazione}
-È oggettivamente infattibile derivare ogni singola funzione con la definzione di derivata. Di conseguenza tramite questa ultima si ricavano delle piccole regoline che permettono poi di semplificare enormemente il calcolo:
+È oggettivamente infattibile derivare ogni singola funzione con la definizione di derivata. Di conseguenza tramite questa ultima si ricavano delle piccole regoline che permettono poi di semplificare enormemente il calcolo:
 \imp{
 \begin{enumerate}
 	\item Costante per una funzione:
@@ -320,9 +320,9 @@ Nonostante il prof non abbia portato nessuna dimostrazione riguardo alle regole 
 \end{enumerate}
 
 \subsection{Algebra delle derivate} 
-Questa sottosezioine sembrerà un duplicato delle regole di derivazine (Sezione: \ref{sec_regoleDerivazione}). In parte lo è, ma in realtà vuole rendere più formali quelle regole che hanno qualche piccola premessa volutamente mancante ma che in teoria dovrebbe averle rese più chiari e semplici da leggere.\\
+Questa sottosezione sembrerà un duplicato delle regole di derivazione (Sezione: \ref{sec_regoleDerivazione}). In parte lo è, ma in realtà vuole rendere più formali quelle regole che hanno qualche piccola premessa volutamente mancante ma che in teoria dovrebbe averle rese più chiari e semplici da leggere.\\
 
-Date due funzioni $f, g: I \to \mathbb{R}$, e un punto $x_0 \in I$, se $f$ e $f$ sosno derivabili in $x_0$ allora:
+Date due funzioni $f, g: I \to \mathbb{R}$, e un punto $x_0 \in I$, se $f$ e $f$ sono derivabili in $x_0$ allora:
 \begin{enumerate}
 	\item $f \pm g$ è derivabile in $x_0$ e: 
 		\begin{equation*}
@@ -376,7 +376,7 @@ Di seguito sono presenti le dimostrazioni di alcune di queste derivate:
 	\begin{equation*}
 		(x^n)' = n \cdot x^{n - 1} \qquad \forall x \in \mathbb{N}
 	\end{equation*}
-	Prendimo una funzione $f(x) = x^n$ con $n \in \mathbb{N}$ e $n > 2$. Ci riduciamo a dimostrare quindi:
+	Prendiamo una funzione $f(x) = x^n$ con $n \in \mathbb{N}$ e $n > 2$. Ci riduciamo a dimostrare quindi:
 	\begin{equation*}
 		f'(x) = n \cdot x^{n-1}
 	\end{equation*}
@@ -423,7 +423,7 @@ In questo caso abbiamo trovato la derivata di $x^n$ ma solo per $n \in \mathbb{N
 	\begin{equation*}
 		(\sin (x))' = \cos(x)
 	\end{equation*}
-	Chiamiamo $f(x) = \sin (x)$ e applichiamo la definzione:
+	Chiamiamo $f(x) = \sin (x)$ e applichiamo la definizione:
 	\begin{equation*}
 		f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} = \lim_{h \to 0} \dfrac{\sin(x + h) - \sin(x)}{h}
 	\end{equation*}
@@ -444,7 +444,7 @@ In questo caso abbiamo trovato la derivata di $x^n$ ma solo per $n \in \mathbb{N
 	\begin{equation*}
 		(\cos (x))' = -\sin(x)
 	\end{equation*}
-	Chiamiamo $f(x) = \cos (x)$ e applichiamo la definzione:
+	Chiamiamo $f(x) = \cos (x)$ e applichiamo la definizione:
 	\begin{equation*}
 		f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} = \lim_{h \to 0} \dfrac{\cos(x + h) - \cos(x)}{h}
 	\end{equation*}
@@ -497,7 +497,7 @@ Proviamo a derivare il valore assoluto di $x$:
         -x \quad \text{se} \quad x < 0
     \end{cases*}
 \end{equation*}
-È abbastanza facile vedere che è derivabile sicuramente per tutto l'intervallo $\mathbb{R} \setminus \{0\}$ perché se prese singolarmente, sia $x$ che $-x$ sono derivabili. Il problema è che non sappiamo se è derivabile in $x = 0$. Usiamo la definzione approcciando questa derivata prima da sinistra e poi da destra:
+È abbastanza facile vedere che è derivabile sicuramente per tutto l'intervallo $\mathbb{R} \setminus \{0\}$ perché se prese singolarmente, sia $x$ che $-x$ sono derivabili. Il problema è che non sappiamo se è derivabile in $x = 0$. Usiamo la definizione approcciando questa derivata prima da sinistra e poi da destra:
 \begin{equation*}
 	f_-' (0) \lim_{x \to 0^-} \dfrac{f(x) - f(0)}{x -0} = \lim_{x \to 0^-} \dfrac{|x|}{x}
 \end{equation*}
@@ -530,7 +530,7 @@ Approcciamolo ora da destra:
 \begin{equation*}
 	\lim_{x \to 0^+} \dfrac{f(x) - f(0)}{x - 0} = \lim_{x \to 0^+} \dfrac{x^2}{x} = \lim_{x \to 0^+} x = 0
 \end{equation*}
-Ne consegue che \textbf{la funzione è derivabile} proprio peché la sua derivata destra e sinistra coincidono.
+Ne consegue che \textbf{la funzione è derivabile} proprio perché la sua derivata destra e sinistra coincidono.
 
 \subsection{Derivate di ordine superiore}
 L'idea dietro le derivate di ordine superiore è il fatto che la funzione derivata di una qualsiasi funzione resta comunque una funzione. Cioè se scrivo:
@@ -648,7 +648,7 @@ Infatti $h \in C^k (\mathbb{R})$ ma $h \not \in C^{k+1} (\mathbb{R})$.
 			\end{equation*}
 	\end{enumerate}
 }
-In pratica basta che esista un itorno di quel punto in cui tutti i valori della funzione sono più piccoli del valore della funzione nel punto stesso per fare in modo che quel punto sia un massimo relativo. La stessa cosa vale con il minimo. La differenza con i punti di massimo e di minimo assoluti è che questi ultimi devono essere maggiori o minori di tutti gli altri valori della funzione, non soltanto in un intorno scelto a piacere. Nonostante siano già scritti in precedenza riporto nuovamente la definzione:
+In pratica basta che esista un intorno di quel punto in cui tutti i valori della funzione sono più piccoli del valore della funzione nel punto stesso per fare in modo che quel punto sia un massimo relativo. La stessa cosa vale con il minimo. La differenza con i punti di massimo e di minimo assoluti è che questi ultimi devono essere maggiori o minori di tutti gli altri valori della funzione, non soltanto in un intorno scelto a piacere. Nonostante siano già scritti in precedenza riporto nuovamente la definizione:
 
 Data una funzione $f:A \to \mathbb{R}$:
 \begin{enumerate}
@@ -703,7 +703,7 @@ Data una funzione $f: [a,b] \to \mathbb{R}$, un punto di massimo o di minimo $x_
 
 
 
-Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale. Se prendiamo infatti la funzione $f(x) = x^3$ e la deriviamo viene $f'(x) = 3x^2$ ed è facile vedere che la derivata di annulla in $x = 0$. Se guardiamo il grafico di $f(x)$ (Figura: \ref{fig_graficoXTree}) però in $x= 0$ non è presente ne un massimo ne un minimo.
+Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textbf{necessaria} affinché $x_0$ sia un punto di massimo o di minimo relativo, ma \textbf{non è sufficiente} in generale. Se prendiamo infatti la funzione $f(x) = x^3$ e la deriviamo viene $f'(x) = 3x^2$ ed è facile vedere che la derivata di annulla in $x = 0$. Se guardiamo il grafico di $f(x)$ (Figura: \ref{fig_graficoXTree}) però in $x= 0$ non è presente né un massimo né un minimo.
 
 \begin{figure}[h]
 \centering
@@ -741,11 +741,11 @@ Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textb
 	\end{equation*}
 	Dividiamo quindi questo intervallo in due casi distinti:
 	\begin{enumerate}
-		\item Il primo canso considera l'intervallo ristretto a: 
+		\item Il primo caso considera l'intervallo ristretto a: 
 			\begin{equation*}
 				x_0 - r < x < x_0
 			\end{equation*}
-			La derivata sinistra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definzione:
+			La derivata sinistra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definizione:
 			\begin{equation*}
 				f_-'(x_0) = \lim_{x \to x_0^-}  \dfrac{f(x) - f(x_0)}{x-x_0}
 			\end{equation*}
@@ -767,7 +767,7 @@ Inoltre l'annullarsi della derivata prima in un punto $x_0$ è condizione \textb
 			\begin{equation*}
 				x_0< x < x_0 + r
 			\end{equation*}
-			La derivata destra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definzione:
+			La derivata destra di $f$ nel punto $x_0$ esiste per ipotesi ed è per definizione:
 			\begin{equation*}
 				f_+'(x_0) = \lim_{x \to x_0^+}  \dfrac{f(x) - f(x_0)}{x-x_0}
 			\end{equation*}
@@ -802,7 +802,7 @@ i			f_-' (x_0) \leq 0\\[10pt]
 \subsubsection{Teorema di Rolle} \label{sec_teoremaRolle}
 
 \thm {
-Data una funione $f:[a,b] \to \mathbb{R}$ con le seguenti proprietà:
+Data una funzione $f:[a,b] \to \mathbb{R}$ con le seguenti proprietà:
 \begin{enumerate}
     \item $f$ è continua su $[a,b]$
     \item $f$ è derivabile su $]a,b[$
@@ -813,7 +813,7 @@ Allora:
     \exists \,c \in ]a,b[ \;: f'(c) = 0
 \end{equation*}
 }
-A livello grafico si può vedere questo teorema come una sorta di passaggio obbligato se si vuole andare da un punto ad un altro della stessa funzione. Cioè se ho una funzione come in figura \ref{fig_teoremaRolle} e volessi anadare dal punto più a sinistra al punto più a destra sarei costretto a salire e poi scendere. Nell'istante estatto in cui smetto di salire e devo inziare a scendere sono in un punto "piatto": ed è proprio qui che la derivata si annulla.
+A livello grafico si può vedere questo teorema come una sorta di passaggio obbligato se si vuole andare da un punto ad un altro della stessa funzione. Cioè se ho una funzione come in figura \ref{fig_teoremaRolle} e volessi andare dal punto più a sinistra al punto più a destra sarei costretto a salire e poi scendere. Nell'istante esatto in cui smetto di salire e devo iniziare a scendere sono in un punto "piatto": ed è proprio qui che la derivata si annulla.
 
 \begin{figure}[h]
 \centering
@@ -854,7 +854,7 @@ A livello grafico si può vedere questo teorema come una sorta di passaggio obbl
 		&f(x) \leq f(x_0) \quad \forall x \in [a,b] \\[10pt]
 		&f(x) \geq f(x_1) \quad \forall x \in [a,b]
 	\end{align*}
-	Possiamo dividere quindi la dimostrazioni in due casi in base a dove cadono questi punti di massimo e di minimo:
+	Possiamo dividere quindi la dimostrazione in due casi in base a dove cadono questi punti di massimo e di minimo:
 	\begin{enumerate}
 		\item $x_0$ e $x_1$ cadono entrambi sugli estremi $a,b$. Cioè
 			\begin{equation*}
@@ -881,7 +881,7 @@ A livello grafico si può vedere questo teorema come una sorta di passaggio obbl
 	\end{enumerate}
 	\hfill Qed.
 }	
-È fondamentale che la funzione sia derivabile in $]a,b[$ perché se non lo fosse il teorema non si applicherebbe. Per sempio in figura \ref{fig_esempioRolle} e rappresentata la seguente funzione:
+È fondamentale che la funzione sia derivabile in $]a,b[$ perché se non lo fosse il teorema non si applicherebbe. Per esempio in figura \ref{fig_esempioRolle} e rappresentata la seguente funzione:
 
 \begin{equation*}
 	f(x) =
@@ -923,7 +923,7 @@ E infatti non esiste un punto in cui la derivata si annulla.
 
 \subsubsection{Teorema di Lagrange} \label{sec_teoremaLagrange}
 \thm {
-Data un fuzione $f:[a,b] \to \mathbb{R}$ cone le seguenti proprietà:
+Data una funzione $f:[a,b] \to \mathbb{R}$ con le seguenti proprietà:
 \begin{enumerate}
     \item $f$ è continua su $[a,b]$
     \item $f$ è derivabile su $]a,b[$
@@ -937,7 +937,7 @@ Un esempio grafico di questo teorema è quello riportato in figura \ref{fig_teor
 \begin{equation*}
 	\dfrac{f(b)-f(a)}{b-a}
 \end{equation*}
-può essere considerato come la pedenza media del percorso (che in questo caso è la funzione) tra il punto $a$ e il punto $b$. Esiste quindi, per questo teorema, un ulteriore punto in cui la tangente sarà esattamente come questa pendenza media. 
+può essere considerato come la pendenza media del percorso (che in questo caso è la funzione) tra il punto $a$ e il punto $b$. Esiste quindi, per questo teorema, un ulteriore punto in cui la tangente sarà esattamente come questa pendenza media. 
 
 \begin{figure}[h]
 \centering
@@ -1090,16 +1090,16 @@ Allora:
     \exists \,c \in ]a,b[ \;: \dfrac{f(b)-f(a)}{g(b)-g(a)} = \dfrac{f'(c)}{g'(c)}
 \end{equation*}
 }
-La codizione che $g(b) - g(a) \neq 0$ è intrinseca alla premessa numero 3. Se infatti fosse che $g(b) - g(a) = 0$ diventerebbe $g(b) = g(a)$ che in combinazione con le premesse 1 e 2 del teorema permetterebbe l'applicazione del teorema di Rolle (Sezione: \ref{sec_teoremaRolle}) e quindi $\exists d \in ]a,b[ : g'(d) = 0$ che è in contraddizione con l'ipotesi numero 3.
+La condizione che $g(b) - g(a) \neq 0$ è intrinseca alla premessa numero 3. Se infatti fosse che $g(b) - g(a) = 0$ diventerebbe $g(b) = g(a)$ che in combinazione con le premesse 1 e 2 del teorema permetterebbe l'applicazione del teorema di Rolle (Sezione: \ref{sec_teoremaRolle}) e quindi $\exists d \in ]a,b[ : g'(d) = 0$ che è in contraddizione con l'ipotesi numero 3.
 
-Per la dimostrazione si potrebbe pensare erroneamente che applicando il teorema di Lagrange prima al numeratore e poi al denominatore si possa dimostrare questo teorema. Le premesse ci permettono di applicare Lagrange, ma nessuno ci assicura che il punto in cui si annulla $f'$ è lo stesso punto in in cui si annulla $g'$:
+Per la dimostrazione si potrebbe pensare erroneamente che applicando il teorema di Lagrange prima al numeratore e poi al denominatore si possa dimostrare questo teorema. Le premesse ci permettono di applicare Lagrange, ma nessuno ci assicura che il punto in cui si annulla $f'$ è lo stesso punto in cui si annulla $g'$:
 \begin{equation*}
 	\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{\dfrac{f(b) - f(a)}{b-a}}{\dfrac{g(b)-g(a)}{b - a}} = \dfrac{f'(c_1)}{g'(c_2)}
 \end{equation*}
 Nessuno infatti ci assicura che $c_1 = c_2$, risulta quindi necessario fare una dimostrazione a parte:
 
 \pf{
-	Dobbiamo dimostrare il teorema di Cauchy. Prendiamo due funzionei $f,g:[a,b] \to \mathbb{R}$ e assumiamo le seguenti proprietà come ipotesi:
+	Dobbiamo dimostrare il teorema di Cauchy. Prendiamo due funzioni $f,g:[a,b] \to \mathbb{R}$ e assumiamo le seguenti proprietà come ipotesi:
 	\begin{enumerate}
 	    \item $f,g$ è continue su $[a,b]$
 	    \item $f,g$ è derivabili su $]a,b[$
@@ -1210,7 +1210,7 @@ Nei casi 2 e 3 non vale l'implicazione contraria perché alcune funzioni stretta
 			\begin{equation*}
 				\dfrac{f(x) - f(x_0)}{x - x_0} \geq 0
 			\end{equation*}
-			Essedo per ipotesi derivabile e dal teorema di permanenza del segno (Sezione: \ref{theorem_permanenzaSegno}):
+			Essendo per ipotesi derivabile e dal teorema di permanenza del segno (Sezione: \ref{theorem_permanenzaSegno}):
 			\begin{equation*}
 				f'(x_0) = \lim_{x \to x_0} \dfrac{f(x) - f(x_0)}{x - x_0} \geq 0
 			\end{equation*}
@@ -1314,7 +1314,7 @@ Per dimostrare i teoremi di De L'Hôpital è necessario il seguente lemma che "t
 	\end{enumerate}
 }
 
-Da qui nasce un criterio per mostrare che non eiste il limite per un punto di una funzione. Cioè se voglio far vedere che:
+Da qui nasce un criterio per mostrare che non esiste il limite per un punto di una funzione. Cioè se voglio far vedere che:
 \begin{equation*}
 	\not \exists \lim_{x \to x_0} h(x)
 \end{equation*}
@@ -1359,7 +1359,7 @@ Alcune considerazioni importanti da fare:
 		\end{equation*}
 		Che però è in contrasto con la seconda ipotesi del teorema.
 
-	\item È estremamente importanete la direzione dell'implicazione: se esiste il limite del rapporto delle derivate allora esiste il limite del rapporto delle funzioni ed è uguale al limite del rapporto delle derivate. Se però il limite delle derivate non esiste, il teorema non si può applicare. Nessuno però ci dice il limite in se non esiste. Non vale quindi il contrario. Se esiste il limite di un rapporto di funzioni non è detto che esista il limite del rapporto delle derivate.
+	\item È estremamente importante la direzione dell'implicazione: se esiste il limite del rapporto delle derivate allora esiste il limite del rapporto delle funzioni ed è uguale al limite del rapporto delle derivate. Se però il limite delle derivate non esiste, il teorema non si può applicare. Nessuno però ci dice il limite in sé non esista. Non vale quindi il contrario. Se esiste il limite di un rapporto di funzioni non è detto che esista il limite del rapporto delle derivate.
 
 		Consideriamo le funzioni:
 		\begin{align*}
@@ -1378,7 +1378,7 @@ Alcune considerazioni importanti da fare:
 		\begin{equation*}
 			\exists \lim_{x \to 0} \dfrac{f(x)}{g(x)}
 		\end{equation*}
-		Se infatti sostituiamo le funzioni con la loro definzione:
+		Se infatti sostituiamo le funzioni con la loro definizione:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{g(x)} = \lim_{x \to 0} \dfrac{x^2 \cdot \sin{\dfrac{1}{x}}}{x} = \lim_{x \to 0} x \cdot \sin{\dfrac{1}{x}} = 0
 		\end{equation*}
@@ -1424,7 +1424,7 @@ Alcune considerazioni importanti da fare:
 	\begin{equation*}
 		\not \exists \lim_{x \to 0} \cos \left(\dfrac{1}{x}\right)
 	\end{equation*}
-	Usiamo il lemma ununciato qualche pagina sopra. Assumiamo che esiste il limite (chiamado il suo valore $l$) e riduciamoci a dimostrare l'assurdo. Dal lemma:
+	Usiamo il lemma enunciato qualche pagina sopra. Assumiamo che esiste il limite (chiamiamo il suo valore $l$) e riduciamoci a dimostrare l'assurdo. Dal lemma:
 	\begin{equation*}
 		\forall (x_n)_n \subseteq A, \, x_n \geq x_0 \;\; \forall n \; \text{tale che: } x_n \xrightarrow[n \to + \infty]{} x_0 \; \text{si ha: } h(x_n) \xrightarrow[n \to +\infty]{} l
 	\end{equation*}
@@ -1683,7 +1683,7 @@ Dei seguenti teoremi non vi è la dimostrazione:
 }
 
 \label{dim_gerarchiaInfiniti}
-\textbf{Dimostrazione gerarchia degli infiniti:} Come già visto nel capitolo dei limiti e in particolare nella sezione \ref{sec_gerarchiaInfiniti}, esiste una così detta "\textit{gerarchia degli infiniti}". In pratica alcune funzione, quando tendono ad infinito, sono più veloci o più lente di altre. Il modo corretto per definire comunque questo concetto di "più veloce" e "più lento" è tramite un rapporto di due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$:
+\textbf{Dimostrazione gerarchia degli infiniti:} Come già visto nel capitolo dei limiti e in particolare nella sezione \ref{sec_gerarchiaInfiniti}, esiste una così detta "\textit{gerarchia degli infiniti}". In pratica alcune funzioni, quando tendono ad infinito, sono più veloci o più lente di altre. Il modo corretto per definire comunque questo concetto di "più veloce" e "più lento" è tramite un rapporto di due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$:
 \begin{equation*}
     \lim \dfrac{f(x)}{g(x)} =
     \begin{cases*}

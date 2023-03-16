@@ -3,7 +3,7 @@ Prendiamo una successione abbastanza semplice da definire, tipo:
 \begin{equation*}
     a_n = \frac{n-1}{n}
 \end{equation*}
-Cominciamo ora ad elencare i suoi termi e calcolariamo i suoi valori:
+Cominciamo ora ad elencare i suoi termini e calcoliamo i suoi valori:
 \begin{align*}
     a_1 &= \dfrac{0}{1} = 0\\
     a_2 &= \dfrac{1}{2} = 0.5\\
@@ -54,7 +54,7 @@ Cominciamo ora ad elencare i suoi termi e calcolariamo i suoi valori:
 \end{center}
 }
 
-Esistono successioni che non hanno limite (non sono ne convergenti ne divergenti).
+Esistono successioni che non hanno limite (non sono né convergenti né divergenti).
 \begin{gather*}
     a_n = (-1)^2\\
     a_0 = 1,\; a_1 = -1,\; a_2 = 1 \;\cdots
@@ -77,13 +77,13 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 \end{equation*}
 
 \mlem{
-	È necessario, per questa dimostrazione, introdurre la \textit{disuguaglianza di Bernulli}. 
+	È necessario, per questa dimostrazione, introdurre la \textit{disuguaglianza di Bernoulli}. 
 	\begin{equation*}
 		\forall x \in \mathbb{R} : x \geq -1, \forall n \in \mathbb{N}: (1+x)^n \geq 1 + nx
 	\end{equation*}
 }
 \pf{
-	Proviamo la disuguaglianza di Bernulli per induzione. 
+	Proviamo la disuguaglianza di Bernoulli per induzione. 
 	\begin{enumerate}
 		\item Caso $n = 1$:
 			\begin{align*}
@@ -92,7 +92,7 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 			\end{align*}
 
 		\item Caso $n+1$:
-			Ipotesi induttiva sappio che vale $(1+x)^n \geq 1 + nx$.
+			Ipotesi induttiva sappiamo che vale $(1+x)^n \geq 1 + nx$.
 			Dimostriamo che:
 			\begin{align*}
 				(1+x)^{n+1} \geq 1 + (n+1)x
@@ -118,7 +118,7 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 	\hfill Qed.
 }
 
-Facciamo ora la dimsotrazione riguardante il numero di Eulero:
+Facciamo ora la dimostrazione riguardante il numero di Eulero:
 
 \pf{
 Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corol_successioni}.
@@ -134,7 +134,7 @@ Per dimostrare che una successione è convergente ci basta dimostrare che è (st
         &= \dfrac{n+2}{n+1} \cdot \left( \dfrac{n+2}{n+1} \cdot \dfrac{n}{n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( \dfrac{n^2+2n+1-1}{n^2+2n+1} \right)^n =\\[5pt]
         &= \dfrac{n+2}{n+1} \cdot \left( 1 -\dfrac{1}{n^2+2n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( 1 + \left( -\dfrac{1}{n^2+2n+1}\right) \right)^n
     \end{align*}
-    Usiamo la disuguaglianza di Bernulli. Però assicuriamoci prima di poterla usare:
+    Usiamo la disuguaglianza di Bernoulli. Però assicuriamoci prima di poterla usare:
     \begin{gather*}
         x = - \dfrac{1}{n^2+2n+1} \geq -1\\
         \dfrac{1}{n^2+2n+1} \leq 1\\
@@ -218,7 +218,7 @@ Comunque prendo piccolo $r$ c'è sempre un elemento di $\mathbb{A}$ diverso da $
 \begin{equation*}
 	\mathcal{D} (\mathbb{A}) = \left\{ x \in \mathbb{R}\; |\; x\; \text{è un punto di accumulazione di}\; \mathbb{A} \right\}
 \end{equation*}
-Posso in pratica avvicinarmi indefinitivamente ad $x_0$ sempre rimanendo in $\mathbb{A}$
+Posso in pratica avvicinarmi indefinitamente ad $x_0$ sempre rimanendo in $\mathbb{A}$
 
 \textbf{Proposizione:}\\
 $\mathbb{A} \subseteq \mathbb{R}, x_o \in \mathbb{R}$. $x_0$ è un punto di accumulazione per A se e solo se $\exists (a_n)_n \subseteq \mathbb{A}$ t.c.
@@ -250,7 +250,7 @@ Se si vuole indicare il limite per $x \to x_0$ di una funzione $f(x)$ si indica:
 \end{equation*}
 In pratica il limite destro e sinistro devono esistere e il loro valore deve coincidere.
 
-Se ci avvicininiamo da destra (cioè da valori più grandi) ad un punto $x_0$ si scrive che $x_0^+$, se invece ci avviciniamo da sinistra (cioè da valori più piccoli) si scrive $x_0^-$.
+Se ci avviciniamo da destra (cioè da valori più grandi) ad un punto $x_0$ si scrive che $x_0^+$, se invece ci avviciniamo da sinistra (cioè da valori più piccoli) si scrive $x_0^-$.
 
 \subsubsection{SCHEMA RIASSUNTIVO LIMITI:} 
 Per tradurre un limite nella notazione epsilon-delta il seguente schema può tornare effettivamente molto utile.
@@ -297,18 +297,18 @@ Quindi se per esempio devo tradurre il seguente limite:
 \begin{equation*}
 	\lim_{x \to 5^-} f(x) = +\infty
 \end{equation*}
-Vedo che $x \to 5^-$ è l'opzione numero (iii), mentre a destra dell'uguale ($+\infty$) ho l'opzione 2. Qindi diventa:
+Vedo che $x \to 5^-$ è l'opzione numero (iii), mentre a destra dell'uguale ($+\infty$) ho l'opzione 2. Quindi diventa:
 \begin{equation*}
 	\forall \epsilon > 0, \exists \delta > 0 : \forall x \in \mathcal{D}(f): 5 - \delta < x < 5 \implies f(x) > \epsilon
 \end{equation*}
 
 \subsection{Algebra dei limiti}
-L'algebra dei limiti vale sie per le successioni che per le funzioni. Per comodità in seguito è riportata con il caso delle funzioni:\\
+L'algebra dei limiti vale sia per le successioni che per le funzioni. Per comodità in seguito è riportata con il caso delle funzioni:\\
 Siano $f(x)$ e $g(x)$ due funzioni tale che
 \begin{equation*}
     f(x) \xrightarrow{\qquad} l_1 \qquad g(x) \xrightarrow{\qquad} l_2
 \end{equation*}
-Alora:
+Allora:
 \begin{equation*}
     f(x)+g(x) \xrightarrow{\qquad}
     \begin{cases*}
@@ -782,7 +782,7 @@ $x = k$ è un \textbf{asintoto verticale} per $f(x)$ se
     \lim_{x\to k^{+}} f(x) = \pm \infty \qquad \text{oppure} \qquad \lim_{x\to k^{-}} f(x) = \pm \infty
 \end{equation*}
 }
-Ne cosegue che graficamente l'asinto verticale si verifca quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{fig_asintotVer}):
+Ne consegue che graficamente l'asintoto verticale si verifica quando la funzione sotto esame tende a $\pm \infty$ in un punto specifico (come in figura \ref{fig_asintotVer}):
 
 \begin{figure}[h]
 \begin{center}
@@ -921,7 +921,7 @@ Date quindi due funzioni $f(x)$ e $g(x)$ che tendono entrambe a $+ \infty$ se:
         l \neq 0 \qquad \; \text{$f$ e $g$ sono infinitesimi dello stesso ordine}
     \end{cases*}
 \end{equation*}
-Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim_gerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di ripotare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
+Non vi è qui riportata la dimostrazione in quanto necessita di un teorema visto più avanti. Per completezza la dimostrazione è comunque riportata nella sezione \ref{dim_gerarchiaInfiniti}, subito dopo il teorema in questione. La decisione di riportare questa gerarchia qui è che ha molto senso con i limiti nonostante non si possa ancora dimostrare. La gerarchia degli infiniti risulta (dal più "lento" al più "veloce"):
 \begin{enumerate}
 	\item $\log_a^m (x)$ con $a > 1$ e $m \in \mathbb{N}$
 	\item $p(x)$
@@ -1049,7 +1049,7 @@ Sostituiamo nel limite e calcoliamo (in quanto per $h \to 0$, $\sin(h) \to 0$ e 
 La \textbf{continuità della tangente} nel suo dominio naturale è dovuta dal fatto che la tangente può essere definita come rapporto tra \textit{seno} e \textit{coseno}, e il rapporto di funzioni continue è anch'esso continuo. L'\textbf{esponenziale} è continuo. Tutte le \textbf{funzioni inverse delle funzioni elementari} sono continue ($\ln{x}$, $\sqrt{x}$, $\arcsin{x}$, $\arccos{x}$ e $\arctan{x}$).\\
 
 \subsubsection{Funzioni definite a tratti}
-Per le funzioni definite a tratti il caso è un po' più particolare perché non si sa a priori se sono continue o no. In generale il metodo per scoprire sono sono continue è il seguente. Prendiamo una funzione $f$ definita a tratti in questo modo:
+Per le funzioni definite a tratti il caso è un po' più particolare perché non si sa a priori se sono continue o no. In generale il metodo per scoprire se sono continue è il seguente. Prendiamo una funzione $f$ definita a tratti in questo modo:
 \begin{equation*}
     f(x) =
     \begin{cases*}
@@ -1057,7 +1057,7 @@ Per le funzioni definite a tratti il caso è un po' più particolare perché non
         h(x) \qquad (x > a)
     \end{cases*}
 \end{equation*}
-Di solito sia $g$ che $h$ sono funzioni formate da composizioni di funzioni elementari, che rendono automaticamente continue le due funzioni. Il problema sorge quindi nel punto di separazione $a$. Per verificare che sia continua la funzionem $f$ bisogna fare in modo che sia $g$ sia $h$ si avvicinino ad $a$ con lo stesso valore, cioè che abbiano lo stesso limite per $x \to a$.
+Di solito sia $g$ che $h$ sono funzioni formate da composizioni di funzioni elementari, che rendono automaticamente continue le due funzioni. Il problema sorge quindi nel punto di separazione $a$. Per verificare che sia continua la funzione $f$ bisogna fare in modo che sia $g$ sia $h$ si avvicinino ad $a$ con lo stesso valore, cioè che abbiano lo stesso limite per $x \to a$.
 \begin{equation*}
     \lim_{x \to a^-} g(x) = \lim_{x \to a^+} h(x)
 \end{equation*}

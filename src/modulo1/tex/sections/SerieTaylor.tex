@@ -6,7 +6,7 @@ Purtroppo la matematica viene spesso spiegata così velocemente che non ci si fe
 Facciamo qualche esempio perché credo che la loro importanza vada giustificata il più possibile prima di imparare a memoria un qualsiasi teorema che le definisce:
 
 \begin{enumerate}
-	\item \textbf{Calcolo delle funzioni trigonometriche:} Mentre imparavate goniometria avrete sicuramente notato che esistono dei così detti \textit{angoli notevoli} sulla circonferenza che presi come argomenti nelle funzioni $\sin$ e $\cos$ danno dei valori "belli". Un sempio è $\frac{\pi}{2}$:
+	\item \textbf{Calcolo delle funzioni trigonometriche:} Mentre imparavate goniometria avrete sicuramente notato che esistono dei così detti \textit{angoli notevoli} sulla circonferenza che presi come argomenti nelle funzioni $\sin$ e $\cos$ danno dei valori "belli". Un esempio è $\frac{\pi}{2}$:
 	\begin{equation*}
 		\sin \left(\dfrac{\pi}{2}\right) = 1
 	\end{equation*}
@@ -32,7 +32,7 @@ Facciamo qualche esempio perché credo che la loro importanza vada giustificata 
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{\dfrac{3}{4} x^4 + o(x^4)}{x^4} = \dfrac{3}{4}
 		\end{equation*}
-		Sicuramente ora è molto ma molto più semplice da calcolare. Ovviamente ho saltanto molti passaggi è quella $o(x^4)$ non l'ho spiegata, però siamo riusciti a calcolare un limite che prima non sapevamo fare.
+		Sicuramente ora è molto ma molto più semplice da calcolare. Ovviamente ho saltato molti passaggi è quella $o(x^4)$ non l'ho spiegata, però siamo riusciti a calcolare un limite che prima non sapevamo fare.
 
 \end{enumerate}
 
@@ -90,7 +90,7 @@ Allora si hanno i seguenti casi:
 	\end{equation*}
 	Se il punto $x_0$ coincide con l'origine si omette il “per $x \to 0$”
 }
-In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 0 "più velocemente". Per sempio:
+In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 0 "più velocemente". Per esempio:
 \begin{itemize}
 	\item $4x^4 = o(x^2)$ in quanto:
 		\begin{equation*}
@@ -101,7 +101,7 @@ In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 
 			\lim_{x \to 0} \dfrac{\sin^3{x}}{x^2} = \lim_{x \to 0} x \cdot \dfrac{\sin^3{x}}{x^3} = \lim_{x \to 0} x \cdot \left(\dfrac{\sin{x}}{x} \right)^3 = 0 \cdot 1 = 0
 		\end{equation*}
 	
-	\item Ma $x^3 \neq o(\sin^3{x})$, infati sono infinitesimi equivalenti:
+	\item Ma $x^3 \neq o(\sin^3{x})$, infatti sono infinitesimi equivalenti:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{x^3}{\sin^3{x}} = \lim_{x \to 0} \dfrac{1}{\left(\dfrac{\sin{x}}{x} \right)^3} = \dfrac{1}{1} = 1
 		\end{equation*}
@@ -120,7 +120,7 @@ Direi che $g(x) = o(1)$ per $x \to x_0$ significa che:
 \begin{equation*}
 	\lim_{x \to x_0} \dfrac{g(x)}{1} = 0
 \end{equation*}
-Cioè $g(x) \to 0$ per $x \to x_0$, che è un altro modo dire dire che $g$ è un infinitesimo per $x \to x_0$
+Cioè $g(x) \to 0$ per $x \to x_0$, che è un altro modo per dire che $g$ è un infinitesimo per $x \to x_0$
 
 \subsubsection{Proprietà algebriche degli \textit{o}-piccolo}
 Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, si assume $n, m \in \mathbb{N}$:
@@ -172,7 +172,7 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \dfrac{x^n + g(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right)
 		\end{equation*}
-		Dalle ipotesi e dalla definzione di \textit{o}-piccolo:
+		Dalle ipotesi e dalla definizione di \textit{o}-piccolo:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right) = 0 \cdot (1 + 0) = 0
 		\end{equation*}
@@ -185,7 +185,7 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\begin{equation*}
 			f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) \implies f = o(x^n)
 		\end{equation*}
-		Assumiamo $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$ per dimostrare $f = o(x^n)$. Per la definzione di \textit{o}-piccolo ci siamo ridotti a dimostrare:
+		Assumiamo $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$ per dimostrare $f = o(x^n)$. Per la definizione di \textit{o}-piccolo ci siamo ridotti a dimostrare:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{x^n} = 0
 		\end{equation*}
@@ -270,15 +270,15 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 \subsection{Sviluppo di Taylor}
 
 \subsubsection{Idea intuitiva}
-Prima di dare la definizione di qualche teorema tirato fuori dal nulla vorrei cercare di dare l'idea dietro queste serie di Taylor, in modo che poi, quanto si andranni a leggere ed effettivamente studiare i teoremi successivi, si abbia comunque una vaga idea del loro significato e da dove deriva il tutto.\\
+Prima di dare la definizione di qualche teorema tirato fuori dal nulla vorrei cercare di dare l'idea dietro queste serie di Taylor, in modo che poi, quanto si andranno a leggere ed effettivamente studiare i teoremi successivi, si abbia comunque una vaga idea del loro significato e da dove deriva il tutto.\\
 
-Prendiamo una funzione che vogliamo approssimare, per esempio $f(x) = e^x$ e scegliamo un punto in cui approssimare questa funzione, per sempio $x_0 = 0$. Ora non possiamo partire subito con 200 termini di approssimazione, ma dobbiamo costruire il poliniomio piano piano in modo che tutti i passaggi abbiano effettivamente un senso. 
+Prendiamo una funzione che vogliamo approssimare, per esempio $f(x) = e^x$ e scegliamo un punto in cui approssimare questa funzione, per esempio $x_0 = 0$. Ora non possiamo partire subito con 200 termini di approssimazione, ma dobbiamo costruire il polinomio piano piano in modo che tutti i passaggi abbiano effettivamente un senso. 
 
-Proviamo quindi a trovare la migliore approssimazione di \textbf{grado 0} per $f(x) = e^x$ in $x_0 = 0$. Cioè in pratica quello che vogliamo fare è trovare un polinomio $p_0(x)$ di grado $0$ che sia la migliore approssimazione di $f(x)$ vicino a $x_0$. Questa condizione protremmo scriverla così:
+Proviamo quindi a trovare la migliore approssimazione di \textbf{grado 0} per $f(x) = e^x$ in $x_0 = 0$. Cioè in pratica quello che vogliamo fare è trovare un polinomio $p_0(x)$ di grado $0$ che sia la migliore approssimazione di $f(x)$ vicino a $x_0$. Questa condizione potremmo scriverla così:
 \begin{equation*}
 	\lim_{x \to x_0} f(x) - p_0(x) = 0
 \end{equation*}
-In pratica quello che stiamo chiedendo è che quando ci avviciniamo al punto $x_0$ la differenza tra la funzione $f(x)$ e la sua approssimazione $p_0(x)$ tenda a 0 (che è un altro modo di dire che le due quantità diventano uguali). In questo caso il nostro polinomio di approssimazione è di grado 0, questo implica che equivale ad una costante genrica $k \in \mathbb{R}$. Sostituendo la funzione $f(x) = e^x$, $p_0(x) = k$ e il punto $x_0 = 0$ il nostro limite risulta:
+In pratica quello che stiamo chiedendo è che quando ci avviciniamo al punto $x_0$ la differenza tra la funzione $f(x)$ e la sua approssimazione $p_0(x)$ tenda a 0 (che è un altro modo di dire che le due quantità diventano uguali). In questo caso il nostro polinomio di approssimazione è di grado 0, questo implica che equivale ad una costante generica $k \in \mathbb{R}$. Sostituendo la funzione $f(x) = e^x$, $p_0(x) = k$ e il punto $x_0 = 0$ il nostro limite risulta:
 \begin{equation*}
 	\lim_{x \to 0} e^x - k  = 0
 \end{equation*}
@@ -300,9 +300,9 @@ Vogliamo trovare il miglior polinomio di \textbf{grado 1} che approssima la funz
 	&1 - b = 0 \implies b = 1
 \end{align*}
 
-Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che abbiamo già imposto il limite nel punto e quest'ultimo non ci da alcuna informazione aggiuntiva se aumentiamo il grado del polinomio, dobbiamo trovare un altro metodo per approssimare una funzione. Come abbiamo già visto, il limite nel punto ci da la migliore approssimazione per il punto specifico, ma non ci dice nulla se ci allontaniamo leggermente da esso. Quello che vogliamo però è che se ci allontaniamo "un pochino" dal punto, il valore della funzione e il valore della nostra approssimazione siano abbastanza simili. Potremmo quindi pensare di imporre che se ci allontaniamo dal punto, il \textit{tasso di cambiamento della funzione sia lo stesso della nostra approssimazione}. In questo modo partendo dal punto stesso, quando ci allontaniamo il valore della funzione e della nostra approssimazione cambiano nello stesso modo. Per fare un esempio visuale prendiamo il grafico di $f(x) = e^x$ (Figura: \ref{fig_esponenzialeGrafico}). Nel grafico sono presenti anche delle rette (che sono dei polinomi di grado 1) che passano tutte per il punto $P(0, 1)$ che è la nostra prima approssimazione. Il fatto è che queste rette hanno coefficienti angolari diversi.
+Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che abbiamo già imposto il limite nel punto e quest'ultimo non ci dà alcuna informazione aggiuntiva se aumentiamo il grado del polinomio, dobbiamo trovare un altro metodo per approssimare una funzione. Come abbiamo già visto, il limite nel punto ci dà la migliore approssimazione per il punto specifico, ma non ci dice nulla se ci allontaniamo leggermente da esso. Quello che vogliamo però è che se ci allontaniamo "un pochino" dal punto, il valore della funzione e il valore della nostra approssimazione siano abbastanza simili. Potremmo quindi pensare di imporre che se ci allontaniamo dal punto, il \textit{tasso di cambiamento della funzione sia lo stesso della nostra approssimazione}. In questo modo partendo dal punto stesso, quando ci allontaniamo il valore della funzione e della nostra approssimazione cambiano nello stesso modo. Per fare un esempio visuale prendiamo il grafico di $f(x) = e^x$ (Figura: \ref{fig_esponenzialeGrafico}). Nel grafico sono presenti anche delle rette (che sono dei polinomi di grado 1) che passano tutte per il punto $P(0, 1)$ che è la nostra prima approssimazione. Il fatto è che queste rette hanno coefficienti angolari diversi.
 
-% Si può fare meglio questo grafico??
+% Si può fare meglio questo grafico?
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
@@ -352,9 +352,9 @@ In questo caso abbiamo trovato che il nostro polinomio di approssimazione $p_1(x
 	&e^0 - (a \cdot 0 + b) = 0\\
 	&1 - b = 0 \implies b = 1
 \end{align*}
-Come prima che a causa della derivata il termine noto spariva e quindi era completamente ininfluente sul tasso di cambiamento della funzione e del nostro polinomio, ora per il limite spariscono tutti i termini con una $x$, lasciando solo il termine noto. Questo è molto imporatante perché anche avendo un polinomio di approssimazione di grado 100 il termine noto sarà sempre lo stesso, in questo caso 1.
+Come prima che a causa della derivata il termine noto spariva e quindi era completamente ininfluente sul tasso di cambiamento della funzione e del nostro polinomio, ora per il limite spariscono tutti i termini con una $x$, lasciando solo il termine noto. Questo è molto importante perché anche avendo un polinomio di approssimazione di grado 100 il termine noto sarà sempre lo stesso, in questo caso 1.
 
-Ora che però abbiamo già usato sia un limite che una derivata cosa ci inventiamo per trovare il miglior polinomio di \textbf{grado 2} che approssima la funzione? In realtà ora possiamo continuare ad iterare lo stesso processo della derivata, semplicemente usando derivate seconde, terze, ecc. Questo perché la derivata in quanto tale rappresenta il tasso di cambiamente della funzione di partenza, quindi se facciamo in modo che le due derivate seconde coincidano abbiamo aggiunto un grado di somiglianza tra il nostro polinomio e la funzione:
+Ora che però abbiamo già usato sia un limite che una derivata cosa ci inventiamo per trovare il miglior polinomio di \textbf{grado 2} che approssima la funzione? In realtà ora possiamo continuare ad iterare lo stesso processo della derivata, semplicemente usando derivate seconde, terze, ecc. Questo perché la derivata in quanto tale rappresenta il tasso di cambiamento della funzione di partenza, quindi se facciamo in modo che le due derivate seconde coincidano abbiamo aggiunto un grado di somiglianza tra il nostro polinomio e la funzione:
 \begin{equation*}
 	f''(x_0) = p_2''(x_0)
 \end{equation*}
@@ -471,7 +471,7 @@ Ovviamente più avanti verrà definito tutto più formalmente, però questa è e
 
 
 
-\subsubsection{Definzione formale}
+\subsubsection{Definizione formale}
 Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$. Se $f$ è continua in 0:
 \begin{equation*}
 	\lim_{x \to 0} f(x) = f(0)
@@ -523,7 +523,7 @@ Ora scegliamo il polinomio di grado 2 che approssima meglio la funzione. Ovviame
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x^2 + E_2(x)
 \end{equation*}
-Dubbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più velocemente di $x^2$, cioè:
+Dobbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più velocemente di $x^2$, cioè:
 \begin{equation*}
 	E_2(x) = o(x^2)
 \end{equation*}
@@ -535,7 +535,7 @@ Portando quindi tutti i termini a sinistra:
 \begin{equation*}
 	f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2 = o(x^2)
 \end{equation*}
-Applicando la definzione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2$ dal seguente limite:
+Applicando la definizione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2$ dal seguente limite:
 \begin{equation*}
 	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} = 0
 \end{equation*}
@@ -556,7 +556,7 @@ Per trovare la migliore approssimazione di grado 3 basta iterare il processo. Qu
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3 + o(x^3)
 \end{equation*}
-Che portando tutto a sinistra e applicando la definzione di \textit{o}-piccolo:
+Che portando tutto a sinistra e applicando la definizione di \textit{o}-piccolo:
 \begin{equation*}
 	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3}{x^3} = 0
 \end{equation*}
@@ -574,7 +574,7 @@ Quindi la migliore approssimazione di grado 3 di $f$ in $x = 0$:
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3)
 \end{equation*}
-Si comoincia a vedere un pattern, infatti:
+Si comincia a vedere un pattern, infatti:
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3) = \left( \sum \limits_{i = 0}^3 \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^3)
 \end{equation*}
@@ -595,7 +595,7 @@ Si dimostra così il teorema di Peano.
 	\begin{equation*}
 		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i
 	\end{equation*}
-	È l'unico polinomio di grado $\leq n$ tale che\footnote{In questo caso non si sa con certezza se il polinomio sarà esattamente di grado $n$, per quello si mette il $\leq$. Questo prché alcune derivate di ordine superiore potrebbero essere nulle facendo quindi risultare il polinomio di grado minore. Si noti però che se comunque il polinomio non risultasse di grado $n$, sarebbe comunque la migliore approssimazione di grado $n$ e avrebbe un \textit{o}-piccolo di $o(x^n)$. Un classico esempio in questo caso sono le funzioni seno e coseno.}: 
+	È l'unico polinomio di grado $\leq n$ tale che\footnote{In questo caso non si sa con certezza se il polinomio sarà esattamente di grado $n$, per quello si mette il $\leq$. Questo perché alcune derivate di ordine superiore potrebbero essere nulle facendo quindi risultare il polinomio di grado minore. Si noti però che se comunque il polinomio non risultasse di grado $n$, sarebbe comunque la migliore approssimazione di grado $n$ e avrebbe un \textit{o}-piccolo di $o(x^n)$. Un classico esempio in questo caso sono le funzioni seno e coseno.}: 
 	\begin{equation*}
 		f(x) = T_n(x) + o(x^n) \qquad \text{per } x \to 0
 	\end{equation*}
@@ -617,7 +617,7 @@ Si dimostra così il teorema di Peano.
 }
 
 \subsection{Sviluppi di Taylor per le funzioni elementari in $x_0 = 0$}
-Prima di dare tutti gli sviluppi delle funzioni elementari già calcolati è carino vedere come si utilizza effettivamente nella pratica il teorema di Peano. Nella sotto-sezione successiva sono comunque riportati tutti gli sviluppi delle funzioni elementari.\\
+Prima di dare tutti gli sviluppi delle funzioni elementari già calcolati è carino vedere come si utilizza effettivamente nella pratica il teorema di Peano. Nella sottosezione successiva sono comunque riportati tutti gli sviluppi delle funzioni elementari.\\
 
 \textbf{Esponenziale:} Vogliamo calcolare lo sviluppo di Taylor per la funzione $f(x) = e^x$. Ricordiamoci che $e^x \in C^\infty (\mathbb{R})$, cioè è derivabile infinite volte su $\mathbb{R}$. Dal teorema di Peano:
 \begin{equation*}
@@ -633,7 +633,7 @@ E quindi:
 \end{equation*}
 
 
-\textbf{Seno:} Calcoliamo lo sviluppo di Taylor per la funzione $f(x) = \sin{x}$, ricordandoci che $\sin{x} \in C^\infty (\mathbb{R})$. Proviamo prima di usare il teorema di peano a calcolare le derivate in $x = 0$:
+\textbf{Seno:} Calcoliamo lo sviluppo di Taylor per la funzione $f(x) = \sin{x}$, ricordandoci che $\sin{x} \in C^\infty (\mathbb{R})$. Proviamo prima di usare il teorema di Peano a calcolare le derivate in $x = 0$:
 \begin{align*}
 	&f(0) = (\sin{x}) |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} &= 0\\[5pt]
 	&f'(0) = (\sin{x})' |_{x = 0} = \cos{x} |_{x = 0} = \cos{0} &= 1\\[5pt]
@@ -672,7 +672,7 @@ Questo è estremamente utile in quanto tutti i termini pari della successione so
 	\sin{x} = x - \dfrac{1}{3!}x^3 + o(x^3) \quad &\implies \quad \sin{x} = x - \dfrac{1}{3!}x^3 + o(x^4) \\[5pt]
 	\sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n +1} + o(x^{2n+1}) \quad &\implies \quad \sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n+1} + o(x^{2n+2})
 \end{align*}
-Possiamo quindi usare questo piccola osservazione a nosro vantaggio quando sviluppiamo il seno.\\
+Possiamo quindi usare questo piccola osservazione a nostro vantaggio quando sviluppiamo il seno.\\
 
 \begin{figure}
 \centering
@@ -774,7 +774,7 @@ Dunque:
 	\cos{(-x)} = \cos{x}
 \end{equation*}
 }
-Come per il seno possiamo usare quesa considerazione per diminuire l'errore tenendo la stessa approssimazione. Se infatti abbiamo un approssimazione di grado $2n$, risulta anche la migliore approssimazione di grado $2n + 1$ in quanto dovremmo aggiungere un termine dispari e quindi moltiplicato per uno 0, risultando quindi in un termine non presente:
+Come per il seno possiamo usare questa considerazione per diminuire l'errore tenendo la stessa approssimazione. Se infatti abbiamo un approssimazione di grado $2n$, risulta anche la migliore approssimazione di grado $2n + 1$ in quanto dovremmo aggiungere un termine dispari e quindi moltiplicato per uno 0, risultando quindi in un termine non presente:
 \begin{align*}
 	\cos{x} = 1 + o(1) \quad &\implies \quad \sin{x} = 1 + o(x)\\[5pt]
 	\sin{x} = 1 - \dfrac{1}{2!}x^2 + o(x^2) \quad &\implies \quad \sin{x} = x - \dfrac{1}{2!}x^2 + o(x^3) \\[5pt]
@@ -797,7 +797,7 @@ Osserviamo che $\ln{x_0}$ è una costante, mentre se facciamo un cambio di varia
 \begin{equation*}
 	\text{se } x \to x_0 \quad \implies \quad t \to 0
 \end{equation*}
-Quindi indipendentemente dal punto in cui vogliamo sviluppare il logaritmo possiamo sempre ridurci ad un sviluppo di $\ln(1 + t)$ in $t = 0$. 
+Quindi indipendentemente dal punto in cui vogliamo sviluppare il logaritmo possiamo sempre ridurci ad uno sviluppo di $\ln(1 + t)$ in $t = 0$. 
 
 Cominciamo quindi con il calcolare le derivate di $f(x) = \ln{(1 + x)}$ in $x = 0$:
 \begin{align*}

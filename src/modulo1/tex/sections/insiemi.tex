@@ -31,9 +31,9 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
 \end{itemize}
 \end{multicols}
 
-\subsection{Poposizioni e utilizzo di simboli logici}
+\subsection{Proposizioni e utilizzo di simboli logici}
 
-Le \textbf{proposizioni} sono "frasi" che hanno un valore di verità, cioè posso essere vere o false. Per legare due o più proposizoni si utilizzano svariati simboli logici. In generale la logica proposizionale si studia nel corso di logica quindi non ho intenzione di riporare più dello stetto necessario qui.
+Le \textbf{proposizioni} sono "frasi" che hanno un valore di verità, cioè posso essere vere o false. Per legare due o più proposizioni si utilizzano svariati simboli logici. In generale la logica proposizionale si studia nel corso di logica quindi non ho intenzione di riportare più dello stretto necessario qui.
 
 \begin{table}[H]
 \centering
@@ -112,7 +112,7 @@ Non sempre però è comodo descrivere gli insiemi elencando il loro termini (in 
         \mathbb{Q} = \left\{\,\dfrac{p}{q}\, \middle| \, p, q \in \mathbb{Z},\, q \neq 0 \right\}
     \end{equation*}
 \end{center}
-In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte le frazioni\footnote{Matematici rigorosi abbiate pietà della mia anima}. E per esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo una proposizone.
+In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte le frazioni\footnote{Matematici rigorosi abbiate pietà della mia anima}. E per esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo una proposizione.
 
 \subsubsection{Reali}
 L'ultimo insieme che introduciamo è l'insieme dei \textbf{numeri reali}. Viene indicato con il simbolo $\mathbb{R}$ ed è l'insieme più importante di tutti i precedenti. Questo insieme viene introdotto perché all'insieme dei numeri razionali ($\mathbb{Q}$) mancano dei numeri.
@@ -174,7 +174,7 @@ Questo punto è contenuto nell'insieme $\mathbb{Q}$?
 Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Inoltre si può dimostrare che $\forall\, n \in \mathbb{N} : n$ \textit{non è un quadrato perfetto} $\implies \sqrt{n} \notin \mathbb{Q}$.
 Ne consegue che esistono infiniti punti sulla retta che non appartengono a $\mathbb{Q}$, e anzi è molto più probabile che facendo la radice di un numero si ottenga un numero che non è incluso in $\mathbb{Q}$ piuttosto che il contrario. Quindi se si vuole formalizzare una teoria dei limiti è necessario lavorare su un insieme non "bucato", cioè un insieme \textbf{continuo}.\\
 
-La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti sulla retta hanno associato un unico numero reale). Esiste infatti una \textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza biunivoca} è necessario fare riferimento al capitolo legato alla funzioni.}
+La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti sulla retta hanno associato un unico numero reale). Esiste infatti una \textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza biunivoca} è necessario fare riferimento al capitolo legato alle funzioni.}
 Per definire meglio la proprietà di completezza è necessario introdurre alcuni concetti:
 
 \dfn{
@@ -191,7 +191,7 @@ Per definire meglio la proprietà di completezza è necessario introdurre alcuni
         \item $c \in A$ si dice \textbf{minimo} di $A$ se $\forall\, a \in A : c \leq a$.
         
         \item Il più piccolo dei maggioranti si chiama \textbf{estremo superiore} di $A$. Si indicato con $\mathbf{sup}\,A$. Se il massimo esiste coincide con l'estremo superiore. Se l'insieme è superiormente illimitato si scrive $\mathbf{sup}\,A = +\infty$.
-        \item Il più garnde dei minoranti si chiama \textbf{estremo inferiore} di $A$. Si indicato con $\mathbf{inf}\,A$. Se il minimo esiste coincide con l'estremo inferiore. Se l'insieme è inferiormente illimitato si scrive $\mathbf{inf}\,A = -\infty$.
+        \item Il più grande dei minoranti si chiama \textbf{estremo inferiore} di $A$. Si indicato con $\mathbf{inf}\,A$. Se il minimo esiste coincide con l'estremo inferiore. Se l'insieme è inferiormente illimitato si scrive $\mathbf{inf}\,A = -\infty$.
         
         \item L'\textbf{insieme dei maggioranti} di $A$ si indica come $\mathrm{Mg}(A) = \{n \in \mathbb{R}\,|\, n$ è un maggiorante di $A\}$. Il minimo di questo insieme coincide con l'estremo superiore di $A$.
         \item L'\textbf{insieme dei minoranti} di $A$ si indica come $\mathrm{Mn}(A) = \{n \in \mathbb{R}\,|\, n$ è un minorante di $A\}$. Il massimo di questo insieme coincide con l'estremo inferiore di $A$.
@@ -275,7 +275,7 @@ I valori della funzione risultano quindi:
     |\mathbb{Z}| = |\mathbb{N}|
 \end{equation*}
 
-Prendiamo ora in analisi l'insieme dei numeri razionali, ovvero $\mathbb{Q}$. Elenchiamo tutte le frazioni (e di conseguenza tutti i sui elementi) nel seguente ordine:
+Prendiamo ora in analisi l'insieme dei numeri razionali, ovvero $\mathbb{Q}$. Elenchiamo tutte le frazioni (e di conseguenza tutti i suoi elementi) nel seguente ordine:
 
 \begin{figure}[H]
 \centering
@@ -338,7 +338,7 @@ Non dimostreremo rigorosamente la cosa, però è facile notare che si può costr
 \subsubsection{Cardinalità del continuo}
 Concludiamo con l'analisi dei numeri reali, ovvero l'insieme $\mathbb{R}$. Se volessimo dimostrare che $\mathbb{R}$ non è numerabile, ci basterebbe dimostrare che un suo sottoinsieme non è numerabile.
 \pf{
-	Vogliamo dimostrare che $[0,1[$ non è numerabie perché questo ci permetterebbe di concludere che $\mathbb{R}$ non è numerabile. Ci basta quindi dimostrate che non esiste una funzione suriettiva da $\mathbb{N}$ a $\mathbb{R}$:
+	Vogliamo dimostrare che $[0,1[$ non è numerabile perché questo ci permetterebbe di concludere che $\mathbb{R}$ non è numerabile. Ci basta quindi dimostrate che non esiste una funzione suriettiva da $\mathbb{N}$ a $\mathbb{R}$:
 	\begin{equation*}
 		\not \exists f:N \xrightarrow[1-1]{SU} [0,1[
 	\end{equation*}
