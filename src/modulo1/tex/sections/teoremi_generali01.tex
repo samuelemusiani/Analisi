@@ -68,7 +68,7 @@ Un paio di osservazioni utili sul teorema:
         \centering
 	\begin{tikzpicture}
 	\begin{axis}[xmax = 4, xmin = -1.5, ymax = 2, ymin = -2,
-			     axis lines=middle, xlabel=$x$, ylabel=$y$,
+			axis lines=middle, xlabel=$x$, ylabel=$y$,
 			     xtick={-1, 0, 1, 2, 3, 4, 5, 6},
 			     ytick={-1, 1},
 			     xlabel style={anchor=north east},
@@ -106,7 +106,7 @@ Un paio di osservazioni utili sul teorema:
   \end{equation*}
   Da qui possiamo avere 3 casi:
   \begin{enumerate}
-    \item $f\left(\dfrac{a + b}{2}\right) = 0$. In questo caso abbiamo trovato il punto $c$ proprio perché la funzione si annula. Quindi abbiamo finito!
+    \item $f\left(\dfrac{a + b}{2}\right) = 0$. In questo caso abbiamo trovato il punto $c$ proprio perché la funzione si annulla. Quindi abbiamo finito!
       \begin{equation*}
         c = \dfrac{a+b}{2}
       \end{equation*}
@@ -116,15 +116,15 @@ Un paio di osservazioni utili sul teorema:
         a_2 := \dfrac{a+b}{2}
       \end{equation*}
 
-    \item $f\left(\dfrac{a + b}{2}\right) > 0$. L'idea di questo punto è identica a quella del punto 2, semplicemente invece che assegnare un valore diverso ad $a$, lo assegnamo a $b$ perché questa volta il valore della funzione è positivo invece che negativo.
+    \item $f\left(\dfrac{a + b}{2}\right) > 0$. L'idea di questo punto è identica a quella del punto 2, semplicemente invece che assegnare un valore diverso ad $a$, lo assegniamo a $b$ perché questa volta il valore della funzione è positivo invece che negativo.
       \begin{equation*}
         b_2 := \dfrac{a+b}{2}
       \end{equation*}
   \end{enumerate}
   Con i punti 2 e 3, riassegnando il valore ad $a$ o $b$, restringiamo l'intervallo su cui vogliamo applicare questo algoritmo per trovare il punto $c$. Ed essendo che ad ogni iterazione ci avviciniamo sempre di più, a forza di stringere l'intervallo prima o poi arriveremo a $c$.\\
-  \textbf{Nota:} Ad ogni iterazione, se la funzione non si annulla, dobbiamo sostituire il valore del punto al corrispettivo punto $a$ o $b$ in modo che la funzione mantenga lo stesso segno. Questo perché se invertissimo i punti ci troveremmo in un caso in qui $f(a) > 0$ e $f(b) > 0$, cosa che ovviamente annullerebbe il teorema. Quindi nel caso del punto 2 in cui sostituiamo il nuovo punto ad $a$, lo facciamo soltanto perché per ipotesi $f(a) < 0$ e la funzione nel nuovo punto è negativa. Se per ipotesi avessimo scelto $f(a) > 0$ avremmo dovuto sostituire il nuovo punto in $b$, e vice versa.\\
+  \textbf{Nota:} Ad ogni iterazione, se la funzione non si annulla, dobbiamo sostituire il valore del punto al corrispettivo punto $a$ o $b$ in modo che la funzione mantenga lo stesso segno. Questo perché se invertissimo i punti ci troveremmo in un caso in qui $f(a) > 0$ e $f(b) > 0$, cosa che ovviamente annullerebbe il teorema. Quindi nel caso del punto 2 in cui sostituiamo il nuovo punto ad $a$, lo facciamo soltanto perché per ipotesi $f(a) < 0$ e la funzione nel nuovo punto è negativa. Se per ipotesi avessimo scelto $f(a) > 0$ avremmo dovuto sostituire il nuovo punto in $b$, e viceversa.\\
 
-  Essendo che dobbiamo ripete l'algoritmo, il caso \textit{n}-arrio diventa:
+  Essendo che dobbiamo ripete l'algoritmo, il caso \textit{n}-ario diventa:
   \begin{enumerate}
     \item 
       \begin{equation*}
@@ -133,12 +133,12 @@ Un paio di osservazioni utili sul teorema:
 
     \item 
       \begin{equation*}
-        f\left(\dfrac{a_n + b_n}{2}\right) < 0 \qquad \text{Ieriamo nuovamente:} \qquad a_{n + 1}:= \dfrac{a_n + b_n}{2}
+        f\left(\dfrac{a_n + b_n}{2}\right) < 0 \qquad \text{Iteriamo nuovamente:} \qquad a_{n + 1}:= \dfrac{a_n + b_n}{2}
       \end{equation*}
       
     \item 
       \begin{equation*}
-        f\left(\dfrac{a_n + b_n}{2}\right) > 0 \qquad \text{Ieriamo nuovamente:} \qquad b_{n + 1}:= \dfrac{a_n + b_n}{2}
+        f\left(\dfrac{a_n + b_n}{2}\right) > 0 \qquad \text{Iteriamo nuovamente:} \qquad b_{n + 1}:= \dfrac{a_n + b_n}{2}
       \end{equation*}
 
   \end{enumerate}
@@ -147,7 +147,7 @@ Un paio di osservazioni utili sul teorema:
   \begin{equation*}
     f\left(\dfrac{a_p + b_p}{2}\right) = 0 \qquad \text{e quindi:} \qquad c = \dfrac{a_n + b_n}{2}
   \end{equation*}
-  Altrimenti la procedura non termina: in quaso avremo costrutito due successioni $(a_n)_n$ e $(b_n)_n$ contenute in $[a, b]$. Scriviamo di seguito le proprietà di queste 2 successioni:
+  Altrimenti la procedura non termina: in questo caso avremo costruito due successioni $(a_n)_n$ e $(b_n)_n$ contenute in $[a, b]$. Scriviamo di seguito le proprietà di queste 2 successioni:
   \begin{enumerate}[label=\roman*.]
     \item $a_n \leq a_{n+1} \forall n \in \mathbb{N}$ \quad e \quad $b_n \leq b_{n+1} \forall n \in \mathbb{N}$
 
@@ -159,7 +159,7 @@ Un paio di osservazioni utili sul teorema:
       \begin{equation*}
         b_n - a_n = \dfrac{b_{n-1} - a_{n-1}}{2} \qquad \forall n
       \end{equation*}
-      Se si espandono i vari passaggi si vede che in realtà ad ogni itarazione si divide l'intervallo iniziale $[a, b]$ in 2:
+      Se si espandono i vari passaggi si vede che in realtà ad ogni iterazione si divide l'intervallo iniziale $[a, b]$ in 2:
       \begin{equation*}
         b_n - a_n = \dfrac{b_{n-1} - a_{n-1}}{2} = \dfrac{b_{n-2} - a_{n-2}}{2^2} = \dfrac{b_{n-2} - a_{n-2}}{2^3}  = \cdots = \dfrac{b_1 - a_1}{2^{n-1}}
       \end{equation*}
@@ -213,7 +213,7 @@ Un paio di osservazioni utili sul teorema:
 \thm{
 Ogni polinomio di grado dispari ha almeno un radice reale.
 }
-È facile ricordarsi questo teorema perché tutti i polinomi di grado dispari hanno il termine di grado maggiore (che in quanto dispari) è soggetto al segno dell'argomento del polinomio. Cioè $x^3$ avrà lo stesso segno di $x$, mentre questo non vale per i polinomi di grado pari in quanto $x^8$ avrà sempre segno positivo. Se quindi si fanno i limiti per $+\infty$ e $-\infty$ di un polinomio di grado dispari, da una parte andrà sempre a $+\infty$ e dall'altra andrà sempre a $-\infty$ (seguendo appunto il segno della $x$). Ed essendo inoltre i polinomi funzioni continue, sono costretti a ad assumure tutti i valori dell'asse delle ordinate almeno una volta\footnote{Per chiarire: non assumono tutti i valori dell'asse delle ordinate perché sono funzioni continue e basta, assumono tutti i valori perché sono funzioni continue su $\mathbb{R}$ e da una parte vanno a $+\infty$ e dall'altra a $-\infty$}. Inoltre, visto che da una parte hanno valori positivi, dall'altra negativi e sono continui, esiste per forza un punto in cui si annullano (dal teorema degli zeri) e sarà proprio lì la loro radice.\\
+È facile ricordarsi questo teorema perché tutti i polinomi di grado dispari hanno il termine di grado maggiore (che in quanto dispari) è soggetto al segno dell'argomento del polinomio. Cioè $x^3$ avrà lo stesso segno di $x$, mentre questo non vale per i polinomi di grado pari in quanto $x^8$ avrà sempre segno positivo. Se quindi si fanno i limiti per $+\infty$ e $-\infty$ di un polinomio di grado dispari, da una parte andrà sempre a $+\infty$ e dall'altra andrà sempre a $-\infty$ (seguendo appunto il segno della $x$). Ed essendo inoltre i polinomi funzioni continue, sono costretti ad assumere tutti i valori dell'asse delle ordinate almeno una volta\footnote{Per chiarire: non assumono tutti i valori dell'asse delle ordinate perché sono funzioni continue e basta, assumono tutti i valori perché sono funzioni continue su $\mathbb{R}$ e da una parte vanno a $+\infty$ e dall'altra a $-\infty$}. Inoltre, visto che da una parte hanno valori positivi, dall'altra negativi e sono continui, esiste per forza un punto in cui si annullano (dal teorema degli zeri) e sarà proprio lì la loro radice.\\
 
 \textbf{Corollario:}
 Tutti i polinomi di grado dispari assumono \textbf{tutti i valori reali}. Questo implica che una funzione che è definita tramite un polinomio di grado dispari è una funzione \textbf{suriettiva}, in quanto ha come immagine $\mathbb{R}$.
@@ -229,7 +229,7 @@ Tutti i polinomi di grado dispari assumono \textbf{tutti i valori reali}. Questo
   \hfill Qed.
 }
 
-\subsection{Teorema di Weierstrass} % Di questo teorema ho due formulazioni perché la seconda si basa sulla prima e sul teorema degli zeri. Non so se sono effettivamente imporanti entrambe, però sono leggermente diverse tra loro (la sconda è più generale) e quindi ho deciso di scriverle entrambe.
+\subsection{Teorema di Weierstrass} % Di questo teorema ho due formulazioni perché la seconda si basa sulla prima e sul teorema degli zeri. Non so se sono effettivamente importanti entrambe, però sono leggermente diverse tra loro (la seconda è più generale) e quindi ho deciso di scriverle entrambe.
 \label{theorem_weierstrass}
 \dfn {
 $f:A \to \mathbb{R}$
@@ -263,7 +263,7 @@ E quindi:
 \end{equation*}
 Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$.
 }
-È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiusto} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{fig_weierstrassIntervalloAperto},  \ref{fig_weierstrassIntervalloIllimitato} e \ref{fig_weierstrassNonContinuo})
+È molto importante che la funzione sia \textit{continua}, \textit{in un intervallo chiuso} e \textit{limitato} perché se manca anche solo una di queste cose \textbf{non esiste} il minimo, il massimo o entrambi (come si vede dai grafici nelle figure: \ref{fig_weierstrassIntervalloAperto},  \ref{fig_weierstrassIntervalloIllimitato} e \ref{fig_weierstrassNonContinuo})
 
 \begin{figure}[h]
 \centering
@@ -348,7 +348,7 @@ Cioè, l'immagine di $f$ in $[a, b]$ è un sottoinsieme dell'intervallo $[m, M]$
 \end{figure}
 
 \subsubsection{Formulazione 2} 
-La seconda formulazione di questo teorema è più generale rispetto alla prima e utilizza il teorema degli zeri in combinazione con la prima formulazione di questo terorema.
+La seconda formulazione di questo teorema è più generale rispetto alla prima e utilizza il teorema degli zeri in combinazione con la prima formulazione di questo teorema.
 
 \thm{
 $f:[a,b]\to \mathbb{R}$ continua, allora:
