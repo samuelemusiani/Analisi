@@ -1,4 +1,5 @@
 \section{Funzioni in $\mathbb{R}^n$}
+Per definire le funzione abbiamo bisogni di definire gli intorni di un punto. In $\mathbb{R}^1$ abbiamo definito gli intorni sferici di un punto, ,mentre in $\mathbb{R}^n$ li definiamo come segue:
 \dfn{
 	Dato un \textbf{centro} $x \in \mathbb{R}^n$ e un \textbf{raggio} $r > 0$ poniamo 
 	\begin{equation*}
@@ -6,8 +7,19 @@
 	\end{equation*}
 	$B$ si chiama \textbf{disco di centro $\mathbf{x}$ e raggio $\mathbf{r}$}
 }
-
-%Fare qualche esempio tipo in (0, 0) e un intorno generico di (x, y) in R^2 (Appunti 2023-03-13)
+In pratica sarebbe l'insieme di punti che hanno distanza da $x$ minore o uguale a $r$. Se ci spostiamo un attimo in $\mathbb{R}^2$ e proviamo a prendere $x = (0, 0)$ e $r > 0$:
+\begin{equation*}
+	B((0, 0), r) = \{(x, y) \in \mathbb{R}^2 \; | \; \lVert (x, y) - \underline{0} \rVert < r\}
+\end{equation*}
+Se si espande la definizione di norma si può notare che la condizione di appartenenza a questo insieme è:
+\begin{equation*}
+	\sqrt{x^2 + y^2} < r
+\end{equation*}
+Che corrisponde a tutti i punti contenuti in una circonferenza di raggio $r$ con centro nell'origine. Facendo invece lo stesso ragionamento ma con un punto $x = (x_0, y_0)$ generico si arriva alla condizione:
+\begin{equation*}
+	\sqrt{(x - x_0)^2 + (y - y_0)^2} < r
+\end{equation*}
+Dove anche questa volta l'equazione è una circonferenza di raggio $r$ ma con il centro spostato in $(x_0, y_0)$.
 
 \dfn{
 	Il \textbf{grafico} di $f: A \to \mathbb{R}^q$ con $A \subseteq \mathbb{R}^m$ è:
