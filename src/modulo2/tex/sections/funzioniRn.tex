@@ -500,3 +500,96 @@ Dimostriamo ora il teorema del differenziale totale:
 	\end{equation*}
 	\hfill Qed.
 }
+
+Il teorema appena enunciato vale anche con l'implicazione contraria. Questa però è una proposizione più che un vero e proprio teorema:
+
+\imp{
+	\textbf{PROP:} Se $f: \mathbb{R}^2 \to \mathbb{R}$ è differenziabile in $(x_0, y_0)$ allora $f$ è continua in $(x_0, y_0)$.
+}
+\pf{
+	Dimostro la proprozione appena enunciata: Suppongo che $f$ sia differenziale in $(x_0, y_0)$ e dimostro che $f$ è continua in $(x_0, y_0)$. Cioè che presa una successione $(x_n, y_n) \xrightarrow[n \to +\infty]{} (x_0, y_0)$ deve valere il limite:
+	\begin{equation*}
+		\lim_{n \to +\infty} f(x_n, y_n) = f(x_0, y_0)
+	\end{equation*}
+	Essendo che per ipotesi $f$ è diffirenziabile in $(x_0, y_0)$ vale la formula di Taylor:
+	\begin{equation*}
+		f(x_n, y_n) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), (x_n - x_0, y_n - y_0) \rangle + o(\lVert (x_n - x_0, y_n - y_0) \rVert)
+	\end{equation*}
+	Sostituendo nel limite:
+	\begin{align*}
+		&\lim_{n \to +\infty} f(x_0, y_0) + \langle \nabla f(x_0, y_0), (x_n - x_0, y_n - y_0) \rangle + o(\lVert (x_n - x_0, y_n - y_0) \rVert) =\\
+		= &\lim_{n \to +\infty} f(x_0, y_0) + \langle \nabla f(x_0, y_0), (x_0 - x_0, y_0 - y_0) \rangle + o(\lVert (x_0 - x_0, y_0 - y_0) \rVert) =\\
+		= &\lim_{n \to +\infty} f(x_0, y_0) + \langle \nabla f(x_0, y_0), (0, 0) \rangle + o(\lVert (0, 0) \rVert) = \lim_{n \to +\infty} f(x_0, y_0) = f(x_0, y_0)
+	\end{align*}
+	\hfill Qed.
+}
+
+\subsection{Derivate direzionali}
+\dfn{
+	Sia $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. \textbf{La derivata direzionale} di $f$ in $x_0$ nella direzione  $v$ è il limite (se esiste finito): 
+	\begin{equation*}
+		\pdv{f}{v}() (x_0) \vcentcolon = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
+	\end{equation*}
+	Un altro per indicare la derivata dirazionale di $f$ in $x_0$ lungo la direzione $v$ è: $\partial_v f(x_0)$
+}
+Le derivate direzionali sono un caso speciale della derivata direzionale: esse infatti si formano usando come vettore $v$ un vettore coordinato della base di $\mathbb{R}^n$. Se infatti scegliamo $v = (1, 0, \cdots, 0) = e_1$:
+\begin{equation*}
+	\lim_{t \to 0} \dfrac{f((x_0) + t \cdot (1, 0, \cdots, 0)) - f(x_0)}{t} = \pdv{f}{x_1}() (x_0)
+\end{equation*}
+
+\imp{
+	Data $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n \setminus \underline{0}$ con $\lVert v \rVert = 1$. Se prendiamo la funzione $g: \mathbb{R} \to \mathbb{R}$ definita come:
+	\begin{equation*}
+		g(t) = f(x_0 + t \cdot v)
+	\end{equation*}
+	Possiamo osservare che:
+	\begin{equation*}
+		g'(0) = \pdv{f}{v}()(x_0)
+	\end{equation*}
+	Infatti:
+	\begin{equation*}
+		g'(0) = \lim_{t \to 0 } \dfrac{g(t) - g(0)}{t} = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t} = \partial_v f(x_0)
+	\end{equation*}
+}
+Questa piccola osservazione aiuta tantissimo i calcoli, questo perché per calcolare una derivata direzionale di una funzione in $\mathbb{R}^n$ ci riduciamo semplicemente al calcolo della derivata di una funzione in $\mathbb{R}^1$. Esempio: Data la funzione $f(x, y) = xy^2$ vogliamo calcolare $\partial_v (1, 2)$ con $v$ generico:
+\begin{equation*}
+	g(t) = f(1 + tv_1, 2 + tv_2) = (1 + tv_1)(2 + tv_2)^2
+\end{equation*}
+Quindi la derivata ora:
+\begin{equation*}
+	g'(t) = v_1(2 + tv_2)^2 + (1+tv_1) \cdot 2 \cdot (2 + tv_2) \cdot v_2
+\end{equation*}
+Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0)$:
+\begin{equation*}
+	g'(0) = v_1 \cdot 2^2 + 1 \cdot 2 \cdot 2 \cdot v_2 = 4v_1 + 4v_2 = 4(v_1 + v_2)
+\end{equation*}
+
+\thm{
+	\textbf{Teorema delle derivate parziali:} Data $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. Se $f$ è differenziale in $x_0$ allora vale:
+	\begin{equation*}
+		\pdv{f}{v}()(x_0) = \langle \nabla f(x_0), v \rangle = \sum_{i = 1}^n \pdv{f}{x_i}(x_0) \cdot v_i
+	\end{equation*}
+	Questo implica che la derivata direzionale \textbf{è sempre lineare rispetto a $\mathbf{v}$}.
+}
+
+\pf{
+	Dalla definzione di derivata direzionale:
+	\begin{equation*}
+		\pdv{f}{v}() (x_0) = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
+	\end{equation*}
+	Essendo la funzione differenziale in $x_0$ per ipotesi vale la formula di Taylor:
+	\begin{equation*}
+		f(x_0 + t \cdot v) - f(x_0) = \langle \nabla f(x_0), t \cdot v \rangle + o(\lVert t \cdot v \rVert)
+	\end{equation*}
+	Notiamo che: 
+	\begin{equation*}
+		o(\lVert t \cdot v \rVert) = o(|t| \cdot \lVert v \rVert)
+	\end{equation*}
+	Ed essendo per ipotesi $\lVert v \rVert = 1$ l'o-piccolo diventa $o(t)$. Riportiamo la formula di Taylor sopra il limite:
+	\begin{equation*}
+		\lim_{t \to 0} \dfrac{\langle \nabla f(x_0), t \cdot v \rangle + o(t)}{t} = \lim_{t \to 0} \left (\langle \nabla f(x_0), v \rangle + \dfrac{o(t)}{t} \right) = \langle \nabla f(x_0), v \rangle
+	\end{equation*}
+	\hfill Qed.
+}
+
+% IL PROF FA UN ESEMPIO CON UNA FUNZIONE STRANA MA NON HO CAPITO PERCHÈ. (FOGLIO 10+ FILE 2023-03-29)
