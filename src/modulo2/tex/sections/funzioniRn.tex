@@ -348,30 +348,29 @@ Vale quindi il limite. Una cosa che non dimostriamo è che:
 Un polinomio omogeneo è un polinomio che ha tutti i termini di grado esattamente $p$.
 
 \dfn{
-	\textbf{Funzione differenziabile:} Dato $A \subseteq \mathbb{R}^2$ aperto, $(x_0, y_0) \in A$ e $f: A \to \mathbb{R}$ si dice che $f$ è \textbf{differenziabile in $\mathbf{(x_0, y_0)}$} se:
+	\textbf{Funzione differenziabile:} Dato $A \subseteq \mathbb{R}^n$ aperto, $x_0 \in A$, $h \in \mathbb{R}^n$ e $f: A \to \mathbb{R}$ si dice che $f$ è \textbf{differenziabile in $x_0$} se:
 	\begin{enumerate}
-		\item $\exists \partial_x f(x_0, y_0), \partial_y f(x_0, y_0) \in \mathbb{R}$
+		\item $\exists \partial_1 f, \partial_2 f, \cdots, \partial_nf \in \mathbb{R}$ nel punto $x_0$
 		\item Vale la formula:
 			\begin{equation*}
-				f(x_0 + h, y_0, + k) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), (h. k)\rangle +o(\lVert (h, k) \rVert) \quad (h, k) \to (0, 0)
+				f(x_0 + h) = f(x_0) + \langle \nabla f(x_0), h\rangle +o(\lVert h \rVert) \quad h \to \underline{0} 
 			\end{equation*}
 	\end{enumerate}
-	La 2 si può anche riscrivere come:
+	La 2 si può anche riscrivere con $x = x_0 + h$:
 	\begin{equation*}
-		f(x, y) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), (x - x_0, y - y_0) \rangle + o(\lVert (x - x_0, y - y_0) \lVert) \quad (x, y) \to (x_0, y_0)
+		f(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle + o(\lVert x - x_0 \lVert) \quad x \to x_0 
 	\end{equation*}
 }
 Ovviamente la notazione con il prodotto euclideo si può espandere:
-\begin{align*}
-	&\langle \nabla f(x_0, y_0), (h. k)\rangle = \partial_x f(x_0, y_0) \cdot h + \partial_y f(x_0, y_0) \cdot k\\
-	&\langle \nabla f(x_0, y_0), (x - x_0, y - y_0) \rangle = \partial_x f(x_0, y_0) \cdot (x - x_0) + \partial_y f(x_0, y_0) \cdot (y - y_0)\\
-\end{align*}
+\begin{equation*}
+	\langle \nabla f(x_0), h \rangle = \partial_1 f \cdot h_1 + \cdots + \partial_n f \cdot h_n = \sum_{k = 1}^n \partial_k f \cdot h_k\\
+\end{equation*}
 \imp{
-	Se $f:\mathbb{R}^2 \to \mathbb{R}$ è differenziabile in $(x_0, y_0)$ il polinomio
+	Se $f:\mathbb{R}^n \to \mathbb{R}$ è differenziabile in $x_0$ il polinomio
 	\begin{equation*}
-		T_1(x, y) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), (x - x_0, y - y_0) \rangle
+		T_1(x) = f(x_0) + \sum_{k = 1}^n \partial_k f(x_0) \cdot (x - x_0)\\
 	\end{equation*}
-	si chiama \textbf{polinomio di Taylor di grado 1 di punto inziale $\mathbf{(x_0, y_0)}$}. Inoltre il piano di equazione 
+	si chiama \textbf{polinomio di Taylor di grado 1 di punto inziale $\mathbf{x_0}$}. Inoltre in $\mathbb{R}^2$ il piano di equazione 
 	\begin{equation*}
 		z = T_1(x, y)
 	\end{equation*}
@@ -379,3 +378,125 @@ Ovviamente la notazione con il prodotto euclideo si può espandere:
 }
 
 %(ESEMPIO CON GRAFICO?)
+
+\thm{
+	\textbf{Differenziale totale:} Data una funzione $f: \mathbb{R}^2 \to \mathbb{R}$ continua, se esistono le sue derivate parziali e sono continue in ogni punto allora $f$ è differenziabile in ogni punto. Cioè:
+	\begin{equation*}
+		\exists \partial_x f, \partial_y f \text{ continue } \forall x_0 \in \mathbb{R}^2 \implies f \text{ differenziabile } \forall y_0 \in \mathbb{R}^2
+	\end{equation*}
+}
+\imp{
+	\textbf{Tutte le funzioni elementari sono differenziabili} in quanto soddisfano la formula di Taylor.
+}
+
+Il seguente lemma è necessario alla dimostrazione che segue.
+\mlem{
+	\textbf{Lagrange per derivate parziali:} Se $f: \mathbb{R}^2 \to \mathbb{R}$ è continua e ha derivate parizali continue, allora:
+	\begin{equation*}
+		\forall (a, b) \in \mathbb{R}^2, \forall h \in \mathbb{R}, \; \exists \theta \in [0, 1] \,: \; f(a + h, b) - f(a, b) = \partial_x f(a + \theta h, b) h
+	\end{equation*}
+	Inoltre:
+	\begin{equation*}
+		\forall (a, b) \in \mathbb{R}^2, \forall k \in \mathbb{R}, \; \exists \theta \in [0, 1] \,: \; f(a, b + k) - f(a, b) = \partial_y f(a, b + \theta k) k
+	\end{equation*}
+
+	\textbf{Dimostrazione:}\\
+	Definiamo una funzione ausiliaria $g: \mathbb{R} \to \mathbb{R}$ dove $g(x) = f(x, b) \; \forall x \in \mathbb{R}$. Applichiamo ora il teorema di Lagrange per $g$ nell'intervallo di estremi $[a, a + h]$:
+	\begin{equation*}
+		\exists \theta \in [0, 1]: g(a + h) - g(a) = g'(a + \theta h) (a + h - a)
+	\end{equation*}
+	Che per definzione di derivata parziale:
+	\begin{equation*}
+		g'(a + \theta h) \cdot h = \partial_x f(a + \theta h, b) \cdot h
+	\end{equation*}
+	\hfill Qed.
+
+}
+Questo lemma richiama il teorema di Lagrange visto per le funzioni definite in $\mathbb{R}^1$, solo che è scritto diversamente. Prendiamo il primo caso, quello con la derivata parziale in $x$ e proviamo a riscriverlo: Il punto $a + h$ è semplicemente un punto generico che quindi possiamo indicare con $A = a + h$. Il punto $a + \theta h$ invece, in quanto $\theta \in [0, 1]$, è semplicemente un altro modo di scrivere un punto nell'intervallo $[a, a + h]$. Possiamo quindi riscriverlo come $c \in [a, a+h]$, cioè per la sostituzione di prima $c \in [a, A]$. Possiamo quindi riscrivere l'enunciato come segue:
+\begin{equation*}
+	\forall (a, b) \in \mathbb{R}^2, \forall A \in \mathbb{R}, \; \exists c \in [a, A] : f(A, b) - f(a, b) = \partial_x f(c, b) \cdot (A - a)
+\end{equation*}
+In questo caso abbiamo riscritto $h = A - a$. Se inoltre assumiamo che $A \neq a \implies h \neq 0 $, quindi possiamo dividere per $h$:
+\begin{equation*}
+	\partial_x f(c, b) = \dfrac{f(A, b) - f(a, b)}{A - a}
+\end{equation*}
+Che se lo confrontiamo con il teorema di Lagrange per le funzioni ad una variabile ci assomiglia effettivamente molto:
+\begin{equation*}
+	f'(c) = \dfrac{f(b) - f(a)}{b - a}
+\end{equation*}
+
+Dimostriamo ora il teorema del differenziale totale:
+\pf{
+	Data $f: \mathbb{R}^2 \to \mathbb{R}$ continua di cui esistono le derivate parziali e sono anche loro continue devo dimostrare che $f$ è differenziale. Cioè per definzione di funzione differenziabile mi riduco a dimostrare:
+	\begin{equation*}
+		f(x_0 + h, y_0 + k) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), (h, k) \rangle + o(\lVert (h, k) \rVert)
+	\end{equation*}
+	Per dimostrare una formula di questo tipo in pratica devo dimostrare che l'o-piccolo è corretto.
+
+	\begin{equation*}
+		f(x_0 + h, y_0 + k) - f(x_0, y_0) = \langle \nabla f(x_0, y_0), (h, k) \rangle + o(\lVert (h, k) \rVert)
+	\end{equation*}
+	Aggiungiamo e sottraiamo alla parte sinistra dell'uguaglianza il fattore $f(x_0 + h, y_0)$:
+	\begin{equation*}
+		f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) + f(x_0 + h, y_0) - f(x_0, y_0)  = \langle \cdots \rangle + o(\cdots)
+	\end{equation*}
+	Possiamo raggruppare a due a due i termini identificandoli per comodità nel seguente modo:
+	\begin{enumerate}
+		\item $f(x_0 + h, y_0 + k) - f(x_0 + h, y_0)$
+
+		\item $f(x_0 + h, y_0) - f(x_0, y_0)$
+	\end{enumerate}
+	Possiamo ora applicare Langrange per le derivate parziali (cioè il lemma enunciato sopra):\\
+	Per 1:
+	\begin{equation*}
+		\exists \theta_1 \in [0, 1] \, : \; f(x_0 + h, y_0) - f(x_0, y_0) = \partial_x f(x_0 + \theta_1 h, y_0)h
+	\end{equation*}
+	Per 2:
+	\begin{equation*}
+		\exists \theta_2 \in [0, 1] \, : \; f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) = \partial_y f(x_0 + h, y_0 + \theta_2 k)k
+	\end{equation*}
+	La 2 si può riscrivere aggiungendo e sottraendo il termine $\partial_x f(x_0, y_0) h$:
+	\begin{align*}
+		&\partial_x f(x_0 + \theta_1 h, y_0)h + \partial_x f(x_0, y_0) h - \partial_x f(x_0, y_0) h =\\[5pt]
+		= &\; \partial_x f(x_0, y_0) h + [\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h
+	\end{align*}
+	Stesso discorso per la 1 aggiungendo e sottraendo il termine $\partial_y f(x_0, y_0) k$:
+	\begin{equation*}
+		\partial_y f(x_0, y_0) k + [\partial_y f(x_0 + h, y_0 + \theta_2 k) - \partial_y f(x_0, y_0)]k
+	\end{equation*}
+	I fattori che abbiamo aggiunto non sono scelti a caso ma bensì sono lo sviluppo del prodotto scalare euclideo presente nella formula inziale. Riscrviamo la formula iniziale:
+	\begin{equation*}
+		f(x_0 + h, y_0 + k) - f(x_0, y_0) = \langle \nabla f(x_0, y_0), (h, k) \rangle + o(\lVert (h, k) \rVert)\\
+	\end{equation*}
+	Sotituendo le espansioni di 1 e 2 ed espandendo il prodotto scalare euclideo:
+	\begin{align*}
+		&\partial_x f(x_0, y_0) h + [\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h +\\[2pt]
+		&\partial_y f(x_0, y_0) k + [\partial_y f(x_0 + h, y_0 + \theta_2 k) - \partial_y f(x_0, y_0)]k \\[2pt]
+		=& \partial_x f(x_0, y_0) h + \partial_y f(x_0, y_0) k + o(\lVert (h, k) \rVert)\\
+	\end{align*}
+	Semplificando i termini uguali da entrambe le parti dell'equazine diventa:
+	\begin{equation*}
+		[\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h + [\partial_y f(x_0 + h, y_0 + \theta_2 k) - \partial_y f(x_0, y_0)]k = o(\lVert (h, k) \rVert)
+	\end{equation*}
+	Ci basta quindi far vedere che tutto quello nelle parentesi quadre è effettivamente un o-piccolo della norma di $(h, k)$. Per la definzione di o-piccolo devo dimostrare che (vale la stessa cosa per l'altra parentesi quadra):
+	\begin{equation*}
+		\dfrac{[\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h}{\lVert (h, k) \rVert} \xrightarrow[(h, k) \to (0, 0)] {} 0
+	\end{equation*}
+	In quanto:
+	\begin{equation*}
+		\left | \dfrac{h}{\lVert (h, k) \rVert} \right | < \dfrac{\lVert (h, k) \rVert}{\lVert (h, k) \rVert} = 1
+	\end{equation*}
+	Mi basta quindi mostrare che:
+	\begin{equation*}
+		[\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ] \xrightarrow[(h, k) \to (0, 0)]{} 0
+	\end{equation*}
+	Prendiamo una successione $(h_n, k_n) \to (0, 0)$ e calcoliamo il limite:
+	\begin{equation*}
+		\lim_{n \to +\infty} \partial_x f(x_0 + \theta_1 h_n, y_0) - \partial_x f(x_0, y_0) =
+	\end{equation*}
+	Essedo per ipotesi $\partial_x f$ continua $(x_0 + \theta_1 h_n, y_0) \xrightarrow[h_n \to 0]{} (x_0, y_0)$:
+	\begin{equation*}
+		= \partial_x f(x_0, y_0) - \partial_x f(x_0, y_0) = 0
+	\end{equation*}
+	\hfill Qed.
+}
