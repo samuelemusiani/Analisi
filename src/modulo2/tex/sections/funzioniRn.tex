@@ -565,7 +565,7 @@ Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0
 \end{equation*}
 
 \thm{
-	\textbf{Teorema delle derivate parziali:} Data $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. Se $f$ è differenziale in $x_0$ allora vale:
+	\textbf{Teorema delle derivate direzionali:} Data $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. Se $f$ è differenziale in $x_0$ allora vale:
 	\begin{equation*}
 		\pdv{f}{v}()(x_0) = \langle \nabla f(x_0), v \rangle = \sum_{i = 1}^n \pdv{f}{x_i}(x_0) \cdot v_i
 	\end{equation*}
@@ -593,3 +593,102 @@ Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0
 }
 
 % IL PROF FA UN ESEMPIO CON UNA FUNZIONE STRANA MA NON HO CAPITO PERCHÈ. (FOGLIO 10+ FILE 2023-03-29)
+
+\subsubsection{Direzione di massima crescita}
+Avendo definito la derivata direzionale per una funzione in un punto, ora possiamo derivare tale funzione in infinite direzioni date dal versore $v$. Chiediamoci qual'è la direzione che massimizza la derivata, cioè la direzione che massimizza la crescita delle funzione. Prendiamo quindi una funzione generica $f: \mathbb{R}^2 \to \mathbb{R}$ differenziabile nel punto $(x_0, y_0) \in \mathbb{R}^2$. Per evitare banalità $\nabla f(x_0, y_0) \neq \underline{0}$ in quanto se il gradiente fosse nullo $\partial_v f = 0 \; \forall v$. Volgiamo quindi massimizzare la quantità:
+\begin{equation*}
+	\pdv{f}{v}()(x_0, y_0)
+\end{equation*}
+Per farlo passiamo alle coordinate polari. Il gradiente risulta quindi:
+\begin{equation*}
+	\nabla f(x_0, y_0) = (r\cos(\phi), r\sin(\phi)) \quad \text{dove} \quad r = \lVert \nabla f(x_0, y_0) \rVert \quad q \in [0, 2\pi]
+\end{equation*}
+Il versore $v$, in quanto unitario per la definzione di derivata direzionale:
+\begin{equation*}
+	v = (\cos(\theta), \sin(\theta)) \quad \theta \in [0, 2\pi]
+\end{equation*}
+Calcoliamo quindi la derivata direzionale, che per il teorema delle derivate direzionali risulta:
+\begin{align*}
+	\pdv{f}{v}()(x_0, y_0) &= \langle \nabla f(x_0, y_0), (v_1, v_2) \rangle = \langle (r\cos(\phi), r\sin(\phi)), (\cos(\theta), \sin(\theta)) \rangle =\\
+	&= r\cos(\phi)\cos(\theta) + r\sin(\phi)\sin(\theta) = r \cos(\phi - \theta)
+\end{align*}
+Per rendere massima quindi l'espressione $r \cos(\phi - \theta)$ il coseno deve essere uguale a $1$. Quindi:
+\begin{equation*}
+	\theta = \phi
+\end{equation*}
+Questo implica che il versore di massima crescia ha la stessa direzione del gradiente\footnote{Questo fatto vale anche in $\mathbb{R}^n$. Per dimostrarlo però non si può fare uso delle coordinate polari e bisogna prendere un'altra strada}. Inoltre essendo che $\theta = \phi$:
+\begin{equation*}
+	\pdv{f}{v}()(x_0, y_0) = r\cos(\phi - \theta) = r\cos(\phi - \phi) = r = \lVert \nabla f(x_0, y_0) \rVert
+\end{equation*}
+Tornando un attimo alla formula:
+\begin{equation*}
+	\pdv{f}{v}()(x_0, y_0) = r \cos(\phi - \theta)
+\end{equation*}
+Notiamo che se $\phi - \theta = \frac{\pi}{2}$, cioè in pratica il versore $v$ è perpendicolare\footnote{Questo perché appunto $r\cos(\phi - \theta)$ è dato dal prodotto scalare euclideo tra il gradiente $\nabla f(x_0, y_0)$ e il versore $v$. Ne consegue che per definizione di ortogonalità il gradiente e il versore $v$ sono perpendicolari in quanto questo prodotto è nullo.} al gradiente $\nabla f(x_0. y_0)$, si ha che la derivata è sempre nulla:
+\begin{equation*}
+	\pdv{f}{v}()(x_0, y_0) = r \cos\dfrac{\pi}{2} = 0
+\end{equation*}
+Essendo la derivata sempre nulla significa che la funzione è costante lungo quella direzione: ci troviamo quindi lungo una linea di livello. Ne consegue che, essendo $v$ lungo la linea di livello ed essendo $\nabla f(x_0, y_0) \perp v$, allora il gradiente è perpendicolare alla linea di livello. Facendo un riassunto:
+\imp{
+	Data una funzione $f: \mathbb{R}^n \to \mathbb{R}$ differenziabile in un punto $x_0 \in \mathbb{R}^n$. Il versore $v$ che massimizza $\partial_v f (x_0)$ lo denotimo con $v_{\text{max}}$ ed è il normalizzato del gradiente nel punto $x_0$:
+	\begin{equation*}
+		v_{\text{max}} = \dfrac{\nabla f(x_0)}{\lVert \nabla f(x_0) \rVert}
+	\end{equation*}
+	Inoltre vale che:
+	\begin{equation*}
+		\pdv{f}{v_{\text{max}}}()(x_0) = \lVert \nabla f(x_0) \rVert
+	\end{equation*}
+	E il gradiente è sempre ortogonale all'insieme di livello della funzione che comprende il punto $b = f(x_0)$. Cioè l'insieme:
+	\begin{equation*}
+		L_{b} = \{x \in \mathbb{R}^n | f(x) = b = f(x_0)\}
+	\end{equation*}
+}
+
+\subsection{Curve parametrizzate}
+\dfn{
+	Una curva parametrizzata è una funzione $f: \mathbb{R} \to \mathbb{R}^n$ definita come:
+	\begin{equation*}
+		t \mapsto r(t) = (r_1(t), \cdots, r_n(t))
+	\end{equation*}
+}
+Sono quindi funzioni che prendono uno scalare e restituiscono un vettore. Un esempio protrebbe essere una legge orari in fisica:
+\begin{equation*}
+	r(t) = (x_0, y_0) + t(v_1, v_2)
+\end{equation*}
+Quest'ultima infatti, preso il tempo che è uno scalare, ci restituisce un vettore in $\mathbb{R}^2$ rappresena una posizione. Scritta nella foma della definzione verebbe:
+\begin{equation*}
+	t \mapsto r(t) = (r_1(t), r_2(t)) = (x_0 + tv_1, y_0 + tv_2)
+\end{equation*}
+Un ulteriore esempio potrebbe essere la cura:
+\begin{equation*}
+	r(t) = (\cos(t), \sin(t))
+\end{equation*}
+Notiamo che essa descrive una circonferenza, ma anche la seguente descrive la stessa circonferenza:
+\begin{equation*}
+	f(t) = (\cos(t^3), \sin(t^3))
+\end{equation*}
+La differenza è che percorre la circonferenza in maniera diversa. Come formalizziamo questa diversità? Con il concetto di velocità di una curva:
+\dfn{
+	\textbf{Velocità di una vurva}: Data $r:]a,b[ \to \mathbb{R}^n$ definita come:
+	\begin{equation*}
+		t \mapsto r(t) = (r_1(t), \cdots, r_n(t))
+	\end{equation*}
+	La velocità del punto $t_0$ è:
+	\begin{equation*}
+		r'(t_0) = (r'_1(t_0), \cdots, r'_n(t_0))
+	\end{equation*}
+	Quest'ultimo si chiama vettore velocità e rappresenta la tangente alla curva nel punto $t_0$.
+}
+Tornando infatti alle funzioni di prima le velocità sono diverse:
+\begin{align*}
+	r'(t) =& (-\sin(t), \cos(t))\\
+	f(t) =& (-\sin(t^3) \cdot 3t^2, \cos(t^3) \cdot 3t^2)
+\end{align*}
+Mentre infatti $r(t)$ e $f(t)$  descrivono lo stesso insieme di punti al variare di $t$, le loro velocità no.
+
+\dfn{
+	\textbf{Velocità scalare:} Data $f: \mathbb{R} \to \mathbb{R}^n$ si definisce la velocità scalare al tempo $t_0$ lo scalare:
+	\begin{equation*}
+		\lVert r'(t_0) \rVert
+	\end{equation*}
+}
