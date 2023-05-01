@@ -1,0 +1,59 @@
+\section{Punti critici}
+Per trovare i punti critici di una funzione non possiamo usare lo stesso approccio usato per le funzioni ad una varibiale in quanto in $\mathbb{R}^n$ non riusciamo a definire una vettore maggiore di zero e quindi non sappiamo distinguere funzioni crescenti e decrescenti. Esiste però un altro approccio per determinare se un punto è di minimo o di massimo che si basa sulle derivata seconda in un punto. Se infatti prendiamo una funzione $f: \mathbb{R} \to \mathbb{R}$ con derivata seconda continua possiamo dire che un punto $x_0$ è un punto di minimo se: 
+\begin{equation*}
+	\begin{cases}
+		f'(x_0) = 0\\
+		f''(x_0) > 0
+	\end{cases}
+\end{equation*}
+Vale invece che se $f''(x_0) < 0$ il punto è di massimo mentre se $f''(x_0) = 0$ il punto è di flesso. Per definire quindi i punti di massimo, di minimo e di sella per le funzioni in più variabili useremo un approccio molto simile a questo.
+\dfn{
+	\textbf{Punto di massimo o minimo}: Dato $A \subseteq \mathbb{R}^n$, $f: A \to \mathbb{R}$ e un punto $x_0 \in A$. Il punto $x_0$ si dice di minimo per $f$ se:
+	\begin{equation*}
+		\exists \delta > 0: f(x) \geq f(x_0) \;\; \forall x \in A \cap \mathcal{B}(x_0, \delta)
+	\end{equation*}
+	Per i massimi la condizione risulta essere: $f(x) \leq f(x_0)$. Inoltre $x_0$ è un minimo assoluto se:
+	\begin{equation*}
+		f(x) \geq f(x_0) \quad \forall x \in A
+	\end{equation*}
+}
+
+\thm{
+	\textbf{Condizione necessaria del primo ordine per punti di massimo o di minimo:} Dato $A \subseteq \mathbb{R}^n$ aperto e una funzione $f: A \to \mathbb{R}$ differenziabile. Se $x_0 \in A$ è un punto di massimo (o di minimo) locale allora:
+	\begin{equation*}
+		\nabla f(x_0) = \underline{0} \in \mathbb{R}^n
+	\end{equation*}
+	Se vale questa condizione il punto $x_0$ si dice \textbf{punto critico} (o \textbf{stazionario}).
+}
+Da notare che questa condizione è estremamente simile a quella che si verificava nelle funzioni ad una varibiale in quanto il gradiente in $\mathbb{R}^1$ è semplicemente la derivata prima della funzione.
+\pf{
+	La prova la riduciamo solo al caso di $\mathbb{R}^2$. Prendiamo $A \subseteq \mathbb{R}^2$ aperto  e una funzione $f: A \to \mathbb{R}$. Assumiamo inoltre che il punto $(x_0, y_0)$ si un punto di minimo. Dimostriamo ora che:
+	\begin{equation*}
+		\nabla f(x_0, y_0) = \underline{0} \in \mathbb{R}^n
+	\end{equation*}
+	In pratica ci riduciamo a dimostrare che:
+	\begin{equation*}
+		\pdv{f}{x}()(x_0, y_0) = 0 \quad \land \quad \pdv{f}{y}()(x_0, y_0) = 0
+	\end{equation*}
+	Riduciamoci a dimostrare solo la derivata rispetto ad $x$ in quanto l'altro caso è analogo. Per farlo consideriamo la funzione ausiliaria:
+	\begin{equation*}
+		h(t) = f(x_0 + t, y_0)
+	\end{equation*}
+	Essa è definita per $t$ in un intorno dell'origine ed è derivabile. Visto che $f$ ha minimo locale in $(x_0, y_0)$ per la definzione di punto di minimo:
+	\begin{equation*}
+		h(t) \geq h(0) \quad \forall t \; \text{in un intorno di } 0
+	\end{equation*}
+	Notiamo infatti che $h(0) = f(x_0, y_0)$. Inoltre:
+	\begin{equation*}
+		h'(t) = \partial_x f(x_0 + t, y_0)
+	\end{equation*}
+	Per il teorema del primo sementre, in quanto $h$ è una funzione ad una varibiale che ha un minimo in $0$:
+	\begin{equation*}
+		h'(0) = 0
+	\end{equation*}
+	Ne consegue che:
+	\begin{equation*}
+		\partial_x f(x_0 + t, y_0) = 0
+	\end{equation*}
+	\hfill Qed.
+}

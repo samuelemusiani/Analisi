@@ -467,7 +467,7 @@ Il seguente teorema è spesso indicato come secondo, ma il prof ha deciso di far
 	\end{equation*}
 	Cioè:
 	\begin{equation*}
-		\dv{}{x} \int_c^x f(t) \diff t = f(x) \qquad \forall x \in ]a,b[
+		\odv{}{x} \int_c^x f(t) \diff t = f(x) \qquad \forall x \in ]a,b[
 	\end{equation*}
 }
 Esempio: Data $f:\mathbb{R} \to \mathbb{R}, f(x) = e^{x^2}$ se 
@@ -476,28 +476,28 @@ Esempio: Data $f:\mathbb{R} \to \mathbb{R}, f(x) = e^{x^2}$ se
 \end{equation*}
 Allora:
 \begin{equation*}
-	\dv{}{x} \int_0^x e^{t^2} \diff t = e^{x^2} \qquad \forall x \in \mathbb{R}
+	\odv{}{x} \int_0^x e^{t^2} \diff t = e^{x^2} \qquad \forall x \in \mathbb{R}
 \end{equation*}
 Oppure un altro esempio:
 \begin{equation*}
-	\dv{}{x} \int_2^x \sqrt{1+t^2} \cdot e^{-t} \sin(t) \diff t = \sqrt{1+x^2} \cdot e^{-x} \sin(x)
+	\odv{}{x} \int_2^x \sqrt{1+t^2} \cdot e^{-t} \sin(t) \diff t = \sqrt{1+x^2} \cdot e^{-x} \sin(x)
 \end{equation*}
 Non importa quindi sapere il risultato dell'integrale per sapere la sua derivata.\\
 
 Perché l'estremo inferiore dell'integrale è ininfluente\footnote{Questa è una mia considerazione, il prof non l'ha detta}? Se sostiutiamo l'estremo inferiore $a$ con un qualsiasi $k \in \mathbb{R}$:
 \begin{equation*}
-	\dv{}{x} \int_a^x f(t) \diff t = \dv{}{x} \left(\int_a^k f(t) \diff t + \int_k^x f(t) \diff t\right) = \dv{}{x} \int_a^k f(t) \diff t + \dv{}{x} \int_k^x f(t) \diff t
+	\odv{}{x} \int_a^x f(t) \diff t = \odv{}{x} \left(\int_a^k f(t) \diff t + \int_k^x f(t) \diff t\right) = \odv{}{x} \int_a^k f(t) \diff t + \odv{}{x} \int_k^x f(t) \diff t
 \end{equation*}
 L'integrale $\int_a^k f$ è una semplice costante, ne consegue che dopo la derivata si annulla, quindi rimane solo l'integrale:
 \begin{equation*}
-	\dv{}{x} \int_k^x f(t) \diff t = f(x)
+	\odv{}{x} \int_k^x f(t) \diff t = f(x)
 \end{equation*}
 Ricordiamoci che abbiamo scelto a caso la costante $k$, ne consegue che è ininfluente sotto l'effetto della derivata.
 
 \pf{
 	Vogliamo dimostrare il teorema appena enunciato. Supponiamo di avere una funzione $f:]a,b[ \to \mathbb{R}$ e un punto $c \in ]a,b[$. Vogliamo dimostrare che:
 	\begin{equation*}
-		\dv{}{x} \int_c^x f(t) \diff t = f(x) \qquad \forall x \in ]a,b[
+		\odv{}{x} \int_c^x f(t) \diff t = f(x) \qquad \forall x \in ]a,b[
 	\end{equation*}
 	Per la definzione di derivata dovremmo dimostrare che esiste sia il limite destro che il sinistro e che il loro valore coincide. Ci limitiamo a dimostrare il teorema per il limite destro in quanto è analogo nell'altro caso. Calcoliamo il limite:
 	\begin{equation*}
@@ -564,12 +564,12 @@ Generalizziamo ora il teorema fondamentale del calcolo integrarle:
 \thm{
 	Siano $A, I \subseteq \mathbb{R}$ intervalli aperti. Sia inoltre $f: A \to \mathbb{R}$ continua e $h: I \to A$ derivabile con derivata continua. Se $c \in A$ allora:
 	\begin{equation*}
-		\dv{}{x} \int_c^{h(x)} f(t) \diff t = f(h(x)) \cdot h'(x)
+		\odv{}{x} \int_c^{h(x)} f(t) \diff t = f(h(x)) \cdot h'(x)
 	\end{equation*}
 }
 Esempio:
 \begin{equation*}
-	\dv{}{x} \int_0^{\sin(x)} e^{t^2} \diff t = e^{\sin^2(x)} \cdot \cos(x)
+	\odv{}{x} \int_0^{\sin(x)} e^{t^2} \diff t = e^{\sin^2(x)} \cdot \cos(x)
 \end{equation*}
 
 \pf{
@@ -620,11 +620,11 @@ Di seguito riporto la tabella delle derivate al contrario, che serve appunto per
 \subsubsection{Integrazione per parti}
 Consideriamo due funzioni $F, g:[a,b] \to \mathbb{R}$ dove $g$ è continua, $g'$ continua, $F$ è derivabile, $F'(x) = f(x) \;\forall x \in [a,b]$, $f$ continua. Dalla regola di derivazione del prodotto di due funzioni ci ricordiamo che:
 \begin{equation*}
-	\dv{}{x} \left[F(x) \cdot g(x)\right] = f(x)g(x) + F(x)g'(x)
+	\odv{}{x} \left[F(x) \cdot g(x)\right] = f(x)g(x) + F(x)g'(x)
 \end{equation*}
 Vogliamo ora calcolare il seguente integrale:
 \begin{equation*}
-	\int_a^b \dv{}{x} \left[F(x) \cdot g(x)\right] \diff x = \int_a^b [f(x)g(x) + F(x)g'(x)] \diff x
+	\int_a^b \odv{}{x} \left[F(x) \cdot g(x)\right] \diff x = \int_a^b [f(x)g(x) + F(x)g'(x)] \diff x
 \end{equation*}
 Usando il teorema fondamentale del calcolo integrale e spezzando l'integrale di destra:
 \begin{equation*}

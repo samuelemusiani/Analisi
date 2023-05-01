@@ -17,29 +17,29 @@ Se ci mettiamo in $\mathbb{R}^2$ un insieme di questo tipo è dato da un figura 
 \dfn{
 	Dato $A \subseteq \mathbb{R}^2$ aperto e sia $(x_0, y_0) \in A$. Si dice che $f$ \textbf{è derivabile rispetto a $\mathbf{x}$ in $\mathbf{(x_0, y_0)}$} se esiste \textbf{finito}:
 	\begin{equation*}
-		\pdv{f}{x}() (x_0, y_0) \vcentcolon = \lim_{t \to 0} = \dfrac{f(x_0 + t, y_0) - f(x_0, y_0)}{t} \in \mathbb{R}
+		\pdv{f}{x} (x_0, y_0) \vcentcolon = \lim_{t \to 0} = \dfrac{f(x_0 + t, y_0) - f(x_0, y_0)}{t} \in \mathbb{R}
 	\end{equation*}
 	Questo limite si indica con il simbolo di derivata parziale ($\partial$). Di seguito alcune notazioni equivalenti:
 	\begin{equation*}
-		\pdv{f}{x}() = \partial_x f = D_x f
+		\pdv{f}{x} = \partial_x f = D_x f
 	\end{equation*}
 	Equivalentemente possiamo riscrivere il limite come:
 	\begin{equation*}
-		\pdv{f}{x}() (x_0, y_0) \vcentcolon = \lim_{x \to x_0} = \dfrac{f(x, y_0) - f(x_0, y_0)}{x - x_0} \in \mathbb{R}
+		\pdv{f}{x} (x_0, y_0) \vcentcolon = \lim_{x \to x_0} = \dfrac{f(x, y_0) - f(x_0, y_0)}{x - x_0} \in \mathbb{R}
 	\end{equation*}
 }
 Vale ovviamente che la derivata rispetto a $y$ in $(x_0, y_0)$ risulta:
 \begin{equation*}
-		\pdv{f}{y}() (x_0, y_0) \vcentcolon = \lim_{t \to 0} = \dfrac{f(x_0, y_0 + t) - f(x_0, y_0)}{t} \in \mathbb{R}
+		\pdv{f}{y} (x_0, y_0) \vcentcolon = \lim_{t \to 0} = \dfrac{f(x_0, y_0 + t) - f(x_0, y_0)}{t} \in \mathbb{R}
 \end{equation*}
 Opppure equivalentemente:
 \begin{equation*}
-	\pdv{f}{y}() (x_0, y_0) \vcentcolon = \lim_{y \to y_0} = \dfrac{f(x_0, y) - f(x_0, y_0)}{y - y_0} \in \mathbb{R}
+	\pdv{f}{y} (x_0, y_0) \vcentcolon = \lim_{y \to y_0} = \dfrac{f(x_0, y) - f(x_0, y_0)}{y - y_0} \in \mathbb{R}
 \end{equation*}
 
 Esempio: prendiamo la funzione $f(x, y) = xy^2$. Le sue derivate parziali sono::
 \begin{equation*}
-	\pdv{f}{x}() (x, y) = y^2 \qquad \pdv{f}{y}() (x, y) = 2xy
+	\pdv{f}{x} (x, y) = y^2 \qquad \pdv{f}{y} (x, y) = 2xy
 \end{equation*}
 L'idea per calcolare queste derivate è quella di considerarle come una funzioni normale (cioè come quelle viste in $\mathbb{R}^1$) e di considerare come variabile quella che bisogna derivare, mentre tutte le altre vengono considerate costanti. Nel primo caso infatti, dove abbiamo derivato rispetto alla $x$, ci è bastato considerare la $y$ costante. Quindi è come se avessimo fatto la derivata in $\mathbb{R}^1$ della semplice funzione:
 \begin{equation*}
@@ -49,7 +49,7 @@ Dove però al posto della $a$ ci sarebbe la $y$. Nel secondo caso invece la deri
 
 Se si vuole \textbf{generalizzare la definzione di derivata pariziale} è necessario riprendere la definzione di vettori coordinati (Sezione: \ref{sec_vettoriCoordinati}). In generale quindi data $f: \mathbb{R}^n \to \mathbb{R}$ e un punto $\overline{x} \in \mathbb{R}^n$ si definisce la \textit{i}-esima derivata parziale come:
 \begin{equation*}
-	\pdv{f}{x_i}()(\overline{x}) = \lim_{t \to 0} \dfrac{f(\overline{x} + t \cdot e_i) - f(\overline{x})}{t}
+	\pdv{f}{x_i}(\overline{x}) = \lim_{t \to 0} \dfrac{f(\overline{x} + t \cdot e_i) - f(\overline{x})}{t}
 \end{equation*}
 
 \subsubsection{Gradiente}
@@ -57,11 +57,11 @@ Le derivate parziali si possono aggregare in una funzione vettoriale (cioè che 
 \dfn{
 	Data una funzione $f: A \in \mathbb{R}$ con $A \subseteq \mathbb{R}^n$, se esistono tutte le derivate pariziali di $f$ in ogni punto possiamo definire \textbf{il gradiente di $\mathbf{f}$} come:
 	\begin{equation*}
-		\nabla f(x_1, x_2, \cdots) = \left(\pdv{f}{x_1}()(x_1, x_2, \cdots), \pdv{f}{x_2}() (x_1, x_2, \cdots), \cdots  \right)
+		\nabla f(x_1, x_2, \cdots) = \left(\pdv{f}{x_1}(x_1, x_2, \cdots), \pdv{f}{x_2} (x_1, x_2, \cdots), \cdots  \right)
 	\end{equation*}
 	Nel caso particolare di $\mathbb{R}^2$:
 	\begin{equation*}
-		\nabla f(x, y) = \left(\pdv{f}{x}()(x, y), \pdv{f}{y}()(x, y)\right)
+		\nabla f(x, y) = \left(\pdv{f}{x}(x, y), \pdv{f}{y}(x, y)\right)
 	\end{equation*}
 	Il simbolo del gradiente ($\nabla$ si lege \textit{nabla}).
 }
@@ -357,13 +357,13 @@ Il teorema appena enunciato vale anche con l'implicazione contraria. Questa per�
 \dfn{
 	Sia $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. \textbf{La derivata direzionale} di $f$ in $x_0$ nella direzione  $v$ è il limite (se esiste finito): 
 	\begin{equation*}
-		\pdv{f}{v}() (x_0) \vcentcolon = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
+		\pdv{f}{v} (x_0) \vcentcolon = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
 	\end{equation*}
 	Un altro per indicare la derivata dirazionale di $f$ in $x_0$ lungo la direzione $v$ è: $\partial_v f(x_0)$
 }
 Notiamo che le derivate parziali sono un caso speciale della derivata direzionale: esse infatti si formano usando come vettore $v$ un vettore coordinato della base di $\mathbb{R}^n$. Se infatti scegliamo $v = (1, 0, \cdots, 0) = e_1$:
 \begin{equation*}
-	\lim_{t \to 0} \dfrac{f((x_0) + t \cdot (1, 0, \cdots, 0)) - f(x_0)}{t} = \pdv{f}{x_1}() (x_0)
+	\lim_{t \to 0} \dfrac{f((x_0) + t \cdot (1, 0, \cdots, 0)) - f(x_0)}{t} = \pdv{f}{x_1} (x_0)
 \end{equation*}
 
 \imp{
@@ -373,14 +373,14 @@ Notiamo che le derivate parziali sono un caso speciale della derivata direzional
 	\end{equation*}
 	Possiamo osservare che:
 	\begin{equation*}
-		g'(0) = \pdv{f}{v}()(x_0)
+		g'(0) = \pdv{f}{v}(x_0)
 	\end{equation*}
 	Infatti:
 	\begin{equation*}
 		g'(0) = \lim_{t \to 0 } \dfrac{g(t) - g(0)}{t} = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t} = \partial_v f(x_0)
 	\end{equation*}
 }
-Questa piccola osservazione aiuta tantissimo i calcoli, questo perché per calcolare una derivata direzionale di una funzione in $\mathbb{R}^n$ ci riduciamo semplicemente al calcolo della derivata di una funzione in $\mathbb{R}^1$. Esempio: Data la funzione $f(x, y) = xy^2$ vogliamo calcolare $\partial_v (1, 2)$ con $v$ generico:
+Questa piccola osservazione aiuta i calcoli, questo perché per calcolare una derivata direzionale di una funzione in $\mathbb{R}^n$ ci riduciamo semplicemente al calcolo della derivata di una funzione in $\mathbb{R}^1$. Esempio: Data la funzione $f(x, y) = xy^2$ vogliamo calcolare $\partial_v (1, 2)$ con $v$ generico:
 \begin{equation*}
 	g(t) = f(1 + tv_1, 2 + tv_2) = (1 + tv_1)(2 + tv_2)^2
 \end{equation*}
@@ -396,7 +396,7 @@ Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0
 \thm{
 	\textbf{Teorema delle derivate direzionali:} Data $f: \mathbb{R}^n \to \mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert v \rVert = 1$. Se $f$ è differenziale in $x_0$ allora vale:
 	\begin{equation*}
-		\pdv{f}{v}()(x_0) = \langle \nabla f(x_0), v \rangle = \sum_{i = 1}^n \pdv{f}{x_i}(x_0) \cdot v_i
+		\pdv{f}{v}(x_0) = \langle \nabla f(x_0), v \rangle = \sum_{i = 1}^n \pdv{f}{x_i}(x_0) \cdot v_i
 	\end{equation*}
 	Questo implica che la derivata direzionale \textbf{è sempre lineare rispetto a $\mathbf{v}$}.
 }
@@ -404,7 +404,7 @@ Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0
 \pf{
 	Dalla definzione di derivata direzionale:
 	\begin{equation*}
-		\pdv{f}{v}() (x_0) = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
+		\pdv{f}{v} (x_0) = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - f(x_0)}{t}
 	\end{equation*}
 	Essendo la funzione differenziale in $x_0$ per ipotesi vale la formula di Taylor:
 	\begin{equation*}
@@ -426,7 +426,7 @@ Per calcolare quindi $\partial_v f(1, 2)$ ci basta semplicemente calcolare $g'(0
 \subsubsection{Direzione di massima crescita}
 Avendo definito la derivata direzionale per una funzione in un punto, ora possiamo derivare tale funzione in infinite direzioni date dal versore $v$. Chiediamoci qual'è la direzione che massimizza la derivata, cioè la direzione che massimizza la crescita delle funzione. Prendiamo quindi una funzione generica $f: \mathbb{R}^2 \to \mathbb{R}$ differenziabile nel punto $(x_0, y_0) \in \mathbb{R}^2$. Per evitare banalità $\nabla f(x_0, y_0) \neq \underline{0}$ in quanto se il gradiente fosse nullo $\partial_v f = 0 \; \forall v$. Volgiamo quindi massimizzare la quantità:
 \begin{equation*}
-	\pdv{f}{v}()(x_0, y_0)
+	\pdv{f}{v}(x_0, y_0)
 \end{equation*}
 Per farlo passiamo alle coordinate polari. Il gradiente risulta quindi:
 \begin{equation*}
@@ -438,7 +438,7 @@ Il versore $v$, in quanto unitario per la definzione di derivata direzionale:
 \end{equation*}
 Calcoliamo quindi la derivata direzionale, che per il teorema delle derivate direzionali risulta:
 \begin{align*}
-	\pdv{f}{v}()(x_0, y_0) &= \langle \nabla f(x_0, y_0), (v_1, v_2) \rangle = \langle (r\cos(\phi), r\sin(\phi)), (\cos(\theta), \sin(\theta)) \rangle =\\
+	\pdv{f}{v}(x_0, y_0) &= \langle \nabla f(x_0, y_0), (v_1, v_2) \rangle = \langle (r\cos(\phi), r\sin(\phi)), (\cos(\theta), \sin(\theta)) \rangle =\\
 	&= r\cos(\phi)\cos(\theta) + r\sin(\phi)\sin(\theta) = r \cos(\phi - \theta)
 \end{align*}
 Per rendere massima quindi l'espressione $r \cos(\phi - \theta)$ il coseno deve essere uguale a $1$. Quindi:
@@ -447,15 +447,15 @@ Per rendere massima quindi l'espressione $r \cos(\phi - \theta)$ il coseno deve 
 \end{equation*}
 Questo implica che il versore di massima crescia ha la stessa direzione del gradiente\footnote{Questo fatto vale anche in $\mathbb{R}^n$. Per dimostrarlo però non si può fare uso delle coordinate polari e bisogna prendere un'altra strada}. Inoltre essendo che $\theta = \phi$:
 \begin{equation*}
-	\pdv{f}{v}()(x_0, y_0) = r\cos(\phi - \theta) = r\cos(\phi - \phi) = r = \lVert \nabla f(x_0, y_0) \rVert
+	\pdv{f}{v}(x_0, y_0) = r\cos(\phi - \theta) = r\cos(\phi - \phi) = r = \lVert \nabla f(x_0, y_0) \rVert
 \end{equation*}
 Tornando un attimo alla formula:
 \begin{equation*}
-	\pdv{f}{v}()(x_0, y_0) = r \cos(\phi - \theta)
+	\pdv{f}{v}(x_0, y_0) = r \cos(\phi - \theta)
 \end{equation*}
 Notiamo che se $\phi - \theta = \frac{\pi}{2}$, cioè in pratica il versore $v$ è perpendicolare\footnote{Questo perché appunto $r\cos(\phi - \theta)$ è dato dal prodotto scalare euclideo tra il gradiente $\nabla f(x_0, y_0)$ e il versore $v$. Ne consegue che per definizione di ortogonalità il gradiente e il versore $v$ sono perpendicolari in quanto questo prodotto è nullo.} al gradiente $\nabla f(x_0. y_0)$, si ha che la derivata è sempre nulla:
 \begin{equation*}
-	\pdv{f}{v}()(x_0, y_0) = r \cos\dfrac{\pi}{2} = 0
+	\pdv{f}{v}(x_0, y_0) = r \cos\dfrac{\pi}{2} = 0
 \end{equation*}
 Essendo la derivata sempre nulla significa che la funzione è costante lungo quella direzione: ci troviamo quindi lungo una linea di livello. Ne consegue che, essendo $v$ lungo la linea di livello ed essendo $\nabla f(x_0, y_0) \perp v$, allora il gradiente è perpendicolare alla linea di livello. Facendo un riassunto:
 \imp{
@@ -465,7 +465,7 @@ Essendo la derivata sempre nulla significa che la funzione è costante lungo que
 	\end{equation*}
 	Inoltre vale che:
 	\begin{equation*}
-		\pdv{f}{v_{\text{max}}}()(x_0) = \lVert \nabla f(x_0) \rVert
+		\pdv{f}{v_{\text{max}}}(x_0) = \lVert \nabla f(x_0) \rVert
 	\end{equation*}
 	E il gradiente è sempre ortogonale all'insieme di livello della funzione che comprende il punto $b = f(x_0)$. Cioè l'insieme:
 	\begin{equation*}
@@ -537,7 +537,7 @@ Notiamo però che nonostante la velocita sia diversa la lunghezza rimane la stes
 	\end{equation*}
 	Tale funzione è derivabile $\forall t \in \mathbb{R}$ e vale:
 	\begin{equation*}
-		\dv{}{t} f(r(t)) = \langle \nabla f(r(t)), r'(t) \rangle
+		\odv{}{t} f(r(t)) = \langle \nabla f(r(t)), r'(t) \rangle
 	\end{equation*}
 	Questo implica che la derivata \textbf{è lineare rispetto alla velocità}, cioè rispetto al vettore $r'(t)$.
 }
@@ -551,17 +551,17 @@ Dal teorema appena enunciato la derivata in 0 risulterebbe quindi:
 \end{equation*}
 Se invece usassimo la definzione di derivata per la funzione $g(t) = f(x + tv)$ verebbe:
 \begin{equation*}
-	g'(0) = \lim_{h \to 0} \dfrac{g(h) - g(0)}{h} = \lim_{h \to 0} \dfrac{f(x + hv) - f(x)}{h} = \pdv{f}{v}() (x) = \langle \nabla f(0), v \rangle
+	g'(0) = \lim_{h \to 0} \dfrac{g(h) - g(0)}{h} = \lim_{h \to 0} \dfrac{f(x + hv) - f(x)}{h} = \pdv{f}{v} (x) = \langle \nabla f(0), v \rangle
 \end{equation*}
 Notiamo che il risultato è esattamente lo stesso.
 \pf{
 	Assumiamo che $f$ sia differenziale e $r$ derivabile nei loro rispettivi domini. Vogliamo dimostrare che:
 	\begin{equation*}
-		\dv{}{t} f(r(t)) = \langle \nabla f(r(t)), r'(t) \rangle
+		\odv{}{t} f(r(t)) = \langle \nabla f(r(t)), r'(t) \rangle
 	\end{equation*}
 	Iniziamo con espandere la definzione di derivata:
 	\begin{equation*}
-		\dv{}{t} f(r(t)) = \lim_{h \to 0}  \dfrac{f(r(t + h)) -f(r(t))}{h}
+		\odv{}{t} f(r(t)) = \lim_{h \to 0}  \dfrac{f(r(t + h)) -f(r(t))}{h}
 	\end{equation*}
 	Ricodandoci le formule di Taylor per le curve:
 	\begin{equation*}
@@ -608,10 +608,39 @@ Supponiamo per comodità $\nabla f(x, y) \neq \underline{0} \;\; \forall (x, y)$
 \end{equation*}
 Questo significa che è costante e quindi:
 \begin{equation*}
-	\dv{}{t} f(r(t)) = 0 \quad \forall t
+	\odv{}{t} f(r(t)) = 0 \quad \forall t
 \end{equation*}
 Per il teorema precedente:
 \begin{equation*}
 	\langle \nabla f(r(t)), r'(t)h \rangle = 0
 \end{equation*}
 Ne consegue quindi che $\nabla f(r(t))$ è ortogonale a $r'(t)$.
+
+\subsection{Derivate parziali seconde}
+Come nel caso di $\mathbb{R}^1$ in cui si poteva considerare la derivata prima come una funzione e quindi derivarla nuovamente, anche in $\mathbb{R}^2$ è possibile considerare le derivate parziali come funzioni e quindi applicare nuovamente l'operatore di derivata. Per esempio se abbiamo la funzione $f = x^2 + xy^3$ possiamo calcolare le sue derivate pariziali:
+\begin{equation*}
+	\begin{cases}
+		\displaystyle \pdv{f}{x} (x, y) = 2x + y^3\\[10pt]
+		\displaystyle \pdv{f}{y} f(x, y) = 3xy^2
+	\end{cases}
+\end{equation*}
+Ora se consideriamo le derivate prime come delle funzioni possiamo calcolare le derivate seconde, anche questa volta parziali:
+\begin{equation*}
+	\begin{cases}
+		\displaystyle \pdv{}{x} \pdv{f}{x}(x, y) = 2\\[10pt]
+		\displaystyle \pdv{}{x} \pdv{f}{y}(x, y) = 3y^2\\[10pt]
+		\displaystyle \pdv{}{y} \pdv{f}{x}(x, y) = 3y^2\\[10pt]
+		\displaystyle \pdv{}{y} \pdv{f}{y}(x, y) = 6xy
+	\end{cases}
+\end{equation*}
+Le derivate rispetto alla stessa variabile vengono generalemente indicate come \textbf{derivate quadrate} o pure, mentre le altre come semplici \textbf{derivate miste}. Si usano di solito varie convenzioni per evitare di scrivere due volte la frazione per le derivate seconde: 
+\begin{equation*}
+	\begin{cases}
+		\displaystyle \pdv[order=2]{f}{x}(x, y) \vcentcolon = \displaystyle \pdv{}{x} \pdv{f}{x}(x, y) \\[10pt]
+		\displaystyle \pdv{f}{x,y}(x, y) \vcentcolon = \displaystyle \pdv{}{x} \pdv{f}{y}(x, y) \\[10pt]
+		\displaystyle \pdv{f}{y,x}(x, y) \vcentcolon = \displaystyle \pdv{}{y} \pdv{f}{x}(x, y) \\[10pt]
+		\displaystyle \pdv[order=2]{f}{y}(x, y) \vcentcolon = \displaystyle \pdv{}{y} \pdv{f}{y}(x, y) 
+	\end{cases}
+\end{equation*}
+
+Come possiamo notare dall'esempio risportato sopra le derivate miste hanno lo stesso risultato. Questo non è un semplice caso:
