@@ -644,3 +644,223 @@ Le derivate rispetto alla stessa variabile vengono generalemente indicate come \
 \end{equation*}
 
 Come possiamo notare dall'esempio risportato sopra le derivate miste hanno lo stesso risultato. Questo non è un semplice caso:
+\thm{
+	\textbf{Teorema di Schwarz:} Dato $A \subseteq \mathbb{R}^n$ e $f: A \to \mathbb{R}^n$. Se $f$ ha tutte le derivate seconde continue, allora vale che:
+	\begin{equation*}
+		\pdv{f}{x_j, x_k} = \pdv{f}{x_k, x_j} \quad \forall j,k \in \{1, \cdots, n\}
+	\end{equation*}
+	Per le derivate miste quindi \textbf{non conta l'ordine di derivazione}.
+}
+Se prendiamo quindi una funzione $f(x, y, z) = x^3 y e^{5z}$ e proiamo a calcolare due derivate miste:
+\begin{equation*}
+	\pdv{f}{x} = 3x^2 y e^{5z} \qquad \pdv{f}{x, z} = 15x^2 y e^{5z} 
+\end{equation*}
+
+\begin{equation*}
+	\pdv{f}{z} = 5x^3 y e^{5z} \qquad \pdv{f}{z, x} = 15x^2 y e^{5z} 
+\end{equation*}
+
+\dfn{
+	\textbf{Matrice Hessiana}: Dato $A \subseteq \mathbb{R}^n$ e $f: A \to \mathbb{R}^n$ con derivate seconde continue, possiamo raggruppare le derivate seconde in una matrice quadrata detta matrice Hessiana e indicato con:
+	\begin{equation*}
+		\mathbf{H}f(x) \in M_{n \times n} (\mathbb{R}) = \mathbb{R}^{n \times n}
+	\end{equation*}
+	E i cui elementi sono:
+	\begin{equation*}
+		(\mathbf{H}f(x))_{jk} = \pdv{f}{x_j, x_k}(x)
+	\end{equation*}
+	In forma leggermente più esplicita risulta:
+	\begin{equation*}
+		\mathbf{H}f(x) =
+		\begin{bmatrix}
+			\displaystyle \pdv{f}{x_1, x_1} & \displaystyle \pdv{f}{x_1, x_2} & \dots &\displaystyle \pdv{f}{x_1, x_n}\\[10pt]
+			\displaystyle \pdv{f}{x_2, x_1} & \displaystyle \pdv{f}{x_2, x_2} & \dots &\displaystyle \pdv{f}{x_2, x_n}\\[10pt]
+			\vdots & \vdots & \ddots & \vdots\\[10pt]
+			\displaystyle \pdv{f}{x_n, x_1} & \displaystyle \pdv{f}{x_n, x_2} & \dots &\displaystyle \pdv{f}{x_n, x_n}
+		\end{bmatrix}
+	\end{equation*}
+	Per il teorema di Schwarz la matrice è \textbf{simmetrica}.
+}
+\dfn{
+	Una matrice $\mathbf{A} \in \mathbb{R}^{n \times n}$ si dice \textbf{simmetrica} se è uguale alla sua trasposta:
+	\begin{equation*}
+		\mathbf{A} = \mathbf{A}^T
+	\end{equation*}
+}
+In $\mathbb{R}^2$ la matrice Hessiana assume la seguente forma:
+\begin{equation*}
+	\mathbf{H}f(x) =
+	\begin{bmatrix}
+		\displaystyle \pdv[order=2]{f}{x} & \displaystyle \pdv{f}{x, y}\\[10pt]
+		\displaystyle \pdv{f}{y, x} & \displaystyle \pdv[order=2]{f}{x}
+	\end{bmatrix}
+\end{equation*}
+Quindi per la funzione considera all'inzio di questa sezione, cioè $f = x^2 + xy^3$ la matrice Hessiana risulta essere:
+\begin{equation*}
+	\mathbf{H}f(x) =
+	\begin{bmatrix}
+		2 & 3y^2\\
+		3y^2 & 6xy
+	\end{bmatrix}
+\end{equation*}
+E come abbiamo visto dal teorema di Schwarz è simmetrica.
+
+\subsubsection{Forme quadratiche}
+\dfn{
+	\textbf{Forma quadratica}: Sia $\mathbf{A} \in \mathbb{R}^{n \times n}$ e $\mathbf{A} = \mathbf{A}^T$. La forma quadratica associata ad $\mathbf{A}$ è la funzione $q: \mathbb{R}^n \to \mathbb{R}$ definita come:
+	\begin{equation*}
+		q(h) = \langle \mathbf{A}h, h \rangle \qquad \forall h \in \mathbb{R}^n
+	\end{equation*}
+}
+Esempio in $\mathbb{R}^2$: Prendiamo la matrice $\mathbf{A}$ che risulta essere (in quanto simmetrica):
+\begin{equation*}
+	A =
+	\begin{bmatrix}
+		a & b\\
+		b & c
+	\end{bmatrix}
+\end{equation*}
+La forma quadratica associata risulta quindi essere:
+\begin{align*}
+	q(h_1, h_2) =&
+	\langle 
+	\begin{bmatrix}
+		a & b\\
+		b & c
+	\end{bmatrix}
+	\begin{bmatrix}
+		h_1\\
+		h_2
+	\end{bmatrix},
+	\begin{bmatrix}
+		h_1\\
+		h_2
+	\end{bmatrix}
+	\rangle = 
+	\langle
+	\begin{bmatrix}
+		ah_1 + bh_2\\
+		bh_1 + ch_2
+	\end{bmatrix},
+	\begin{bmatrix}
+		h_1\\
+		h_2
+	\end{bmatrix}
+	\rangle =
+	ah_1^2 + bh_1h_2 + bh_1h_2 + ch_2^2 \\[5pt]
+	=& ah_1^2 + 2bh_1h_2 + ch_2^2
+\end{align*}
+Il risultato è un polinomio omogeneo di grado 2 che assomiglia molto ad un quadrato di binomio (sarà da qui che viene il nome?). Nel caso di $\mathbb{R}^3$ siulta invece:
+\begin{align*}
+	q(h_1, h_2, h_3) =&
+	\langle 
+	\begin{bmatrix}
+		a & b & c\\
+		b & d & e\\
+		c & e & f
+	\end{bmatrix}
+	\begin{bmatrix}
+		h_1\\
+		h_2\\
+		h_3
+	\end{bmatrix},
+	\begin{bmatrix}
+		h_1\\
+		h_2\\
+		h_3
+	\end{bmatrix}
+	\rangle = 
+	\langle 
+	\begin{bmatrix}
+		ah_1 + bh_2 + ch_3\\
+		bh_1 + dh_2 + eh_3\\
+		ch_1 + eh_2 + fh_3
+	\end{bmatrix},
+	\begin{bmatrix}
+		h_1\\
+		h_2\\
+		h_3
+	\end{bmatrix}
+	\rangle =\\[5pt]
+	=& ah_1^2 + bh_1h_2 + ch_1h_3 + bh_1h_2 + dh_2^2 + eh_2h_3 + ch_1h_3 + eh_2h_3 + fh_3^2 =\\
+	=& ah_1^2 + dh_2^2 + fh_3^2 + 2bh_1h_2 + 2ch_1h_3 + 2eh_2h_3 
+\end{align*}
+Possiamo anche riscrivere la forma quadratica tramite la sommatoria:
+\begin{equation*}
+	\langle \mathbf{A}h, h \rangle = \sum_{j = 1}^n (\mathbf{A}h)_j \cdot h_j = \sum_{j = 1}^n \left(\sum_{k = 1}^n a_{jk}h_k \right)_j \cdot h_j = \sum_{j,k = 1}^n a_{jk}h_kh_j
+\end{equation*}
+In questo caso si nota ancora di più il fatto che il polinomio è omogeneo e ha grado 2.
+
+\subsection{Taylor di ordine 2 con resto secondo Lagrange}
+La forma classica della formula di Taylor al secondo ordine è:
+\begin{equation*}
+	f(x_0 + h) = f(x_0) + f'(x_0)h + \dfrac{1}{2} f''(x_0)h + o(h)
+\end{equation*}
+Il resto in questo caso è espresso dall'\textit{o}-piccolo, ma esiste anche un'altra formula dove il resto viene espresso in maniera differente:
+\thm{
+	\textbf{Taylor ordine 2 con resto secondo Lagrange}: Data $f: \mathbb{R}^n \to \mathbb{R}$ con derivate prime e seconde continue, vale che:
+	\begin{align*}
+		\forall x_0 \in \mathbb{R}^n, \forall h \in &\mathbb{R}^n \; \exists \theta \in ]0,1[: \\
+		&f(x_0 + h) = f(x_0) + \langle \nabla f(x_0), h \rangle + \dfrac{1}{2} \langle \mathbf{H}f(x_0 + \theta h)h, h \rangle
+	\end{align*}
+}
+Da notare che in questo caso il resto non si trova nell'\textit{o}-piccolo (anche perché è assente), ma bensì nel termine di secondo. In particolare nel fatto che la matrice Hessiana non viene valutata nel punto esatto $x_0$, ma in una sorta di punto medio tra $x_0$ e $h$, cioè $x_0 + \theta h$.
+\pf{
+	Per dimostrare il teorema facciamo la sostituzione $x_0 + h = x$ e riduciamoci al caso $\mathbb{R}^1$. Ci riduciamo quindi a voler dimostrare che:
+	\begin{equation*}
+		\forall x_0,x \in \mathbb{R}^n, \exists \theta \in ]0,1[:\;\; f(x) = f(x_0) + f'(x_0) (x - x_0) + f''(x_0 + \theta (x - x_0)) \dfrac{(x - x_0)^2}{2}
+	\end{equation*}
+	Osserviamo che:
+	\begin{equation*}
+		\exists k \in \mathbb{R}: \; f(x) - f(x_0) - f'(x_0) (x - x_0) - k \dfrac{(x - x_0)^2}{2} = 0
+	\end{equation*}
+	Questo perché se $(x - x_0) \neq 0$ (caso banale) è una semplice equazione di primo grado in $k$. Riduciamoci quindi a dimostrare che:
+	\begin{equation*}
+		\exists \theta \in ]0,1[: k = \dfrac{f''(x_0 + \theta (x - x_0))}{2}
+	\end{equation*}
+	Consideriamo la funzione ausiliaria $g: [x_0, x] \to \mathbb{R}$:
+	\begin{equation*}
+		g(t) = f(x) - f(t) - f'(t)(x - t) - k(x - t)^2
+	\end{equation*}
+	Notiamo che grazie a questa costruzione:
+	\begin{equation*}
+		g(x) = f(x) - f(x) - f'(x)(x - x) - k(x - x)^2 = -f'(x)\cdot 0 - k \cdot 0 = 0
+	\end{equation*}
+	Inoltre:
+	\begin{equation*}
+		g(x_0) = f(x) - f(x_0) - f'(x_0)(x - x_0) - k(x - x_0)^2 = 0 
+	\end{equation*}
+	Questo vale proprio per la scelta di $k$ fatta in precedenza. Essendo la funzione derivabile ed essendo nulla agli estremi del dominio possiamo applicare il teorema di Rolle:
+	\begin{equation*}
+		\exists \theta \in ]0, 1[ : \; g'(x_0 + \theta (x - x_0)) = 0
+	\end{equation*}
+	Calcoliamo la derivata:
+	\begin{equation*}
+		g'(t) =  -f'(t) - f''(t)(x - t) - f'(t) \cdot -1 - 2k(x - t) \cdot -1 = [-f''(t) + 2k](x - t)
+	\end{equation*}
+	Per il teorema di Rolle appena applicato:
+	\begin{equation*}
+		[-f''(x_0 + \theta (x - x_0)) + 2k](x - (x_0 + \theta (x - x_0))) = 0
+	\end{equation*}
+	Notiamo che il secondo fattore è diverso da zero in quanto:
+	\begin{equation*}
+		x - (x_0 + \theta (x - x_0)) = x - x_0 - \theta (x - x_0) = (x - x_0) (\theta - 1)
+	\end{equation*}
+	Essendo infatti $x \neq x_0$ e $\theta \in ]0, 1[$. Ne consegue che:
+	\begin{equation*}
+		-f''(x_0 + \theta (x - x_0)) + 2k = 0 \implies k = \dfrac{f''(x_0 + \theta (x - x_0))}{2}
+	\end{equation*}
+	\hfill Qed.
+}
+Da questa formula deriva quella classica con i resti in \textit{o}-piccolo:
+\begin{align*}
+	f(x_0 + h) =& f(x_0) + f'(x_0) h + f''(x_0 + \theta h)\dfrac{h^2}{2} =\\
+	=& f(x_0) + f'(x_0) h + f''(x_0)\dfrac{h^2}{2} + (f''(x_0 + \theta h) - f(x_0))\dfrac{h^2}{2}
+\end{align*}
+L'ultimo termine infatti è proprio $o(h^2)$.
+\imp{
+	Il \textbf{polinomio di Taylor di grado due}:
+	\begin{equation*}
+		T_2(x) = f(x_0) + \langle \nabla f(x_0), (x - x_0) \rangle + \dfrac{1}{2} \langle \mathbf{H}f(x_0) (x - x_0), (x - x_0) \rangle
+	\end{equation*}
+}
