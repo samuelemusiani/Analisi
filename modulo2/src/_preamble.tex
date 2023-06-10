@@ -1,6 +1,7 @@
 \documentclass{article}
 
-\usepackage{amsmath, amssymb, amsfonts, cmll, mathtools, derivative, centernot} % Pacchetti per matematica
+\usepackage{amsmath, amssymb, amsfonts, cmll, mathtools, derivative, 
+    centernot} % Pacchetti per matematica
 \usepackage[margin=3cm]{geometry} %Margine di pagina
 \usepackage{graphicx} %Immagini
 \usepackage{enumitem} %Per gli elenchi con numeri romani
@@ -8,25 +9,20 @@
 \usepackage{multicol} %Per avere più colonne in una parte del documento
 \usepackage[most]{tcolorbox} %BOX
 \tcbuselibrary{breakable}
-\usepackage{tikz} \usetikzlibrary{matrix, angles, quotes} %Tabella Numeri Razionali (Q)
+\usepackage{tikz} 
+\usetikzlibrary{matrix, angles, quotes} %Tabella Numeri Razionali (Q)
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 \usepackage{float} %Posizione tabelle
-%\usepackage{gensymb} %gradi sessagesimali
-
 \usepackage{xcolor} %Colori personalizzati
 \usepackage{enumitem} %Lettere nelle liste numerate
-
 \usepackage{subcaption} %Per le doppie caption in immagini vicine
-
-
-
 \usepackage{tikz, pgfplots} %GRAFICI
 \pgfplotsset{compat=1.18}
 
-
 %% ---------------- ARCO --------------------------
-%% Tutto il comando seguente serve per inserire l'arco sopra due lettere, per indicare l'arco di circonferenza tra due punti
+%% Tutto il comando seguente serve per inserire l'arco sopra due lettere, 
+%% per indicare l'arco di circonferenza tra due punti
 \makeatletter
 \DeclareFontFamily{U}{tipa}{}
 \DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
@@ -73,27 +69,34 @@ row 6/.style={nodes={text depth=0.4ex,text height=2ex}},
 
 %AMBIENTI DEFINITI
 \newenvironment{definition}
-{\begin{tcolorbox}[title=Definizione, breakable, bottomrule at break = 0mm, toprule at break = 0mm, sharp corners, colframe=blu_0, colback=blu_1]
+{\begin{tcolorbox}[title=Definizione, breakable, bottomrule at break = 0mm, 
+    toprule at break = 0mm, sharp corners, colframe=blu_0, colback=blu_1]
 }{
 \end{tcolorbox}}
 
 \newenvironment{proof}
-{\begin{tcolorbox}[title = Dimostrazione, breakable, bottomrule at break = 0mm, toprule at break = 0mm, colframe=arancione_0, coltitle=black, colback=arancione_1]
+{\begin{tcolorbox}[title = Dimostrazione, breakable, bottomrule at break = 0mm, 
+    toprule at break = 0mm, colframe=arancione_0, coltitle=black, 
+    colback=arancione_1]
 }{
 \end{tcolorbox}}
 
 \newenvironment{theorem}
-{\begin{tcolorbox}[title = Teorema, bottomrule at break = 0mm, toprule at break = 0mm, colframe=rosso_0, colback=rosso_1]
+{\begin{tcolorbox}[title = Teorema, bottomrule at break = 0mm, 
+    toprule at break = 0mm, colframe=rosso_0, colback=rosso_1]
 }{
 \end{tcolorbox}}
 
 \newenvironment{mlemma}
-{\begin{tcolorbox}[title = Lemma, breakable, bottomrule at break = 0mm, toprule at break = 0mm, colframe=brown, coltitle=black, colback=brown!40!white]
+{\begin{tcolorbox}[title = Lemma, breakable, bottomrule at break = 0mm, 
+    toprule at break = 0mm, colframe=brown, coltitle=black, 
+    colback=brown!40!white]
 }{
 \end{tcolorbox}}
 
 \newenvironment{important}
-{\begin{tcolorbox}[coltitle=black, sharp corners, colback=green_0, colframe=white]
+{\begin{tcolorbox}[coltitle=black, sharp corners, colback=green_0, 
+    colframe=white]
 }{
 \end{tcolorbox}}
 

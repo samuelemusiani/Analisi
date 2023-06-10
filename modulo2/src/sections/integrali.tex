@@ -2,12 +2,15 @@
 
 \subsection{Calcolo dell'area sottesa ad una curva}
 \imp{
-	Data una funzione $f:[a,b] \to \mathbb{R}$ con $f(x) \geq 0 \; \forall x \in [a,b]$. IL suo \textbf{sottografico} è:
+	Data una funzione $f:[a,b] \to \mathbb{R}$ con $f(x) \geq 0 \; \forall x 
+    \in [a,b]$. IL suo \textbf{sottografico} è:
 	\begin{equation*}
 		= \{(x,y) \in \mathbb{R}^2 \; | \; x \in [a,b],\, 0 \leq y \leq f(x)\}
 	\end{equation*}
 }
-Il sottografico è quindi un insieme e corrisponde e tutti i punti che soddisfano per le ordinate le disuguaglianza $a \leq x \leq b$ e per le ascisse $0 \leq y \leq f(x)$.
+Il sottografico è quindi un insieme e corrisponde e tutti i punti che 
+soddisfano per le ordinate le disuguaglianza $a \leq x \leq b$ e per le 
+ascisse $0 \leq y \leq f(x)$.
 
 \begin{figure}[h]
 	\begin{center}
@@ -22,9 +25,11 @@ Il sottografico è quindi un insieme e corrisponde e tutti i punti che soddisfan
 			xticklabel style={anchor=north},
 			yticklabel style={anchor=east},
 		]
-		\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * sin(0.4 * deg(x) + 2) + 3};
-		\addplot[domain=-1:15,draw=none,name path=B] {0};     % “fictional” curve
-		\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=2:10}]; % filling
+		\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * 
+            sin(0.4 * deg(x) + 2) + 3};
+		\addplot[domain=-1:15,draw=none,name path=B] {0};
+		\addplot[gray, draw opacity = 0, fill opacity = 0.4] fill 
+            between[of=A and B,soft clip={domain=2:10}]; % filling
 		\end{axis}
 	\end{tikzpicture}
 
@@ -38,7 +43,8 @@ Come si calcola il sottografico?
 
 \subsection{Somme di Riemann}
 \subsubsection{Scomposizione di un intervallo}
-Sia dato un interallo $[a,b] \subseteq \mathbb{R}$ lo divido in $n \in \mathbb{N}$ intervalli uguali:
+Sia dato un interallo $[a,b] \subseteq \mathbb{R}$ lo divido in $n 
+\in \mathbb{N}$ intervalli uguali:
 %Aggiungere immagine della retta con le tacchette a x_0, x_1, ...
 \begin{align*}
 	x_0 &= a\\
@@ -47,42 +53,57 @@ Sia dato un interallo $[a,b] \subseteq \mathbb{R}$ lo divido in $n \in \mathbb{N
 	\vdots\\
 	x_k &= a + k \cdot \dfrac{b-a}{n}
 \end{align*}
-Il primo punto corrisponde all'inizio dell'intervallo $x_0 = a$, l'ultimo punto alla fine dell'intervallo $x_n = b$ in quanto:
+Il primo punto corrisponde all'inizio dell'intervallo $x_0 = a$, l'ultimo 
+punto alla fine dell'intervallo $x_n = b$ in quanto:
 \begin{equation*}
 	x_n = a + n \cdot \dfrac{b-a}{n} = a + b - a = b
 \end{equation*}
 
 Posso inoltre scegliere dei punti all'interno di questi intervalli: 
 \begin{equation*}
-	\forall k \in \mathbb{N} : 0 < k \leq n \quad \text{scelgo} \quad \xi_k \in [x_{k-1}, x_k]
+	\forall k \in \mathbb{N} : 0 < k \leq n \quad \text{scelgo} \quad \xi_k 
+    \in [x_{k-1}, x_k]
 \end{equation*}
 È importante notare alcune cose:
 \begin{enumerate}
-	\item $\xi_k$ è un semplicissimo punto, lo si indica con la lettera greca $\xi$ (xi) per evitare di far confuzione successivamente.
+	\item $\xi_k$ è un semplicissimo punto, lo si indica con la lettera greca 
+        $\xi$ (xi) per evitare di far confuzione successivamente.
 
-	\item La scelta della posizione del punto $\xi_k$ è \textbf{totalmente arbitraria}. Può quindi essere il punto medio, coincidere con un estremo o essere completamente casuale purché rispetti la condizione imposta, cioè: $\xi_k \in [x_{k-1}, x_k]$
+	\item La scelta della posizione del punto $\xi_k$ è \textbf{totalmente 
+        arbitraria}. Può quindi essere il punto medio, coincidere con un 
+        estremo o essere completamente casuale purché rispetti la condizione 
+        imposta, cioè: $\xi_k \in [x_{k-1}, x_k]$
 
-	\item Abbiamo una serie di punti, non solo 1, in quanto questo vale \textit{per ogni k}.
+	\item Abbiamo una serie di punti, non solo 1, in quanto questo vale 
+        \textit{per ogni k}.
 	\begin{align*}
 		\xi_1 &\in [x_0, x_1] = \left[a, a + \dfrac{b-a}{n} \right]\\
-		\xi_2 &\in [x_1, x_2] = \left[a + \dfrac{b-a}{n}, a + 2 \cdot \dfrac{b-a}{n} \right]\\
+		\xi_2 &\in [x_1, x_2] = \left[a + \dfrac{b-a}{n}, a + 2 \cdot 
+        \dfrac{b-a}{n} \right]\\
 		\vdots\\
-		\xi_n &\in [x_{n-1}, x_n] = \left[a + (n-1) \cdot \dfrac{b-a}{n}, b \right]
+		\xi_n &\in [x_{n-1}, x_n] = \left[a + (n-1) \cdot \dfrac{b-a}{n},
+        b \right]
 	\end{align*}
 
 \end{enumerate}
 
 \dfn{
-	Sia $f:[a,b] \to \mathbb{R}$, continua su $[a, b]$. Sia inoltre $n \in \mathbb{N}$ e siano $x_0, x_1, \cdots x_n$ e $\xi_1, \xi_2, \cdots \xi_n$ i punti introdotti precedentemente. Si definisce \textbf{La somma di Riemann \textit{n-esima}} è il numero:
+	Sia $f:[a,b] \to \mathbb{R}$, continua su $[a, b]$. Sia inoltre $n \in 
+    \mathbb{N}$ e siano $x_0, x_1, \cdots x_n$ e $\xi_1, \xi_2, \cdots \xi_n$ 
+    i punti introdotti precedentemente. Si definisce \textbf{La somma di 
+    Riemann \textit{n-esima}} è il numero:
 	\begin{equation*}
 		S_n = \sum \limits_{k = 1}^n f(\xi_k) \cdot (x_k - x_{k-1})
 	\end{equation*}
-	Notando che il termine $(x_k - x_{k-1})$ è sempre uguale si può riscrivere la somma come segue:
+	Notando che il termine $(x_k - x_{k-1})$ è sempre uguale si può riscrivere 
+    la somma come segue:
 	\begin{equation*}
 		S_n = \dfrac{b-a}{n} \cdot \sum \limits_{k = 1}^n f(\xi_k) 
 	\end{equation*}
 }
-La somma dipende dalla scelta dei punti $\xi_k$, non è quindi sempre la stessa. Rappresenta inoltre la somma delle aree dei rettangoli che approssimano il sottografico della funzione $f$ nell'intervallo $[a,b]$. %Fare figura
+La somma dipende dalla scelta dei punti $\xi_k$, non è quindi sempre la stessa. 
+Rappresenta inoltre la somma delle aree dei rettangoli che approssimano il 
+sottografico della funzione $f$ nell'intervallo $[a,b]$. %Fare figura
 
 \begin{figure}[h]
 	\begin{center}
@@ -98,8 +119,9 @@ La somma dipende dalla scelta dei punti $\xi_k$, non è quindi sempre la stessa.
 			yticklabel style={anchor=east},
 			width=0.8\linewidth,
 		]
-		\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * sin(0.4 * x/3.14 * 180 + 2) + 3};
-		\addplot[domain=-1:15,draw=none,name path=B] {0};     % “fictional” curve
+		\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * 
+            sin(0.4 * x/3.14 * 180 + 2) + 3};
+		\addplot[domain=-1:15,draw=none,name path=B] {0}; 
 		
 		\draw[-] (2,0) -- (2,4.0279);
 		%\draw[-] (4,0) -- (4,4.78798);
@@ -128,16 +150,21 @@ La somma dipende dalla scelta dei punti $\xi_k$, non è quindi sempre la stessa.
 	\caption{Somme di Riemann}
 	%\label{fig_sottografico}
 \end{figure}
-\subsection{Integrale dalle somme di Riemann} %Non so bene ancora come gestire le sezioni e le sottosezioni
+\subsection{Integrale dalle somme di Riemann} 
+%Non so bene ancora come gestire le sezioni e le sottosezioni
 
 \thm{
-	Sia $f:[a,b] \to \mathbb{R}$ continua su $[a,b]$ e $(S_n)_{n \in \mathbb{N}}$ una famiglia di somme di Riemann\footnote{Si noti che questa famiglia in realtà è una successione}. 
+	Sia $f:[a,b] \to \mathbb{R}$ continua su $[a,b]$ e $(S_n)_{n \in 
+    \mathbb{N}}$ una famiglia di somme di Riemann\footnote{Si noti che questa 
+    famiglia in realtà è una successione}. 
 	\begin{equation*}
 		\exists \lim_{n \to +\infty} S_n \in \mathbb{R}
 	\end{equation*}
-	Inoltre \textbf{il valore NON dipende dalla scelta dei punti} $\xi_k$. Tale limite si chiama \textbf{integrale di $f$}:
+	Inoltre \textbf{il valore NON dipende dalla scelta dei punti} $\xi_k$. Tale 
+    limite si chiama \textbf{integrale di $f$}:
 	\begin{equation*}
-		\int_a^b f(x) \diff x \vcentcolon = \lim_{n \to +\infty} S_n \in \mathbb{R}
+		\int_a^b f(x) \diff x \vcentcolon = \lim_{n \to +\infty} S_n \in 
+        \mathbb{R}
 	\end{equation*}
 }
 Note importanti:
@@ -146,18 +173,23 @@ Note importanti:
 	
 	\item $a$ e $b$ si chiamo \textbf{estremi di integrazione}.
 
-	\item La varibile dentro la funzione è una \textit{variabile muta}. Non indica effettivamente nulla. Le seguenti notazioni sono equvalenti:
+	\item La varibile dentro la funzione è una \textit{variabile muta}. Non 
+        indica effettivamente nulla. Le seguenti notazioni sono equvalenti:
 		\begin{equation*}
 			\int_a^b f(x) \diff x = \int_a^b f(t) \diff t = \int_a^b f
 		\end{equation*}
-		Si adotta generalmente la variabile muta è il termine $\diff x$ che NON ha alcune definzione o qualsivoglia introduzione matematica per comodità.
+		Si adotta generalmente la variabile muta è il termine $\diff x$ che 
+        NON ha alcune definzione o qualsivoglia introduzione matematica per 
+        comodità.
 \end{itemize}
 
 Vediamo come è definita questa somma in alcuni esempi particolari:
 \begin{itemize}
-	\item $f(x) \leq 0 \;\; \forall x \in \mathbb[a, b]$ come in figura \ref{fig_sottografico_neg}:
+	\item $f(x) \leq 0 \;\; \forall x \in \mathbb[a, b]$ come in figura 
+        \ref{fig_sottografico_neg}:
 		\begin{equation*}
-			\int_a^b f(x) \diff x = - (\text{area del sottografico}) = -text{area}(A)
+			\int_a^b f(x) \diff x = - (\text{area del sottografico}) = 
+            -text{area}(A)
 		\end{equation*}
 
 		\begin{figure}[h]
@@ -173,9 +205,11 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 					xticklabel style={anchor=south east},
 					yticklabel style={anchor=east},
 				]
-				\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * sin(0.4 * deg(x) + 2) + -5};
-				\addplot[domain=-1:15,draw=none,name path=B] {0};     % “fictional” curve
-					\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=2:10}]; % filling
+				\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) 
+                    * sin(0.4 * deg(x) + 2) + -5};
+				\addplot[domain=-1:15,draw=none,name path=B] {0}; 
+					\addplot[gray, draw opacity = 0, fill opacity = 0.4] 
+                    fill between[of=A and B,soft clip={domain=2:10}]; % filling
 				\end{axis}
 				\draw (3,3.5) node[left] {$A$};
 			\end{tikzpicture}
@@ -189,7 +223,9 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 
 
 
-	\item Se la funzione assume sia valori positivi sia valori negativi (come in figura \ref{fig_sottografico_pos_neg}) allora l'intagrale risulta:
+	\item Se la funzione assume sia valori positivi sia valori negativi 
+        (come in figura \ref{fig_sottografico_pos_neg}) allora l'intagrale 
+        risulta:
 		\begin{equation*}
 			\int_a^b f(x) \diff x = \text{area}(A_1) - \text{area}{A_2}
 		\end{equation*}
@@ -208,20 +244,24 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 					xticklabel style={anchor=north},
 					yticklabel style={anchor=east},
 				]
-				\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) * sin(0.4 * deg(x) + 2) };
-				\addplot[domain=-1:15,draw=none,name path=B] {0};     % “fictional” curve
-				\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=2:12}]; % filling
+				\addplot[domain=-1:15, black, samples=200, name path=A]{ln(x+2) 
+                    * sin(0.4 * deg(x) + 2) };
+				\addplot[domain=-1:15,draw=none,name path=B] {0};
+				\addplot[gray, draw opacity = 0, fill opacity = 0.4] 
+                    fill between[of=A and B,soft clip={domain=2:12}]; % filling
 				\end{axis}
 				\draw (2.5,3.5) node[left] {$A_1$};
 				\draw (5,2) node[left] {$A_2$};
 			\end{tikzpicture}
 
 			\end{center}
-			\caption{Visualizzazione di un integrale su una funzione che cambia segno}
+			\caption{Visualizzazione di un integrale su una funzione che cambia 
+            segno}
 			\label{fig_sottografico_pos_neg}
 		\end{figure}
 
-	\item Se il sottografico è formato da due aree positive ma separate (come in figura \ref{fig_sottografico_pos_zero}):
+	\item Se il sottografico è formato da due aree positive ma separate (come 
+        in figura \ref{fig_sottografico_pos_zero}):
 
 		\begin{equation*}
 			\int_a^b f(x) \diff x = \text{area}(A_1) + \text{area}{A_2} 
@@ -240,28 +280,37 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 					xticklabel style={anchor=north},
 					yticklabel style={anchor=east},
 				]
-					\addplot[domain=-1:3, black, samples=200, name path=A]{(x-1) * (x-1)};
-				\addplot[domain=-1:3,draw=none,name path=B] {0};     % “fictional” curve
-				\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=0.1:2}]; % filling
+					
+                \addplot[domain=-1:3, black, samples=200, name path=A]{(x-1) 
+                    * (x-1)};
+				\addplot[domain=-1:3,draw=none,name path=B] {0}; 
+				\addplot[gray, draw opacity = 0, fill opacity = 0.4] 
+                    fill between[of=A and B,soft clip={domain=0.1:2}];
 				\end{axis}
 				\draw (2,1.5) node[left] {$A_1$};
 				\draw (4.7,1.5) node[left] {$A_2$};
 			\end{tikzpicture}
 
 			\end{center}
-			\caption{Visualizzazione di un integrale su una funzione che tocca l'asse delle ascisse}
+			\caption{Visualizzazione di un integrale su una funzione che tocca 
+            l'asse delle ascisse}
 			\label{fig_sottografico_pos_zero}
 		\end{figure}
 
-	\item Se $f(x) = k \;\; \forall x \in [a,b]$, cioè in pratica la funzione è costante (come in figura \ref{fig_sottografico_rettangolo}). Consideriamo prima la somma di Riemann: 
+	\item Se $f(x) = k \;\; \forall x \in [a,b]$, cioè in pratica la funzione è 
+        costante (come in figura \ref{fig_sottografico_rettangolo}). 
+        Consideriamo prima la somma di Riemann: 
 		\begin{equation*}
-			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}\right) = \sum \limits_{i = 0}^n k \cdot \left(\dfrac{b-a}{n}\right) = n \cdot k \cdot \dfrac{b-a}{n} = k \cdot (b-a)
+			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}
+            \right) = \sum \limits_{i = 0}^n k \cdot \left(\dfrac{b-a}{n}
+            \right) = n \cdot k \cdot \dfrac{b-a}{n} = k \cdot (b-a)
 		\end{equation*}
 		Ne consegue che:
 		\begin{equation*}
 			\int_a^b f(x) \diff x = \lim_{n \to +\infty} S_n = k \cdot (b-a)
 		\end{equation*}
-		Coindice con infatti l'area di un rettangolo di base $b-a$ e di altezza $k$.
+		Coindice con infatti l'area di un rettangolo di base $b-a$ e di altezza 
+        $k$.
 
 
 		\begin{figure}[h]
@@ -278,8 +327,9 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 					yticklabel style={anchor=east},
 				]
 				\addplot[domain=-1:3, black, samples=200, name path=A]{1.3};
-				\addplot[domain=-1:3,draw=none,name path=B] {0};     % “fictional” curve
-				\addplot[gray, draw opacity = 0, fill opacity = 0.2] fill between[of=A and B,soft clip={domain=0.3:2}]; % filling
+				\addplot[domain=-1:3,draw=none,name path=B] {0};
+				\addplot[gray, draw opacity = 0, fill opacity = 0.4] 
+                    fill between[of=A and B,soft clip={domain=0.3:2}];
 
 				\draw (0, 1.3) node[xshift=25pt, yshift=8pt] {$f(x) = k$};
 
@@ -298,35 +348,49 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 		\end{equation*}
 		In quanto:
 		\begin{equation*}
-			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}\right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{a-a}{n}\right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot 0 = 0
+			S_n = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(\dfrac{b-a}{n}
+            \right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot \left(
+            \dfrac{a-a}{n}\right) = \sum \limits_{i = 0}^n f(\xi_i) \cdot 0 = 0
 		\end{equation*}
 \end{itemize}
 
 \subsubsection{Proprietà dell'integrale}
 \begin{enumerate}
-	\item \textbf{Linearità}: Date due funzioni $f,g:[a,b] \to \mathbb{R}$ continue su $[a,b]$. Deti inoltre due punti $c_1, c_2 \in \mathbb{R}$
+	\item \textbf{Linearità}: Date due funzioni $f,g:[a,b] \to \mathbb{R}$ 
+        continue su $[a,b]$. Deti inoltre due punti $c_1, c_2 \in \mathbb{R}$
 		\begin{equation*}
-			\int_a^b (c_1 \cdot f(x) + c_2 \cdot g(x)) \diff x = \int_a^b c_1 \cdot f(x) \diff x \int_a^b c_2 \cdot g(x) \diff x = 
+			\int_a^b (c_1 \cdot f(x) + c_2 \cdot g(x)) \diff x = \int_a^b c_1 
+            \cdot f(x) \diff x \int_a^b c_2 \cdot g(x) \diff x = 
 		\end{equation*}
 
-	\item \textbf{Additività} Data una funzione $f:[a,b] \to \mathbb{R}$ e dato $c \in [a,b]$:
+	\item \textbf{Additività} Data una funzione $f:[a,b] \to \mathbb{R}$ e dato 
+        $c \in [a,b]$:
 		\begin{equation*}
-			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) \diff x
+			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) 
+            \diff x
 		\end{equation*}
-		In generale si tende ad adottare la \textbf{convenzione} che se $b < a$:
+		In generale si tende ad adottare la \textbf{convenzione} che se 
+        $b < a$:
 		\begin{equation*}
 			\int_a^b f(x) \diff x = -\int_b^a f(x) \diff x
 		\end{equation*}
-		Ne consegue quindi che si può \textbf{generalizzare la seconda proprietà} a: $f:\mathbb{R} \to \mathbb{R},\; \forall a,b,c \in \mathbb{R}$ implica:
+		Ne consegue quindi che si può \textbf{generalizzare la seconda 
+        proprietà} a: $f:\mathbb{R} \to \mathbb{R},\; \forall a,b,c \in 
+        \mathbb{R}$ implica:
 		\begin{equation*}
-			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) \diff x 
+			\int_a^b f(x) \diff x = \int_a^c f(x) \diff x + \int_c^b f(x) 
+            \diff x 
 		\end{equation*}
 
-	\item Con $f:[a,b] \to \mathbb{R}$ e $f(x) \geq 0 \;\; \forall x \in [a,b]$ allora:
+	\item Con $f:[a,b] \to \mathbb{R}$ e $f(x) \geq 0 \;\; \forall x \in [a,b]$ 
+        allora:
 		\begin{equation*}
 			\int_a^b f(x) \diff x \geq 0
 		\end{equation*}
-		Si può \textbf{generalizzare}\footnote{Questo si dimostra con il caso non generalizzato e una funzione ausiliaria $h(x) = f(x) - g(x)$}: data un'ulteriore funzione $g:[a,b] \to \mathbb{R}$, se $f(x) \leq g(x) \quad \forall x \in [a,b]$ allora:
+		Si può \textbf{generalizzare}\footnote{Questo si dimostra con il caso 
+        non generalizzato e una funzione ausiliaria $h(x) = f(x) - g(x)$}: data 
+        un'ulteriore funzione $g:[a,b] \to \mathbb{R}$, se $f(x) \leq g(x) 
+        \quad \forall x \in [a,b]$ allora:
 		\begin{equation*}
 			\int_a^b f(x) \diff x \geq \int_a^b g(x) \diff x
 		\end{equation*}
@@ -338,7 +402,8 @@ Vediamo come è definita questa somma in alcuni esempi particolari:
 	\begin{equation*}
 		\exists c \in [a,b] : \dfrac{1}{b-a} \int_a^b f(x) \diff x = f(c)
 	\end{equation*}
-	Il valore di $f(c)$ si definisce \textbf{media integrale di $f$ in $[a,b]$}.
+	Il valore di $f(c)$ si definisce \textbf{media integrale di $f$ 
+    in $[a,b]$}.
 }
 Il nome media deriva dal datto che:
 \begin{equation*}
@@ -347,7 +412,8 @@ Il nome media deriva dal datto che:
 Che non è altro che una media aritmetica.
 
 \pf{
-	Dimostraimo il teorema della media integrale: per il teorema di Weierstrass $\exists x_1, x_2$ punti di minimo e massimo assoluti:
+	Dimostraimo il teorema della media integrale: per il teorema di Weierstrass 
+    $\exists x_1, x_2$ punti di minimo e massimo assoluti:
 	\begin{equation*}
 		f(x_1) \leq f(x) \leq f(x_2) \quad \forall x \in [a,b]
 	\end{equation*}
@@ -363,7 +429,8 @@ Che non è altro che una media aritmetica.
 	\begin{equation*}
 		f(x_1) \leq \dfrac{1}{b-a} \int_a^b f(x) \diff x \leq f(x_2)
 	\end{equation*}
-	Dal teorema dei valori intermedi\footnote{Non mi ricordo di averlo fatto ne di averlo copiato. È sugli appunti del 2023-02-20. CONTROLLARE! :)}:
+	Dal teorema dei valori intermedi\footnote{Non mi ricordo di averlo fatto ne 
+    di averlo copiato. È sugli appunti del 2023-02-20. CONTROLLARE! :)}:
 	\begin{equation*}
 		\exists x \in [a,b] : f(x) = y
 	\end{equation*}
@@ -376,14 +443,16 @@ Che non è altro che una media aritmetica.
 
 \subsection{Primitiva}
 \dfn{
-	Sia $f:]a,b[ \to \mathbb{R}$. Una funzione $F:]a,b[ \to \mathbb{R}$ si dice \textbf{primitiva di $f$ su $]a,b[$} se vale:
+	Sia $f:]a,b[ \to \mathbb{R}$. Una funzione $F:]a,b[ \to \mathbb{R}$ si dice 
+    \textbf{primitiva di $f$ su $]a,b[$} se vale:
 	\begin{equation*}
 		F'(x) = f(x) \qquad \forall x \in ]a,b[
 	\end{equation*}
 }
 \textbf{Osservazione:} Se $F$ è primitiva di $f$ su $]a,b[$, allora:
 \begin{equation*}
-	\forall k \in \mathbb{R} \quad F(x) + k \;\; \text{è una primitiva di $f$ su } ]a,b[
+	\forall k \in \mathbb{R} \quad F(x) + k \;\; \text{è una primitiva di $f$ 
+    su } ]a,b[
 \end{equation*}
 \imp{
 	\begin{center}
@@ -391,13 +460,16 @@ Che non è altro che una media aritmetica.
 	\end{center}
 }
 \thm{ \label{theorem_caratterizzazionePrimitive}
-	\textbf{Teorema di caratterizzazione delle primitive su un intervallo:} Se $F:]a,b[ \to \mathbb{R}$ e $G:]a,b[ \to \mathbb{R}$ sono primitive di $f:]a,b[ \to \mathbb{R}$, allora:
+	\textbf{Teorema di caratterizzazione delle primitive su un intervallo:} 
+    Se $F:]a,b[ \to \mathbb{R}$ e $G:]a,b[ \to \mathbb{R}$ sono primitive di 
+$f:]a,b[ \to \mathbb{R}$, allora:
 	\begin{equation*}
 		\exists k \in \mathbb{R} : F(x) - G(x) = k \qquad \forall x \in ]a,b[
 	\end{equation*}
 }
 \pf{
-	Vogliamo dimostrare il teorema appena enunciato. Consideriamo la funzione ausiliaria:
+	Vogliamo dimostrare il teorema appena enunciato. Consideriamo la funzione 
+    ausiliaria:
 	\begin{equation*}
 		H(x) = F(x) - G(x) \qquad \forall x \in ]a,b[
 	\end{equation*}
@@ -409,7 +481,9 @@ Che non è altro che una media aritmetica.
 	\begin{equation*}
 		H'(x) = f(x) - f(x) = 0 \qquad \forall x \in ]a,b[
 	\end{equation*}
-	Da teorema di Lagrange (in particolare dal suo corollario), se una funzione continua su un intervallo ha derivata sempre nulla allora la funzione è costante. Ne consegue:
+	Da teorema di Lagrange (in particolare dal suo corollario), se una funzione 
+    continua su un intervallo ha derivata sempre nulla allora la funzione è 
+    costante. Ne consegue:
 	\begin{equation*}
 		\exists k \in \mathbb{R} : H(x) = k \qquad \forall x \in ]a,b[
 	\end{equation*}
@@ -419,7 +493,10 @@ Che non è altro che una media aritmetica.
 	\end{equation*}
 	\hfill Qed.
 }
-È importante che la funzione sia definita su un intervallo perché è facile prendere un esempio di funzione non definita su un intervallo e fare vedere che il teorema non funziona. Per sempio presa la funzione $f:\mathbb{R} \setminus \{0\} \to \mathbb{R}, f(x) = \frac{1}{x^2}$ ha come primitive:
+È importante che la funzione sia definita su un intervallo perché è facile 
+prendere un esempio di funzione non definita su un intervallo e fare vedere 
+che il teorema non funziona. Per sempio presa la funzione $f:\mathbb{R} 
+\setminus \{0\} \to \mathbb{R}, f(x) = \frac{1}{x^2}$ ha come primitive:
 \begin{align*}
 	F(x) &= -\dfrac{1}{x} \qquad \forall x \neq 0\\
 	G(x) &=
@@ -436,7 +513,8 @@ Proprio perché non stiamo considerando un intervallo.
 
 \subsection{Funzioni integrali}
 \dfn{
-	Sia $f:]a,b[ \to \mathbb{R}$ continua e sia $c\in ]a,b[$. Definziamo la \textbf{funzione integrale di \textit{f} con punto base \textit{c}} come:
+	Sia $f:]a,b[ \to \mathbb{R}$ continua e sia $c\in ]a,b[$. Definziamo la 
+\textbf{funzione integrale di \textit{f} con punto base \textit{c}} come:
 \begin{equation*}
 	I_c:]a,b[ \to \mathbb{R}, \qquad I_c(x) = \int_c^x f(t) \diff t
 \end{equation*}
@@ -449,17 +527,21 @@ Osservazione 1:
 	I_c(c) = \int_c^c f(t) \diff t = 0
 \end{equation*}
 
-Osservazione 2: Consideriamo la funzione $f:]a,b[ \to \mathbb{R}$ continua e un punto $c_1, c_2 \in ]a,b[$. Le funzioni:
+Osservazione 2: Consideriamo la funzione $f:]a,b[ \to \mathbb{R}$ continua e un 
+punto $c_1, c_2 \in ]a,b[$. Le funzioni:
 \begin{align*}
-	I_{c_1} (x) = \int_{c_1}^x f \qquad \text{e} \qquad I_{c_2} (x) = \int_{c_2}^x f\\
+	I_{c_1} (x) = \int_{c_1}^x f \qquad \text{e} \qquad I_{c_2} (x) = 
+    \int_{c_2}^x f\\
 \end{align*}
 Hanno differenza costante:
 \begin{equation*}
-	I_{c_1} (x) - I_{c_2} (x) = \int_{c_1}^x f - \int_{c_2}^x f = \int_{c_1}^x f + \int_x^{c_2} f  = \int_{c_1}^{c_2} f
+	I_{c_1} (x) - I_{c_2} (x) = \int_{c_1}^x f - \int_{c_2}^x f = 
+    \int_{c_1}^x f + \int_x^{c_2} f  = \int_{c_1}^{c_2} f
 \end{equation*}
 
 \subsubsection{Teoremi fondamentali del calcolo integrale}
-Il seguente teorema è spesso indicato come secondo, ma il prof ha deciso di farlo per primo.
+Il seguente teorema è spesso indicato come secondo, ma il prof ha deciso di 
+farlo per primo.
 \thm{
 	Sia $f:]a,b[ \to \mathbb{R}$ continua e sia $c\in ]a,b[$. Allora vale:
 	\begin{equation*}
@@ -476,34 +558,51 @@ Esempio: Data $f:\mathbb{R} \to \mathbb{R}, f(x) = e^{x^2}$ se
 \end{equation*}
 Allora:
 \begin{equation*}
-	\odv{}{x} \int_0^x e^{t^2} \diff t = e^{x^2} \qquad \forall x \in \mathbb{R}
+	\odv{}{x} \int_0^x e^{t^2} \diff t = e^{x^2} \qquad \forall x \in 
+    \mathbb{R}
 \end{equation*}
 Oppure un altro esempio:
 \begin{equation*}
-	\odv{}{x} \int_2^x \sqrt{1+t^2} \cdot e^{-t} \sin(t) \diff t = \sqrt{1+x^2} \cdot e^{-x} \sin(x)
+	\odv{}{x} \int_2^x \sqrt{1+t^2} \cdot e^{-t} \sin(t) \diff t = \sqrt{1+x^2} 
+    \cdot e^{-x} \sin(x)
 \end{equation*}
-Non importa quindi sapere il risultato dell'integrale per sapere la sua derivata.\\
+Non importa quindi sapere il risultato dell'integrale per sapere la sua 
+derivata.\\
 
-Perché l'estremo inferiore dell'integrale è ininfluente\footnote{Questa è una mia considerazione, il prof non l'ha detta}? Se sostiutiamo l'estremo inferiore $a$ con un qualsiasi $k \in \mathbb{R}$:
+Perché l'estremo inferiore dell'integrale è ininfluente\footnote{Questa è una 
+mia considerazione, il prof non l'ha detta}? Se sostiutiamo l'estremo inferiore 
+$a$ con un qualsiasi $k \in \mathbb{R}$:
 \begin{equation*}
-	\odv{}{x} \int_a^x f(t) \diff t = \odv{}{x} \left(\int_a^k f(t) \diff t + \int_k^x f(t) \diff t\right) = \odv{}{x} \int_a^k f(t) \diff t + \odv{}{x} \int_k^x f(t) \diff t
+	\odv{}{x} \int_a^x f(t) \diff t = \odv{}{x} \left(\int_a^k f(t) \diff t + 
+    \int_k^x f(t) \diff t\right) = \odv{}{x} \int_a^k f(t) \diff t + \odv{}{x} 
+    \int_k^x f(t) \diff t
 \end{equation*}
-L'integrale $\int_a^k f$ è una semplice costante, ne consegue che dopo la derivata si annulla, quindi rimane solo l'integrale:
+L'integrale $\int_a^k f$ è una semplice costante, ne consegue che dopo la 
+derivata si annulla, quindi rimane solo l'integrale:
 \begin{equation*}
 	\odv{}{x} \int_k^x f(t) \diff t = f(x)
 \end{equation*}
-Ricordiamoci che abbiamo scelto a caso la costante $k$, ne consegue che è ininfluente sotto l'effetto della derivata.
+Ricordiamoci che abbiamo scelto a caso la costante $k$, ne consegue che è 
+ininfluente sotto l'effetto della derivata.
 
 \pf{
-	Vogliamo dimostrare il teorema appena enunciato. Supponiamo di avere una funzione $f:]a,b[ \to \mathbb{R}$ e un punto $c \in ]a,b[$. Vogliamo dimostrare che:
+	Vogliamo dimostrare il teorema appena enunciato. Supponiamo di avere una 
+    funzione $f:]a,b[ \to \mathbb{R}$ e un punto $c \in ]a,b[$. Vogliamo 
+dimostrare che:
 	\begin{equation*}
 		\odv{}{x} \int_c^x f(t) \diff t = f(x) \qquad \forall x \in ]a,b[
 	\end{equation*}
-	Per la definzione di derivata dovremmo dimostrare che esiste sia il limite destro che il sinistro e che il loro valore coincide. Ci limitiamo a dimostrare il teorema per il limite destro in quanto è analogo nell'altro caso. Calcoliamo il limite:
+	Per la definzione di derivata dovremmo dimostrare che esiste sia il limite 
+    destro che il sinistro e che il loro valore coincide. Ci limitiamo a 
+    dimostrare il teorema per il limite destro in quanto è analogo nell'altro 
+    caso. Calcoliamo il limite:
 	\begin{equation*}
-		\lim_{h \to 0^+} \dfrac{\displaystyle\int_c^{x+h} f - \displaystyle\int_c^x f}{h} = \lim_{h \to 0^+} \dfrac{1}{h} \left(\displaystyle\int_c^{x+h} f + \displaystyle\int_x^c f\right)
+		\lim_{h \to 0^+} \dfrac{\displaystyle\int_c^{x+h} f - 
+        \displaystyle\int_c^x f}{h} = \lim_{h \to 0^+} \dfrac{1}{h} \left(
+        \displaystyle\int_c^{x+h} f + \displaystyle\int_x^c f\right)
 	\end{equation*}
-	Possiamo quindi usare la proprietà di additività degli integrali e ridurci a dimostrare:
+	Possiamo quindi usare la proprietà di additività degli integrali e ridurci 
+    a dimostrare:
 	\begin{equation*}
 		\lim_{x \to 0^+} \dfrac{1}{h} \int_x^{x+h} f(t) \diff t = f(x)
 	\end{equation*}
@@ -526,43 +625,61 @@ Ricordiamoci che abbiamo scelto a caso la costante $k$, ne consegue che è ininf
 	\hfill Qed.
 }
 
-Il seguente viene spesso indicato come il primo teorema fondamentale del calcolo integrale.
+Il seguente viene spesso indicato come il primo teorema fondamentale del 
+calcolo integrale.
 \thm{
-	Sia $f:]a_0,b_0[ \to \mathbb{R}$ continua. Sia inoltre $F:]a_0,b_0[ \to \mathbb{R}$ la primitiva di $f$ su $]a_0,b_0[$, allora:
+	Sia $f:]a_0,b_0[ \to \mathbb{R}$ continua. Sia inoltre $F:]a_0,b_0[ \to 
+    \mathbb{R}$ la primitiva di $f$ su $]a_0,b_0[$, allora:
 	\begin{equation*}
-		\forall [a,b] \subseteq ]a_0,b_0[ \quad \int_a^b f(x) \diff x = F(b) - F(a) = [F(x)]_a^b = F(x) |_{x=a}^{x=b} %Da fare meglio il simbolo
+		\forall [a,b] \subseteq ]a_0,b_0[ \quad \int_a^b f(x) \diff x = F(b) - 
+        F(a) = [F(x)]_a^b = F(x) |_{x=a}^{x=b} %Da fare meglio il simbolo
 	\end{equation*}
 }
 Esempio: $f(x) = x^2$ e $F(x) = \dfrac{x^3}{3}$ è primitiva di $f$.
 \begin{equation*}
-	\int_2^3 x^2 \diff x = \left[\dfrac{x^3}{3}\right]_{x=2}^{x = 3} = \dfrac{3^3}{3} - \dfrac{2^3}{3} = \dfrac{19}{3}
+	\int_2^3 x^2 \diff x = \left[\dfrac{x^3}{3}\right]_{x=2}^{x = 3} = 
+    \dfrac{3^3}{3} - \dfrac{2^3}{3} = \dfrac{19}{3}
 \end{equation*}
 
 \pf{
-	Vogliamo dimostrare il teorema appena enunciato. Prendiamo una funzione $f:]a_0,b_0[ \to \mathbb{R}$ continua. Assumiamo inoltre che $F:]a_0,b_0[ \to \mathbb{R}$ sia la primitiva di $f$ su $]a_0,b_0[$. Prendiamo ora un punto $c \in ]a_0, b_0[$. La funzione integrale di $f$ con punto base $c$ è definita come segue:
+	Vogliamo dimostrare il teorema appena enunciato. Prendiamo una funzione 
+    $f:]a_0,b_0[ \to \mathbb{R}$ continua. Assumiamo inoltre che $F:]a_0,b_0[ 
+    \to \mathbb{R}$ sia la primitiva di $f$ su $]a_0,b_0[$. Prendiamo ora un 
+    punto $c \in ]a_0, b_0[$. La funzione integrale di $f$ con punto base $c$ 
+    è definita come segue:
 	\begin{equation*}
 		I_c(x) = \int_c^x f(t) \diff t \qquad \forall x \in ]a_0, b_0[
 	\end{equation*}
-	Per il "secondo"\footnote{Generalmente nei libri è indicato come secondo, ma il prof lo ha fatto per primo quindi è il primo teorema che si trova in questa sezione.} teorema del calcolo integrale vale che:
+	Per il "secondo"\footnote{Generalmente nei libri è indicato come secondo, 
+    ma il prof lo ha fatto per primo quindi è il primo teorema che si trova in 
+    questa sezione.} teorema del calcolo integrale vale che:
 	\begin{equation*}
 		I_c'(x) = f(x) \qquad \forall x \in ]a_0, b_0[
 	\end{equation*}
-	Abbiamo quindi due primitive di $f$ in $]a_0, b_0[$: la prima è $F$ per ipotesi e la seconda è $I_c$ per quanto appena dimostrato. Per il teorema di caratterizzazione delle derivate (Sezione: \ref{theorem_caratterizzazionePrimitive}):
+	Abbiamo quindi due primitive di $f$ in $]a_0, b_0[$: la prima è $F$ per 
+ipotesi e la seconda è $I_c$ per quanto appena dimostrato. Per il teorema di 
+caratterizzazione delle derivate (Sezione: 
+\ref{theorem_caratterizzazionePrimitive}):
 \begin{equation*}
 	\exists k \in \mathbb{R}: F(x) = I_c(x) + k \qquad \forall x \in ]a_0,b_0[
 \end{equation*}
 Ricordiamoci che vogliamo dimostrare che $\forall [a,b] \subseteq ]a_0,b_0[$ :
 	\begin{align*}
-		\int_a^b f(x) \diff x &= F(b) - F(a) = I_c(b) + k - I_c(a) - k = I_c(b) - I_c(a) = \\[5pt]
-		&= \int_c^b f(t) \diff t - \int_c^a f(t) \diff t = \int_c^b f(t) \diff t + \int_a^c f(t) \diff t = \int_a^b f(t) \diff t
+		\int_a^b f(x) \diff x &= F(b) - F(a) = I_c(b) + k - I_c(a) - k = I_c(b) 
+        - I_c(a) = \\[5pt]
+		&= \int_c^b f(t) \diff t - \int_c^a f(t) \diff t = \int_c^b f(t) 
+        \diff t + \int_a^c f(t) \diff t = \int_a^b f(t) \diff t
 	\end{align*}
-	Ed essendo la variabile interna all'integrale una varibile muta (cioè è indifferente come la chiamiamo). 
+	Ed essendo la variabile interna all'integrale una varibile muta (cioè è 
+    indifferente come la chiamiamo). 
 	\hfill Qed.
 }
 
 Generalizziamo ora il teorema fondamentale del calcolo integrarle:
 \thm{
-	Siano $A, I \subseteq \mathbb{R}$ intervalli aperti. Sia inoltre $f: A \to \mathbb{R}$ continua e $h: I \to A$ derivabile con derivata continua. Se $c \in A$ allora:
+	Siano $A, I \subseteq \mathbb{R}$ intervalli aperti. Sia inoltre $f: A \to 
+    \mathbb{R}$ continua e $h: I \to A$ derivabile con derivata continua. Se $c 
+    \in A$ allora:
 	\begin{equation*}
 		\odv{}{x} \int_c^{h(x)} f(t) \diff t = f(h(x)) \cdot h'(x)
 	\end{equation*}
@@ -573,7 +690,8 @@ Esempio:
 \end{equation*}
 
 \pf{
-	Dimostraimo il teorema fondamentale del calcolo generalizzato. Chiamiamo in particolare:
+	Dimostraimo il teorema fondamentale del calcolo generalizzato. Chiamiamo 
+    in particolare:
 	\begin{equation*}
 		G(x) = \int_c^{h(x)} f(t) \diff t
 	\end{equation*}
@@ -598,19 +716,27 @@ Esempio:
 }
 
 \subsection{Tabella primitive elementari}
-Di seguito riporto la tabella delle derivate al contrario, che serve appunto per calcolare gli integrali immediati. Gli integrali sono riportati volutamente senza estremi. Non è inoltre riportata la costante $C$ che si mette per gli integrale indefiniti in quanto non mi interessa indicare l'infinità delle primitive, ma soltanto una di esse (in quanto caso con $C = 0$).
+Di seguito riporto la tabella delle derivate al contrario, che serve appunto 
+per calcolare gli integrali immediati. Gli integrali sono riportati volutamente 
+senza estremi. Non è inoltre riportata la costante $C$ che si mette per gli 
+integrale indefiniti in quanto non mi interessa indicare l'infinità delle 
+primitive, ma soltanto una di esse (in quanto caso con $C = 0$).
 \imp{
 \begin{multicols}{2}
 	\begin{enumerate}
-		\item $\displaystyle \int x^n \diff x = \dfrac{x^{n+1}}{n+1}$ con $n \in \mathbb{R}\setminus\{-1\}$. Se per caso $n < 0$ bisogna controllare che $x \neq 0$.
+		\item $\displaystyle \int x^n \diff x = \dfrac{x^{n+1}}{n+1}$ con $n 
+            \in \mathbb{R}\setminus\{-1\}$. Se per caso $n < 0$ bisogna 
+            controllare che $x \neq 0$.
 
 		\item $\displaystyle \int \dfrac{1}{x} \diff x = \ln{|x|}$
 		\item $\displaystyle \int e^x \diff x = e^x$
 		\item $\displaystyle \int \sin{x} \diff x = -\cos{x}$
 		\item $\displaystyle \int \cos{x} \diff x = \sin{x}$
-		\item $\displaystyle \int \dfrac{1}{\cos^2(x)} \diff x = \displaystyle \int 1 + \tan^2 (x) \diff x = \tan{x}$
+		\item $\displaystyle \int \dfrac{1}{\cos^2(x)} \diff x = \displaystyle 
+            \int 1 + \tan^2 (x) \diff x = \tan{x}$
 		\item $\displaystyle \int \dfrac{1}{\sqrt{1-x^2}} \diff x = \arcsin{x}$
-		\item $\displaystyle \int -\dfrac{1}{\sqrt{1-x^2}} \diff x = \arccos{x}$
+		\item $\displaystyle \int -\dfrac{1}{\sqrt{1-x^2}} \diff x = 
+            \arccos{x}$
 		\item $\displaystyle \int \dfrac{1}{1+x^2} \diff x = \arctan{x}$
 	\end{enumerate}
 \end{multicols}
@@ -618,79 +744,129 @@ Di seguito riporto la tabella delle derivate al contrario, che serve appunto per
 
 \subsection{Tecniche di integrazione}
 \subsubsection{Integrazione per parti}
-Consideriamo due funzioni $F, g:[a,b] \to \mathbb{R}$ dove $g$ è continua, $g'$ continua, $F$ è derivabile, $F'(x) = f(x) \;\forall x \in [a,b]$, $f$ continua. Dalla regola di derivazione del prodotto di due funzioni ci ricordiamo che:
+Consideriamo due funzioni $F, g:[a,b] \to \mathbb{R}$ dove $g$ è continua, $g'$ 
+continua, $F$ è derivabile, $F'(x) = f(x) \;\forall x \in [a,b]$, $f$ continua. 
+Dalla regola di derivazione del prodotto di due funzioni ci ricordiamo che:
 \begin{equation*}
 	\odv{}{x} \left[F(x) \cdot g(x)\right] = f(x)g(x) + F(x)g'(x)
 \end{equation*}
 Vogliamo ora calcolare il seguente integrale:
 \begin{equation*}
-	\int_a^b \odv{}{x} \left[F(x) \cdot g(x)\right] \diff x = \int_a^b [f(x)g(x) + F(x)g'(x)] \diff x
+	\int_a^b \odv{}{x} \left[F(x) \cdot g(x)\right] \diff x = \int_a^b 
+    [f(x)g(x) + F(x)g'(x)] \diff x
 \end{equation*}
-Usando il teorema fondamentale del calcolo integrale e spezzando l'integrale di destra:
+Usando il teorema fondamentale del calcolo integrale e spezzando l'integrale 
+di destra:
 \begin{equation*}
-	\left[F(x) \cdot g(x)\right]_a^b = \int_a^b f(x)g(x) \diff x + \int_a^b F(x)g'(x) \diff x
+	\left[F(x) \cdot g(x)\right]_a^b = \int_a^b f(x)g(x) \diff x + \int_a^b 
+    F(x)g'(x) \diff x
 \end{equation*}
 Ne consegue quindi che:
 \imp{
 \begin{equation*}
-	\int_a^b f(x)g(x) \diff x = \left[F(x) \cdot g(x)\right]_a^b - \int_a^b F(x)g'(x) \diff x
+	\int_a^b f(x)g(x) \diff x = \left[F(x) \cdot g(x)\right]_a^b - \int_a^b 
+    F(x)g'(x) \diff x
 \end{equation*}
 }
 
-Questa formula ci permette quindi di semplificare alcuni tipi di integrali del prodotto di funzioni. Se infatti per una di esse riusciamo a trovare una primitiva, allora possiamo riscrivere il nostro integrale usando quella primitiva e la derivata dell'altra funzione. È importante notare che abbiamo due funzioni e di una di esse dobbiamo trovare una primitiva, mentre per l'altra la sua derivata. La scelta è generalmente arbitraria su quale derivare e quale invece riscrivere come primitiva, ma di solito solo uno modo porta alla soluzione. Non ci sono particolari consigli da dare in questo caso se non fare molti esercizi.\\
+Questa formula ci permette quindi di semplificare alcuni tipi di integrali del 
+prodotto di funzioni. Se infatti per una di esse riusciamo a trovare una 
+primitiva, allora possiamo riscrivere il nostro integrale usando quella 
+primitiva e la derivata dell'altra funzione. È importante notare che abbiamo 
+due funzioni e di una di esse dobbiamo trovare una primitiva, mentre per 
+l'altra la sua derivata. La scelta è generalmente arbitraria su quale derivare 
+e quale invece riscrivere come primitiva, ma di solito solo uno modo porta 
+alla soluzione. Non ci sono particolari consigli da dare in questo caso se 
+non fare molti esercizi.\\
 
-Un classico esempio che si porta di solito per far vedere l'utilità di questa formula (o in generale tecnica) è il calcolo del seguente integrale:
+Un classico esempio che si porta di solito per far vedere l'utilità di questa 
+formula (o in generale tecnica) è il calcolo del seguente integrale:
 \begin{equation*}
 	\int_a^b e^x \cdot x\diff x
 \end{equation*}
-In questo caso scegliamo di derivare $x$ e di trovare una primitiva di $e^x$. È facile notare che la primitiva di quest'ultima è la funzione stessa $e^x$. Possiamo quindi riscrivere il nostro integrale nel seguente modo:
+In questo caso scegliamo di derivare $x$ e di trovare una primitiva di $e^x$. 
+È facile notare che la primitiva di quest'ultima è la funzione stessa $e^x$. 
+Possiamo quindi riscrivere il nostro integrale nel seguente modo:
 \begin{equation*}
-	\int_a^b e^x \cdot x \diff x = [e^x \cdot x]_a^b - \int_a^b e^x \cdot 1 \diff x = [e^x \cdot x]_a^b - [e^x]_a^b
+	\int_a^b e^x \cdot x \diff x = [e^x \cdot x]_a^b - \int_a^b e^x \cdot 1 
+    \diff x = [e^x \cdot x]_a^b - [e^x]_a^b
 \end{equation*}
-Notiamo che se avessimo fatto la scelta inversa, cioè di derivare $e^x$ e di trovare una primitiva di $x$ l'integrale si sarebbe complicato e non saremmo riusciti a risolverlo:
+Notiamo che se avessimo fatto la scelta inversa, cioè di derivare $e^x$ e di 
+trovare una primitiva di $x$ l'integrale si sarebbe complicato e non saremmo 
+riusciti a risolverlo:
 \begin{equation*}
-	\int_a^b e^x \cdot x\diff x = \left[e^x \cdot \dfrac{x^2}{2}\right]_a^b - \int_a^b e^x \cdot \dfrac{x^2}{2} \diff x
+	\int_a^b e^x \cdot x\diff x = \left[e^x \cdot \dfrac{x^2}{2}\right]_a^b - 
+    \int_a^b e^x \cdot \dfrac{x^2}{2} \diff x
 \end{equation*}
-Alcuni integrali possono richiedere \textbf{un'applicazione ripetuta} della formula di integrazione per parti. Un esempio è il seguente\footnote{Non ripoterò gli estremi di integrazione ma farò solo l'integrale indefinito per semplicità. In pratica mi riduco solo a trovare le primitive della funzione. Nel caso in cui si voglia trovare l'integrale della funzione tra due estremi basta prendere una delle primitive finali trovate e fare la classica formula data nel teorema fondamentale del calcolo integrale.}:
+Alcuni integrali possono richiedere \textbf{un'applicazione ripetuta} della 
+formula di integrazione per parti. Un esempio è il seguente\footnote{Non 
+ripoterò gli estremi di integrazione ma farò solo l'integrale indefinito per 
+semplicità. In pratica mi riduco solo a trovare le primitive della funzione. 
+Nel caso in cui si voglia trovare l'integrale della funzione tra due estremi 
+basta prendere una delle primitive finali trovate e fare la classica formula 
+data nel teorema fondamentale del calcolo integrale.}:
 \begin{align*}
-	\int x^2 \cdot e^x \diff x &= e^x \cdot x^2 - \int e^x \cdot 2 x \diff x = e^x \cdot x^2 - 2 \int e^x \cdot x \diff x = \\
-	&= e^x \cdot x^2 - 2 \left(e^x \cdot x - \int e^x \diff x \right) = e^x \cdot x^2 - 2 (e^x \cdot x - e^x) + C
+	\int x^2 \cdot e^x \diff x &= e^x \cdot x^2 - \int e^x \cdot 2 x \diff 
+    x = e^x \cdot x^2 - 2 \int e^x \cdot x \diff x = \\
+	&= e^x \cdot x^2 - 2 \left(e^x \cdot x - \int e^x \diff x \right) 
+    = e^x \cdot x^2 - 2 (e^x \cdot x - e^x) + C
 \end{align*}
 
-Come è facile notare questo tipo di integrali hanno in comune le così dette \textbf{funzioni circolari}, cioè quelle che hanno come derivata o se stesse oppure una funzione molto simile (tipo $\sin$ e $\cos$). Infatti il seguente integrale si calcola sempre con la formula appena introdotta:
+Come è facile notare questo tipo di integrali hanno in comune le così dette 
+\textbf{funzioni circolari}, cioè quelle che hanno come derivata o se stesse 
+oppure una funzione molto simile (tipo $\sin$ e $\cos$). Infatti il seguente 
+integrale si calcola sempre con la formula appena introdotta:
 
 \begin{align*}
-	\int x \sin(x) \diff x &= -\cos(x) \cdot x - \int -\cos(x) \diff x = -\cos(x) \cdot x + \sin(x) + C
+	\int x \sin(x) \diff x &= -\cos(x) \cdot x - \int -\cos(x) \diff x = 
+    -\cos(x) \cdot x + \sin(x) + C
 \end{align*}
 
-Un altro tipo particolare di integrali che si fa con questa tecnica sono i seguenti:
+Un altro tipo particolare di integrali che si fa con questa tecnica sono i 
+seguenti:
 \begin{equation*}
 	\int \ln(x) \diff x
 \end{equation*}
-In particolare possiamo osservare che apparentemente non ci sono due funzioni, quindi sembrerebbe che la formula non si possa applicare. In realtà possiamo riscrivere l'integrale come segue:
+In particolare possiamo osservare che apparentemente non ci sono due funzioni, 
+quindi sembrerebbe che la formula non si possa applicare. In realtà possiamo 
+riscrivere l'integrale come segue:
 \begin{equation*}
 	\int 1 \cdot \ln(x) \diff x
 \end{equation*}
-In questo caso la funzione che dobbiamo integrare $f(x) = 1$, cioè la funzione costante. Una delle sue primitive è $x$, qindi possiamo applicare la formula di integrazione per parti:
+In questo caso la funzione che dobbiamo integrare $f(x) = 1$, cioè la funzione 
+costante. Una delle sue primitive è $x$, qindi possiamo applicare la formula 
+di integrazione per parti:
 \begin{equation*}
-	\int 1 \cdot \ln(x) \diff x = x \cdot \ln(x) - \int x \cdot \dfrac{1}{x} \diff x = x \cdot \ln(x) - \int 1 \diff x = x \ln(x) - x + C
+	\int 1 \cdot \ln(x) \diff x = x \cdot \ln(x) - \int x \cdot \dfrac{1}{x} 
+    \diff x = x \cdot \ln(x) - \int 1 \diff x = x \ln(x) - x + C
 \end{equation*}
 Un ulteriore intgrale che si fa con la stessa tecnica è il seguente:
 \begin{align*}
-	\int \arctan(x) \diff x &= x \cdot \arctan x - \int x \cdot \dfrac{1}{1 + x^2} \diff x = x \cdot \arctan(x) - \dfrac{1}{2} \int \dfrac{2x}{1+x^2} \diff x = \\
+	\int \arctan(x) \diff x &= x \cdot \arctan x - \int x \cdot 
+    \dfrac{1}{1 + x^2} \diff x = x \cdot \arctan(x) - \dfrac{1}{2} \int 
+    \dfrac{2x}{1+x^2} \diff x = \\
 	&= x \arctan(x) - \dfrac{1}{2} \ln(1 + x^2) + C
 \end{align*}
 
-Esistono anche integrali che sono il prodotto di due funzioni circolari, ad esempio:
+Esistono anche integrali che sono il prodotto di due funzioni circolari, 
+ad esempio:
 \begin{equation*}
 	\int e^x \cdot sin(x) \diff x
 \end{equation*}
-In questo caso si nota che se si prova ad applicare la formula di intgrazione per parti vista sopra si entra in un "loop". Per risolvere questo tipo di integrali bisogna applicarla due volte e fare qualche manipolazione algebrica. In questi casi è indifferente la scelta della funzione da derivare e quella da integrare:
+In questo caso si nota che se si prova ad applicare la formula di intgrazione 
+per parti vista sopra si entra in un "loop". Per risolvere questo tipo di 
+integrali bisogna applicarla due volte e fare qualche manipolazione algebrica. 
+In questi casi è indifferente la scelta della funzione da derivare e quella 
+da integrare:
 \begin{align*}
-	\int e^x \cdot \sin(x) \diff x &= e^x \cdot \sin(x) - \int e^x \cos(x) \diff x = e^x \cdot \sin(x) - \left(e^x \cdot \cos(x) - \int e^x \cdot -\sin(x) \diff x\right) = \\
+	\int e^x \cdot \sin(x) \diff x &= e^x \cdot \sin(x) - \int e^x \cos(x) 
+    \diff x = e^x \cdot \sin(x) - \left(e^x \cdot \cos(x) - \int e^x \cdot 
+    -\sin(x) \diff x\right) = \\
 	&= e^x \cdot \sin(x) - e^x \cdot \cos(x) - \int e^x \cdot \sin(x) \diff x
 \end{align*}
-Notiamo ora che $\int e^x \sin(x) \diff x$ compare da entrambe le parti dell'uguaglianza, quindi per comodità chiamiamo il nostro integrale $I$ e riscriviamo:
+Notiamo ora che $\int e^x \sin(x) \diff x$ compare da entrambe le parti 
+dell'uguaglianza, quindi per comodità chiamiamo il nostro integrale $I$ e 
+riscriviamo:
 \begin{equation*}
 	I = e^x \cdot \sin(x) - e^x \cdot \cos(x) - I
 \end{equation*}
@@ -698,13 +874,17 @@ Risolvendo per $I$:
 \begin{equation*}
 	I = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) + C
 \end{equation*}
-In questo caso bisogna aggiungere $+ C$ in quanto stiamo sempre trattando con tutte le primitive della funzione. Però possiamo finalmente concludere che:
+In questo caso bisogna aggiungere $+ C$ in quanto stiamo sempre trattando con 
+tutte le primitive della funzione. Però possiamo finalmente concludere che:
 \begin{equation*}
 	\int e^x \cdot \sin(x) \diff x = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) + C
 \end{equation*}
 
 \subsubsection{Integrazione per sostituzione}
-Gli integrali per sostituzione ci permettono di sotituire delle funzioni all'interno dell'integrale con delle funzioni "più semplici", in generale per semplificare notevolmente i calcoli. Per sempio se abbiamo il seguente integrale:
+Gli integrali per sostituzione ci permettono di sotituire delle funzioni 
+all'interno dell'integrale con delle funzioni "più semplici", in generale per 
+semplificare notevolmente i calcoli. Per sempio se abbiamo il seguente 
+integrale:
 \begin{equation*}
 	\int \dfrac{\sin(x)}{\cos(x)} \diff x
 \end{equation*}
@@ -712,12 +892,17 @@ Possiamo fare una sostituzione tipo $t = \cos(x)$ e l'integrale diventa:
 \begin{equation*}
 	\int \dfrac{-1}{t} \diff t = -\ln (t) + C = -\ln(\cos(x)) + C
 \end{equation*}
-Non importa capire adesso come ha fatto la funzione $\sin(x)$ ha sparire completamente, ma piuttosto apprezzare la semplificazione dei calcoli data dalla sostituzione.
+Non importa capire adesso come ha fatto la funzione $\sin(x)$ ha sparire 
+completamente, ma piuttosto apprezzare la semplificazione dei calcoli data 
+dalla sostituzione.
 
 \thm{
-	\textbf{Teorema del cambio di variabile}: Siano $I, A \subseteq \mathbb{R}$ intervalli aperti. Data $h: I \to A$ continua e con derivata continua e $f: A \to \mathbb{R}$ continua, vale che:
+	\textbf{Teorema del cambio di variabile}: Siano $I, A \subseteq \mathbb{R}$ 
+    intervalli aperti. Data $h: I \to A$ continua e con derivata continua e $f: 
+    A \to \mathbb{R}$ continua, vale che:
 	\begin{equation*}
-		\forall \alpha, \beta \in I \quad \int_{h(\alpha)}^{h(\beta)} f(x) \diff x = \int_\alpha^\beta f(h(t)) \cdot h'(t) \diff t
+		\forall \alpha, \beta \in I \quad \int_{h(\alpha)}^{h(\beta)} f(x) 
+        \diff x = \int_\alpha^\beta f(h(t)) \cdot h'(t) \diff t
 	\end{equation*}
 }
 \pf{
@@ -729,7 +914,12 @@ Non importa capire adesso come ha fatto la funzione $\sin(x)$ ha sparire complet
 	\begin{equation*}
 		G(z) = \int_\alpha^z f(h(t)) \cdot h'(t) \diff t
 	\end{equation*}
-	Vogliamo quindi provare che sono la stessa funzione. Per il teorema di Lagrange abiamo che se due funzione hanno la stessa derivata allora differiscono per una costante. Se riusciamo a provare che hanno la stessa derivata e che la costante che le differenzia è 0 allora sono la stessa funzione\footnote{Sarebbe da chiedere meglio al prof perché non lo ha specificato nella prova ed è una mia supposizione che funzioni così.}. 
+	Vogliamo quindi provare che sono la stessa funzione. Per il teorema di 
+    Lagrange abiamo che se due funzione hanno la stessa derivata allora 
+    differiscono per una costante. Se riusciamo a provare che hanno la stessa 
+    derivata e che la costante che le differenzia è 0 allora sono la stessa 
+    funzione\footnote{Sarebbe da chiedere meglio al prof perché non lo ha 
+    specificato nella prova ed è una mia supposizione che funzioni così.}. 
 
 	Dimostriamo che hanno la stessa derivata, cioè:
 	\begin{equation*}
@@ -739,11 +929,15 @@ Non importa capire adesso come ha fatto la funzione $\sin(x)$ ha sparire complet
 	\begin{equation*}
 		f(h(z)) \cdot h'(z) = f(h(z)) \cdot h'(z)
 	\end{equation*}
-	Dimostriamo ora che la costante per cui differiscono è 0. In particolare scelto un punto a caso la loro differenza deve essere 0. Scegliamo per comodità il punto $z = \alpha$:
+	Dimostriamo ora che la costante per cui differiscono è 0. In particolare 
+    scelto un punto a caso la loro differenza deve essere 0. Scegliamo per 
+    comodità il punto $z = \alpha$:
 	\begin{equation*}
-		F(\alpha) - G(\alpha) = \int_{h(\alpha)}^{h(\alpha)} \cdots - \int_{\alpha}^{\alpha} \cdots = 0 - 0 = 0
+		F(\alpha) - G(\alpha) = \int_{h(\alpha)}^{h(\alpha)} \cdots - 
+        \int_{\alpha}^{\alpha} \cdots = 0 - 0 = 0
 	\end{equation*}
-	Non ho riportato il contenuto degli integrali volutamente perché non era necessario per far vedere che erano entrambi 0. 
+	Non ho riportato il contenuto degli integrali volutamente perché non era 
+    necessario per far vedere che erano entrambi 0. 
 
 	\hfill Qed.
 }
@@ -753,46 +947,71 @@ Facciamo degli esempi:
 \end{equation*}
 Scegliamo $t = \sqrt{x}$, quindi $x = t^2$ e quindi $\diff x = 2t \diff t$: 
 \begin{align*}
-	\int_{\sqrt{3}}^{\sqrt{5}} e^t \cdot 2t \diff t &= 2\left( [e^t \cdot t]_{\sqrt{3}}^{\sqrt{5}} \;- \int_{\sqrt{3}}^{\sqrt{5}} e^t \diff t\right) = 2 \cdot [e^t (t - 1)]_{\sqrt{3}}^{\sqrt{5}}
+	\int_{\sqrt{3}}^{\sqrt{5}} e^t \cdot 2t \diff t &= 2\left( 
+    [e^t \cdot t]_{\sqrt{3}}^{\sqrt{5}} \;- \int_{\sqrt{3}}^{\sqrt{5}} e^t 
+    \diff t\right) = 2 \cdot [e^t (t - 1)]_{\sqrt{3}}^{\sqrt{5}}
 \end{align*}
-Un altro esempio potrebbe essere (lo faccio indefinito per evitare di portarmi dietro gli estremi di integrazione per tutto il calcolo):
+Un altro esempio potrebbe essere (lo faccio indefinito per evitare di portarmi 
+dietro gli estremi di integrazione per tutto il calcolo):
 \begin{align*}
 	\int \sin(x^{\frac{1}{3}}) \diff x
 \end{align*}
-Facciamo la sostituzione $t = x^{\frac{1}{3}}$, quindi $x = t^3$ e quindi $\diff x = 3 t^2 \diff t$:
+Facciamo la sostituzione $t = x^{\frac{1}{3}}$, quindi $x = t^3$ e quindi 
+$\diff x = 3 t^2 \diff t$:
 \begin{align*}
-	\int \sin(x^{\frac{1}{3}}) \diff x &= \int \sin(t) \cdot 3t^2 \diff t = 3 \int t^2 \sin(t) \diff t = 3 \left(-\cos(t) \cdot t^2 + 2\int t \cdot \cos(t) \diff t \right) =\\
-	&= 3 \left(-\cos(t) \cdot t^2 + 2\left(t \cdot \sin(t) - \int \sin(t) \diff t \right)\right) =\\
-	&= 3 (-\cos(t) \cdot t^2 + 2(t \cdot \sin(t) + \cos (t) )) + C = 3 (-\cos(t) \cdot t^2 + 2t \cdot \sin(t) + 2\cos (t) ) + C=\\
-	&= -3\cos(t) \cdot t^2 + 6t \cdot \sin(t) + 6\cos (t) + C =  -3\cos(x^{\frac{1}{3}}) \cdot x^{\frac{2}{3}} + 6x^{\frac{1}{3}} \cdot \sin(x^\frac{1}{3}) + 6\cos (x^\frac{1}{3}) + C
+	\int \sin(x^{\frac{1}{3}}) \diff x &= \int \sin(t) \cdot 3t^2 \diff t = 3 
+    \int t^2 \sin(t) \diff t = 3 \left(-\cos(t) \cdot t^2 + 2\int t \cdot 
+    \cos(t) \diff t \right) =\\
+	&= 3 \left(-\cos(t) \cdot t^2 + 2\left(t \cdot \sin(t) - \int \sin(t) 
+    \diff t \right)\right) =\\
+	&= 3 (-\cos(t) \cdot t^2 + 2(t \cdot \sin(t) + \cos (t) )) + C = 3 
+    (-\cos(t) \cdot t^2 + 2t \cdot \sin(t) + 2\cos (t) ) + C=\\
+	&= -3\cos(t) \cdot t^2 + 6t \cdot \sin(t) + 6\cos (t) + C =  -3\cos(x^{
+        \frac{1}{3}}) \cdot x^{\frac{2}{3}} + 6x^{\frac{1}{3}} \cdot \sin(
+    x^\frac{1}{3}) + 6\cos (x^\frac{1}{3}) + C
 \end{align*}
 
-Un ulteriore esempio che può essere considerato "utile" è il calcolo dell'area del cerchio. In particolare, essendo la circonferenza unitaria definita dall'equazione $x^2 + y^2 = 1$, possiamo considerare solo la porzione nel primo quadrante del piano, che ha equazione $\sqrt{1-x^2}$ e successivamente moltiplicare per $4$ l'area ottenuta. In particolare dobbiamo calcolare:
+Un ulteriore esempio che può essere considerato "utile" è il calcolo dell'area 
+del cerchio. In particolare, essendo la circonferenza unitaria definita 
+dall'equazione $x^2 + y^2 = 1$, possiamo considerare solo la porzione nel primo 
+quadrante del piano, che ha equazione $\sqrt{1-x^2}$ e successivamente 
+moltiplicare per $4$ l'area ottenuta. In particolare dobbiamo calcolare:
 \begin{equation*}
 	4 \int_0^1 \sqrt{1-x^2} \diff x
 \end{equation*}
-In questo caso la sostituzione da fare è $x = \cos(t)$, quindi $\diff x = -\sin(t) \diff t$:
+In questo caso la sostituzione da fare è $x = \cos(t)$, quindi $\diff x = 
+-\sin(t) \diff t$:
 \begin{align*}
-	4 \int_0^1 \sqrt{1-x^2} \diff x &= 4 \int_{\arccos(0)}^{\arccos{1}} \sqrt{1-\cos^2(t)} \cdot - \sin(t) \diff t = \\[10pt]
-	&= -4 \int_{\frac{\pi}{2}}^0 \sin(t) \cdot \sin(t) \diff t = 4 \int_0^{\frac{\pi}{2}} \sin^2(t)\diff t = \\[10pt]
-	&= 4 \int_0^{\frac{\pi}{2}} \dfrac{1 - \cos(2t)}{2}\diff t = 2 \int_0^{\frac{\pi}{2}} 1 \diff t - 2 \int_0^{\frac{\pi}{2}} \cos(2t) \diff t = \\[10pt]
-	&= 2[t]_0^{\frac{\pi}{2}} - 2\left[\dfrac{1}{2} \sin(2t) \right]_0^{\frac{\pi}{2}} = 2 \left[\dfrac{\pi}{2} - 0\right] - [\sin(\pi) - \sin(0)] = \\[10pt]
+	4 \int_0^1 \sqrt{1-x^2} \diff x &= 4 \int_{\arccos(0)}^{\arccos{1}} 
+    \sqrt{1-\cos^2(t)} \cdot - \sin(t) \diff t = \\[10pt]
+	&= -4 \int_{\frac{\pi}{2}}^0 \sin(t) \cdot \sin(t) \diff t = 4 
+    \int_0^{\frac{\pi}{2}} \sin^2(t)\diff t = \\[10pt]
+	&= 4 \int_0^{\frac{\pi}{2}} \dfrac{1 - \cos(2t)}{2}\diff t = 2 
+    \int_0^{\frac{\pi}{2}} 1 \diff t - 2 \int_0^{\frac{\pi}{2}} \cos(2t) 
+    \diff t = \\[10pt]
+	&= 2[t]_0^{\frac{\pi}{2}} - 2\left[\dfrac{1}{2} \sin(2t) \right]_0^{
+        \frac{\pi}{2}} = 2 \left[\dfrac{\pi}{2} - 0\right] - [\sin(\pi) - 
+    \sin(0)] = \\[10pt]
 	&= \pi - 0 = \pi
 \end{align*}
 
 
 \subsubsection{Integrali di fratte}
-Il prof non li ha fatti molto e ha detto al tutor di coprirli. Per completezza mi sento in dovere di scrivere comunque qualcosa al riguardo. DA FARE :) %%DA FARE 
+Il prof non li ha fatti molto e ha detto al tutor di coprirli. Per completezza 
+mi sento in dovere di scrivere comunque qualcosa al riguardo. DA FARE :) %%DA FARE 
 
 \subsection{Integrali su intervalli non limitati (integrali generalizzati)}
 
 \dfn{
-	Data $f:[a, +\infty[ \to \mathbb{R}$ continua, si dice che $f$ è integrabile su $[a, +\infty[$ se esiste \textbf{finito}: 
+	Data $f:[a, +\infty[ \to \mathbb{R}$ continua, si dice che $f$ è 
+    integrabile su $[a, +\infty[$ se esiste \textbf{finito}: 
 	\begin{equation*}
-		\lim_{z \to +\infty} \int_a^z f(x) \diff x = \vcentcolon \int_a^{+\infty} f(x) \diff x
+		\lim_{z \to +\infty} \int_a^z f(x) \diff x = \vcentcolon 
+        \int_a^{+\infty} f(x) \diff x
 	\end{equation*}
 }
-Il limite infatti può divergere o anche non esistere. È però richiesto che se la funzione è integrabile in quell'intervallo allora il limite è finito.
+Il limite infatti può divergere o anche non esistere. È però richiesto che 
+se la funzione è integrabile in quell'intervallo allora il limite è finito.
 
 Esempio:
 \begin{equation*}
@@ -800,11 +1019,14 @@ Esempio:
 \end{equation*}
 Diventa quindi che:
 \begin{equation*}
-	\int_1^{+\infty} \dfrac{1}{x^2} \diff x = \lim_{z \to +\infty} \left[-\dfrac{1}{x}\right]_1^z = \lim_{z \to +\infty} \left[-\dfrac{1}{z} + \dfrac{1}{1}\right] = -0 + 1 = 1
+	\int_1^{+\infty} \dfrac{1}{x^2} \diff x = \lim_{z \to +\infty} \left[
+        -\dfrac{1}{x}\right]_1^z = \lim_{z \to +\infty} \left[-\dfrac{1}{z} + 
+    \dfrac{1}{1}\right] = -0 + 1 = 1
 \end{equation*}
 Un altro esempio:
 \begin{equation*}
-	\int_1^{+\infty} \dfrac{1}{x} \diff x = \lim_{z \to +\infty} [\ln|x|]_1^z = \lim_{z \to +\infty} [\ln|z| - 0] = +\infty
+	\int_1^{+\infty} \dfrac{1}{x} \diff x = \lim_{z \to +\infty} [\ln|x|]_1^z 
+    = \lim_{z \to +\infty} [\ln|z| - 0] = +\infty
 \end{equation*}
 In questo caso il limite non converge. In generale:
 \begin{equation*}
@@ -814,9 +1036,12 @@ In questo caso il limite non converge. In generale:
 		\text{diverge} &\text{ se } p \leq 1 \\
 	\end{cases}
 \end{equation*}
-Infatti per $p = 1$ lo abbiamo già dimostrato che diverge, mentre per $p \neq 1$:
+Infatti per $p = 1$ lo abbiamo già dimostrato che diverge, mentre per $p 
+\neq 1$:
 \begin{equation*}
-	\int_1^{+\infty} \dfrac{1}{x^p} = \lim_{z \to +\infty}\left[\dfrac{x^{-p+1}}{-p+1}\right]_1^z = \lim_{z \to +\infty} \dfrac{z^{1-p}}{1-p} - \dfrac{1}{1-p} = 
+	\int_1^{+\infty} \dfrac{1}{x^p} = \lim_{z \to +\infty}\left[\dfrac{
+        x^{-p+1}}{-p+1}\right]_1^z = \lim_{z \to +\infty} \dfrac{z^{1-p}}{1-p} 
+    - \dfrac{1}{1-p} = 
 	\begin{cases}
 		-\dfrac{1}{1-p} &\text{ se } p > 1\\[5pt]
 		+\infty &\text{ se } p < 1\\
@@ -824,26 +1049,31 @@ Infatti per $p = 1$ lo abbiamo già dimostrato che diverge, mentre per $p \neq 1
 \end{equation*}
 
 \dfn{
-	Data $f:]a,b] \to \mathbb{R}$ continua, si dice che $f$ è integrabile su $]a,b]$ se esiste \textbf{finito}:
+	Data $f:]a,b] \to \mathbb{R}$ continua, si dice che $f$ è integrabile su 
+    $]a,b]$ se esiste \textbf{finito}:
 	\begin{equation*}
 		\int_a^b f(x) \diff x = \lim_{z \to a^+} \int_z^b f(x) \diff x
 	\end{equation*}
 }
 Esempio:
 \begin{equation*}
-	\int_0^1 \dfrac{1}{\sqrt{x}} \diff x = \lim_{z \to 0} [2 \sqrt{x}]_z^1 = \lim_{z \to 0} [2 \sqrt{1} - 2 \sqrt{z}] = 2 
+	\int_0^1 \dfrac{1}{\sqrt{x}} \diff x = \lim_{z \to 0} [2 \sqrt{x}]_z^1 = 
+    \lim_{z \to 0} [2 \sqrt{1} - 2 \sqrt{z}] = 2 
 \end{equation*}
 Altro esepio:
 \begin{equation*}
-	\int_0^1 \dfrac{1}{x} = \lim_{z \to 0} [2 \ln(x)]_z^1 = \lim_{z \to 0} [2 \ln(1) - 2 \ln(z)] = +\infty
+	\int_0^1 \dfrac{1}{x} = \lim_{z \to 0} [2 \ln(x)]_z^1 = \lim_{z \to 0} 
+    [2 \ln(1) - 2 \ln(z)] = +\infty
 \end{equation*}
 
 
 \subsection{Altro}
-Il prof ha fatto le seguenti proposizioni, io le riporto per completezza ma mi sembra veramente inutile.\\
+Il prof ha fatto le seguenti proposizioni, io le riporto per completezza ma mi 
+sembra veramente inutile.\\
 \textbf{Proposizione:} Se $f$ è dispari e continua in $\mathbb{R}$:
 \begin{equation*}
-	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = - \int_{-b}^{-a} \diff x
+	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = - \int_{-b}^{-a} 
+    \diff x
 \end{equation*}
 \textbf{Dimostrazione:} 
 \begin{equation*}
@@ -851,9 +1081,11 @@ Il prof ha fatto le seguenti proposizioni, io le riporto per completezza ma mi s
 \end{equation*}
 Sostituiamo $t = -x$, cioè $x = -t$ e quindi $\diff x = - \diff t$. 
 \begin{align*}
-	\int_a^b f(x) \diff x = \int_{-a}^{-b} f(-t) \cdot -1 \diff t = - \int_{-a}^{-b} - f(t) \diff t = -\int^{-a}_{-b} f(t) \diff t
+	\int_a^b f(x) \diff x = \int_{-a}^{-b} f(-t) \cdot -1 \diff t = - 
+    \int_{-a}^{-b} - f(t) \diff t = -\int^{-a}_{-b} f(t) \diff t
 \end{align*}
 \textbf{Proposizione:} Se $f$ è pari:
 \begin{equation*}
-	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = \int_{-b}^{-a} \diff x
+	\forall a, b \in \mathbb{R} \quad \int_a^b f(x) \diff x = \int_{-b}^{-a} 
+    \diff x
 \end{equation*}
