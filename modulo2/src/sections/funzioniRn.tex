@@ -1,43 +1,61 @@
 \section{Funzioni in $\mathbb{R}^n$}
-Per definire le funzione abbiamo bisogni di definire gli intorni di un punto. In $\mathbb{R}^1$ abbiamo definito gli intorni sferici di un punto, mentre in $\mathbb{R}^n$ li definiamo come segue:
+Per definire le funzione abbiamo bisogni di definire gli intorni di un punto. 
+In $\mathbb{R}^1$ abbiamo definito gli intorni sferici di un punto, mentre in 
+$\mathbb{R}^n$ li definiamo come segue:
 \dfn{
-	Dato un \textbf{centro} $x \in \mathbb{R}^n$ e un \textbf{raggio} $r > 0$ poniamo 
+	Dato un \textbf{centro} $x \in \mathbb{R}^n$ e un \textbf{raggio} $r > 0$ 
+    poniamo 
 	\begin{equation*}
-		\mathcal{B}(x, r) = \{y \in \mathbb{R}^n \; | \; \lVert y - x \rVert < r\}
+		\mathcal{B}(x, r) = \{y \in \mathbb{R}^n \; | \; \lVert y - x 
+        \rVert < r\}
 	\end{equation*}
-	$\mathcal{B}$ si chiama \textbf{disco di centro $\mathbf{x}$ e raggio $\mathbf{r}$}
+	$\mathcal{B}$ si chiama \textbf{disco di centro $\mathbf{x}$ e raggio 
+    $\mathbf{r}$}
 }
-In pratica sarebbe l'insieme di punti che hanno distanza da $x$ minore o uguale a $r$. Se ci spostiamo un attimo in $\mathbb{R}^2$ e proviamo a prendere $x = (0, 0)$ e $r > 0$:
+In pratica sarebbe l'insieme di punti che hanno distanza da $x$ minore o uguale 
+a $r$. Se ci spostiamo un attimo in $\mathbb{R}^2$ e proviamo a prendere 
+$x = (0, 0)$ e $r > 0$:
 \begin{equation*}
-	\mathcal{B}((0, 0), r) = \{(x, y) \in \mathbb{R}^2 \; | \; \lVert (x, y) - \underline{0} \rVert < r\}
+	\mathcal{B}((0, 0), r) = \{(x, y) \in \mathbb{R}^2 \; | \; \lVert (x, y) - 
+    \underline{0} \rVert < r\}
 \end{equation*}
-Se si espande la definizione di norma si può notare che la condizione di appartenenza a questo insieme è:
+Se si espande la definizione di norma si può notare che la condizione di 
+appartenenza a questo insieme è:
 \begin{equation*}
 	\sqrt{x^2 + y^2} < r
 \end{equation*}
-Che corrisponde a tutti i punti contenuti in una circonferenza di raggio $r$ con centro nell'origine. Facendo invece lo stesso ragionamento ma con un punto $x = (x_0, y_0)$ generico si arriva alla condizione:
+Che corrisponde a tutti i punti contenuti in una circonferenza di raggio $r$ 
+con centro nell'origine. Facendo invece lo stesso ragionamento ma con un punto 
+$x = (x_0, y_0)$ generico si arriva alla condizione:
 \begin{equation*}
 	\sqrt{(x - x_0)^2 + (y - y_0)^2} < r
 \end{equation*}
-Dove anche questa volta l'equazione è una circonferenza di raggio $r$ ma con il centro spostato in $(x_0, y_0)$.
+Dove anche questa volta l'equazione è una circonferenza di raggio $r$ ma con 
+il centro spostato in $(x_0, y_0)$.
 
 \dfn{
-	Il \textbf{grafico} di $f: A \to \mathbb{R}^q$ con $A \subseteq \mathbb{R}^m$ è:
+	Il \textbf{grafico} di $f: A \to \mathbb{R}^q$ con $A \subseteq 
+    \mathbb{R}^m$ è:
 	\begin{equation*}
 		\text{Graf}(f) = \{(x, f(x)) \in A\times \mathbb{R}^q\}
 	\end{equation*}
 }
 
 \subsection{Funzioni scalari, affini, radiali e cilindriche}
-Esistono vari tipi di funzioni in $\mathbb{R}^n$. In particolare quelle che hanno codomino $\mathbb{R}^1$ sono dette \textbf{funzioni scalari} in quanto appunto restituiscono uno scalare. Più precisamente:
+Esistono vari tipi di funzioni in $\mathbb{R}^n$. In particolare quelle che 
+hanno codomino $\mathbb{R}^1$ sono dette \textbf{funzioni scalari} in quanto 
+appunto restituiscono uno scalare. Più precisamente:
 \dfn{
-	Una funzione scalare è del tipo $f: A \to \mathbb{R}$ dove $A \subseteq \mathbb{R}^n$.
+	Una funzione scalare è del tipo $f: A \to \mathbb{R}$ dove $A \subseteq 
+    \mathbb{R}^n$.
 }
-Esempio: $f: \mathbb{R}^2 \to \mathbb{R}$ dove $f(x, y) = x^2 + y^2 = \lVert (x, y) \rVert ^2$. Se riprendiamo la definizione di grafico risulta che:
+Esempio: $f: \mathbb{R}^2 \to \mathbb{R}$ dove $f(x, y) = x^2 + y^2 = \lVert 
+(x, y) \rVert ^2$. Se riprendiamo la definizione di grafico risulta che:
 \begin{equation*}
 	\text{Graf}(f) = \{(x, y, x^2 + y^2) \; | \; x, y \in \mathbb{R}^2\}
 \end{equation*}
-Si può notare che $(x, y, x^2 + y^2) \in \mathbb{R}^3$. Se lo intersechiamo con il piano $\pi = \{(0, y, z) \; | \; y, z \in \mathbb{R}\}$ il grafico diventa:
+Si può notare che $(x, y, x^2 + y^2) \in \mathbb{R}^3$. Se lo intersechiamo con 
+il piano $\pi = \{(0, y, z) \; | \; y, z \in \mathbb{R}\}$ il grafico diventa:
 \begin{equation*}
 	\text{Graf}(f) \medcap \pi = \{(0, y, y^2) \; | \; y \in \mathbb{R}^2\}
 \end{equation*}
@@ -49,13 +67,17 @@ Che corrisponde all'insieme descritto dalle equazioni:
 	\end{cases}
 \end{equation*}
 Che non è altro che una parabola. %(DA FARE IL GRAFICO)
-Se riscriviamo il nostro punto $(x, y)$ in coordinate polari e ricalcoliamo il valore della funzione:
+Se riscriviamo il nostro punto $(x, y)$ in coordinate polari e ricalcoliamo il 
+valore della funzione:
 \begin{equation*}
-	f(x, y) = f(r\cos{x}, r\sin{x}) = r^2\cos^2(x) + r^2\sin^2(x) = r^2(\cos^2(x) + \sin^2(x)) = r^2
+    f(x, y) = f(r\cos{x}, r\sin{x}) = r^2\cos^2(x) + r^2\sin^2(x) = r^2(
+    \cos^2(x) + \sin^2(x)) = r^2
 \end{equation*}
-Prendendo ora $\pi_\theta = \{(r\cos{\theta}, r\sin\theta, z) | r \geq 0, z \in \mathbb{R}\}$ e lo interseco con il grafico di $f$:
+Prendendo ora $\pi_\theta = \{(r\cos{\theta}, r\sin\theta, z) | r \geq 0, z \in 
+\mathbb{R}\}$ e lo interseco con il grafico di $f$:
 \begin{equation*}
-	\text{Graf}(f) \medcap \pi_\theta = \{(r\cos{\theta}, r\sin\theta, r^2) \; | \; r \geq 0\}
+	\text{Graf}(f) \medcap \pi_\theta = \{(r\cos{\theta}, r\sin\theta, r^2) \; 
+    | \; r \geq 0\}
 \end{equation*}
 %(aggiungere foto GRAFICO)
 
@@ -65,56 +87,90 @@ Un ulteriore esempio sono le \textbf{funzionni radiali}:
 	\begin{equation*}
 		f: \mathbb{R}^2 \to \mathbb{R} \quad f(x, y) = g(\lVert (x, y) \rVert)
 	\end{equation*}
-	Con $g$ funzione \textit{opportuna}\footnote{In questo caso con funzione opportuna si intende una funzione sufficientemente regolare. Non siamo andati troppo nei dettagli in questo caso quindi riporto quello detto dal prof.} definita in $g:[0, +\infty[ \to \mathbb{R}$
+	Con $g$ funzione \textit{opportuna}\footnote{In questo caso con funzione 
+    opportuna si intende una funzione sufficientemente regolare. Non siamo 
+    andati troppo nei dettagli in questo caso quindi riporto quello detto dal 
+    prof.} definita in $g:[0, +\infty[ \to \mathbb{R}$
 }
-Queste funzioni sono molto particolare perché il loro grafico è dato da rotazioni intorno all'asse $z$. Possiamo infatti considerare la funzione presa come esempio prima: 
+Queste funzioni sono molto particolare perché il loro grafico è dato da 
+rotazioni intorno all'asse $z$. Possiamo infatti considerare la funzione presa 
+come esempio prima: 
 \begin{equation*}
-	f(x, y) = x^2 + y^2 = g(\lVert (x, y) \rVert) \quad \text{con} \;\; g(r) = r^2
+	f(x, y) = x^2 + y^2 = g(\lVert (x, y) \rVert) \quad \text{con} \;\; g(r) = 
+    r^2
 \end{equation*}
-Il grafico come abbiamo visto è una rotazione intorno all'asse $z$ di una parabola. L'equazione della parabola infatti risiede proprio in $g(r) = r^2$. È infatti questo il grafico che "ruota".
+Il grafico come abbiamo visto è una rotazione intorno all'asse $z$ di una 
+parabola. L'equazione della parabola infatti risiede proprio in $g(r) = r^2$. 
+È infatti questo il grafico che "ruota".
 
 Se prendiamo un'altra funzione, tipo $g(r) = 1 -r$ e dove quindi:
 \begin{equation*}
-	f(x, y) = g(\lVert x, y \rVert) = 1 - \lVert x, y \rVert = 1 - \sqrt{x^2 + y^2}
+	f(x, y) = g(\lVert x, y \rVert) = 1 - \lVert x, y \rVert = 1 - \sqrt{x^2 + 
+    y^2}
 \end{equation*}
-Il grafico viso nella forma completa sembra complesso da disegnare, ma essendo questa una funzione radiale ci basta osservare la funzione $g$, disegnare il suo grafico e farlo ruotare intorno all'asse $z$. Il grafico risulta infatti un cono. %(FARE GRAFICO)
+Il grafico viso nella forma completa sembra complesso da disegnare, ma essendo 
+questa una funzione radiale ci basta osservare la funzione $g$, disegnare il 
+suo grafico e farlo ruotare intorno all'asse $z$. Il grafico risulta infatti un 
+cono. %(FARE GRAFICO)
 
 \dfn{
 	Si definisce \textbf{funzione affine} una funzione nella forma:
 	\begin{equation*}
-		f: \mathbb{R}^2 \to \mathbb{R} \qquad f(x, y) = ax + by + c \;\; \text{con}\;\; a, b, c \in \mathbb{R}
+		f: \mathbb{R}^2 \to \mathbb{R} \qquad f(x, y) = ax + by + c \;\; 
+        \text{con}\;\; a, b, c \in \mathbb{R}
 	\end{equation*}
 } 
 Il grafico di queste funzioni risulta essere un piano in $\mathbb{R}^3$:
 \begin{equation*}
 	\text{Graf}(f) = \{(x, y, ax + by + c) | (x, y) \in \mathbb{R}^2\}
 \end{equation*}
-Prendiamo come esempio la funzione $f(x, y) = -y$: se la intersechiamo con il piano $\pi = \{(0, y, z) \; | \; y, z \in \mathbb{R}\}$ otteniamo un grafico del tipo:
+Prendiamo come esempio la funzione $f(x, y) = -y$: se la intersechiamo con il 
+piano $\pi = \{(0, y, z) \; | \; y, z \in \mathbb{R}\}$ otteniamo un grafico 
+del tipo:
 \begin{equation*}
 	\text{Graf}(f) \medcap \pi = \{(0, y, -y) | y \in \mathbb{R}\}
 \end{equation*}
-Che risulta un sempilce $z = -y$. Essendo che non dipende da $x$ possiamo intersecare tale grafico con quealsisi piano in cui la coordinata $x$ abbia un valore fissato. Ne cosegue che il grafico completo si ottiene traslando lungo l'asse $x$ la retta $z = -y$. %(FARE GRAFICO)
+Che risulta un sempilce $z = -y$. Essendo che non dipende da $x$ possiamo 
+intersecare tale grafico con quealsisi piano in cui la coordinata $x$ abbia un 
+valore fissato. Ne cosegue che il grafico completo si ottiene traslando lungo 
+l'asse $x$ la retta $z = -y$. %(FARE GRAFICO)
 
 \dfn{
-	Si definisce \textbf{funzione cilindrica} una funzione in due variabili che dipende da solo una delle due:
+	Si definisce \textbf{funzione cilindrica} una funzione in due variabili che 
+    dipende da solo una delle due:
 	\begin{equation*}
 		f(x, y) = h(y) \qquad \text{oppure} \qquad f(x, y) = g(x)
 	\end{equation*}
 	Con $h$ e $g$ opportune.
 }
-Il grafico di queste funzioni si ottiene disegnando la funzione $z = h(y)$ (o nel caso $z = g(x)$) e successivamente traslando tale grafico sull'asse da cui non dipende la funzione. Per esempio la funzione presa prima in cosiderazione $f(x, y) = -y$ è una funzione cilindrica e si ottiene appunto tracciando la retta $z = -y$ e translado tale retta sull'asse $x$, cioè quello da cui non dipende la funzione. %(FARE GRAFICO)
+Il grafico di queste funzioni si ottiene disegnando la funzione $z = h(y)$ (o 
+nel caso $z = g(x)$) e successivamente traslando tale grafico sull'asse da cui 
+non dipende la funzione. Per esempio la funzione presa prima in cosiderazione 
+$f(x, y) = -y$ è una funzione cilindrica e si ottiene appunto tracciando la 
+retta $z = -y$ e translado tale retta sull'asse $x$, cioè quello da cui non 
+dipende la funzione. %(FARE GRAFICO)
 
-Il fatto di traslare sull'asse da cui non dipende la funzione è semplicemente dato dal fatto che in $\mathbb{R}^3$ una grafico del tipo $\text{Graf}(f) = \{(x, y, h(y)) \;|\; x, y \in \mathbb{R}\}$ non impone nessun vincolo sul paramentro $x$, ne consegue che vale per tutti i suoi valori. Non siamo infatti constretti a disegnare tale funzione in $x = 0$, ma possiamo disegnarla per un qualsiasi valore di $x$ e poi traslare tutto il grafico lungo l'asse.
+Il fatto di traslare sull'asse da cui non dipende la funzione è semplicemente 
+dato dal fatto che in $\mathbb{R}^3$ una grafico del tipo $\text{Graf}(f) = 
+\{(x, y, h(y)) \;|\; x, y \in \mathbb{R}\}$ non impone nessun vincolo sul 
+paramentro $x$, ne consegue che vale per tutti i suoi valori. Non siamo 
+infatti constretti a disegnare tale funzione in $x = 0$, ma possiamo 
+disegnarla per un qualsiasi valore di $x$ e poi traslare tutto il grafico 
+lungo l'asse.
 
 \subsection{Continuità funzioni scalari}
 \dfn{
-	Data una funzione $f: A \to \mathbb{R}$ con $A \subseteq \mathbb{R}^n$ e un punto $x_0 \in \mathbb{A}$, si dice che $f$ è \textbf{continua in $\mathbf{x_0}$} se:
+	Data una funzione $f: A \to \mathbb{R}$ con $A \subseteq \mathbb{R}^n$ e un 
+    punto $x_0 \in \mathbb{A}$, si dice che $f$ è \textbf{continua in 
+    $\mathbf{x_0}$} se:
 	\begin{equation*}
-		\forall (x_k)_{k \in \mathbb{N}} \subseteq A \quad (\text{cioè di punti in } A)
+		\forall (x_k)_{k \in \mathbb{N}} \subseteq A \quad (\text{cioè di punti 
+        in } A)
 	\end{equation*}
 	vale:
 	\begin{equation*}
-		x_k \xrightarrow[k \to +\infty]{} x_0 \implies f(x_k) \xrightarrow[k \to +\infty]{} f(x_0)
+		x_k \xrightarrow[k \to +\infty]{} x_0 \implies f(x_k) \xrightarrow[k 
+        \to +\infty]{} f(x_0)
 	\end{equation*}
 	Oppure equivalentemente: $f$ è continua in $x_0 \in A$ se: 
 	\begin{equation*}
@@ -141,21 +197,32 @@ Una funzione quindi del tipo
 
 \subsection{Insieme di livello}
 \dfn{
-	Dato $A \subseteq \mathbb{R}^n$, $f: A \to \mathbb{R}$ e $b \in \mathbb{R}$ si definisce \textbf{insieme di livello}:
+	Dato $A \subseteq \mathbb{R}^n$, $f: A \to \mathbb{R}$ e $b \in 
+    \mathbb{R}$ si definisce \textbf{insieme di livello}:
 	\begin{equation*}
 		L_b = \{x \in A \;|\; f(x) = b\} = f^{-1}(b)
 	\end{equation*}
-	$f^{-1}(b)$ è la \textit{controimmagine} di $b$. Si noti che la controimmagine non richiede che la funzione sia invertibile perché appunto è l'insime di tutti i punti che presi dalla funzione restituiscono $b$. Se la funzione fosse invertibile questo insieme sarebbe composto da un elemento, cosa che però non è richiesta.
+	$f^{-1}(b)$ è la \textit{controimmagine} di $b$. Si noti che la 
+    controimmagine non richiede che la funzione sia invertibile perché appunto 
+    è l'insime di tutti i punti che presi dalla funzione restituiscono $b$. Se 
+    la funzione fosse invertibile questo insieme sarebbe composto da un 
+    elemento, cosa che però non è richiesta.
 }
-Gli insiemi di livello vengono largamente usati nelle cartine geografiche in quanto rappresenta una linea lungo la quale l'altidudine rimane costante. 
+Gli insiemi di livello vengono largamente usati nelle cartine geografiche in 
+quanto rappresenta una linea lungo la quale l'altidudine rimane costante. 
 
-Facciamo un esempio in $\mathbb{R}^2$: Prendiamo la funzione $f: \mathbb{R}^2 \to \mathbb{R}$ definita come $f(x, y) = x^2 + y^2$. Proviamo a calcolare qualche insieme di livello:
+Facciamo un esempio in $\mathbb{R}^2$: Prendiamo la funzione $f: \mathbb{R}^2 
+\to \mathbb{R}$ definita come $f(x, y) = x^2 + y^2$. Proviamo a calcolare 
+qualche insieme di livello:
 \begin{enumerate}
-	\item Se prendiamo come numero $b < 0$ notiamo che l'insieme di livello risulta vuoto:
+	\item Se prendiamo come numero $b < 0$ notiamo che l'insieme di livello 
+        risulta vuoto:
 		\begin{equation*}
-			L_b = \{x \in \mathbb{R}^2 \;|\; x^2 + y^2 = b\} = \{x \in \mathbb{R}^2 \;|\; x^2 + y^2 < 0\} = \emptyset
+			L_b = \{x \in \mathbb{R}^2 \;|\; x^2 + y^2 = b\} = \{x \in 
+            \mathbb{R}^2 \;|\; x^2 + y^2 < 0\} = \emptyset
 		\end{equation*}
-		Questo perché non esiste nessun vettore in $\mathbb{R}^2$ che soddisfi l'equazione $x^2 + y^2 < 0$.
+		Questo perché non esiste nessun vettore in $\mathbb{R}^2$ che soddisfi 
+        l'equazione $x^2 + y^2 < 0$.
 	
 	\item Se prendiamo invece come numero $b = 0$ l'insieme di livello risulta:
 		\begin{equation*}
@@ -167,21 +234,28 @@ Facciamo un esempio in $\mathbb{R}^2$: Prendiamo la funzione $f: \mathbb{R}^2 \t
 		\begin{equation*}
 			L_b = \{x \in \mathbb{R}^2 \;|\; x^2 + y^2 = b\}
 		\end{equation*}
-		L'equazione $x^2 + y^2 = b$ descrive una circonferenza di raggio $\sqrt{b}$. Possiamo osservare la funzione $f$ "dall'alto" e notare che su queste circonferenze la funzione è costante. È come se tagliassimo con un piano parallelo al piao $z = 0$ la funzione. %(FARE GRAFICO)
+		L'equazione $x^2 + y^2 = b$ descrive una circonferenza di raggio 
+        $\sqrt{b}$. Possiamo osservare la funzione $f$ "dall'alto" e notare che 
+        su queste circonferenze la funzione è costante. È come se tagliassimo 
+        con un piano parallelo al piao $z = 0$ la funzione. %(FARE GRAFICO)
 \end{enumerate}
 
 \subsection{Curve parametrizzate}
 \dfn{
-	Una curva parametrizzata è una funzione $f: \mathbb{R} \to \mathbb{R}^n$ definita come:
+	Una curva parametrizzata è una funzione $f: \mathbb{R} \to \mathbb{R}^n$ 
+    definita come:
 	\begin{equation*}
 		t \mapsto r(t) = (r_1(t), \cdots, r_n(t))
 	\end{equation*}
 }
-Sono quindi funzioni che prendono uno scalare e restituiscono un vettore. Un esempio protrebbe essere una legge orari in fisica:
+Sono quindi funzioni che prendono uno scalare e restituiscono un vettore. Un 
+esempio protrebbe essere una legge orari in fisica:
 \begin{equation*}
 	r(t) = (x_0, y_0) + t(v_1, v_2)
 \end{equation*}
-Quest'ultima infatti, preso il tempo che è uno scalare, ci restituisce un vettore in $\mathbb{R}^2$ rappresena una posizione. Scritta nella foma della definzione verebbe:
+Quest'ultima infatti, preso il tempo che è uno scalare, ci restituisce un 
+vettore in $\mathbb{R}^2$ rappresena una posizione. Scritta nella foma della 
+definzione verebbe:
 \begin{equation*}
 	t \mapsto r(t) = (r_1(t), r_2(t)) = (x_0 + tv_1, y_0 + tv_2)
 \end{equation*}
@@ -189,8 +263,10 @@ Un ulteriore esempio potrebbe essere la cura:
 \begin{equation*}
 	r(t) = (\cos(t), \sin(t))
 \end{equation*}
-Notiamo che essa descrive una circonferenza, ma anche la seguente descrive la stessa circonferenza:
+Notiamo che essa descrive una circonferenza, ma anche la seguente descrive la 
+stessa circonferenza:
 \begin{equation*}
 	f(t) = (\cos(t^3), \sin(t^3))
 \end{equation*}
-La differenza è che percorre la circonferenza in maniera diversa. Come formalizziamo questa diversità? Con il concetto di velocità di una curva.
+La differenza è che percorre la circonferenza in maniera diversa. Come 
+formalizziamo questa diversità? Con il concetto di velocità di una curva.

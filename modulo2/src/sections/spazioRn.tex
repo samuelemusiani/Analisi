@@ -3,29 +3,40 @@
 \dfn{
 	$\mathbb{R}^n$ è l'insieme delle \textit{n}-uple ordinate di numeri:
 	\begin{equation*}
-		\mathbb{R}^n = \{x = (x_1, x_2, \cdots , x_n) \; | \; x_1, x_2, \cdots, x_n \in \mathbb{R}\}
+		\mathbb{R}^n = \{x = (x_1, x_2, \cdots , x_n) \; | \; x_1, x_2, \cdots, 
+        x_n \in \mathbb{R}\}
 	\end{equation*}
 }
-Gli elementi di $\mathbb{R}^n$ si dicono vettori. In generale si possono pensare i sui elementi come vettori applicati nell'origine. Lo spazio $\mathbb{R}^n$ ha una struttra lineare. In esso sono definite due operazioni di base: la somma tra vettori e il prodotto di un vettore per uno scalare.
+Gli elementi di $\mathbb{R}^n$ si dicono vettori. In generale si possono 
+pensare i sui elementi come vettori applicati nell'origine. Lo spazio 
+$\mathbb{R}^n$ ha una struttra lineare. In esso sono definite due operazioni 
+di base: la somma tra vettori e il prodotto di un vettore per uno scalare.
 
 \subsubsection{Somma tra vettori}
 \dfn{
-	Presi due vettori $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e $y = (y_1, \cdots, y_n)$ definiamo la somma tra vettori:
+	Presi due vettori $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e 
+    $y = (y_1, \cdots, y_n)$ definiamo la somma tra vettori:
 	\begin{equation*}
 		x + y \vcentcolon = (x_1 + y_1, \cdots, x_n + y_n) \in \mathbb{R}^n
 	\end{equation*}
 }
 
-Se ci si riduce ad $\mathbb{R}^2$ la somma tra vettori è la stessa della \textit{regola del parallelogramma} che spesso si studia in fisica.
+Se ci si riduce ad $\mathbb{R}^2$ la somma tra vettori è la stessa della 
+\textit{regola del parallelogramma} che spesso si studia in fisica.
 
 \subsubsection{Prodotto di un vettore per uno scalare}
 \dfn{
-	Dato un vettore $x = (x_1, \cdots, x_n) \in \mathbb{R}^n$ e uno scalare $\lambda \in \mathbb{R}$ definiamo il prodotto di un vettore per uno scalare:
+	Dato un vettore $x = (x_1, \cdots, x_n) \in \mathbb{R}^n$ e uno scalare 
+    $\lambda \in \mathbb{R}$ definiamo il prodotto di un vettore per uno 
+    scalare:
 	\begin{equation*}
 		\lambda x \vcentcolon = (\lambda \cdot x_1, \cdots, \lambda \cdot x_n)
 	\end{equation*}
 }
-I numeri in $\mathbb{R}$ vengono chiamati scalari perché se moltiplicati per un vettore visivamente lo scalano proprio del loro valore. Cioè se $\lambda = 2$ allora il vettore che viene moltiplicato per $\lambda$ è il doppio del vettore originale.
+I numeri in $\mathbb{R}$ vengono chiamati scalari perché se moltiplicati per un 
+vettore visivamente lo scalano proprio del loro valore. Cioè se $\lambda = 2$ 
+allora il vettore che viene moltiplicato per $\lambda$ è il doppio del vettore 
+originale.
 
 \subsubsection{Vettori coordinati} \label{sec_vettoriCoordinati}
 %(Non so se è una definzione) DA RIGUARDARE
@@ -39,18 +50,23 @@ I numeri in $\mathbb{R}$ vengono chiamati scalari perché se moltiplicati per un
 	\end{align*}
 }
 
-I vettori coordinati sono ortogonali a coppie (per la definzione di ortogonalità fare riferimento alla sezione \ref{sec_ortogonalita}):
+I vettori coordinati sono ortogonali a coppie (per la definzione di 
+ortogonalità fare riferimento alla sezione \ref{sec_ortogonalita}):
 \begin{equation*}
 	\forall j \neq k, \;\;j,k = 1\cdots n \quad \langle e_j, e_k \rangle = 0
 \end{equation*}
 
 \subsection{Prodotto scalare euclideo}
 \dfn{
-	Dati $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e $y = (y_1, \cdots, y_n)$ definiamo il prodotto scalare euclideo:
+	Dati $x, y \in \mathbb{R}^n$ dove $x = (x_1, \cdots, x_n)$ e $y = (y_1, 
+    \cdots, y_n)$ definiamo il prodotto scalare euclideo:
 	\begin{equation*}
-		\langle x, y \rangle = x_1 \cdot y_1 + \cdots + x_n \cdot y_n = \sum_{k = 1}^n x_k \cdot y_k \in \mathbb{R}
+		\langle x, y \rangle = x_1 \cdot y_1 + \cdots + x_n \cdot y_n = 
+        \sum_{k = 1}^n x_k \cdot y_k \in \mathbb{R}
 	\end{equation*}
-	È importante notare che questo prodotto restituisce \textbf{un numero in} $\mathbb{R}$. Esiste anche un altra notazione per scrivere il prodotto scalare: 
+	È importante notare che questo prodotto restituisce \textbf{un numero in} 
+    $\mathbb{R}$. Esiste anche un altra notazione per scrivere il prodotto 
+    scalare: 
 	\begin{equation*}
 		\langle x, y \rangle = x \cdot y
 	\end{equation*}
@@ -61,20 +77,24 @@ Esempio:
 \end{equation*}
 Altro esempio:
 \begin{equation*}
-	\langle (2, 1, 3), (-1, 4, 1) \rangle = 2 \cdot -1 + 1 \cdot 4 + 3 \cdot 1 = 5
+	\langle (2, 1, 3), (-1, 4, 1) \rangle = 2 \cdot -1 + 1 \cdot 4 + 3 
+    \cdot 1 = 5
 \end{equation*}
 
 \textbf{Proprietà:}
 \begin{enumerate}
-	\item $\langle x, y \rangle = \langle y, x \rangle \quad \forall x, y \in \mathbb{R}^n$
+	\item $\langle x, y \rangle = \langle y, x \rangle \quad \forall x, y \in 
+        \mathbb{R}^n$
 
 	\item Dati $x, y, z \in \mathbb{R}^n$ e $\lambda, \mu \in \mathbb{R}$ 
 		\begin{equation*}
-			\langle \lambda x + \mu y, z \rangle = \lambda \langle x, y \rangle + \mu \langle y, z \rangle
+			\langle \lambda x + \mu y, z \rangle = \lambda \langle x, y 
+            \rangle + \mu \langle y, z \rangle
 		\end{equation*}
 		Ovviamente per la proprietà 1 vale:
 		\begin{equation*}
-			\langle z, \lambda x + \mu y \rangle = \lambda \langle z, x \rangle + \mu \langle z, y \rangle
+			\langle z, \lambda x + \mu y \rangle = \lambda \langle z, x 
+            \rangle + \mu \langle z, y \rangle
 		\end{equation*}
 
 	\item $\forall x \in \mathbb{R}^n \quad \langle x, x \rangle \geq 0$
@@ -82,11 +102,19 @@ Altro esempio:
 	\item $\langle x, x \rangle = 0 \iff x = \underline{0} = (0, \cdots, 0)$
 \end{enumerate}
 
-Se ci riduciamo allo spazio $\mathbb{R}^2$ spesso viene data un'altra definzione di prodotto scalare euclideo. La sua definzione si basa sulla norma (Sezione: \ref{sec_norma}), mentre la sua dimostrazione di equivalenza si basa sulle coordinate polari (Sezione: \ref{sec_coordinatePolari}) che sono entrambi concetti che vengono introdotti in seguito. Nonostante ciò viene riportata qui la definzione per mantenere coerente la suddivisione per argomenti. 
+Se ci riduciamo allo spazio $\mathbb{R}^2$ spesso viene data un'altra 
+definzione di prodotto scalare euclideo. La sua definzione si basa sulla norma 
+(Sezione: \ref{sec_norma}), mentre la sua dimostrazione di equivalenza si 
+basa sulle coordinate polari (Sezione: \ref{sec_coordinatePolari}) che sono 
+entrambi concetti che vengono introdotti in seguito. Nonostante ciò viene 
+riportata qui la definzione per mantenere coerente la suddivisione per 
+argomenti. 
 
-Se abbiamo due vettori $x, y \in \mathbb{R}^2$ e chiamiamo \textit{l'angolo compreso tra i due} $\alpha$ allora:
+Se abbiamo due vettori $x, y \in \mathbb{R}^2$ e chiamiamo \textit{l'angolo 
+compreso tra i due} $\alpha$ allora:
 \begin{equation*}
-	\langle x, y \rangle = \lVert x \rVert \cdot \lVert y \rVert \cdot \cos{\alpha}
+	\langle x, y \rangle = \lVert x \rVert \cdot \lVert y \rVert \cdot 
+    \cos{\alpha}
 \end{equation*}
 
 Per la dimostrazione scriviamo $x$ e $y$ come:
@@ -98,37 +126,51 @@ Per la dimostrazione scriviamo $x$ e $y$ come:
 
 Ne consegue che:
 \begin{equation*}
-	\langle x, y \rangle = \langle (x_1, y_1), (x_2, y_2) \rangle = r_1r_2\cos{\theta_1}\cos{\theta_2} + r_1r_2\sin{\theta_1}\sin{\theta_2} =
+	\langle x, y \rangle = \langle (x_1, y_1), (x_2, y_2) \rangle = r_1r_2
+    \cos{\theta_1}\cos{\theta_2} + r_1r_2\sin{\theta_1}\sin{\theta_2} =
 \end{equation*}
-Ricordandoci le formule di addizione e sottrazione del coseno possiamo riscrivere quanto segue nella forma:
+Ricordandoci le formule di addizione e sottrazione del coseno possiamo 
+riscrivere quanto segue nella forma:
 \begin{equation*}
 	r_1r_2\cos{\theta_2 - \theta_1} 
 \end{equation*}
-Essendo che $\theta_2 - \theta_1$ non è altro che l'angolo tra i due vettori che noi abbiamo chiamato $\alpha$ possiamo riscrivere come:
+Essendo che $\theta_2 - \theta_1$ non è altro che l'angolo tra i due vettori 
+che noi abbiamo chiamato $\alpha$ possiamo riscrivere come:
 \begin{equation*}
 	r_1r_2 \cos{\alpha} 
 \end{equation*}
-Nelle coordiante polari abbiamo chiamato $ r_1 = \lVert (x_1, y_1) \rVert$, di conseguenza possiamo riscrivere come:
+Nelle coordiante polari abbiamo chiamato $ r_1 = \lVert (x_1, y_1) \rVert$, di 
+conseguenza possiamo riscrivere come:
 \begin{equation*}
-	\lVert (x_1, y_1) \rVert \cdot \lVert (x_2, y_2) \rVert \cdot \cos{\alpha} = \lVert x \rVert \cdot \lVert y \rVert \cdot \cos{\alpha}
+	\lVert (x_1, y_1) \rVert \cdot \lVert (x_2, y_2) \rVert \cdot \cos{\alpha} 
+    = \lVert x \rVert \cdot \lVert y \rVert \cdot \cos{\alpha}
 \end{equation*}
 Abbiamo quindi concluso la dimostrazione.
 
 
 \subsection{Vettori ortogonali} \label{sec_ortogonalita}
 \dfn{
-	I vettori $x, y \in \mathbb{R}^n$ si dicono ortogonali (o perpendicolari) se $\langle x, y \rangle = 0$
+	I vettori $x, y \in \mathbb{R}^n$ si dicono ortogonali (o perpendicolari) 
+    se $\langle x, y \rangle = 0$
 }
 Esempi:
 \begin{itemize}
-	\item Se un vettore è il vettore nullo $x = \underline{0}$ allora tutti i vettori sono ortogonali a lui:
+	\item Se un vettore è il vettore nullo $x = \underline{0}$ allora tutti i 
+        vettori sono ortogonali a lui:
 		\begin{equation*}
-			\langle \underline{0}, y \rangle = 0 \quad \forall y \in \mathbb{R}^n
+			\langle \underline{0}, y \rangle = 0 \quad \forall y \in 
+            \mathbb{R}^n
 		\end{equation*}
 	
-	\item Se prendiamo $(x, y) = (\cos{\theta}, \sin{\theta})$ e $(\overline{x}, \overline{y}) = \left(\cos(\theta + \dfrac{\pi}{2}), \sin(\theta + \dfrac{\pi}{2}) \right) = (-\sin{\theta}, \cos{\theta})$
+	\item Se prendiamo $(x, y) = (\cos{\theta}, \sin{\theta})$ e 
+        $(\overline{x}, \overline{y}) = \left(\cos(\theta + \dfrac{\pi}{2}), 
+        \sin(\theta + \dfrac{\pi}{2}) \right) = (-\sin{\theta}, 
+        \cos{\theta})$
 		\begin{equation*}
-			\langle (x, y), (\overline{x}, \overline{y}) \rangle = \langle (\cos{\theta}, \sin{\theta}), (-\sin{\theta}, \cos{\theta}) \rangle = -\cos{\theta} \cdot \sin{\theta} + \sin{\theta} \cdot \cos{\theta} = 0
+			\langle (x, y), (\overline{x}, \overline{y}) \rangle = 
+            \langle (\cos{\theta}, \sin{\theta}), (-\sin{\theta}, 
+            \cos{\theta}) \rangle = -\cos{\theta} \cdot \sin{\theta} + 
+            \sin{\theta} \cdot \cos{\theta} = 0
 		\end{equation*}
 	
 	\item $(a, b) \in \mathbb{R}^2, (-b, a ) \in \mathbb{R}^2$
@@ -136,7 +178,11 @@ Esempi:
 			\langle (a, b), (-b, a) \rangle = -ba + ba = 0
 		\end{equation*}
 \end{itemize}
-Un esempio meno astratto e che in realtà conosciamo già e trovare la retta perpendicolare ad un'altra. Se infatti abbiamo due rette generiche $r_1: y = mx$ e $r_2: y = px$ possiamo chiederci per quali valori di $p$ la la seconda sia perpendicolare (o ortogonale) alla prima. Assumiamo per semplicità $m \neq 0$ e prendiamo due punti generici, uno su $r_1$ e l'altro su $r_2$:
+Un esempio meno astratto e che in realtà conosciamo già e trovare la retta 
+perpendicolare ad un'altra. Se infatti abbiamo due rette generiche 
+$r_1: y = mx$ e $r_2: y = px$ possiamo chiederci per quali valori di $p$ la 
+seconda sia perpendicolare (o ortogonale) alla prima. Assumiamo per semplicità 
+$m \neq 0$ e prendiamo due punti generici, uno su $r_1$ e l'altro su $r_2$:
 \begin{equation*}
 	(1, m) \in r_1 \qquad (1, p) \in r_2
 \end{equation*}
@@ -146,34 +192,54 @@ Ora imponiamo che siano perpendicolari, in particolare:
 	1 + mp = 0 \\[10pt]
 	p = -\dfrac{1}{m}
 \end{gather*}
-Abbiamo quindi ottenuto la condizione di perpendicolarità che ci è familiare nel piano.
+Abbiamo quindi ottenuto la condizione di perpendicolarità che ci è familiare 
+nel piano.
 
 \subsection{Norma di un vettore} \label{sec_norma}
 \dfn{
-	Dato $x \in \mathbb{R}^n$, definiamo\footnote{Il prof la indica senza le doppie barre ma come un semplice valore assoluto. Secondo me fa molta confusione quindi io userò sempre le doppie barrette.} la norma come:
+	Dato $x \in \mathbb{R}^n$, definiamo\footnote{Il prof la indica senza le 
+    doppie barre ma come un semplice valore assoluto. Secondo me fa molta 
+    confusione quindi io userò sempre le doppie barrette.} la norma come:
 	\begin{equation*}
-		\lVert x \rVert \vcentcolon = \sqrt{\langle x, x \rangle} = \sqrt{\sum_{k = 1}^n x^2_k}
+		\lVert x \rVert \vcentcolon = \sqrt{\langle x, x \rangle} = 
+        \sqrt{\sum_{k = 1}^n x^2_k}
 	\end{equation*}
 }
-La norma viene spesso chiamata \textbf{lunghezza} perché in effetti rappresenta la lunghezza del vettore su cui è calcolata. In $\mathbb{R}$ è il modulo del vettore stesso, in $\mathbb{R}^2$ è il semplice teorema di pitagora, mentre in spazi di dimensione più grade è già difficile da visualizzare.\\
+La norma viene spesso chiamata \textbf{lunghezza} perché in effetti rappresenta 
+la lunghezza del vettore su cui è calcolata. In $\mathbb{R}$ è il modulo del 
+vettore stesso, in $\mathbb{R}^2$ è il semplice teorema di pitagora, mentre in 
+spazi di dimensione più grade è già difficile da visualizzare.\\
 
 \textbf{Proprietà:} 
 \begin{enumerate}
-	\item $\forall \lambda \in \mathbb{R}, \;\forall x \in \mathbb{R}^n$ vale: $\lVert \lambda x \rVert = |\lambda| \cdot \lVert x \rVert$. Questo perché:
+	\item $\forall \lambda \in \mathbb{R}, \;\forall x \in \mathbb{R}^n$ vale: 
+        $\lVert \lambda x \rVert = |\lambda| \cdot \lVert x \rVert$. Questo 
+        perché:
 		\begin{equation*}
-			\lVert \lambda x \rVert = \sqrt{(\lambda x_1)^2 + \cdots + (\lambda x_n)^2} = \sqrt{\lambda^2 (x_1^2 + \cdots + x_n^2)} = |\lambda| \sqrt{x_1^2 + \cdots x_n^2} = |\lambda| \cdot \lVert x \rVert
+			\lVert \lambda x \rVert = \sqrt{(\lambda x_1)^2 + \cdots + 
+            (\lambda x_n)^2} = \sqrt{\lambda^2 (x_1^2 + \cdots + x_n^2)} = 
+            |\lambda| \sqrt{x_1^2 + \cdots x_n^2} = |\lambda| \cdot \lVert x 
+            \rVert
 		\end{equation*}
 	
 	\item $\forall x \in \mathbb{R}^n \quad \lVert x \rVert \leq 0$
 	
 	\item $\lVert x \rVert = 0 \iff x = \underline{0}$
 
-	\item $\forall x, y \in \mathbb{R}^n$ vale: $\lVert x + y \rVert \leq \lVert x \rVert + \lVert y \rVert$
+	\item $\forall x, y \in \mathbb{R}^n$ vale: $\lVert x + y \rVert \leq 
+        \lVert x \rVert + \lVert y \rVert$
 \end{enumerate}
 
-E possibile dimostrare che vale la \textbf{disuguaglianza di Cauchy-Schwarz}\footnote{Per introdurla il prof ha usato il fatto che si può esprimere il prodotto scalare tra due vettori $x, y$ come $\lVert x \rVert \cdot \lVert y \rVert \cdot \cos{\alpha}$, e quindi essendo $\cos{\alpha} \in [-1, 1] \; \forall \alpha \in \mathbb{R}$ si riesce a raggiungere questa disuguaglianza. Il fatto però è che secondo questo ragionamento dovrebbe valere solatanto in $\mathbb{R}^2$ ma in realtà vale in $\mathbb{R}^n$}:
+E possibile dimostrare che vale la \textbf{disuguaglianza di Cauchy-Schwarz}
+\footnote{Per introdurla il prof ha usato il fatto che si può esprimere il 
+prodotto scalare tra due vettori $x, y$ come $\lVert x \rVert \cdot \lVert y 
+\rVert \cdot \cos{\alpha}$, e quindi essendo $\cos{\alpha} \in [-1, 1] \; 
+\forall \alpha \in \mathbb{R}$ si riesce a raggiungere questa disuguaglianza. 
+Il fatto però è che secondo questo ragionamento dovrebbe valere solatanto in 
+$\mathbb{R}^2$ ma in realtà vale in $\mathbb{R}^n$}:
 \begin{equation*}
-	\lVert x, y \rVert \leq \lVert x \rVert \cdot \lVert y \rVert \qquad \forall x, y \in \mathbb{R}^n
+	\lVert x, y \rVert \leq \lVert x \rVert \cdot \lVert y \rVert \qquad 
+    \forall x, y \in \mathbb{R}^n
 \end{equation*}
 
 \subsubsection{Teorema di pitagora generalizzato}
@@ -187,13 +253,18 @@ E possibile dimostrare che vale la \textbf{disuguaglianza di Cauchy-Schwarz}\foo
 %Aggiungere figura appunti 2023-03-13
 
 \pf{
-	Prendo $x, y \in \mathbb{R}^n$ tali che $x \perp y$. Dalla definzione di norma:
+	Prendo $x, y \in \mathbb{R}^n$ tali che $x \perp y$. Dalla definzione di 
+    norma:
 	\begin{align*}
-		\lVert x + y \rVert^2 &= \langle x + y, x + y, \rangle = \langle x, x + y, \rangle + \langle y, x + y, \rangle = \\[5pt]
-		&= \langle x, x, \rangle + \langle x, y, \rangle + \langle y, x, \rangle + \langle y, y, \rangle = \lVert x \rVert^2 + \lVert y \rVert^2 + 2 \langle x, y \rangle
+		\lVert x + y \rVert^2 &= \langle x + y, x + y, \rangle = \langle x, 
+        x + y, \rangle + \langle y, x + y, \rangle = \\[5pt]
+		&= \langle x, x, \rangle + \langle x, y, \rangle + \langle y, x, 
+        \rangle + \langle y, y, \rangle = \lVert x \rVert^2 + \lVert y 
+        \rVert^2 + 2 \langle x, y \rangle
 	\end{align*}
 
-	Per ipotesi però $x \perp y \implies \langle x, y \rangle = 0$ dalla definzione di vettori ortogonali, quindi:
+	Per ipotesi però $x \perp y \implies \langle x, y \rangle = 0$ dalla 
+    definzione di vettori ortogonali, quindi:
 	\begin{equation*}
 		\lVert x + y \rVert^2 = \lVert x \rVert^2 + \lVert y \rVert^2
 	\end{equation*}
@@ -201,7 +272,9 @@ E possibile dimostrare che vale la \textbf{disuguaglianza di Cauchy-Schwarz}\foo
 }
 
 \subsubsection{Vettore normalizzato}
-Il vettore normalizzato nasce dall'idea che preso un vettore $x \in \mathbb{R}^n: x \neq \underline{0}$, si vuole trovare un numero $r > 0$ tale che:
+Il vettore normalizzato nasce dall'idea che preso un vettore $x \in 
+\mathbb{R}^n: x \neq \underline{0}$, si vuole trovare un numero $r > 0$ tale 
+che:
 \begin{equation*}
 	\lVert rx \rVert = 1
 \end{equation*}
@@ -214,7 +287,8 @@ E quindi:
 	r = \dfrac{1}{\lVert x \rVert}
 \end{equation*}
 \dfn{
-	Dato un vettore $x \in \mathbb{R}^n: x \neq \underline{0}$ si chiama \textbf{normalizzato di} $\mathbf{x}$ il vettore:
+	Dato un vettore $x \in \mathbb{R}^n: x \neq \underline{0}$ si chiama 
+    \textbf{normalizzato di} $\mathbf{x}$ il vettore:
 	\begin{equation*}
 		\dfrac{x}{\lVert x \rVert}
 	\end{equation*}
@@ -223,30 +297,45 @@ E quindi:
 		\left \lVert \dfrac{x}{\lVert x \rVert} \right \rVert = 1
 	\end{equation*}
 }
-\textbf{Esempio:} Troviamo il normalizzato di $x = (2, 3)$. Calcoliamo prima la sua norma:
+\textbf{Esempio:} Troviamo il normalizzato di $x = (2, 3)$. Calcoliamo prima 
+la sua norma:
 \begin{equation*}
 	\lVert x \rVert = \lVert (2, 3) \rVert = \sqrt{4+9} = \sqrt{13}
 \end{equation*}
 Quindi il normalizzato:
 \begin{equation*}
-	\dfrac{x}{\lVert x \rVert} = \dfrac{(2, 3)}{\sqrt{13}} = \left(\dfrac{2}{\sqrt{13}}, \dfrac{3}{\sqrt{13}}\right)
+	\dfrac{x}{\lVert x \rVert} = \dfrac{(2, 3)}{\sqrt{13}} = \left(\dfrac{2}{
+        \sqrt{13}}, \dfrac{3}{\sqrt{13}}\right)
 \end{equation*}
 
 \subsubsection{Coordinate polari} \label{sec_coordinatePolari}
-Facciamo un'osservazione abbastanza banale che però si rivelerà estremamente utile nel caso particolare di $\mathbb{R}^2$: qualsiasi vettore (tranne $\underline{0}$) può essere scritto nella forma seguente:
+Facciamo un'osservazione abbastanza banale che però si rivelerà estremamente 
+utile nel caso particolare di $\mathbb{R}^2$: qualsiasi vettore (tranne 
+$\underline{0}$) può essere scritto nella forma seguente:
 \begin{equation*}
 	x = \lVert x \rVert \cdot \dfrac{x}{\lVert x \rVert}
 \end{equation*}
-Notiamo che $\lVert x \rVert$ è un \textit{numero maggiore di 0} mentre $\frac{x}{\lVert x \rVert}$ è un \textit{vettore di lunghezza unitaria}\footnote{La lunghezza è unitaria perché abbiamo definito la lunghezza di un vettore come la sua norma, e per definzione il vettore normalizzato ha norma uguale a 1}. Ne consegue che posso scrivere qualsiasi vettore con solo questi due elementi, cioè un vettore di lunghezza unitaria e uno scalare. Se riduciamo però il nostro studio allo spazio $\mathbb{R}^2$:
+Notiamo che $\lVert x \rVert$ è un \textit{numero maggiore di 0} mentre 
+$\frac{x}{\lVert x \rVert}$ è un \textit{vettore di lunghezza unitaria}
+\footnote{La lunghezza è unitaria perché abbiamo definito la lunghezza di un 
+vettore come la sua norma, e per definzione il vettore normalizzato ha norma 
+uguale a 1}. Ne consegue che posso scrivere qualsiasi vettore con solo questi 
+due elementi, cioè un vettore di lunghezza unitaria e uno scalare. Se riduciamo 
+però il nostro studio allo spazio $\mathbb{R}^2$:
 \begin{equation*}
 	(x, y) = \lVert (x, y) \rVert \cdot \dfrac{(x, y)}{\lVert (x, y) \rVert}
 \end{equation*}
-Possiamo notare che il nostro vettore normalizzato $\frac{(x, y)}{\lVert (x, y) \rVert}$ è in realtà un vettore che sta sulla circonferenza goniometrica in quanto siamo sul piano e ha lunghezza 1. Questo implica che possiamo scriverlo come segue:
+Possiamo notare che il nostro vettore normalizzato $\frac{(x, y)}{\lVert (x, y) 
+\rVert}$ è in realtà un vettore che sta sulla circonferenza goniometrica in 
+quanto siamo sul piano e ha lunghezza 1. Questo implica che possiamo scriverlo 
+come segue:
 \begin{equation*}
-	\dfrac{(x, y)}{\lVert (x, y) \rVert} = (\cos{\theta}, \sin{\theta}) \qquad \theta \in [0, 2\pi]
+	\dfrac{(x, y)}{\lVert (x, y) \rVert} = (\cos{\theta}, \sin{\theta}) \qquad 
+    \theta \in [0, 2\pi]
 \end{equation*}
 \imp{
-Ed essendo $\lVert (x, y) \rVert$ un semplice numero maggiore di 0 \textbf{possiamo riscrivere qualsiasi vettore in $\mathbb{R}^2$ nella forma:}
+Ed essendo $\lVert (x, y) \rVert$ un semplice numero maggiore di 0 
+\textbf{possiamo riscrivere qualsiasi vettore in $\mathbb{R}^2$ nella forma:}
 \begin{equation*}
 	(x, y) = r (\cos{\theta}, \sin{\theta})
 \end{equation*}
@@ -255,13 +344,21 @@ La coppia $(r, \theta)$ sono le \textbf{coordinate polari} di $(x, y)$
 
 %Fare qualche esempio e spiegare cosa le differenzia dalle coordiante normali
 
-Con questo sistema di coordinate si possono inoltre descrivere porzioni di piano che prima erano estremamente difficili da scrivere. Un esempio banale è il semipiano nel \textit{primo quadrante} delimitato dalla retta $y = x$, esso indatti è descrivibile da:
+Con questo sistema di coordinate si possono inoltre descrivere porzioni di 
+piano che prima erano estremamente difficili da scrivere. Un esempio banale è 
+il semipiano nel \textit{primo quadrante} delimitato dalla retta $y = x$, esso 
+indatti è descrivibile da:
 \begin{equation*}
-	A = \left\{(x, y) = (r\cos{\theta}, r\sin{\theta}) \; \middle|\; r > 0, \theta \in \left[0, \dfrac{\pi}{2} \right] \right\}
+	A = \left\{(x, y) = (r\cos{\theta}, r\sin{\theta}) \; \middle|\; r > 0, 
+    \theta \in \left[0, \dfrac{\pi}{2} \right] \right\}
 \end{equation*}
-Altri esempio più complessi sono i settori circolari. Se infatti volessimo descrivere un settore circolare che dista $r_1$ dall'origine ed è largo $d$ ci basterebbe scrivere:
+Altri esempio più complessi sono i settori circolari. Se infatti volessimo 
+descrivere un settore circolare che dista $r_1$ dall'origine ed è largo $d$ 
+ci basterebbe scrivere:
 \begin{equation*}
-	B = \left\{(x, y) = (r\cos{\theta}, r\sin{\theta}) \; \middle|\; \theta \in \left[0, \dfrac{\pi}{2}\right], r_1 < r < r_1 + d \;\; \text{con}\;\; r_1 > 0, d > 0 \right\}
+	B = \left\{(x, y) = (r\cos{\theta}, r\sin{\theta}) \; \middle|\; \theta 
+    \in \left[0, \dfrac{\pi}{2}\right], r_1 < r < r_1 + d \;\; \text{con}\;\; 
+    r_1 > 0, d > 0 \right\}
 \end{equation*}
 %Fare la figura del settore circolare
 
