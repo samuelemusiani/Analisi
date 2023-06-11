@@ -99,3 +99,24 @@ $\mathbb{R}^1$ è semplicemente la derivata prima della funzione.
             di sella.
 	\end{itemize}
 }
+Prima di della dimostrazione è necesarrio dimostrare un lemma:
+\mlem{
+    Se $A = A^T \in \mathbb{R}^{n \times n}$ è definita positiva, allora:
+    \begin{equation*}
+        \exists m: \quad \langle Ah, h \rangle \geq m \lVert h \rVert^2 \quad \forall h \in \mathbb{R}^n
+    \end{equation*}
+    Dimostrazione:
+    Fissiamoci in due dimensioni ed usiamo le coordinate polari. In particolare il vettore $h$ si può scrivere nella forma $h = (r\cos{\theta}, r\sin{\theta})$ con $r > 0$ e $\theta \in [0, 2\pi]$. Mettiamo che $A$ sia nella forma $A = \begin{bmatrix} a & b\\ b & c \end{bmatrix}$. Risulta quindi:
+    \begin{equation*}
+        \langle Ah, h \rangle = r^2(a\cos^2(\theta) + 2b\cos(\theta)\sin(\theta) + c\sin^2(\theta))
+    \end{equation*}
+    Notiamo che $r^2 = \lVert h \rVert^2$. Definiamo inoltre quanto appena ottenuto come una funzione $g$ rispetto al parametro $\theta$:
+    \begin{equation*}
+        g(\theta) \vcentcolon = (a\cos^2(\theta) + 2b\cos(\theta)\sin(\theta) + c\sin^2(\theta))
+    \end{equation*}
+    La funzione $g(\theta) > 0 \quad \forall \theta \in [0, 2\pi]$ ed inoltre è continua. Indicando quindi con $\theta_0 \in [0, 2\pi]$ un suo punto di minimo assoluto e con $m \vcentcolon = g(\theta_0) > 0$ il suo minimo assoluto si ottiene:
+    \begin{equation*}
+        \langle Ah, h \rangle = \lVert h \rVert^2 g(\theta) \geq m \lVert h \rVert^2
+    \end{equation*}
+    \hfill Qed.
+}
