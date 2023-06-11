@@ -280,44 +280,6 @@ La derivata in questo caso risulta essere $2x$. Ed effettivamente ha senso visto
 		Il simbolo $\circ$ indica la composizione di funzioni, cioè $f \circ g = f(g(x))$.
 \end{enumerate}
 }
-Nonostante il prof non abbia portato nessuna dimostrazione riguardo alle regole sopra citate, ritengo che per completezza queste dimostrazioni vadano comunque viste per togliere quel senso di mistero intrinseco che delle regole comparse dal nulla hanno.\\
-
-
-\textbf{Dimostrazioni NON FATTE DAL PROF} (ma che io ritengo importanti):
-\begin{enumerate}
-	\item Somma e sottrazione di funzioni $j(x) = f(x) \pm g(x)$:
-		\begin{align*}
-			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) \pm g(x + h) - f(x) \mp g(x)}{h} = \\
-			& = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} \pm \dfrac{g(x + h) - g(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} \pm \lim_{h \to 0} \dfrac{g(x + h) - g(x)}{h} = \\
-			& = f'(x) \pm g'(x)
-		\end{align*}
-
-	\item Prodotto di funzioni $j(x) = f(x) \cdot g(x)$:
-		\begin{align*}
-			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x + h) - f(x) \cdot g(x)}{h} = \\
-			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x + h) +f(x + h) \cdot g(x) - f(x + h) \cdot g(x) - f(x) \cdot g(x)}{h} = \\
-			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot (g(x + h) - g(x)) + g(x) \cdot (f(x + h) - f(x))}{h} = \\
-			&= \lim_{h \to 0} f(x+h) \left[\dfrac{g(x+h) - g(x)}{h} \right] + \lim_{h \to 0} g(x) \left[\dfrac{f(x+h) - f(x)}{h} \right] = \\
-			&= f(x) \cdot g'(x) + g(x) \cdot f'(x)
-		\end{align*}
-
-
-	\item Quoziente di funzioni $j(x) = \left( \dfrac{f}{g} \right)$:
-		\begin{align*}
-			j'(x) &= \lim_{h \to 0} \dfrac{j(x + h) - j(x)}{h} = \lim_{h \to 0} \dfrac{\dfrac{f(x + h)}{g(x + h)} - \dfrac{f(x)}{g(x)}}{h} =\\[10pt]
-			&= \lim_{h \to 0} \dfrac{\dfrac{f(x + h) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x)}}{h} = \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x) \cdot h} =\\[10pt]
-			&= \lim_{h \to 0} \dfrac{f(x + h) \cdot g(x) + f(x) \cdot g(x) - f(x) \cdot g(x) - f(x) \cdot g(x + h)}{g(x + h) \cdot g(x) \cdot h} =\\[10pt]
-			&= \lim_{h \to 0} \dfrac{g(x) \cdot (f(x + h) - f(x)) -f(x) \cdot (g(x + h) - g(x))}{h} \cdot \dfrac{1}{g(x + h) \cdot g(x)} =\\[10pt]
-			&= \lim_{h \to 0} \left [\dfrac{g(x) \cdot (f(x + h) - f(x))}{h} - \dfrac{f(x) \cdot (g(x + h) - g(x))}{h} \right] \cdot \dfrac{1}{g(x + h) \cdot g(x)} =\\[10pt]
-			&= \left [ g(x) \cdot f'(x) - f(x) \cdot g'(x) \right] \cdot \dfrac{1}{g(x) \cdot g(x)} = \dfrac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{g^2(x)}
-		\end{align*}
-
-	\item Composizione di funzioni $j(x) = f(g(x))$:
-		\begin{align*}
-			j'(x) &= \lim_{x \to x_0} \dfrac{j(x) - j(x_0)}{x - x_0} = \lim_{h \to 0} \dfrac{f(g(x)) - f(g(x_0))}{x - x_0} =\\[10pt]
-			&= \lim_{x \to x_0} \dfrac{f(g(x)) - f(g(x_0))}{g(x) - g(x_0)} \cdot \dfrac{g(x) - g(x_0)}{x - x_0}= f'(g(x)) \cdot g'(x) % DA VERIFICARE :)
-		\end{align*}
-\end{enumerate}
 
 \subsection{Algebra delle derivate} 
 Questa sottosezione sembrerà un duplicato delle regole di derivazione (Sezione: \ref{sec_regoleDerivazione}). In parte lo è, ma in realtà vuole rendere più formali quelle regole che hanno qualche piccola premessa volutamente mancante ma che in teoria dovrebbe averle rese più chiari e semplici da leggere.\\
