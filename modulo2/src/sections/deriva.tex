@@ -7,7 +7,8 @@ definisce la derivata su un intervallo chiuso si avrebbero dei problemi in
 quanto potrebbe esistere solo la derivata destra o sinistra in un punto. 
 Definiamo quindi l'equivalente degli intervalli aperti in $\mathbb{R}^n$.
 \dfn{
-	Dato $A \subseteq \mathbb{R}^n$, dico che \textbf{$\mathbf{A}$ è aperto} se: 
+	Dato $A \subseteq \mathbb{R}^n$, dico che \textbf{$\mathbf{A}$ è aperto} 
+    se: 
 	\begin{equation*}
 		\forall x_0 \in A, \exists \epsilon > 0: \mathcal{B}(x_0, \epsilon) 
 		\subseteq A
@@ -25,9 +26,9 @@ all'insieme $A$. %(FARE FIGURA?)
 }
 \subsubsection{Derivate parziali di funzioni scalari}
 \dfn{
-	Dato $A \subseteq \mathbb{R}^2$ aperto e sia $(x_0, y_0) \in A$. Si dice che 
-	$f$ \textbf{è derivabile rispetto a $\mathbf{x}$ in $\mathbf{(x_0, y_0)}$} se 
-	esiste \textbf{finito}:
+	Dato $A \subseteq \mathbb{R}^2$ aperto e sia $(x_0, y_0) \in A$. Si dice 
+    che $f$ \textbf{è derivabile rispetto a $\mathbf{x}$ in 
+    $\mathbf{(x_0, y_0)}$} se esiste \textbf{finito}:
 	\begin{equation*}
 		\pdv{f}{x} (x_0, y_0) \vcentcolon = \lim_{t \to 0} = 
 		\dfrac{f(x_0 + t, y_0) - f(x_0, y_0)}{t} \in \mathbb{R}
@@ -614,7 +615,8 @@ $g'(0)$:
 	\hfill Qed.
 }
 
-% IL PROF FA UN ESEMPIO CON UNA FUNZIONE STRANA MA NON HO CAPITO PERCHÈ. (FOGLIO 10+ FILE 2023-03-29)
+% IL PROF FA UN ESEMPIO CON UNA FUNZIONE STRANA MA NON HO CAPITO PERCHÈ. 
+% (FOGLIO 10+ FILE 2023-03-29)
 
 \subsubsection{Direzione di massima crescita}
 Avendo definito la derivata direzionale per una funzione in un punto, ora 
@@ -665,10 +667,10 @@ Tornando un attimo alla formula:
 \end{equation*}
 Notiamo che se $\phi - \theta = \frac{\pi}{2}$, cioè in pratica il versore $v$ 
 è perpendicolare\footnote{Questo perché appunto $r\cos(\phi - \theta)$ è dato 
-dal prodotto scalare euclideo tra il gradiente $\nabla f(x_0, y_0)$ e il versore 
-$v$. Ne consegue che per definizione di ortogonalità il gradiente e il versore 
-$v$ sono perpendicolari in quanto questo prodotto è nullo.} al gradiente $\nabla 
-f(x_0. y_0)$, si ha che la derivata è sempre nulla:
+dal prodotto scalare euclideo tra il gradiente $\nabla f(x_0, y_0)$ e il 
+versore $v$. Ne consegue che per definizione di ortogonalità il gradiente e il 
+versore $v$ sono perpendicolari in quanto questo prodotto è nullo.} al 
+gradiente $\nabla f(x_0. y_0)$, si ha che la derivata è sempre nulla:
 \begin{equation*}
 	\pdv{f}{v}(x_0, y_0) = r \cos\dfrac{\pi}{2} = 0
 \end{equation*}
@@ -717,8 +719,8 @@ Tornando infatti alle funzioni di prima le velocità sono diverse:
 	r'(t) =& (-\sin(t), \cos(t))\\
 	f(t) =& (-\sin(t^3) \cdot 3t^2, \cos(t^3) \cdot 3t^2)
 \end{align*}
-Mentre infatti $r(t)$ e $f(t)$  descrivono lo stesso insieme di punti al variare 
-di $t$, le loro velocità no.
+Mentre infatti $r(t)$ e $f(t)$  descrivono lo stesso insieme di punti al 
+variare di $t$, le loro velocità no.
 
 \dfn{
 	\textbf{Velocità scalare:} Data $f: \mathbb{R} \to \mathbb{R}^n$ si 
@@ -874,9 +876,9 @@ risutla:
 	L_b = f^{-1}(b) = \{(x, y) \in \mathbb{R} | f(x, y) = b\}
 \end{equation*}
 Supponiamo per comodità $\nabla f(x, y) \neq \underline{0} \;\; \forall (x, y)$. 
-Supponiamo inoltre di poter costruire una curva $r: \mathbb{R} \to \mathbb{R}^2$ 
-t.c. $r(t) \in L_b \; \forall t$ e $r'(t) \neq \underline{0}$. Se ora 
-applichiamo la nostra funzione iniziale $f$ alla curva oteniamo che:
+Supponiamo inoltre di poter costruire una curva $r: \mathbb{R} \to 
+\mathbb{R}^2$ t.c. $r(t) \in L_b \; \forall t$ e $r'(t) \neq \underline{0}$. 
+Se ora applichiamo la nostra funzione iniziale $f$ alla curva oteniamo che:
 \begin{equation*}
 	f(r(t)) = b \quad \forall t \in \mathbb{R}
 \end{equation*}
@@ -1059,8 +1061,8 @@ La forma quadratica associata risulta quindi essere:
 	=& ah_1^2 + 2bh_1h_2 + ch_2^2
 \end{align*}
 Il risultato è un polinomio omogeneo di grado 2 che assomiglia molto ad un 
-quadrato di binomio (sarà da qui che viene il nome?). Nel caso di $\mathbb{R}^3$ 
-siulta invece:
+quadrato di binomio (sarà da qui che viene il nome?). Nel caso di 
+$\mathbb{R}^3$ siulta invece:
 \begin{align*}
 	q(h_1, h_2, h_3) =&
 	\langle 
@@ -1104,6 +1106,40 @@ Possiamo anche riscrivere la forma quadratica tramite la sommatoria:
 \end{equation*}
 In questo caso si nota ancora di più il fatto che il polinomio è omogeneo e ha 
 grado 2.
+
+\dfn{
+	\textbf{Segno di forme quadratiche:} Sia $A = A^T \in \mathbb{R}^{n 
+	\times n}$ simmetrica e la sua forma quadratica associata $q$. Si dice 
+	che:
+	\begin{itemize}
+		\item $A$ è \textit{definita positiva} ($A > 0$) se vale 
+			$\langle Ah, h \rangle > 0 \;\; \forall h \in 
+			\mathbb{R}^n \setminus \{\underline{0}\}$
+
+		\item $A$ è \textit{definita negativa} ($A < 0$) se vale 
+			$\langle Ah, h \rangle < 0 \;\; \forall h \in 
+			\mathbb{R}^n \setminus \{\underline{0}\}$
+
+		\item $A$ è \textit{indefinita} se esistono $h_-, h_+ 
+			\in \mathbb{R}^n$ tali che $\langle Ah_-, h_- \rangle 
+			< 0 < \langle Ah_+, h_+ \rangle $
+	\end{itemize}
+	Da notare che le disiguaglianze sono strette.
+}
+\thm{
+	\textbf{Classificazione forme quadratiche non degeneri 2x2:} Se $A = 
+	A^T = \begin{bmatrix} a & b\\ b & c \end{bmatrix} \in \mathbb{R}^{2 
+	\time 2}$, allora:
+	\begin{itemize}
+		\item $A > 0$ sse $a > 0$ e $\text{det}(A) > 0$
+		\item $A < 0$ sse $a < 0$ e $\text{det}(A) > 0$
+		\item $A$ è indefinita sse $\text{det}(A) < 0$
+	\end{itemize}
+	DIMOSTRAZIONE? Inoltre sugli appunti del 2023-04-20 è presente tutta una
+	parte in cui vengono discusse le forme quadratiche in relazione agli 
+	autovalori. Tale parte non è presente sugli appunti del prof però e non
+	sembra richiesta all'esame.
+}
 
 \subsection{Taylor di ordine 2 con resto secondo Lagrange}
 La forma classica della formula di Taylor al secondo ordine è:
@@ -1232,10 +1268,11 @@ Il teorema vale anche in generale :
 	\end{equation*}
 	\hfill Qed.
 }
-\textbf{Corollario:} (Formula di Taylor con resto in forma di \textit{o}-piccolo 
-(forma di Peano)). Sia $A \subseteq \mathbb{R}^n$ aperto e sia $f: A \to 
-\mathbb{R}$ con derivate prime e seconde continue, vale che: $\forall x_0 \in A, 
-\exists \delta > 0$ tale che $\forall h \in \mathcal{B}(0, \delta)$:
+\textbf{Corollario:} (Formula di Taylor con resto in forma di 
+\textit{o}-piccolo (forma di Peano)). Sia $A \subseteq \mathbb{R}^n$ aperto e 
+sia $f: A \to \mathbb{R}$ con derivate prime e seconde continue, vale che: 
+$\forall x_0 \in A, \exists \delta > 0$ tale che $\forall h \in \mathcal{B}(0, 
+\delta)$:
 \begin{equation*}
 	f(x_0 + h) = f(x_0) + \langle \nabla f(x_0), h \rangle + \dfrac{1}{2} 
 	\langle \mathbf{H}f(x_0)h, h \rangle + o(\lVert h \rVert^2)
@@ -1281,9 +1318,9 @@ Cioè espandendo la definzione di \textit{o}-piccolo:
 Notiamo che $h_jh_k \leq \lVert h \rVert^2$ in quanto $h_jh_k \leq h_1^2 + 
 \cdots + h_j^2 + \cdots + h_k^2 + \cdots + h_n^2$. Infatti ci basta provare 
 che $h_jh_k \leq h_j^2 + h_k^2$. Cioè che $h_j^2 + h_k^2 - h_jh_k \geq 0 
-\implies 2h_j^2 + 2h_k^2 - 2h_jh_k \geq 0 \implies h_j^2 + h_k^2 + (h_j - h_k)^2 
-\geq 0$. Ovvio quindi in quanto tutti i termini sono di secondo grado e quindi 
-positivi. Possiamo quindi dire che:
+\implies 2h_j^2 + 2h_k^2 - 2h_jh_k \geq 0 \implies h_j^2 + h_k^2 + (h_j - 
+h_k)^2 \geq 0$. Ovvio quindi in quanto tutti i termini sono di secondo grado e 
+quindi positivi. Possiamo quindi dire che:
 \begin{align*}
 	&\lim_{h \to \underline{0}} \dfrac{ (\partial_{jk} f(x_0 + \theta h) - 
 	\partial_{jk} f(x_0))h_jh_k}{\lVert h \rVert^2} \leq \lim_{h \to 
@@ -1309,3 +1346,4 @@ Essendo la derivata seconda continua:
 		\rangle
 	\end{equation*}
 }
+
