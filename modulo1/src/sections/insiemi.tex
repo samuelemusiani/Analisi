@@ -171,7 +171,48 @@ Questo punto è contenuto nell'insieme $\mathbb{Q}$?
 	\hfill Q.e.d.
 }
 
-Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Inoltre si può dimostrare che $\forall\, n \in \mathbb{N} : n$ \textit{non è un quadrato perfetto} $\implies \sqrt{n} \notin \mathbb{Q}$.
+Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Si può estendere quesa affermazione con il seguente teorema:
+\thm{
+    Sia $p \in \mathbb{N}$ un numero primo, allora $\sqrt{p} \not \in \mathbb{N}$
+}
+\pf{
+    La dimostrazione è analoga al caso in cui $p = 2$. Si assume per assurdo che:
+    \begin{equation*}
+        \exists m,n \in \mathbb{N} : \sqrt{p} = \dfrac{m}{n}
+    \end{equation*}
+    Assumiamo che $m$ e $n$ siano coprimi in quanto è sepre possibile semplificare fino a farli diventare coprimi. In altre parole M.C.D$(m, n) = 1$.
+    Vale quindi che:
+    \begin{equation*}
+        p = \dfrac{m^2}{n^2} \implies n^2 \cdot p = m^2
+    \end{equation*}
+    Tutti i fattori di $m^2$ sono i fattori di $m$, quindi $p$ è un fattore di $m$. $\exists k \in \mathbb{N}: m = kp$. Sostituende risulta:
+    \begin{equation*}
+        m^2 = p \cdot n^2 \implies (kp)^2 = p \cdot n^2 \implies k^2 \cdot p^2 = p \cdot n^2 \implies k^2 \cdot p = n^2
+    \end{equation*}
+    Per la stessa osservazione fatta prima, questo significa che $p$ divide $n$. Ma dividendo anche $m$ risulta che M.C.D$(m, n) = p$. Ed essendo $p$ un numero primo $p \neq 1$. Assurdo! Quindi:
+    \begin{equation*}
+        \sqrt{p} \not \in \mathbb{N}
+    \end{equation*}
+
+    \hfill Q.e.d.
+}
+Quindi tutti i numeri primi non appartengono all'insieme dei numeri razionali. Ma quanti numeri primi esistono?
+\thm{
+    I numeri primi sono infiniti
+}
+\pf{
+    La dimostrazione è per assurdo quindi supponiamo che i numeri primi siano finiti. Elenchiamoli in ordine crescente:
+    \begin{equation*}
+        p_1 < p_2 < p_3 < \cdots < p_n
+    \end{equation*}
+    Definiamo ora il numero: $m \vcentcolon = p_1 \cdot p_2 \cdots p_n + 1$. Facciamo vedere che $m$ produce una contraddizione: $m > p_n$ quindi essendo $p_n$ il massimo numero primo $m$ deve per forza essere non primo. Essendo non primo $m$ deve per forza essere divisibile per almeno uno dei numeri primi $p_1, p_2, \cdots, p_n$. Notiamo però che preso un qualsiasi primo $p_i$, $m$ darà sempre resto $1$:
+    \begin{equation*}
+        m = p_i \cdot (p_1 \cdots p_{i - 1} \cdot p_{i + 1} \cdots p_n) + 1
+    \end{equation*}
+    Non essendo quindi divisibile per nessuno dei numeri primi $m$ deve per forza essere primo, ma questo è assurdo in quanto $m$ non era primo per l'osservazione fatta in precedenza.
+    \hfill{Q.e.d.}
+}
+
 Ne consegue che esistono infiniti punti sulla retta che non appartengono a $\mathbb{Q}$, e anzi è molto più probabile che facendo la radice di un numero si ottenga un numero che non è incluso in $\mathbb{Q}$ piuttosto che il contrario. Quindi se si vuole formalizzare una teoria dei limiti è necessario lavorare su un insieme non "bucato", cioè un insieme \textbf{continuo}.\bigbreak
 
 La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti sulla retta hanno associato un unico numero reale). Esiste infatti una \textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza biunivoca} è necessario fare riferimento al capitolo legato alle funzioni.}
