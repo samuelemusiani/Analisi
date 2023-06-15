@@ -299,98 +299,95 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
 	    \item $x^2 < y \implies \exists \epsilon > 0: (x+\epsilon)^2 < y$
 	    \item $x^2 > y \implies \exists \epsilon > 0: (x-\epsilon)^2 > y$
 	\end{enumerate}
-}
-    
-\pf{
-	Assumiamo come ipotesi generale che: $\forall x, y \in \mathbb{R}: x, y \geq 0$.
+    Dimostrazione: assumiamo come ipotesi generale che: $\forall x, y \in \mathbb{R}: x, y \geq 0$.
 
-\begin{enumerate}[label=(\Alph*)]
-	\item Vogliamo dimostrare che 
-		\begin{equation*}
-			 x^2 \leq y^2 \iff x \leq y
-		\end{equation*}
-		\begin{align*}
-			&x^2 \leq y^2\\
-			&x^2 - y^2 \leq 0\\
-			&(x+y)(x-y) \leq 0
-		\end{align*}
-		Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, quindi possiamo dividere da ambo i lati:
-		\begin{gather*}
-			x-y \leq 0\\
-			x \leq y
-		\end{gather*}
+    \begin{enumerate}[label=(\Alph*)]
+        \item Vogliamo dimostrare che 
+            \begin{equation*}
+                x^2 \leq y^2 \iff x \leq y
+            \end{equation*}
+            \begin{align*}
+                &x^2 \leq y^2\\
+                &x^2 - y^2 \leq 0\\
+                &(x+y)(x-y) \leq 0
+            \end{align*}
+            Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, quindi possiamo dividere da ambo i lati:
+            \begin{gather*}
+                x-y \leq 0\\
+                x \leq y
+            \end{gather*}
 
-	\item La dimostrazione di questo punto è identica al precedente, di conseguenza non verrà riportata.
+        \item La dimostrazione di questo punto è identica al precedente, di conseguenza non verrà riportata.
 
-	\item Vogliamo dimostrare che 
-		\begin{equation*}
-			x^2 = y^2 \iff x = y
-		\end{equation*}
-		Dai due punti precedenti:
-		\begin{equation*}
-			x^2 = y^2 \iff
-			\begin{cases}
-				x^2 \leq y^2 \iff x \leq y\\
-				x^2 \geq y^2 \iff x \geq y
-			\end{cases}
-			\iff x = y
-		\end{equation*}
+        \item Vogliamo dimostrare che 
+            \begin{equation*}
+                x^2 = y^2 \iff x = y
+            \end{equation*}
+            Dai due punti precedenti:
+            \begin{equation*}
+                x^2 = y^2 \iff
+                \begin{cases}
+                    x^2 \leq y^2 \iff x \leq y\\
+                    x^2 \geq y^2 \iff x \geq y
+                \end{cases}
+                \iff x = y
+            \end{equation*}
 
 
-	\item Vogliamo dimostrare che:
-		\begin{equation*}
-			x^2 < y \implies \exists \epsilon > 0: (x + \epsilon)^2 < y
-		\end{equation*}
-		Assumiamo $x^2 < y$ per dimostrare:
-		\begin{equation*}
-			\exists \epsilon > 0: (x + \epsilon)^2 < y
-		\end{equation*}
-		Prendiamo $0 < \epsilon < 1$ in modo che $\epsilon^2 < \epsilon$:
-		\begin{equation*}
-			(x+\epsilon)^2 = x^2 + 2x\epsilon + \epsilon^2
-		\end{equation*}
-		Sostituendo ora $\epsilon^2$ con $\epsilon$ possiamo affermare che:
-		\begin{gather*}
-			x^2 + 2x\epsilon + \epsilon^2 \leq\\
-			\leq x^2 + 2x\epsilon + \epsilon =\\
-			= x^2 + \epsilon(2x + 1)
-		\end{gather*}
-		È possibile ora scegliere $y$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
-		\begin{gather*}
-			x^2 + \epsilon(2x + 1) < y\\
-			\epsilon(2x + 1) < y - x^2\\
-			\epsilon < \dfrac{y-x^2}{2x+1}
-		\end{gather*}
-		Si ricorda che $(2x+1) > 0$ per ipotesi generale ($x \geq 0$). Anche $y-x^2 > 0$ per ipotesi, quindi è possibile scegliere $\epsilon$ in maniera tale da verificare:
-		\begin{equation*}
-			0 < \epsilon < \dfrac{y-x^2}{2x+1}
-		\end{equation*}
+        \item Vogliamo dimostrare che:
+            \begin{equation*}
+                x^2 < y \implies \exists \epsilon > 0: (x + \epsilon)^2 < y
+            \end{equation*}
+            Assumiamo $x^2 < y$ per dimostrare:
+            \begin{equation*}
+                \exists \epsilon > 0: (x + \epsilon)^2 < y
+            \end{equation*}
+            Prendiamo $0 < \epsilon < 1$ in modo che $\epsilon^2 < \epsilon$:
+            \begin{equation*}
+                (x+\epsilon)^2 = x^2 + 2x\epsilon + \epsilon^2
+            \end{equation*}
+            Sostituendo ora $\epsilon^2$ con $\epsilon$ possiamo affermare che:
+            \begin{gather*}
+                x^2 + 2x\epsilon + \epsilon^2 \leq\\
+                \leq x^2 + 2x\epsilon + \epsilon =\\
+                = x^2 + \epsilon(2x + 1)
+            \end{gather*}
+            È possibile ora scegliere $y$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
+            \begin{gather*}
+                x^2 + \epsilon(2x + 1) < y\\
+                \epsilon(2x + 1) < y - x^2\\
+                \epsilon < \dfrac{y-x^2}{2x+1}
+            \end{gather*}
+            Si ricorda che $(2x+1) > 0$ per ipotesi generale ($x \geq 0$). Anche $y-x^2 > 0$ per ipotesi, quindi è possibile scegliere $\epsilon$ in maniera tale da verificare:
+            \begin{equation*}
+                0 < \epsilon < \dfrac{y-x^2}{2x+1}
+            \end{equation*}
 
-	\item Vogliamo dimostrare che:
-		\begin{equation*}
-			x^2 > y \implies \exists \epsilon > 0: (x - \epsilon)^2 > y
-		\end{equation*}
-		Assumiamo $x^2 > y$ per dimostrare:
-		\begin{equation*}
-			\exists \epsilon > 0: (x - \epsilon)^2 > y
-		\end{equation*}
-		Espandiamo il quadrato:
-		\begin{equation*}
-			(x-\epsilon)^2 = x^2 -2x\epsilon + \epsilon^2
-		\end{equation*}
-		Essendo $\epsilon^2 > 0$ e dovendo dimostrare un maggiore possiamo anche toglierlo in quanto se $x^2 -2x\epsilon > y$ sicuramente $x^2 -2x\epsilon + \epsilon^2 > y$:
-		\begin{align*}
-			x^2 -2x\epsilon &> y\\
-			x^2 - y &> 2x\epsilon\\
-			2x\epsilon < &x^2 - y\\
-			\epsilon < &\dfrac{x^2-y}{2x}
-		\end{align*}
-		Sempre per il lemma generale $x > 0$ e per ipotesi $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
-		\begin{equation*}
-			0 < \epsilon < \dfrac{x^2-y}{2x}
-		\end{equation*}
-\end{enumerate}
-\hfill Qed.
+        \item Vogliamo dimostrare che:
+            \begin{equation*}
+                x^2 > y \implies \exists \epsilon > 0: (x - \epsilon)^2 > y
+            \end{equation*}
+            Assumiamo $x^2 > y$ per dimostrare:
+            \begin{equation*}
+                \exists \epsilon > 0: (x - \epsilon)^2 > y
+            \end{equation*}
+            Espandiamo il quadrato:
+            \begin{equation*}
+                (x-\epsilon)^2 = x^2 -2x\epsilon + \epsilon^2
+            \end{equation*}
+            Essendo $\epsilon^2 > 0$ e dovendo dimostrare un maggiore possiamo anche toglierlo in quanto se $x^2 -2x\epsilon > y$ sicuramente $x^2 -2x\epsilon + \epsilon^2 > y$:
+            \begin{align*}
+                x^2 -2x\epsilon &> y\\
+                x^2 - y &> 2x\epsilon\\
+                2x\epsilon < &x^2 - y\\
+                \epsilon < &\dfrac{x^2-y}{2x}
+            \end{align*}
+            Sempre per il lemma generale $x > 0$ e per ipotesi $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
+            \begin{equation*}
+                0 < \epsilon < \dfrac{x^2-y}{2x}
+            \end{equation*}
+    \end{enumerate}
+    \hfill Qed.
 }    
 
 
