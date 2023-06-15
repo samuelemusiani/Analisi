@@ -213,20 +213,20 @@ Dato il coefficiente binomiale appena definito:
 \begin{equation*}
 \binom{n}{m}=
     \begin{cases}
-    1 \qquad \qquad \qquad \, \mathrm{se}\;\, m = 0\\
-    \dfrac{n!}{(n-m)!m!} \quad \;\, \mathrm{se}\;\, m \geq 1\\
+        1 & \mathrm{se} \quad m = 0\\
+        \dfrac{n!}{(n-m)!m!} & \mathrm{se} \quad m \geq 1\\
     \end{cases}
 \end{equation*}
 Il caso $m \geq 1$ è possibile riscriverlo come segue:
 \begin{equation*}
-	\binom{n}{m} = \dfrac{n!}{(n-m)!m!} = \dfrac{m (m - 1) (m -2) \cdots (m - n + 1)}{n!}
+	\binom{n}{m} = \dfrac{n!}{(n-m)!m!} = \dfrac{n (n - 1) (n -2) \cdots (n - m + 1)}{m!}
 \end{equation*}
 Questo permette di togliere l'operazione fattoriale dal primo argomento e quindi permette di generalizzare la sua definizione a $n \in \mathbb{R}$. In questo caso si parla di coefficiente binomiale generalizzato (con $\alpha \in \mathbb{R}$):
 \begin{equation*}
 	\binom{\alpha}{m} = 
 		\begin{cases}
-			1 \qquad \qquad \qquad \qquad \qquad \qquad \qquad \,\; \mathrm{se}\;\, \alpha = 0\\[5pt]
-		\dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!} \quad \;\, \mathrm{se}\;\, \alpha \geq 1\\
+            1  &\mathrm{se} \quad \alpha = 0\\[5pt]
+		\dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - m + 1)}{m!} &\mathrm{se}\quad \alpha \geq 1\\
 		\end{cases}
 \end{equation*}
 
