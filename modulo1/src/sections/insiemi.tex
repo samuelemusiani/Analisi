@@ -1,6 +1,9 @@
 \section{Insiemi}
 \subsection{Simbologia}
-Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per indicare gli elementi appartenenti ad un insieme si usano le lettere minuscole ($a, b, x, y ...$). Di seguito una lista di simboli necessari per lavorare con gli insiemi e la logica in generale:
+Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). 
+Per indicare gli elementi appartenenti ad un insieme si usano le lettere 
+minuscole ($a, b, x, y ...$). Di seguito una lista di simboli necessari per 
+lavorare con gli insiemi e la logica in generale:
 
 \begin{multicols}{2}
 
@@ -14,7 +17,8 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
     \item $\exists \oc$ \qquad Esiste ed è unico
     
     \item $\subseteq$ \qquad Inclusione insiemi
-    \item $\subsetneqq$ \qquad Inclusione stretta (cioè $A \subseteq B$ e $A \neq B$)
+    \item $\subsetneqq$ \qquad Inclusione stretta (cioè $A \subseteq B$ e $A 
+        \neq B$)
     \item $\nsubseteq$ \qquad Non incluso
     
     \item $\cup$ \qquad Unione
@@ -22,7 +26,9 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
     \item $\emptyset$ \qquad Insieme vuoto
     \item $\setminus$ \qquad Meno tra insiemi
     \item $\mathbb{U}$ \qquad Insieme universale
-    \item $\complement \left(A\right)$ \qquad Complementare di $A$ in $\mathbb{U}$, cioè tutti gli elementi di $\mathbb{U}$ che non sono in $A$ ($\complement \left(A\right) = \mathbb{U} \setminus A$).
+    \item $\complement \left(A\right)$ \qquad Complementare di $A$ in 
+        $\mathbb{U}$, cioè tutti gli elementi di $\mathbb{U}$ che non sono in 
+        $A$ ($\complement \left(A\right) = \mathbb{U} \setminus A$).
     
     \item $\lor$ \qquad OR logico
     \item $\land$ \qquad AND logico
@@ -33,47 +39,67 @@ Per indicare gli insiemi si utilizzano lettere maiuscole ($A, B, X, Y ...$). Per
 
 \subsection{Proposizioni e utilizzo di simboli logici}
 
-Le \textbf{proposizioni} sono "frasi" che hanno un valore di verità, cioè posso essere vere o false. Per legare due o più proposizioni si utilizzano svariati simboli logici. In generale la logica proposizionale si studia nel corso di logica quindi non ho intenzione di riportare più dello stretto necessario qui.
+Le \textbf{proposizioni} sono "frasi" che hanno un valore di verità, cioè posso 
+essere vere o false. Per legare due o più proposizioni si utilizzano svariati 
+simboli logici. In generale la logica proposizionale si studia nel corso di 
+logica quindi non ho intenzione di riportare più dello stretto necessario qui.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|c|c|c|}
-\hline
-p & q & \multicolumn{1}{l|}{p $\land$ q} & \multicolumn{1}{l|}{p $\lor$ q} & \multicolumn{1}{l|}{p $\implies$ q} \\ \hline
-{\color[HTML]{000000} false} & {\color[HTML]{000000} false} & false & false & true \\
-{\color[HTML]{000000} false} & {\color[HTML]{000000} true} & false & true & true \\
-{\color[HTML]{000000} true} & {\color[HTML]{000000} false} & false & true & false \\
-true & false & true & true & true \\ \hline
+    \hline
+    p & q & \multicolumn{1}{l|}{p $\land$ q} & \multicolumn{1}{l|}{p $\lor$ q} 
+        & \multicolumn{1}{l|}{p $\implies$ q} \\ \hline
+    {\color[HTML]{000000} false} & {\color[HTML]{000000} false} & false & false 
+        & true \\
+    {\color[HTML]{000000} false} & {\color[HTML]{000000} true} & false & true 
+        & true \\
+    {\color[HTML]{000000} true} & {\color[HTML]{000000} false} & false & true 
+        & false \\
+    true & false & true & true & true \\ \hline
 \end{tabular}
 
 \caption{Tabella di verità per AND, OR e IMPLICAZIONE}
 \end{table}
 
-Nell'implicazione ($p \implies q$) $p$ è condizione sufficiente per $q$, mentre $q$ è condizione necessaria per $p$.
+Nell'implicazione ($p \implies q$) $p$ è condizione sufficiente per $q$, mentre 
+$q$ è condizione necessaria per $p$.
 
-Se si vuole negare una proposizione si utilizza il simbolo di negazione ($^-$) oppure il classico $\neg$, quindi $p$ negato risulta $\overline{p}$ oppure $\neg p$. Di seguito alcune negazioni di simboli generali:
+Se si vuole negare una proposizione si utilizza il simbolo di negazione ($^-$) 
+oppure il classico $\neg$, quindi $p$ negato risulta $\overline{p}$ oppure 
+$\neg p$. Di seguito alcune negazioni di simboli generali:
 \begin{itemize}
     \item $\neg \forall = \exists$
     \item $\neg \exists = \forall$
 \end{itemize}
-Attenzione che i simboli $\not \exists$ e $\neq \exists$ hanno significati diversi. 
+Attenzione che i simboli $\not \exists$ e $\neq \exists$ hanno significati 
+diversi. 
 
-È interessante notare che se si ha un'implicazione, si negano entrambe le proposizioni e si scambiano i termini il risultato rimane invariato.
+È interessante notare che se si ha un'implicazione, si negano entrambe le 
+proposizioni e si scambiano i termini il risultato rimane invariato.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|c|c|}
 \hline
-p & q & \multicolumn{1}{l|}{$p \implies q$} & \multicolumn{1}{l|}{$\overline{q} \implies \overline{p}$} \\ \hline
-{\color[HTML]{000000} false} & {\color[HTML]{000000} false} & false & false \\
-{\color[HTML]{000000} false} & {\color[HTML]{000000} true} & false & true \\
-{\color[HTML]{000000} true} & {\color[HTML]{000000} false} & false & true \\
-true & false & true & true \\ \hline
+    p & q & \multicolumn{1}{l|}{$p \implies q$} & \multicolumn{1}{l|}
+    {$\overline{q} \implies \overline{p}$} \\ \hline
+    {\color[HTML]{000000} false} & {\color[HTML]{000000} false} & false 
+    & false \\
+    {\color[HTML]{000000} false} & {\color[HTML]{000000} true} & false 
+    & true \\
+    {\color[HTML]{000000} true} & {\color[HTML]{000000} false} & false 
+    & true \\
+    true & false & true & true \\ \hline
 \end{tabular}
 \caption{Implicazione con termini negati e invertiti}
 \end{table}
 
-Avendo la stessa tabella di verità $p \implies q = \overline{q} \implies \overline{p}$. Da qui nasce la \textbf{dimostrazione per negazione} (o contronominale). Esempio: se vogliamo dimostrare che se $n^2$ \textit{è pari} allora $n$ \textit{è pari}, ci basta dimostrare che se $n$ \textit{è dispari} allora $n^2$ \textit{è dispari}:
+Avendo la stessa tabella di verità $p \implies q = \overline{q} \implies 
+\overline{p}$. Da qui nasce la \textbf{dimostrazione per negazione} (o 
+contronominale). Esempio: se vogliamo dimostrare che se $n^2$ \textit{è pari} 
+allora $n$ \textit{è pari}, ci basta dimostrare che se $n$ \textit{è dispari} 
+allora $n^2$ \textit{è dispari}:
 \begin{equation*}
 	n \; \text{dispari} \implies n^2 \; \text{dispari}
 \end{equation*}
@@ -96,28 +122,51 @@ Essendo $(2k^2 + 2k) \in \mathbb{N}$ ne consegue che:
 
 \subsubsection{Naturali, interi e razionali}
 
-Il primo insieme che si introduce è l'insieme dei \textbf{numeri naturali}, indicato con $\mathbb{N}$. Non definiremo formalmente l'insieme, ci basti sapere che comprende tutti i numeri interi positivi. È generalmente scritto nella forma:
+Il primo insieme che si introduce è l'insieme dei \textbf{numeri naturali}, 
+indicato con $\mathbb{N}$. Non definiremo formalmente l'insieme, ci basti 
+sapere che comprende tutti i numeri interi positivi. È generalmente scritto 
+nella forma:
 \begin{center}
     $\mathbb{N} = \{0, 1, 2, 3, ...\}$
 \end{center}
 
-Il secondo insieme che va introdotto è quello dei \textbf{numeri interi}. Questo insieme comprende tutti i numeri che non hanno la virgola (per l'appunto interi) e si distingue da $\mathbb{N}$ in quanto ha al suo interno anche i numeri negativi. Il suo simbolo è $\mathbb{Z}$ e viene generalmente scritto come segue:
+Il secondo insieme che va introdotto è quello dei \textbf{numeri interi}. 
+Questo insieme comprende tutti i numeri che non hanno la virgola (per l'appunto 
+interi) e si distingue da $\mathbb{N}$ in quanto ha al suo interno anche i 
+numeri negativi. Il suo simbolo è $\mathbb{Z}$ e viene generalmente scritto 
+come segue:
 \begin{center}
     $\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ...\}$
 \end{center}
 
-Non sempre però è comodo descrivere gli insiemi elencando il loro termini (in realtà non viene quasi mai fatto in quanto si creerebbero delle ambiguità). È necessario quindi utilizzare una notazione diversa per descrivere un insieme, ed è quello che si usa anche per introdurre $\mathbb{Q}$, l'insieme dei \textbf{numeri razionali}:
+Non sempre però è comodo descrivere gli insiemi elencando il loro termini (in 
+realtà non viene quasi mai fatto in quanto si creerebbero delle ambiguità). È 
+necessario quindi utilizzare una notazione diversa per descrivere un insieme, 
+ed è quello che si usa anche per introdurre $\mathbb{Q}$, l'insieme dei 
+\textbf{numeri razionali}:
 \begin{center}
     \begin{equation*}
-        \mathbb{Q} = \left\{\,\dfrac{p}{q}\, \middle| \, p, q \in \mathbb{Z},\, q \neq 0 \right\}
+        \mathbb{Q} = \left\{\,\dfrac{p}{q}\, \middle| \, p, q \in \mathbb{Z},\, 
+        q \neq 0 \right\}
     \end{equation*}
 \end{center}
-In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte le frazioni\footnote{Matematici rigorosi abbiate pietà della mia anima}. E per esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo una proposizione.
+In questo caso l'insieme dei numeri razionali indica appunto l'insieme di tutte 
+le frazioni\footnote{Matematici rigorosi abbiate pietà della mia anima}. E per 
+esplicitarlo non cominciamo ad elencare tutte le frazioni, ma bensì utilizziamo 
+una proposizione.
 
 \subsubsection{Reali}
-L'ultimo insieme che introduciamo è l'insieme dei \textbf{numeri reali}. Viene indicato con il simbolo $\mathbb{R}$ ed è l'insieme più importante di tutti i precedenti. Questo insieme viene introdotto perché all'insieme dei numeri razionali ($\mathbb{Q}$) mancano dei numeri.
+L'ultimo insieme che introduciamo è l'insieme dei \textbf{numeri reali}. Viene 
+indicato con il simbolo $\mathbb{R}$ ed è l'insieme più importante di tutti i 
+precedenti. Questo insieme viene introdotto perché all'insieme dei numeri 
+razionali ($\mathbb{Q}$) mancano dei numeri.
 
-Proviamo infatti a prendere una retta e a inserirci tutti i numeri che conosciamo per ora (cioè quelli contenuti in Q). Costruiamo ora un quadrato di lato 1, e proviamo a calcolare la lunghezza della sua diagonale con il teorema di Pitagora. Il numero che otterremo sarà $\sqrt{1^2+1^2} = \sqrt{2}$. Se proiettiamo questo numero sulla retta vediamo chiaramente che esiste un punto che corrisponde a $\sqrt{2}$.
+Proviamo infatti a prendere una retta e a inserirci tutti i numeri che 
+conosciamo per ora (cioè quelli contenuti in Q). Costruiamo ora un quadrato di 
+lato 1, e proviamo a calcolare la lunghezza della sua diagonale con il teorema 
+di Pitagora. Il numero che otterremo sarà $\sqrt{1^2+1^2} = \sqrt{2}$. Se 
+proiettiamo questo numero sulla retta vediamo chiaramente che esiste un punto 
+che corrisponde a $\sqrt{2}$.
 
 \begin{figure}[h]
 	\begin{center}
@@ -134,36 +183,50 @@ Proviamo infatti a prendere una retta e a inserirci tutti i numeri che conosciam
 		\draw (0,0) -- (1.414,0) arc(0:45:1.414);
 
 
-		\draw[very thin, fill] (0,0) circle (0.4pt) node[left, yshift=10pt] {$0$};
-		\draw[very thin, fill] (1,0) circle (0.4pt) node[left, yshift=10pt] {$1$};
-		\draw[very thin, fill] (1.414,0) circle (0.4pt) node[right, yshift=10pt] {$\sqrt{2}$};
+		\draw[very thin, fill] (0,0) circle (0.4pt) node[left, yshift=10pt] 
+            {$0$};
+		\draw[very thin, fill] (1,0) circle (0.4pt) node[left, yshift=10pt] 
+            {$1$};
+		\draw[very thin, fill] (1.414,0) circle (0.4pt) node[right, 
+            yshift=10pt] {$\sqrt{2}$};
 	\end{tikzpicture}
 
 	\end{center}
-	\caption{$\sqrt{2}$ derivata dalla lunghezza della diagonale di un quadrato}
+	\caption{$\sqrt{2}$ derivata dalla lunghezza della diagonale di un 
+    quadrato}
 \end{figure}
 
 
 Questo punto è contenuto nell'insieme $\mathbb{Q}$? 
 
 \pf{
-	Dobbiamo provare che $\sqrt{2} \not \in \mathbb{Q}$. Assumiamo che sia contenuto e riduciamoci a dimostrare l'assurdo. Se $\sqrt{2} \in \mathbb{Q}$ significa che:
+	Dobbiamo provare che $\sqrt{2} \not \in \mathbb{Q}$. Assumiamo che sia 
+    contenuto e riduciamoci a dimostrare l'assurdo. Se $\sqrt{2} \in 
+    \mathbb{Q}$ significa che:
 	\begin{equation*}
-	\exists\, m, n, \in \mathbb{N} : \dfrac{m}{n} = \sqrt{2}
+        \exists\, m, n, \in \mathbb{N} : \dfrac{m}{n} = \sqrt{2}
 	\end{equation*}
-	Cioè esistono due numeri appartenenti all'insieme dei numeri naturali tali che il loro rapporto è esattamente $\sqrt{2}$. Ovviamente essendo una frazione possiamo semplificare $m$ e $n$ fino ad eliminare tutti i loro fattori comuni, cioè fino a farli diventare \textbf{coprimi} o meglio $\mathrm{M.C.D}(m,n) = 1$.
+	Cioè esistono due numeri appartenenti all'insieme dei numeri naturali tali 
+    che il loro rapporto è esattamente $\sqrt{2}$. Ovviamente essendo una 
+    frazione possiamo semplificare $m$ e $n$ fino ad eliminare tutti i loro 
+    fattori comuni, cioè fino a farli diventare \textbf{coprimi} o meglio 
+    $\mathrm{M.C.D}(m,n) = 1$.
 
 	\begin{equation*}
-	\dfrac{m}{n} = \sqrt{2} \implies \dfrac{m^2}{n^2} = \sqrt{2} \implies m^2 = 2n^2
+        \dfrac{m}{n} = \sqrt{2} \implies \dfrac{m^2}{n^2} = \sqrt{2} 
+        \implies m^2 = 2n^2
 	\end{equation*}
-	Possiamo quindi dedurre che $m^2$ è pari,  e quindi $m$ è pari\footnote{Lo abbiamo visto qualche pagina sopra come esempio di dimostrazione per negazione}.
+	Possiamo quindi dedurre che $m^2$ è pari,  e quindi $m$ è pari\footnote{Lo 
+    abbiamo visto qualche pagina sopra come esempio di dimostrazione per 
+    negazione}.
 	Quindi $\exists\, k \in \mathbb{N} : m = 2k$.
 	\begin{equation*}
 	m^2 = 2n^2 \implies (2k)^2 = 2n^2 \implies 4k^2 = 2n^2 \implies 2k^2 = n^2
 	\end{equation*}
 	Quindi se $n^2$ è pari, anche $n$ è pari.\\
 
-	Abbiamo dimostrato che sia $m$ che $n$ sono pari, eppure avevamo imposto che $m$ e $n$ non avessero fattori in comune. Assurdo! Quindi:
+	Abbiamo dimostrato che sia $m$ che $n$ sono pari, eppure avevamo imposto 
+    che $m$ e $n$ non avessero fattori in comune. Assurdo! Quindi:
 	\begin{equation*}
 		\sqrt{2} \not \in \mathbb{Q}
 	\end{equation*}
@@ -171,128 +234,216 @@ Questo punto è contenuto nell'insieme $\mathbb{Q}$?
 	\hfill Q.e.d.
 }
 
-Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri razionali. Si può estendere quesa affermazione con il seguente teorema:
+Come abbiamo dimostrato $\sqrt{2}$ non appartiene all'insieme dei numeri 
+razionali. Si può estendere quesa affermazione con il seguente teorema:
 \thm{
-    Sia $p \in \mathbb{N}$ un numero primo, allora $\sqrt{p} \not \in \mathbb{Q}$
+    Sia $p \in \mathbb{N}$ un numero primo, allora $\sqrt{p} \not \in 
+    \mathbb{Q}$
 }
 \pf{
-    La dimostrazione è analoga al caso in cui $p = 2$. Si assume per assurdo che:
+    La dimostrazione è analoga al caso in cui $p = 2$. Si assume per assurdo 
+    che:
     \begin{equation*}
         \exists m,n \in \mathbb{N} : \sqrt{p} = \dfrac{m}{n}
     \end{equation*}
-    Assumiamo che $m$ e $n$ siano coprimi in quanto è sepre possibile semplificare fino a farli diventare coprimi. In altre parole M.C.D$(m, n) = 1$.
+    Assumiamo che $m$ e $n$ siano coprimi in quanto è sepre possibile 
+    semplificare fino a farli diventare coprimi. In altre parole M.C.D$(m, n) 
+    = 1$.
     Vale quindi che:
     \begin{equation*}
         p = \dfrac{m^2}{n^2} \implies n^2 \cdot p = m^2
     \end{equation*}
-    Tutti i fattori di $m^2$ sono i fattori di $m$, quindi $p$ è un fattore di $m$. $\exists k \in \mathbb{N}: m = kp$. Sostituende risulta:
+    Tutti i fattori di $m^2$ sono i fattori di $m$, quindi $p$ è un fattore di 
+    $m$. $\exists k \in \mathbb{N}: m = kp$. Sostituende risulta:
     \begin{equation*}
-        m^2 = p \cdot n^2 \implies (kp)^2 = p \cdot n^2 \implies k^2 \cdot p^2 = p \cdot n^2 \implies k^2 \cdot p = n^2
+        m^2 = p \cdot n^2 \implies (kp)^2 = p \cdot n^2 \implies k^2 \cdot 
+        p^2 = p \cdot n^2 \implies k^2 \cdot p = n^2
     \end{equation*}
-    Per la stessa osservazione fatta prima, questo significa che $p$ divide $n$. Ma dividendo anche $m$ risulta che M.C.D$(m, n) = p$. Ed essendo $p$ un numero primo $p \neq 1$. Assurdo! Quindi:
+    Per la stessa osservazione fatta prima, questo significa che $p$ divide 
+    $n$. Ma dividendo anche $m$ risulta che M.C.D$(m, n) = p$. Ed essendo $p$ 
+    un numero primo $p \neq 1$. Assurdo! Quindi:
     \begin{equation*}
         \sqrt{p} \not \in \mathbb{Q}
     \end{equation*}
 
     \hfill Q.e.d.
 }
-Quindi tutti i numeri primi non appartengono all'insieme dei numeri razionali. Ma quanti numeri primi esistono?
+Quindi tutti i numeri primi non appartengono all'insieme dei numeri razionali. 
+Ma quanti numeri primi esistono?
 \thm{
     I numeri primi sono infiniti
 }
 \pf{
-    La dimostrazione è per assurdo quindi supponiamo che i numeri primi siano finiti. Elenchiamoli in ordine crescente:
+    La dimostrazione è per assurdo quindi supponiamo che i numeri primi siano 
+    finiti. Elenchiamoli in ordine crescente:
     \begin{equation*}
         p_1 < p_2 < p_3 < \cdots < p_n
     \end{equation*}
-    Definiamo ora il numero: $m \vcentcolon = p_1 \cdot p_2 \cdots p_n + 1$. Facciamo vedere che $m$ produce una contraddizione: $m > p_n$ quindi essendo $p_n$ il massimo numero primo $m$ deve per forza essere non primo. Essendo non primo $m$ deve per forza essere divisibile per almeno uno dei numeri primi $p_1, p_2, \cdots, p_n$. Notiamo però che preso un qualsiasi primo $p_i$, $m$ darà sempre resto $1$:
+    Definiamo ora il numero: $m \vcentcolon = p_1 \cdot p_2 \cdots p_n + 1$. 
+    Facciamo vedere che $m$ produce una contraddizione: $m > p_n$ quindi 
+    essendo $p_n$ il massimo numero primo $m$ deve per forza essere non primo. 
+    Essendo non primo $m$ deve per forza essere divisibile per almeno uno dei 
+    numeri primi $p_1, p_2, \cdots, p_n$. Notiamo però che preso un qualsiasi 
+    primo $p_i$, $m$ darà sempre resto $1$:
     \begin{equation*}
         m = p_i \cdot (p_1 \cdots p_{i - 1} \cdot p_{i + 1} \cdots p_n) + 1
     \end{equation*}
-    Non essendo quindi divisibile per nessuno dei numeri primi $m$ deve per forza essere primo, ma questo è assurdo in quanto $m$ non era primo per l'osservazione fatta in precedenza.
+    Non essendo quindi divisibile per nessuno dei numeri primi $m$ deve per 
+    forza essere primo, ma questo è assurdo in quanto $m$ non era primo per 
+    l'osservazione fatta in precedenza.
     \hfill{Q.e.d.}
 }
 
-Ne consegue che esistono infiniti punti sulla retta che non appartengono a $\mathbb{Q}$, e anzi è molto più probabile che facendo la radice di un numero si ottenga un numero che non è incluso in $\mathbb{Q}$ piuttosto che il contrario. Quindi se si vuole formalizzare una teoria dei limiti è necessario lavorare su un insieme non "bucato", cioè un insieme \textbf{continuo}.\bigbreak
+Ne consegue che esistono infiniti punti sulla retta che non appartengono a 
+$\mathbb{Q}$, e anzi è molto più probabile che facendo la radice di un numero 
+si ottenga un numero che non è incluso in $\mathbb{Q}$ piuttosto che il 
+contrario. Quindi se si vuole formalizzare una teoria dei limiti è necessario 
+lavorare su un insieme non "bucato", cioè un insieme \textbf{continuo}.
+\bigbreak
 
-La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti sulla retta hanno associato un unico numero reale). Esiste infatti una \textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza biunivoca} è necessario fare riferimento al capitolo legato alle funzioni.}
-Per definire meglio la proprietà di completezza è necessario introdurre alcuni concetti:
+La proprietà che infatti distingue e differenzia $\mathbb{R}$ da $\mathbb{Q}$ 
+è proprio la continuità (non ci sono "buchi") e la completezza (tutti i punti 
+sulla retta hanno associato un unico numero reale). Esiste infatti una 
+\textbf{corrispondenza biunivoca} che associa tutti i punti della retta ai 
+numeri reali.\footnote{Per approfondire il concetto di \textit{corrispondenza 
+biunivoca} è necessario fare riferimento al capitolo legato alle funzioni.}
+Per definire meglio la proprietà di completezza è necessario introdurre alcuni 
+concetti:
 
 \dfn{
     Dato $A \neq \emptyset$ e $A \subseteq R$
     \begin{enumerate}
-        \item $M \in \mathbb{R}$ si dice \textbf{maggiorante} di $A$ se: $\forall\, a \in A : a \leq M$.
-        \item $m \in \mathbb{R}$ si dice \textbf{minorante} di $A$ se: $\forall\, a \in A : m \leq a$.
+        \item $M \in \mathbb{R}$ si dice \textbf{maggiorante} di $A$ se: 
+            $\forall\, a \in A : a \leq M$.
+        \item $m \in \mathbb{R}$ si dice \textbf{minorante} di $A$ se: 
+            $\forall\, a \in A : m \leq a$.
         
         \item Se $A$ ammette un maggiorante è \textbf{superiormente limitato}.
         \item Se $A$ ammette un maggiorante è \textbf{inferiormente limitato}.
-        \item Se $A$ ammettere un maggiorante e un minorante è \textbf{limitato}.
+        \item Se $A$ ammettere un maggiorante e un minorante è 
+            \textbf{limitato}.
         
-        \item $b \in A$ si dice \textbf{massimo} di $A$ se $\forall\, a \in A : a \leq b$.
-        \item $c \in A$ si dice \textbf{minimo} di $A$ se $\forall\, a \in A : c \leq a$.
+        \item $b \in A$ si dice \textbf{massimo} di $A$ se $\forall\, a 
+            \in A : a \leq b$.
+        \item $c \in A$ si dice \textbf{minimo} di $A$ se $\forall\, a 
+            \in A : c \leq a$.
         
-        \item Il più piccolo dei maggioranti si chiama \textbf{estremo superiore} di $A$. Si indicato con $\mathbf{sup}\,A$. Se il massimo esiste coincide con l'estremo superiore. Se l'insieme è superiormente illimitato si scrive $\mathbf{sup}\,A = +\infty$.
-        \item Il più grande dei minoranti si chiama \textbf{estremo inferiore} di $A$. Si indicato con $\mathbf{inf}\,A$. Se il minimo esiste coincide con l'estremo inferiore. Se l'insieme è inferiormente illimitato si scrive $\mathbf{inf}\,A = -\infty$.
+        \item Il più piccolo dei maggioranti si chiama \textbf{estremo 
+            superiore} di $A$. Si indicato con $\mathbf{sup}\,A$. Se il massimo 
+            esiste coincide con l'estremo superiore. Se l'insieme è 
+            superiormente illimitato si scrive $\mathbf{sup}\,A = +\infty$.
+        \item Il più grande dei minoranti si chiama \textbf{estremo inferiore} 
+            di $A$. Si indicato con $\mathbf{inf}\,A$. Se il minimo esiste 
+            coincide con l'estremo inferiore. Se l'insieme è inferiormente 
+            illimitato si scrive $\mathbf{inf}\,A = -\infty$.
         
-        \item L'\textbf{insieme dei maggioranti} di $A$ si indica come $\mathrm{Mg}(A) = \{n \in \mathbb{R}\,|\, n$ è un maggiorante di $A\}$. Il minimo di questo insieme coincide con l'estremo superiore di $A$.
-        \item L'\textbf{insieme dei minoranti} di $A$ si indica come $\mathrm{Mn}(A) = \{n \in \mathbb{R}\,|\, n$ è un minorante di $A\}$. Il massimo di questo insieme coincide con l'estremo inferiore di $A$.
+        \item L'\textbf{insieme dei maggioranti} di $A$ si indica come 
+            $\mathrm{Mg}(A) = \{n \in \mathbb{R}\,|\, n$ è un maggiorante di 
+            $A\}$. Il minimo di questo insieme coincide con l'estremo superiore 
+            di $A$.
+        \item L'\textbf{insieme dei minoranti} di $A$ si indica come 
+            $\mathrm{Mn}(A) = \{n \in \mathbb{R}\,|\, n$ è un minorante di 
+            $A\}$. Il massimo di questo insieme coincide con l'estremo 
+            inferiore di $A$.
     \end{enumerate}
 }
-La proprietà di \textbf{completezza} \label{sec_completezzaR} di $\mathbb{R}$ è quindi formalizzata nella seguente forma:
+La proprietà di \textbf{completezza} \label{sec_completezzaR} di $\mathbb{R}$ è 
+quindi formalizzata nella seguente forma:
 \imp{\begin{center}
-    Dato un insieme limitato, esiste sempre un estremo inferiore e un estremo superiore.
+    Dato un insieme limitato, esiste sempre un estremo inferiore e un estremo 
+    superiore.
 \end{center}}
 
-Per esempio, dato l'insieme $A = \{q \in \mathbb{Q}\,|\,q^2 < 2\}$ non è possibile trovare un estremo superiore e un estremo inferiore in quanto l'intervallo (sezione \ref{sec_intervalli}) dell'insieme sarebbe $]-\sqrt{2}, \sqrt{2}[$ e, come dimostrato precedentemente, $\sqrt{2} \notin \mathbb{Q}$. Se invece si considera l'insieme $B = \{q \in \mathbb{R}\,|\,q^2 < 2\}$, è facile notare che $\mathrm{sup}\,A = \sqrt{2}$ e che $\mathrm{inf}\, A = -\sqrt{2}$.
+Per esempio, dato l'insieme $A = \{q \in \mathbb{Q}\,|\,q^2 < 2\}$ non è 
+possibile trovare un estremo superiore e un estremo inferiore in quanto 
+l'intervallo (sezione \ref{sec_intervalli}) dell'insieme sarebbe $]-\sqrt{2}, 
+\sqrt{2}[$ e, come dimostrato precedentemente, $\sqrt{2} \notin \mathbb{Q}$. 
+Se invece si considera l'insieme $B = \{q \in \mathbb{R}\,|\,q^2 < 2\}$, è 
+facile notare che $\mathrm{sup}\,A = \sqrt{2}$ e che $\mathrm{inf}\, A = 
+-\sqrt{2}$.
 
 \subsection{Intervalli} \label{sec_intervalli}
-Per indicare gli intervalli generalmente si utilizza una notazione con le parentesi. Viene utilizzata la parentesi quadra ($[$ e $]$) per indicare rispettivamente se un estremo dell'intervallo è compreso o no. In particolare se l'apertura della parentesi è rivolta verso il numero, allora tale numero è compreso. Di seguito degli esempi per chiarire. Gli intervalli sono comunque un insieme di punti e quindi questo si può tradurre:
+Per indicare gli intervalli generalmente si utilizza una notazione con le 
+parentesi. Viene utilizzata la parentesi quadra ($[$ e $]$) per indicare 
+rispettivamente se un estremo dell'intervallo è compreso o no. In particolare 
+se l'apertura della parentesi è rivolta verso il numero, allora tale numero è 
+compreso. Di seguito degli esempi per chiarire. Gli intervalli sono comunque 
+un insieme di punti e quindi questo si può tradurre:
 \begin{multicols}{2}
 \begin{itemize}
-    \item $[a, b] = \left\{ x \in \mathbb{R}\, \middle|\, a \leq x 	\leq b\right\}$
+    \item $[a, b] = \left\{ x \in \mathbb{R}\, \middle|\, a \leq x 	\leq 
+        b\right\}$
     \item $]a, b] = \left\{ x \in \mathbb{R}\, \middle|\, a < x \leq b\right\}$
     \item $[a, b[ = \left\{ x \in \mathbb{R}\, \middle|\, a \leq x < b\right\}$
     \item $]a, b[ = \left\{ x \in \mathbb{R}\, \middle|\, a < x < b\right\}$
     
-    \item $]-\infty, a] = \left\{ x \in \mathbb{R}\, \middle|\, a \leq x \right\}$
-    \item $[b, +\infty[ = \left\{ x \in \mathbb{R}\, \middle|\, x \geq b \right\}$
+    \item $]-\infty, a] = \left\{ x \in \mathbb{R}\, \middle|\, a \leq 
+        x \right\}$
+    \item $[b, +\infty[ = \left\{ x \in \mathbb{R}\, \middle|\, x \geq 
+        b \right\}$
     \item $]-\infty, +\infty[ = \mathbb{R}$
 \end{itemize}
 \end{multicols}
-Con infinito si utilizza sempre la parentesi di esclusione. In alcuni libri viene utilizzata però la parentesi tonda: al posto di $[a,+\infty[$ viene scritto $[a. +\infty)$. La notazione è del tutto equivalente.
+Con infinito si utilizza sempre la parentesi di esclusione. In alcuni libri 
+viene utilizzata però la parentesi tonda: al posto di $[a,+\infty[$ viene 
+scritto $[a. +\infty)$. La notazione è del tutto equivalente.
 
 \subsection{Prodotto cartesiano}
 \dfn{
-    Dati due insiemi $A$ e $B$, il \textbf{prodotto cartesiano tra $A$ e $B$} si definisce come:
+    Dati due insiemi $A$ e $B$, il \textbf{prodotto cartesiano tra $A$ e $B$} 
+    si definisce come:
     \begin{equation*}
         A\times B = \{(a, b)\,|\,a \in A \land b \in B\}
     \end{equation*}
 }
 
-È quindi l'insieme di coppie ordinate ($(1, 0) \neq (0, 1)$). Attenzione che non vale la proprietà commutativa: $A\times B \neq B\times A$. Un prodotto cartesiano con lo stesso insieme si può abbreviare come $A^2 = A\times A$.\bigbreak 
+È quindi l'insieme di coppie ordinate ($(1, 0) \neq (0, 1)$). Attenzione che 
+non vale la proprietà commutativa: $A\times B \neq B\times A$. Un prodotto 
+cartesiano con lo stesso insieme si può abbreviare come $A^2 = A\times A$.
+\bigbreak 
 
-$\mathbb{R}$ = Retta. $\mathbb{R}^2$ = Piano cartesiano. $\mathbb{R}^3$ = Sistema di coordinate a tre dimensioni. %FARE GRAFICO
+$\mathbb{R}$ = Retta. $\mathbb{R}^2$ = Piano cartesiano. $\mathbb{R}^3$ = 
+Sistema di coordinate a tre dimensioni. %FARE GRAFICO
 
 \subsection{Cardinalità}
-La cardinalità, per essere introdotta, ha bisogno di alcune nozioni riguardo le funzioni. È consigliato quindi andare a vedere la sezione \ref{sec_funzioni} e poi tornare qui.\bigbreak
+La cardinalità, per essere introdotta, ha bisogno di alcune nozioni riguardo le 
+funzioni. È consigliato quindi andare a vedere la sezione \ref{sec_funzioni} e 
+poi tornare qui.\bigbreak
 
 \dfn{
-    Dati due insiemi $A$ e $B$, se esiste una funzione biunivoca $f: A \to B$ si dice che \textbf{$A$ e $B$ sono equipotenti}.
+    Dati due insiemi $A$ e $B$, se esiste una funzione biunivoca $f: A \to B$ 
+    si dice che \textbf{$A$ e $B$ sono equipotenti}.
 }
 
 \dfn{
-    Due insiemi hanno la stessa cardinalità se sono equipotenti. Per indicare la cardinalità dell'insieme $A$ si scrive:
+    Due insiemi hanno la stessa cardinalità se sono equipotenti. Per indicare 
+    la cardinalità dell'insieme $A$ si scrive:
     \begin{equation*}
         |A|
     \end{equation*}
 }
 
-La cardinalità, in parole povere, è un modo per "misurare" e classificare gli insiemi in base a quanti elementi contengono. Se infatti abbiamo tre insiemi finiti $A=\{1, 3, 5\}$, $B=\{2, 4, 6\}$ e $C=\{1, 2\}$ possiamo dire che A e C NON hanno la stessa cardinalità ($|A|=3 \neq |C| = 2$), mentre A e B hanno la stessa cardinalità ($|A| = |B| = 3$). Quindi la cardinalità riguardo insiemi \textit{finiti} si limita a misurare gli elementi che contengono gli insiemi stessi, mentre la cardinalità con insiemi \textit{infiniti} ci permette di capire quali insiemi contengono più elementi di altri (nonostante siano infiniti).\bigbreak
+La cardinalità, in parole povere, è un modo per "misurare" e classificare gli 
+insiemi in base a quanti elementi contengono. Se infatti abbiamo tre insiemi 
+finiti $A=\{1, 3, 5\}$, $B=\{2, 4, 6\}$ e $C=\{1, 2\}$ possiamo dire che A e C 
+NON hanno la stessa cardinalità ($|A|=3 \neq |C| = 2$), mentre A e B hanno la 
+stessa cardinalità ($|A| = |B| = 3$). Quindi la cardinalità riguardo insiemi 
+\textit{finiti} si limita a misurare gli elementi che contengono gli insiemi 
+stessi, mentre la cardinalità con insiemi \textit{infiniti} ci permette di 
+capire quali insiemi contengono più elementi di altri (nonostante siano 
+infiniti).\bigbreak
 
 \subsubsection{Cardinalità del numerabile}
-La cardinalità infinita più piccola è la \textbf{cardinalità del numerabile}, cioè la stessa cardinalità dell'insieme dei numeri naturali ($|\mathbb{N}| = numerabile$).
+La cardinalità infinita più piccola è la \textbf{cardinalità del numerabile}, 
+cioè la stessa cardinalità dell'insieme dei numeri naturali ($|\mathbb{N}| = 
+numerabile$).
 
-Ora prendiamo in considerazione il secondo insieme che abbiamo introdotto subito dopo $\mathbb{N}$, cioè $\mathbb{Z}.$ L'intuito ci dice che la cardinalità dell'insieme dei numeri interi dovrebbe essere doppia rispetto a quella dei naturali, in quanto ci sono esattamente il doppio dei numeri (cioè anche i negativi oltre ai positivi). Proviamo però a definire una funzione $f: \mathbb{N} \to \mathbb{Z}$ tale che:
+Ora prendiamo in considerazione il secondo insieme che abbiamo introdotto 
+subito dopo $\mathbb{N}$, cioè $\mathbb{Z}.$ L'intuito ci dice che la 
+cardinalità dell'insieme dei numeri interi dovrebbe essere doppia rispetto a 
+quella dei naturali, in quanto ci sono esattamente il doppio dei numeri (cioè 
+anche i negativi oltre ai positivi). Proviamo però a definire una funzione $f: 
+\mathbb{N} \to \mathbb{Z}$ tale che:
 
 \begin{equation*}
 	f(n) =
@@ -310,12 +461,15 @@ I valori della funzione risultano quindi:
     \vdots \qquad \qquad \qquad \qquad \vdots \qquad
 \end{align*}
 
-È facile notare che $f$ è biunivoca e, conseguentemente alle definizioni appena date, possiamo affermare che $\mathbb{Z}$ ha cardinalità del numerabile:
+È facile notare che $f$ è biunivoca e, conseguentemente alle definizioni appena 
+date, possiamo affermare che $\mathbb{Z}$ ha cardinalità del numerabile:
 \begin{equation*}
     |\mathbb{Z}| = |\mathbb{N}|
 \end{equation*}
 
-Prendiamo ora in analisi l'insieme dei numeri razionali, ovvero $\mathbb{Q}$. Elenchiamo tutte le frazioni (e di conseguenza tutti i suoi elementi) nel seguente ordine:
+Prendiamo ora in analisi l'insieme dei numeri razionali, ovvero $\mathbb{Q}$. 
+Elenchiamo tutte le frazioni (e di conseguenza tutti i suoi elementi) nel 
+seguente ordine:
 
 \begin{figure}[H]
 \centering
@@ -325,10 +479,14 @@ Prendiamo ora in analisi l'insieme dei numeri razionali, ovvero $\mathbb{Q}$. El
 {
 0 & 1 & 2 & 3 & 4 & 5 & 6 & \dots \\
 -0 & -1 & -2 & -3 & -4 & -5 & -6 & \dots \\
-$ +\frac{0}{2}$ & $ +\frac{1}{2}$ & $ +\frac{2}{2}$ & $ +\frac{3}{2}$ & $ +\frac{4}{2}$ & $ +\frac{5}{2}$ & $ +\frac{6}{2}$ & \dots \\
-$ -\frac{0}{2}$ & $ -\frac{1}{2}$ & $ -\frac{2}{2}$ & $ -\frac{3}{2}$ & $ -\frac{4}{2}$ & $ -\frac{5}{2}$ & $ -\frac{6}{2}$ & \dots \\
-$ +\frac{0}{3}$ & $ +\frac{1}{3}$ & $ +\frac{2}{3}$ & $ +\frac{3}{3}$ & $ +\frac{4}{3}$ & $ +\frac{5}{3}$ & $ +\frac{6}{3}$ & \dots \\
-$ -\frac{0}{3}$ & $ -\frac{1}{3}$ & $ -\frac{2}{3}$ & $ -\frac{3}{3}$ & $ -\frac{4}{3}$ & $ -\frac{5}{3}$ & $ -\frac{6}{3}$ & \dots \\
+$ +\frac{0}{2}$ & $ +\frac{1}{2}$ & $ +\frac{2}{2}$ & $ +\frac{3}{2}$ & 
+    $ +\frac{4}{2}$ & $ +\frac{5}{2}$ & $ +\frac{6}{2}$ & \dots \\
+$ -\frac{0}{2}$ & $ -\frac{1}{2}$ & $ -\frac{2}{2}$ & $ -\frac{3}{2}$ & 
+    $ -\frac{4}{2}$ & $ -\frac{5}{2}$ & $ -\frac{6}{2}$ & \dots \\
+$ +\frac{0}{3}$ & $ +\frac{1}{3}$ & $ +\frac{2}{3}$ & $ +\frac{3}{3}$ & 
+    $ +\frac{4}{3}$ & $ +\frac{5}{3}$ & $ +\frac{6}{3}$ & \dots \\
+$ -\frac{0}{3}$ & $ -\frac{1}{3}$ & $ -\frac{2}{3}$ & $ -\frac{3}{3}$ & 
+    $ -\frac{4}{3}$ & $ -\frac{5}{3}$ & $ -\frac{6}{3}$ & \dots \\
 \vdots &\vdots &\vdots &\vdots &\vdots &\vdots &\vdots &\\
 };
 % the matrix rules
@@ -368,7 +526,11 @@ $ -\frac{0}{3}$ & $ -\frac{1}{3}$ & $ -\frac{2}{3}$ & $ -\frac{3}{3}$ & $ -\frac
 \label{tab_NumeriRazionali}
 \end{figure}
 
-Non dimostreremo rigorosamente la cosa, però è facile notare che si può costruire una funzione biunivoca da $\mathbb{N}$ a $\mathbb{Q}$ che segua esattamente l'ordine delle frecce nella figura \ref{tab_NumeriRazionali}. Di conseguenza anche l'insieme dei numeri razionali ha \textbf{cardinalità del numerabile}:
+Non dimostreremo rigorosamente la cosa, però è facile notare che si può 
+costruire una funzione biunivoca da $\mathbb{N}$ a $\mathbb{Q}$ che segua 
+esattamente l'ordine delle frecce nella figura \ref{tab_NumeriRazionali}. 
+Di conseguenza anche l'insieme dei numeri razionali ha \textbf{cardinalità del 
+numerabile}:
 \imp{
 \begin{equation*}
     |\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}|
@@ -376,13 +538,28 @@ Non dimostreremo rigorosamente la cosa, però è facile notare che si può costr
 }
 
 \subsubsection{Cardinalità del continuo}
-Concludiamo con l'analisi dei numeri reali, ovvero l'insieme $\mathbb{R}$. Se volessimo dimostrare che $\mathbb{R}$ non è numerabile, ci basterebbe dimostrare che un suo sottoinsieme non è numerabile.
+Concludiamo con l'analisi dei numeri reali, ovvero l'insieme $\mathbb{R}$. Se 
+volessimo dimostrare che $\mathbb{R}$ non è numerabile, ci basterebbe 
+dimostrare che un suo sottoinsieme non è numerabile.
 \pf{
-	Vogliamo dimostrare che $[0,1[$ non è numerabile perché questo ci permetterebbe di concludere che $\mathbb{R}$ non è numerabile. Ci basta quindi dimostrate che non esiste una funzione suriettiva da $\mathbb{N}$ a $\mathbb{R}$:
+	Vogliamo dimostrare che $[0,1[$ non è numerabile perché questo ci 
+    permetterebbe di concludere che $\mathbb{R}$ non è numerabile. Ci basta 
+    quindi dimostrate che non esiste una funzione suriettiva da $\mathbb{N}$ a 
+    $\mathbb{R}$:
 	\begin{equation*}
 		\not \exists f:N \xrightarrow[1-1]{SU} [0,1[
 	\end{equation*}
-	Supponiamo che esiste tale funzione e riduciamoci a dimostrare l'assurdo\footnote{Il prof chiama questa dimostrazione \textit{una dimostrazione per assurdo} quando chiaramente non lo è perché si suppone l'esistenza della funzione da una semplice introduzione del not. La differenza tra la dimostrazione per assurdo (RAA) e la not introduzione sarà chiara soltanto quando farete deduzione naturale nel corso di logica. Fino ad allora fregatevene di questa distinzione. La prova comunque non è per assurdo, dando ragione al sommo CSC quando dice che "\textit{i matematici si confondono sempre sulle dimostrazioni per assurdo}".}. Essendo la funzione suriettiva, ogni numero nell'intervallo $[0,1[$ deve avere una corrispondenza in $\mathbb{N}$. 
+	Supponiamo che esiste tale funzione e riduciamoci a dimostrare 
+    l'assurdo\footnote{Il prof chiama questa dimostrazione \textit{una 
+    dimostrazione per assurdo} quando chiaramente non lo è perché si suppone 
+    l'esistenza della funzione da una semplice introduzione del not. La 
+    differenza tra la dimostrazione per assurdo (RAA) e la not introduzione 
+    sarà chiara soltanto quando farete deduzione naturale nel corso di logica. 
+    Fino ad allora fregatevene di questa distinzione. La prova comunque non è 
+    per assurdo, dando ragione al sommo CSC quando dice che "\textit{i 
+    matematici si confondono sempre sulle dimostrazioni per assurdo}".}. 
+    Essendo la funzione suriettiva, ogni numero nell'intervallo $[0,1[$ deve 
+    avere una corrispondenza in $\mathbb{N}$. 
 \begin{equation*}
 	f(n) \in [0,1[
 \end{equation*}
@@ -397,7 +574,10 @@ Quindi:
 	\vdots\\
 	f(n) &= 0,b_{n0} \; b_{n1} \; b_{n2} \; b_{n3} \; b_{n4} \; b_{n5} \cdots
 \end{align*}
-Ci basta ora trovare un numero $r \in[0,1[$ tale che: $f(n) \neq r \; \forall n \in \mathbb{N}$ per provare l'assurdo. Costruiamo il numero $r$ usando un procedimento diagonale\footnote{Questo procedimento esiste grazie al matematico Cantor.}:
+Ci basta ora trovare un numero $r \in[0,1[$ tale che: $f(n) \neq r \; \forall n 
+\in \mathbb{N}$ per provare l'assurdo. Costruiamo il numero $r$ usando un 
+procedimento diagonale\footnote{Questo procedimento esiste grazie al matematico 
+Cantor.}:
 \begin{align*}
 	r := 0,r_0 \; r_1 \; r_2 \; r_3 \; r_4 \cdots\\
 	r_{j} = 
@@ -406,7 +586,11 @@ Ci basta ora trovare un numero $r \in[0,1[$ tale che: $f(n) \neq r \; \forall n 
 		6 \qquad \mathrm{se}\;\,b_{jj} = 5\\
 	\end{cases}
 \end{align*}
-La costruzione è in diagonale perché consideriamo come indici della $b$ solo la coppia $jj$, che quindi produce uno spostamento regolare $00, 11, 22, \cdots$. In pratica prendiamo una cifra da ogni numero che abbiamo già e la cambiamo. In questo modo tutti i numeri che abbiamo differiranno di almeno una cifra da quello che stiamo costruendo. Questa particolare costruzione implica che:
+La costruzione è in diagonale perché consideriamo come indici della $b$ solo la 
+coppia $jj$, che quindi produce uno spostamento regolare $00, 11, 22, \cdots$. 
+In pratica prendiamo una cifra da ogni numero che abbiamo già e la cambiamo. 
+In questo modo tutti i numeri che abbiamo differiranno di almeno una cifra da 
+quello che stiamo costruendo. Questa particolare costruzione implica che:
 \begin{equation*}
 	r_j \neq b_{jj} \quad \forall j \in \mathbb{N}
 \end{equation*}
@@ -420,6 +604,7 @@ E quindi la funzione non è suriettiva.
 }
 \imp{
 	\begin{center}
-		Quindi $|\mathbb{R}|$ non è numerabile, infatti: $\mathbb{R}$ ha \textbf{cardinalità del continuo}.
+		Quindi $|\mathbb{R}|$ non è numerabile, infatti: $\mathbb{R}$ ha 
+        \textbf{cardinalità del continuo}.
 	\end{center}
 }
