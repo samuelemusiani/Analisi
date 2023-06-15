@@ -297,7 +297,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
 	    \item $x^2 \geq y^2 \iff x \geq y$
 	    \item $x^2 = y^2 \iff x = y$
 	    \item $x^2 < y \implies \exists \epsilon > 0: (x+\epsilon)^2 < y$
-	    \item $x^2 > y \implies \exists \epsilon > 0: (x-\epsilon)^2 > y$
+	    \item $x^2 > y \implies \exists \epsilon > 0: (x-\epsilon)^2 > y$ \quad con $x > 0$
 	\end{enumerate}
     Dimostrazione: assumiamo come ipotesi generale che: $\forall x, y \in \mathbb{R}: x, y \geq 0$.
 
@@ -311,7 +311,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
                 &x^2 - y^2 \leq 0\\
                 &(x+y)(x-y) \leq 0
             \end{align*}
-            Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, quindi possiamo dividere da ambo i lati:
+            Ovviamente essendo $x, y \geq 0 \implies x+y \geq 0$, l'unico modo per cui l'espressine sia negativa è che il secondo termine sia negativo:
             \begin{gather*}
                 x-y \leq 0\\
                 x \leq y
@@ -352,7 +352,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
                 \leq x^2 + 2x\epsilon + \epsilon =\\
                 = x^2 + \epsilon(2x + 1)
             \end{gather*}
-            È possibile ora scegliere $y$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
+            È possibile ora scegliere $\epsilon$ in modo da soddisfare $x^2 + \epsilon(2x + 1) < y$?
             \begin{gather*}
                 x^2 + \epsilon(2x + 1) < y\\
                 \epsilon(2x + 1) < y - x^2\\
@@ -363,7 +363,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
                 0 < \epsilon < \dfrac{y-x^2}{2x+1}
             \end{equation*}
 
-        \item Vogliamo dimostrare che:
+        \item Vogliamo dimostrare, sotto l'ipotesi aggiuntiva $x > 0$, che:
             \begin{equation*}
                 x^2 > y \implies \exists \epsilon > 0: (x - \epsilon)^2 > y
             \end{equation*}
@@ -382,7 +382,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
                 2x\epsilon < &x^2 - y\\
                 \epsilon < &\dfrac{x^2-y}{2x}
             \end{align*}
-            Sempre per il lemma generale $x > 0$ e per ipotesi $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
+            Per ipotesi $x > 0$ e $x^2-y > 0$. È quindi possibile scegliere un $\epsilon$ affinché la tesi si verifichi:
             \begin{equation*}
                 0 < \epsilon < \dfrac{x^2-y}{2x}
             \end{equation*}
@@ -432,7 +432,7 @@ Dimostriamo il teorema della radice n-esima semplificato, cioè solo per il caso
 	\begin{equation*}
 		b_{1}^2 = a = b_{2}^2 \implies b_{1}^2=b_{2}^2
 	\end{equation*}
-	Da lemma \textbf{A}: $b_1 = b_2$\\
+	Da lemma \textbf{C}: $b_1 = b_2$\\
     
     \hfill Q.e.d.
 }
