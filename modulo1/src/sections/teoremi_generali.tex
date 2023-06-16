@@ -13,15 +13,15 @@ Per dimostrare questo teorema abbiamo però bisogno di due lemmi preliminari:
 \mlem{
 Data una successione $(a_n)_n \subseteq \mathbb{R}$ , se 
 \begin{equation*}
-    \forall n, a_n < 0 \implies \lim _{x \to +\infty} a_n = l \in R \; \land \; l \leq 0
+    \forall n, a_n < 0 \implies \lim _{n \to +\infty} a_n = l \in R \; \land \; l \leq 0
 \end{equation*}
 Si noti che questo lemma vale anche per il caso in cui $\forall n, a_n > 0$, che implica $l \geq 0$. Dimostriamo ora il lemma\footnote{La seguente dimostrazione è stata fatta dal prof in maniera imbarazzante, quindi la esplicito secondo la logica classica per renderla più formale}. Dobbiamo provare che:
 \begin{equation*}
-    \forall n, a_n < 0 \implies \lim _{x \to +\infty} a_n = l \leq 0
+    \forall n, a_n < 0 \implies \lim _{n \to +\infty} a_n = l \leq 0
 \end{equation*}
 Fisso $n$ numero t.c $\forall n, a_n < 0$ (H) per dimostrare:
 \begin{equation*}
-    \lim _{x \to +\infty} a_n = l \leq 0
+    \lim _{n \to +\infty} a_n = l \leq 0
 \end{equation*}
 Per assurdo assumiamo\footnote{Abbiamo usato il potere sconfinato della RAA (Coen approves)} $l > 0$ (H2) e riduciamoci a dimostrare il falso. Grazie alla definizione di limite possiamo riscrivere il limite nel seguente modo:
 \begin{equation*}
@@ -145,11 +145,11 @@ Un paio di osservazioni utili sul teorema:
 
   Se l'algoritmo termina al passo $p \in \mathbb{N}$ significa che:
   \begin{equation*}
-    f\left(\dfrac{a_p + b_p}{2}\right) = 0 \qquad \text{e quindi:} \qquad c = \dfrac{a_n + b_n}{2}
+    f\left(\dfrac{a_p + b_p}{2}\right) = 0 \qquad \text{e quindi:} \qquad c = \dfrac{a_p + b_p}{2}
   \end{equation*}
   Altrimenti la procedura non termina: in questo caso avremo costruito due successioni $(a_n)_n$ e $(b_n)_n$ contenute in $[a, b]$. Scriviamo di seguito le proprietà di queste 2 successioni:
   \begin{enumerate}[label=\roman*.]
-    \item $a_n \leq a_{n+1} \forall n \in \mathbb{N}$ \quad e \quad $b_n \leq b_{n+1} \forall n \in \mathbb{N}$
+    \item $a_n \leq a_{n+1} \forall n \in \mathbb{N}$ \quad e \quad $b_n \geq b_{n+1} \forall n \in \mathbb{N}$
 
     \item $a_n \leq b_n \forall n \in \mathbb{N}$ 
       
@@ -178,7 +178,7 @@ Un paio di osservazioni utili sul teorema:
       (a_n)_n \subseteq [a, b] \implies a_n \nearrow \; \forall n \implies \exists \lim_{n \to +\infty} a_n = \alpha \in \mathbb{R}
     \end{equation*}
     \begin{equation*}
-      (b_n)_n \subseteq [a, b] \implies b_n \nearrow \; \forall n \implies \exists \lim_{n \to +\infty} b_n = \beta \in \mathbb{R}
+      (b_n)_n \subseteq [a, b] \implies b_n \searrow \; \forall n \implies \exists \lim_{n \to +\infty} b_n = \beta \in \mathbb{R}
     \end{equation*}
     Dal punto (iv) e da quanto abbiamo ricavato possiamo fare il limite che tende a $+\infty$ di $b_n - a_n$:
     \begin{align*}
@@ -189,11 +189,11 @@ Un paio di osservazioni utili sul teorema:
     \begin{equation*}
       \lim \limits_{n \to +\infty} a_n = \lim \limits_{n \to +\infty} b_n := c
     \end{equation*}
-    Ci resta da dimostrare che $f(c) = 0$. Da quanto appena dimostrato e dal primo lemma di questa prova:
+    Ci resta da dimostrare che $f(c) = 0$. Da quanto appena dimostrato e dal secondo lemma di questa prova:
     \begin{equation*}
       \lim \limits_{n \to +\infty} f(a_n) = f(c)
     \end{equation*}
-    Poiché $a_n \to c$. Inoltre dal punto (iii) sappiamo che $f(a_n) < 0 \; \forall n \in \mathbb{N}$. Usando il secondo lemma preliminare alla prova:
+    Poiché $a_n \to c$. Inoltre dal punto (iii) sappiamo che $f(a_n) \leq 0 \; \forall n \in \mathbb{N}$. Usando il primo lemma preliminare alla prova:
     \begin{equation*}
       f(c) \leq 0
     \end{equation*}
