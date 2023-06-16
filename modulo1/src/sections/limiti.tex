@@ -20,7 +20,7 @@ Cominciamo ora ad elencare i suoi termini e calcoliamo i suoi valori:
 \dfn{
     Data una successione $(a)_n$, e un numero $L \in \mathbb{R}$, si dice che $(a)_n$ è \textbf{convergente} e si indica:
     \begin{equation*}
-        \lim_{x \to +\infty} a_n = L \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} L
+        \lim_{n \to +\infty} a_n = L \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} L
     \end{equation*}
     \qquad se
     \begin{equation*}
@@ -32,14 +32,14 @@ Cominciamo ora ad elencare i suoi termini e calcoliamo i suoi valori:
     Data una successione $(a)_n$, si dice che $(a)_n$ è \textbf{divergente} e si indica:
     \begin{itemize}
         \item \begin{equation*}
-                \lim_{x \to +\infty} a_n = +\infty \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} +\infty
+                \lim_{n \to +\infty} a_n = +\infty \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} +\infty
             \end{equation*}
             \qquad se
             \begin{equation*}
                 \forall \epsilon > 0, \exists \bar{n} = \bar{n}(\epsilon) \in \mathbb{N}: \forall n \geq \bar{n}: a_n \geq \epsilon
             \end{equation*}
         \item \begin{equation*}
-                \lim_{x \to +\infty} a_n = -\infty \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} -\infty
+                \lim_{n \to +\infty} a_n = -\infty \qquad \text{oppure} \qquad (a)_n \xrightarrow[n \to +\infty]{} -\infty
             \end{equation*}
             \qquad se
             \begin{equation*}
@@ -73,7 +73,7 @@ Prendiamo in considerazione la serie
 \end{equation*}
 Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \textbf{\textit{e}}. Quindi:
 \begin{equation*}
-    \lim_{x\to +\infty} \left(1+\dfrac{1}{n}\right)^n = e \in \mathbb{R}
+    \lim_{n\to +\infty} \left(1+\dfrac{1}{n}\right)^n = e \in \mathbb{R}
 \end{equation*}
 
 \mlem{
@@ -182,7 +182,7 @@ Facciamo ora la dimostrazione riguardante il numero di Eulero:
             \end{equation*}
             Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corol_successioni}:
             \begin{equation*}
-                \exists \lim_{x\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
+                \exists \lim_{n\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
             \end{equation*}
     \end{enumerate}
     \hfill Qed.
