@@ -84,13 +84,13 @@ Bisogna dimostrare due casi: $L = +\infty$ e $L \in \mathbb{R}$
         \end{equation*}
         cioè
         \begin{equation*}
-            \forall K > 0, \exists \bar{n} = \bar{n} (\epsilon) \in \mathbb{N} : \forall \bar{n} \geq n : a_n > K
+            \forall K > 0, \exists \bar{n} \in \mathbb{N} : \forall n \geq \overline{n} : a_n > K
         \end{equation*}
         Dato $A = \{a_n | n \in \mathbb{N}\}$
         \begin{itemize}
             \item A non è superiormente limitato in quanto $L = +\infty$
             \item A di conseguenza non ammette maggioranti
-            \item Ne consegue che K non è un maggiorante $\implies \exists \bar{n} \in A : a_{\bar{n}} > K$
+            \item Ne consegue che K non è un maggiorante $\implies \exists a_\bar{n} \in A : a_{\bar{n}} > K$
             \item Siccome per ipotesi $(a_n)_n \nearrow \implies \forall n \geq \bar{n} : a_n \geq a_{\bar{n}} > K$ 
         \end{itemize}
     \item $\mathbf{L \in \mathbb{R}}$
@@ -100,19 +100,19 @@ Bisogna dimostrare due casi: $L = +\infty$ e $L \in \mathbb{R}$
         \end{equation*}
         cioè
         \begin{align*}
-            \forall \epsilon > 0, \exists \bar{n} = \bar{n} (\epsilon) \in \mathbb{N} : \forall \bar{n} \geq n : |a_n& - L| < \epsilon\\
+            \forall \epsilon > 0, \exists \bar{n} \in \mathbb{N} : \forall n \geq \overline{n} : |a_n& - L| < \epsilon\\
             &\Big\Updownarrow\\
             L - \epsilon < &a_n < L + \epsilon
         \end{align*}
-        $a_n < L + \epsilon$ è ovvio per ipotesi in quanto $L$ è un maggiorante, quindi $\forall n: a_n \leq L < L + \epsilon$. Ci rimane quindi solo da trovare $\bar{n}$ tale che:
+        $a_n < L + \epsilon$ è ovvio per ipotesi in quanto $L$ è un maggiorante, quindi $\forall n \; a_n \leq L < L + \epsilon$. Ci rimane quindi solo da trovare $\bar{n}$ tale che:
         \begin{equation*}
             \forall n \geq \bar{n} : a_n > L - \epsilon
         \end{equation*}
-        Essendo $L = \sup A = \sup \{a_n | \in \mathbb{N}\}$
+        Essendo $L = \sup \{a_n | n \in \mathbb{N}\}$
         \begin{itemize}
             \item $L$ è il più piccolo dei maggioranti di $A$
             \item $L - \epsilon$ non è quindi un maggiorante di $A$ $\implies \exists a_{\bar{n}} \in A : L -\epsilon < a_{\bar{n}}$
-            \item Essendo $(a_n)_n \nearrow$ si ha che $\forall n > \bar{n} \;\; L-\epsilon < a_{\bar{n}} \leq a_{n}$
+            \item Essendo $(a_n)_n \nearrow$ si ha che $\forall n \geq \bar{n} \;\; L-\epsilon < a_{\bar{n}} \leq a_{n}$
         \end{itemize}
         quindi
         \begin{equation*}
