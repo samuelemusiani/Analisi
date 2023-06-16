@@ -49,9 +49,9 @@ Cominciamo ora ad elencare i suoi termini e calcoliamo i suoi valori:
 }
 
 \imp{
-\begin{center}
-    Se esiste il limite di una successione esso è \textbf{unico}
-\end{center}
+    \begin{center}
+        Se esiste il limite di una successione esso è \textbf{unico}
+    \end{center}
 }
 
 Esistono successioni che non hanno limite (non sono né convergenti né divergenti).
@@ -81,9 +81,8 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 	\begin{equation*}
 		\forall x \in \mathbb{R} : x \geq -1, \forall n \in \mathbb{N}: (1+x)^n \geq 1 + nx
 	\end{equation*}
-}
-\pf{
-	Proviamo la disuguaglianza di Bernoulli per induzione. 
+
+    Dimostrazione: proviamo la disuguaglianza di Bernoulli per induzione. 
 	\begin{enumerate}
 		\item Caso $n = 1$:
 			\begin{align*}
@@ -121,71 +120,72 @@ Dimostriamo che è una serie \textbf{convergente}, e chiamiamo il suo limite \te
 Facciamo ora la dimostrazione riguardante il numero di Eulero:
 
 \pf{
-Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corol_successioni}.
-\begin{enumerate}
-    \item Dimostriamo che $(a_n)$ è (strettamente) crescente:
-       Per dimostrare che $(a_n)_n \nearrow$ ci basta dimostrare che:
-    \begin{equation*}
-        \dfrac{a_{n+1}}{a_n} > 1
-    \end{equation*}
-    \begin{align*}
-        \dfrac{a_{n+1}}{a_n} &= \dfrac{\left(1+\dfrac{1}{n+1}\right)^{n+1}}{\left(1+\dfrac{1}{n}\right)^n} = \dfrac{\left(\dfrac{n+2}{n+1}\right)^{n+1}}{\left(\dfrac{n+1}{n}\right)^n}
-        = \dfrac{\dfrac{n+2}{n+1} \cdot \left( \dfrac{n+2}{n+1} \right)^n}{\left(\dfrac{n+1}{n}\right)^n} =\\[5pt]
-        &= \dfrac{n+2}{n+1} \cdot \left( \dfrac{n+2}{n+1} \cdot \dfrac{n}{n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( \dfrac{n^2+2n+1-1}{n^2+2n+1} \right)^n =\\[5pt]
-        &= \dfrac{n+2}{n+1} \cdot \left( 1 -\dfrac{1}{n^2+2n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( 1 + \left( -\dfrac{1}{n^2+2n+1}\right) \right)^n
-    \end{align*}
-    Usiamo la disuguaglianza di Bernoulli. Però assicuriamoci prima di poterla usare:
-    \begin{gather*}
-        x = - \dfrac{1}{n^2+2n+1} \geq -1\\
-        \dfrac{1}{n^2+2n+1} \leq 1\\
-        \leq n^2+2n+1\\
-        n^2+2n \geq 0
-    \end{gather*}
-    Verificato! Ora usiamola:
-    \begin{align*}
-        &\dfrac{n+2}{n+1} \cdot \left( 1 + \left( -\dfrac{1}{n^2+2n+1}\right) \right)^n \geq \dfrac{n+2}{n+1} \cdot \left( 1 + n\left( -\dfrac{1}{n^2+2n+1}\right) \right)=\\[5pt]
-        &= \dfrac{n+2}{n+1} \cdot \dfrac{n^2+2n+1-n}{n^2+2n+1} = \dfrac{n+2}{n+1} \cdot \dfrac{n^2+n+1}{n^2+2n+1} =\\[5pt]
-        & = \dfrac{n^3+3n^2+3n+1+1}{n^3+3n^2+3n+1} = 1 + \dfrac{1}{n^3+3n^2+3n+1} > 1
-    \end{align*}
-    
-    \item Dobbiamo provare ora che $(a_n)_n$ è limitata. Usiamo il binomio di newton:
-    \begin{align*}
-        (1+\dfrac{1}{n})^n &= \sum_{k = 0}^{n} \binom{n}{k} \cdot 1^{n-k} \cdot \left(\dfrac{1}{n}\right)^k = \sum_{k = 0}^{n} \binom{n}{k}\dfrac{1}{n^k} = \sum_{k = 0}^{n} \dfrac{n!}{(n-k)!k!}\cdot\dfrac{1}{k!}=\\
-        &= \sum_{k = 0}^{n} \dfrac{n \cdot (n-1) \cdots (n-k+1)}{n^k} \cdot \dfrac{1}{k!} =\\
-        &= \sum_{k = 0}^{n} \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \cdot \dfrac{1}{k!} =
-    \end{align*}
-        È facile notare che:
-    \begin{equation*}
-        \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \leq 1
-    \end{equation*}
-    In quanto il denominatore sarà sempre più grande del numeratore (tranne per il primo termine) e quindi ogni singolo termine sarà $\leq 1$ ed essendo tutti moltiplicati tra di loro il risultato sarà anch'esso $\leq 1$. Possiamo quindi concludere che:
-    \begin{equation*}
-        = \sum_{k = 0}^{n} \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \cdot \dfrac{1}{k!} \leq \sum_{k = 0}^{n} \dfrac{1}{k!} = 2 + \sum_{k = 2}^{n} \dfrac{1}{k!}
-    \end{equation*}
-    Possiamo notare che:
-    \begin{equation*}
-        k! = k\cdot (k-1)\cdot (k-2) \cdots 1 \geq k (k-1) > 0 \qquad \text{per} k\geq 2
-    \end{equation*}
-    \begin{equation*}
-        \implies k! > k(k-1) \implies \dfrac{1}{k!} < \dfrac{1}{k(k-1)} = \dfrac{1}{k-1} - \dfrac{1}{k}
-    \end{equation*}
-    Quindi sostituendo
-    \begin{align*}
-        &< 2 + \sum_{k = 0}^{n} \left(\dfrac{1}{k-1} - \dfrac{1}{k}\right) = 2 + \left[ \left(1-\dfrac{1}{2}\right) + \left(\dfrac{1}{2}-\dfrac{1}{3}\right) + \left(\dfrac{1}{3}-\dfrac{1}{4}\right) \cdots \left(\dfrac{1}{n-1}-\dfrac{1}{n}\right)\right]=
-    \end{align*}
-    Le coppie di termini dentro la parentesi quadre condividono il primo elemento con il secondo della coppia precedente. Se si espandono le somme si cancellano tutti tranne il primo e l'ultimo:
-    \begin{equation*}
-        = 2 + \left[1 - \dfrac{1}{n}\right] = 3 -\dfrac{1}{n} < 3
-    \end{equation*}
-    Quindi:
-    \begin{equation*}
-        a_n = \left(1+\dfrac{1}{n}\right)^{n} < 3 \qquad \forall n \in \mathbb{N}
-    \end{equation*}
-    Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corol_successioni}:
-    \begin{equation*}
-        \exists \lim_{x\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
-    \end{equation*}
-\end{enumerate}
+    Per dimostrare che una successione è convergente ci basta dimostrare che è (strettamente) crescente e limitata. Questo dal corollario della dimostrazione nella sezione \ref{corol_successioni}.
+    \begin{enumerate}
+        \item Dimostriamo che $(a_n)$ è (strettamente) crescente:
+            Per dimostrare che $(a_n)_n \nearrow$ ci basta dimostrare che:
+            \begin{equation*}
+                \dfrac{a_{n+1}}{a_n} > 1
+            \end{equation*}
+            \begin{align*}
+                \dfrac{a_{n+1}}{a_n} &= \dfrac{\left(1+\dfrac{1}{n+1}\right)^{n+1}}{\left(1+\dfrac{1}{n}\right)^n} = \dfrac{\left(\dfrac{n+2}{n+1}\right)^{n+1}}{\left(\dfrac{n+1}{n}\right)^n}
+                = \dfrac{\dfrac{n+2}{n+1} \cdot \left( \dfrac{n+2}{n+1} \right)^n}{\left(\dfrac{n+1}{n}\right)^n} =\\[5pt]
+                &= \dfrac{n+2}{n+1} \cdot \left( \dfrac{n+2}{n+1} \cdot \dfrac{n}{n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( \dfrac{n^2+2n+1-1}{n^2+2n+1} \right)^n =\\[5pt]
+                &= \dfrac{n+2}{n+1} \cdot \left( 1 -\dfrac{1}{n^2+2n+1} \right)^n = \dfrac{n+2}{n+1} \cdot \left( 1 + \left( -\dfrac{1}{n^2+2n+1}\right) \right)^n
+            \end{align*}
+            Usiamo la disuguaglianza di Bernoulli. Però assicuriamoci prima di poterla usare:
+            \begin{gather*}
+                x = - \dfrac{1}{n^2+2n+1} \geq -1\\
+                \dfrac{1}{n^2+2n+1} \leq 1\\
+                \leq n^2+2n+1\\
+                n^2+2n \geq 0
+            \end{gather*}
+            Verificato! Ora usiamola:
+            \begin{align*}
+                &\dfrac{n+2}{n+1} \cdot \left( 1 + \left( -\dfrac{1}{n^2+2n+1}\right) \right)^n \geq \dfrac{n+2}{n+1} \cdot \left( 1 + n\left( -\dfrac{1}{n^2+2n+1}\right) \right)=\\[5pt]
+                &= \dfrac{n+2}{n+1} \cdot \dfrac{n^2+2n+1-n}{n^2+2n+1} = \dfrac{n+2}{n+1} \cdot \dfrac{n^2+n+1}{n^2+2n+1} =\\[5pt]
+                & = \dfrac{n^3+3n^2+3n+1+1}{n^3+3n^2+3n+1} = 1 + \dfrac{1}{n^3+3n^2+3n+1} > 1
+            \end{align*}
+
+        \item Dobbiamo provare ora che $(a_n)_n$ è limitata. Usiamo il binomio di newton:
+            \begin{align*}
+                (1+\dfrac{1}{n})^n &= \sum_{k = 0}^{n} \binom{n}{k} \cdot 1^{n-k} \cdot \left(\dfrac{1}{n}\right)^k = \sum_{k = 0}^{n} \binom{n}{k}\dfrac{1}{n^k} = \sum_{k = 0}^{n} \dfrac{n!}{(n-k)!k!}\cdot\dfrac{1}{k!}=\\
+                &= \sum_{k = 0}^{n} \dfrac{n \cdot (n-1) \cdots (n-k+1)}{n^k} \cdot \dfrac{1}{k!} =\\
+                &= \sum_{k = 0}^{n} \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \cdot \dfrac{1}{k!} =
+            \end{align*}
+            È facile notare che:
+            \begin{equation*}
+                \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \leq 1
+            \end{equation*}
+            In quanto il denominatore sarà sempre più grande del numeratore (tranne per il primo termine) e quindi ogni singolo termine sarà $\leq 1$ ed essendo tutti moltiplicati tra di loro il risultato sarà anch'esso $\leq 1$. Possiamo quindi concludere che:
+            \begin{equation*}
+                = \sum_{k = 0}^{n} \dfrac{n}{n} \cdot \dfrac{(n-1)}{n} \cdots \dfrac{(n-k+1)}{n} \cdot \dfrac{1}{k!} \leq \sum_{k = 0}^{n} \dfrac{1}{k!} = 2 + \sum_{k = 2}^{n} \dfrac{1}{k!}
+            \end{equation*}
+            Possiamo notare che:
+            \begin{equation*}
+                k! = k\cdot (k-1)\cdot (k-2) \cdots 1 \geq k (k-1) > 0 \qquad \text{per} k\geq 2
+            \end{equation*}
+            \begin{equation*}
+                \implies k! > k(k-1) \implies \dfrac{1}{k!} < \dfrac{1}{k(k-1)} = \dfrac{1}{k-1} - \dfrac{1}{k}
+            \end{equation*}
+            Quindi sostituendo
+            \begin{align*}
+                &< 2 + \sum_{k = 0}^{n} \left(\dfrac{1}{k-1} - \dfrac{1}{k}\right) = 2 + \left[ \left(1-\dfrac{1}{2}\right) + \left(\dfrac{1}{2}-\dfrac{1}{3}\right) + \left(\dfrac{1}{3}-\dfrac{1}{4}\right) \cdots \left(\dfrac{1}{n-1}-\dfrac{1}{n}\right)\right]=
+            \end{align*}
+            Le coppie di termini dentro la parentesi quadre condividono il primo elemento con il secondo della coppia precedente. Se si espandono le somme si cancellano tutti tranne il primo e l'ultimo:
+            \begin{equation*}
+                = 2 + \left[1 - \dfrac{1}{n}\right] = 3 -\dfrac{1}{n} < 3
+            \end{equation*}
+            Quindi:
+            \begin{equation*}
+                a_n = \left(1+\dfrac{1}{n}\right)^{n} < 3 \qquad \forall n \in \mathbb{N}
+            \end{equation*}
+            Dunque $(a_n)_n \nearrow$ è superiormente limitata. Ne consegue che, dal corollario presente nella sezione \ref{corol_successioni}:
+            \begin{equation*}
+                \exists \lim_{x\to + \infty} \left(1+\dfrac{1}{n}\right)^n = e
+            \end{equation*}
+    \end{enumerate}
+    \hfill Qed.
 }
 Si può dimostrare che $e \notin \mathbb{Q}$, quindi è un numero irrazionale e il suo valore è approssimativamente:
 \begin{equation*}
@@ -209,10 +209,10 @@ Si può dimostrare che $e \notin \mathbb{Q}$, quindi è un numero irrazionale e 
 }
 
 \dfn{
-$x_0$ si dice \textbf{punto di accumulazione} di $\mathbb{A} \subseteq \mathbb{R}$ se:
-\begin{equation*}
-    \forall r > 0: A\cap \left( I_r (x_0) \setminus \{x_0\} \right) \neq \emptyset
-\end{equation*}
+    $x_0$ si dice \textbf{punto di accumulazione} di $\mathbb{A} \subseteq \mathbb{R}$ se:
+    \begin{equation*}
+        \forall r > 0: A\cap \left( I_r (x_0) \setminus \{x_0\} \right) \neq \emptyset
+    \end{equation*}
 }
 Comunque prendo piccolo $r$ c'è sempre un elemento di $\mathbb{A}$ diverso da $x_0$. L'insieme dei punti di accumulazione di un insieme è indicato come segue\footnote{La lettera che indica l'insieme dei punti di accumulazione è una "D" che dovrebbe essere celtica. Fate riferimento agli appunti del prof in questo caso perché non riesco a trovare su \LaTeX\; il simbolo esatto che usa lui. Il fatto è che ci si può confondere perché si usa la lettera "D" anche per indicare il dominio di una funzione. In questi appunti il dominio è indicato con $Dom()$ mentre l'insieme dei punti di accumulazione è indicato con $\mathcal{D}$.}:
 \begin{equation*}
