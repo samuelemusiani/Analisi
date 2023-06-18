@@ -105,7 +105,7 @@ Esempio: data la funzione $f(x, y) = \sin(x + y^2)$ il suo gradiente risulta:
 	\nabla f (x, y) = (\cos(x + y^2), \cos(x + y^2) \cdot 2y)
 \end{equation*}
 
-\subsubsection{Derivailità e continuità di funzioni scalari}
+\subsubsection{Derivabilità e continuità di funzioni scalari}
 In $\mathbb{R}^1$ vale la relazione:
 \begin{equation*}
 	f \text{ derivabile in } x \implies f \text{ continua in } x
@@ -299,7 +299,7 @@ Ovviamente la notazione con il prodotto euclideo si può espandere:
 %(ESEMPIO CON GRAFICO?)
 
 \thm{
-	\textbf{Differenziale totale:} Data una funzione $f: \mathbb{R}^2 \to 
+	\textbf{Differenziabile totale:} Data una funzione $f: \mathbb{R}^2 \to 
 	\mathbb{R}$ continua, se esistono le sue derivate parziali e sono 
 	continue in ogni punto allora $f$ è differenziabile in ogni punto. 
 	Cioè:
@@ -372,7 +372,7 @@ Dimostriamo ora il teorema del differenziale totale:
 \pf{
 	Data $f: \mathbb{R}^2 \to \mathbb{R}$ continua di cui esistono le 
 	derivate parziali e sono anche loro continue devo dimostrare che $f$ è 
-	differenziale. Cioè per definzione di funzione differenziabile mi 
+	differenziabile. Cioè per definzione di funzione differenziabile mi 
 	riduco a dimostrare:
 	\begin{equation*}
 		f(x_0 + h, y_0 + k) = f(x_0, y_0) + \langle \nabla f(x_0, y_0), 
@@ -490,7 +490,7 @@ però è una proposizione più che un vero e proprio teorema:
 }
 \pf{
 	Dimostro la proprozione appena enunciata: Suppongo che $f$ sia 
-	differenziale in $(x_0, y_0)$ e dimostro che $f$ è continua in 
+	differenziabile in $(x_0, y_0)$ e dimostro che $f$ è continua in 
 	$(x_0, y_0)$. Cioè che presa una successione $(x_n, y_n) 
 	\xrightarrow[n \to +\infty]{} (x_0, y_0)$ deve valere il limite:
 	\begin{equation*}
@@ -579,7 +579,7 @@ $g'(0)$:
 \thm{
 	\textbf{Teorema delle derivate direzionali:} Data $f: \mathbb{R}^n \to 
 	\mathbb{R}$, $x_0 \in \mathbb{R}^n$ e $v \in \mathbb{R}^n$ con $\lVert 
-	v \rVert = 1$. Se $f$ è differenziale in $x_0$ allora vale:
+	v \rVert = 1$. Se $f$ è differenziabile in $x_0$ allora vale:
 	\begin{equation*}
 		\pdv{f}{v}(x_0) = \langle \nabla f(x_0), v \rangle = 
 		\sum_{i = 1}^n \pdv{f}{x_i}(x_0) \cdot v_i
@@ -594,7 +594,7 @@ $g'(0)$:
 		\pdv{f}{v} (x_0) = \lim_{t \to 0} \dfrac{f(x_0 + t \cdot v) - 
 		f(x_0)}{t}
 	\end{equation*}
-	Essendo la funzione differenziale in $x_0$ per ipotesi vale la formula 
+	Essendo la funzione differenziabile in $x_0$ per ipotesi vale la formula 
 	di Taylor:
 	\begin{equation*}
 		f(x_0 + t \cdot v) - f(x_0) = \langle \nabla f(x_0), t \cdot v 
@@ -701,7 +701,7 @@ riassunto:
 
 \subsection{Derivata di una curva}
 \dfn{
-	\textbf{Velocità di una vurva}: Data $r:]a,b[ \to \mathbb{R}^n$ definita 
+	\textbf{Velocità di una curva}: Data $r:]a,b[ \to \mathbb{R}^n$ definita 
 	come:
 	\begin{equation*}
 		t \mapsto r(t) = (r_1(t), \cdots, r_n(t))
@@ -772,7 +772,7 @@ velocità:
 \end{align*}
 Notiamo però che nonostante la velocita sia diversa la lunghezza rimane la 
 stessa. Questo significa che \textbf{la lunghezza non dipende dalla 
-prametrizzazione}\footnote{Il prof ha detto che non è molto rigorosa come 
+parametrizzazione}\footnote{Il prof ha detto che non è molto rigorosa come 
 affermazione, ma per noi va più che bene}.
 
 \subsection{Derivata funzioni composte} \label{theorem_derivateComposte}
@@ -811,7 +811,7 @@ verebbe:
 \end{equation*}
 Notiamo che il risultato è esattamente lo stesso.
 \pf{
-	Assumiamo che $f$ sia differenziale e $r$ derivabile nei loro 
+	Assumiamo che $f$ sia differenziabile e $r$ derivabile nei loro 
 	rispettivi domini. Vogliamo dimostrare che:
 	\begin{equation*}
 		\odv{}{t} f(r(t)) = \langle \nabla f(r(t)), r'(t) \rangle
@@ -834,7 +834,7 @@ Notiamo che il risultato è esattamente lo stesso.
 		f(x + h) = f(x) + \langle \nabla f(x), h \rangle + o(\lVert h 
 		\rVert)
 	\end{equation*}
-	Ora usiamo applichiamo la formula di Taylor al numeratore della nostra 
+	Ora applichiamo la formula di Taylor al numeratore della nostra 
 	derivata:
 	\begin{equation*}
 		f(r(t + h)) -f(r(t)) = \langle \nabla f(r(t)), r(t + h) - r(t) 
