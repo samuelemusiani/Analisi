@@ -1153,12 +1153,12 @@ altra formula dove il resto viene espresso in maniera differente:
 	Sia $I \subseteq \mathbb{R}$ e sia $f: I \to \mathbb{R}$ con derivata 
 	prima e seconda continue sull'intervallo aperto $I$, vale che:
 	\begin{equation*}
-		\forall x_0, h \in I, \exists \theta \in ]0,1[: \; f(x_0 + h) = 
+        \forall x_0 \in I, x_0 + h \in I, \exists \theta \in ]0,1[: \; f(x_0 + h) = 
 		f(x_0) + f'(x_0)h + f''(x_0 + \theta h)\dfrac{h^2}{2}
 	\end{equation*}
 }
 Da notare che in questo caso il resto non si trova nell'\textit{o}-piccolo 
-(anche perché è assente), ma bensì nel termine di secondo. In particolare nel 
+(anche perché è assente), ma bensì nel termine di secondo grado. In particolare nel 
 fatto che la matrice Hessiana non viene valutata nel punto esatto $x_0$, ma in 
 una sorta di punto medio tra $x_0$ e $h$, cioè $x_0 + \theta h$.
 \pf{
@@ -1172,7 +1172,7 @@ una sorta di punto medio tra $x_0$ e $h$, cioè $x_0 + \theta h$.
 	Osserviamo che:
 	\begin{equation*}
 		\exists k \in \mathbb{R}: \; f(x) - f(x_0) - f'(x_0) (x - x_0) 
-		- k \dfrac{(x - x_0)^2}{2} = 0
+		- k (x - x_0)^2 = 0
 	\end{equation*}
 	Questo perché se $(x - x_0) \neq 0$ (caso banale) è una semplice 
 	equazione di primo grado in $k$. Riduciamoci quindi a dimostrare che:
@@ -1235,7 +1235,7 @@ Il teorema vale anche in generale :
 }
 \pf{
 	Sia $f, x_0$ e $h$ come da ipotesi. Consideriamo ora la funzione 
-	ausiliaria $g : [0, 1] \to 1$ definita come segue:
+    ausiliaria $g : [0, 1] \to \mathbb{R}$ definita come segue:
 	\begin{equation*}
 		g(t) = f(x_0 + th)
 	\end{equation*}
