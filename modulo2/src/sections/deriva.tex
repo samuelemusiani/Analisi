@@ -410,39 +410,19 @@ Dimostriamo ora il teorema del differenziale totale:
 		\exists \theta_2 \in [0, 1] \, : \; f(x_0 + h, y_0 + k) - 
 		f(x_0 + h, y_0) = \partial_y f(x_0 + h, y_0 + \theta_2 k)k
 	\end{equation*}
-	La 2 si può riscrivere aggiungendo e sottraendo il termine $\partial_x 
-	f(x_0, y_0) h$:
-	\begin{align*}
-		&\partial_x f(x_0 + \theta_1 h, y_0)h + \partial_x f(x_0, y_0) 
-		h - \partial_x f(x_0, y_0) h =\\[5pt]
-		= &\; \partial_x f(x_0, y_0) h + [\partial_x f(x_0 + \theta_1 
-		h, y_0) - \partial_x f(x_0, y_0) ]h
-	\end{align*}
-	Stesso discorso per la 1 aggiungendo e sottraendo il termine 
-	$\partial_y f(x_0, y_0) k$:
-	\begin{equation*}
-		\partial_y f(x_0, y_0) k + [\partial_y f(x_0 + h, y_0 + 
-		\theta_2 k) - \partial_y f(x_0, y_0)]k
-	\end{equation*}
-	I fattori che abbiamo aggiunto non sono scelti a caso ma bensì sono lo 
-	sviluppo del prodotto scalare euclideo presente nella formula inziale. 
 	Riscrviamo la formula iniziale:
 	\begin{equation*}
 		f(x_0 + h, y_0 + k) - f(x_0, y_0) = \langle \nabla f(x_0, y_0), 
 		(h, k) \rangle + o(\lVert (h, k) \rVert)\\
 	\end{equation*}
-	Sotituendo le espansioni di 1 e 2 ed espandendo il prodotto scalare 
-	euclideo:
+	Sotituendo 1 e 2 dopo Lagrange ed espandendo il prodotto scalare euclideo:
 	\begin{align*}
-		&\partial_x f(x_0, y_0) h + [\partial_x f(x_0 + \theta_1 h, y_0) 
-		- \partial_x f(x_0, y_0) ]h +\\[2pt]
-		&\partial_y f(x_0, y_0) k + [\partial_y f(x_0 + h, y_0 + 
-		\theta_2 k) - \partial_y f(x_0, y_0)]k \\[2pt]
+		&\partial_x f(x_0 + \theta_1 h, y_0) h + \partial_y f(x_0 + h, y_0 + 
+		\theta_2 k) k \\[2pt]
 		=& \partial_x f(x_0, y_0) h + \partial_y f(x_0, y_0) k + 
-		o(\lVert (h, k) \rVert)\\
+		o(\lVert (h, k) \rVert)
 	\end{align*}
-	Semplificando i termini uguali da entrambe le parti dell'equazine 
-	diventa:
+    Portando il prodotto scale espanso a destra e raccogliendo $h$ e $k$:
 	\begin{equation*}
 		[\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h 
 		+ [\partial_y f(x_0 + h, y_0 + \theta_2 k) - \partial_y f(x_0, 
