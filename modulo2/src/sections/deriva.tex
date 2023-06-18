@@ -848,20 +848,20 @@ Notiamo che il risultato è esattamente lo stesso.
 	\end{equation*}
 	Usando la linearità del prodotto scalare:
 	\begin{equation*}
-		= \langle \nabla f(r(t)), r'(t)h \rangle \cdot h + \langle 
+		= \langle \nabla f(r(t)), r'(t) \rangle \cdot h + \langle 
 		\nabla f(r(t)), o(h) \rangle + o(\lVert r'(t)h + o(h) \rVert)
 	\end{equation*}
 	Riprendiamo il limite che dobbiamo calcolare e sostituiamo il 
 	numeratore:
 	\begin{equation*}
-		\lim_{h \to 0}  \dfrac{\langle \nabla f(r(t)), r'(t)h \rangle 
+		\lim_{h \to 0}  \dfrac{\langle \nabla f(r(t)), r'(t) \rangle 
 		\cdot h + \langle \nabla f(r(t)), o(h) \rangle + o(\lVert 
 		r'(t)h + o(h) \rVert)}{h}
 	\end{equation*}
 	Nel primo fattore il termine $h$ si semplifica mentre negli alti due il 
 	rapporto con $h$ manda banalmente tutto a zero:
 	\begin{align*}
-		= &\lim_{h \to 0}  \dfrac{\langle \nabla f(r(t)), r'(t)h \rangle 
+		= &\lim_{h \to 0}  \dfrac{\langle \nabla f(r(t)), r'(t) \rangle 
 		\cdot h}{h} + \dfrac{\langle \nabla f(r(t)), o(h) \rangle}{h} + 
 		\dfrac{o(\lVert r'(t)h + o(h) \rVert)}{h} =\\[5pt]
 		= &\lim_{h \to 0} \langle \nabla f(r(t)), r'(t) \rangle + 0 + 0 
