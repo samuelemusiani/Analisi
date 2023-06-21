@@ -1,71 +1,116 @@
 \section{Serie di Taylor}
-Le serie di Taylor sono uno strumento potentissimo e bellissimo allo stesso tempo. Il loro scopo è approssimare una funzione generica intorno ad un punto. Il fatto è che questa approssimazione è data soltanto da polinomi, che sono la cosa più bella in matematica perché tutte le operazioni su di loro (limiti, derivate, ecc.) sono estremamente semplici. 
+Le serie di Taylor sono uno strumento potentissimo e bellissimo allo stesso 
+tempo. Il loro scopo è approssimare una funzione generica intorno ad un punto. 
+Il fatto è che questa approssimazione è data soltanto da polinomi, che sono la 
+cosa più bella in matematica perché tutte le operazioni su di loro (limiti, 
+derivate, ecc.) sono estremamente semplici. 
 
-Purtroppo la matematica viene spesso spiegata così velocemente che non ci si ferma mai a pensare quanto effettivamente certi concetti siano belli ed importanti. Le serie di Taylor sono importanti in matematica, ma anche in fisica in quanto approssimare funzioni non polinomiali in polinomi rende tutti i problemi estremamente più semplici. Vengono usate moltissimo in ingegneria e soprattutto per calcolare il valore di alcune funzioni. 
+Purtroppo la matematica viene spesso spiegata così velocemente che non ci si 
+ferma mai a pensare quanto effettivamente certi concetti siano belli ed 
+importanti. Le serie di Taylor sono importanti in matematica, ma anche in 
+fisica in quanto approssimare funzioni non polinomiali in polinomi rende tutti 
+i problemi estremamente più semplici. Vengono usate moltissimo in ingegneria e 
+soprattutto per calcolare il valore di alcune funzioni. 
 
-Facciamo qualche esempio perché credo che la loro importanza vada giustificata il più possibile prima di imparare a memoria un qualsiasi teorema che le definisce:
+Facciamo qualche esempio perché credo che la loro importanza vada giustificata 
+il più possibile prima di imparare a memoria un qualsiasi teorema che le 
+definisce:
 
 \begin{enumerate}
-	\item \textbf{Calcolo delle funzioni trigonometriche:} Mentre imparavate goniometria avrete sicuramente notato che esistono dei così detti \textit{angoli notevoli} sulla circonferenza che presi come argomenti nelle funzioni $\sin$ e $\cos$ danno dei valori "belli". Un esempio è $\frac{\pi}{2}$:
+	\item \textbf{Calcolo delle funzioni trigonometriche:} Mentre imparavate 
+        goniometria avrete sicuramente notato che esistono dei così detti 
+        \textit{angoli notevoli} sulla circonferenza che presi come argomenti 
+        nelle funzioni $\sin$ e $\cos$ danno dei valori "belli". Un esempio è 
+        $\frac{\pi}{2}$:
 	\begin{equation*}
 		\sin \left(\dfrac{\pi}{2}\right) = 1
 	\end{equation*}
-	Avrete inoltre sicuramente notato che su quasi tutte le calcolatrici è presente la funzione $\sin$. Avete mai provato a mettere valori non notevoli al suo interno? Perché se per esempio mettiamo come argomento (in radianti) 0.2:
+	Avrete inoltre sicuramente notato che su quasi tutte le calcolatrici è 
+        presente la funzione $\sin$. Avete mai provato a mettere valori non 
+        notevoli al suo interno? Perché se per esempio mettiamo come argomento 
+        (in radianti) 0.2:
 	\begin{equation*}
 		\sin(0.2) = 0.1986693307950612\cdots 
 	\end{equation*}
-	Eppure non è un angolo notevole e nessuno ha definito un modo per calcolare il valore del seno in 0.2. Cosa si fa? Una media? Oppure si divide un angolo in che si ha già in tante parti e si prova a fare una media con quello. Nessuno di questi ragionamenti ha molto senso a livello matematico. Quello che si fa realmente è approssimare la funzione \textit{seno} intorno al punto dato dall'argomento, e poi si calcola il valore usando l'approssimazione in quanto sappiamo calcolare i polinomi. In questo caso (tranquilli che poi più avanti spiego tutto):
+	Eppure non è un angolo notevole e nessuno ha definito un modo per calcolare 
+        il valore del seno in 0.2. Cosa si fa? Una media? Oppure si divide un 
+        angolo in che si ha già in tante parti e si prova a fare una media con 
+        quello. Nessuno di questi ragionamenti ha molto senso a livello 
+        matematico. Quello che si fa realmente è approssimare la funzione 
+        \textit{seno} intorno al punto dato dall'argomento, e poi si calcola il 
+        valore usando l'approssimazione in quanto sappiamo calcolare i 
+        polinomi. In questo caso (tranquilli che poi più avanti spiego tutto):
 	\begin{equation*}
-		\sin(x) \approx x - \dfrac{x^3}{6} + \dfrac{x^5}{120} - \dfrac{x^7}{5040} + o(x^8)
+		\sin(x) \approx x - \dfrac{x^3}{6} + \dfrac{x^5}{120} - 
+        \dfrac{x^7}{5040} + o(x^8)
 	\end{equation*}
 	Che se proviamo a calcolare sostituendo $1$ ad $x$ viene:
 	\begin{equation*}
-		0.2 - \dfrac{0.0008}{6} + \dfrac{0.00032}{120} \approx 0.1986693333 \cdots
+		0.2 - \dfrac{0.0008}{6} + \dfrac{0.00032}{120} \approx 0.1986693333 
+        \cdots
 	\end{equation*}
-	Che è estremamente vicino al valore originale, e ci è bastato prendere solo 3 termini.
+	Che è estremamente vicino al valore originale, e ci è bastato prendere solo 
+        3 termini.
 
-	\item \textbf{Calcolo dei limiti:} Un altro esempio in cui queste serie tornano estremamente utili è nel calcolo dei limiti. Probabilmente concorderete con me che calcolare il seguente limite non è affatto semplice:
+	\item \textbf{Calcolo dei limiti:} Un altro esempio in cui queste serie 
+        tornano estremamente utili è nel calcolo dei limiti. Probabilmente 
+        concorderete con me che calcolare il seguente limite non è affatto 
+        semplice:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{2\cos(\sin(x)) + e^{x\sin{x}} - 3}{x^4}
 		\end{equation*}
-		Ed effettivamente con gli strumenti attuali non è semplice. Ma se usiamo le serie di Taylor diventa:
+		Ed effettivamente con gli strumenti attuali non è semplice. Ma se 
+        usiamo le serie di Taylor diventa:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{\dfrac{3}{4} x^4 + o(x^4)}{x^4} = \dfrac{3}{4}
+			\lim_{x \to 0} \dfrac{\dfrac{3}{4} x^4 + o(x^4)}{x^4} = 
+            \dfrac{3}{4}
 		\end{equation*}
-		Sicuramente ora è molto ma molto più semplice da calcolare. Ovviamente ho saltato molti passaggi è quella $o(x^4)$ non l'ho spiegata, però siamo riusciti a calcolare un limite che prima non sapevamo fare.
+		Sicuramente ora è molto ma molto più semplice da calcolare. Ovviamente 
+        ho saltato molti passaggi è quella $o(x^4)$ non l'ho spiegata, però 
+        siamo riusciti a calcolare un limite che prima non sapevamo fare.
 
 \end{enumerate}
 
 \subsection{Confronto di infinitesimi}
 \dfn{
-	Data una funzione $f: A \to \mathbb{R}$ e un punto $x_0 \in \mathcal{D}(A)$, $f(x)$ si dice \textbf{infinitesimo} per $x \to x_0$ se: 
+	Data una funzione $f: A \to \mathbb{R}$ e un punto $x_0 \in 
+    \mathcal{D}(A)$, $f(x)$ si dice \textbf{infinitesimo} per $x \to x_0$ se: 
 	\begin{equation*}
 		\lim_{x \to x_0} f(x) = 0
 	\end{equation*}
 }
-L'infinitesimo è sempre in relazione ad un punto, in questo caso $x_0$. Di solito si omette di dire il punto solo se questo coincide con l'origine. Esempi:
+L'infinitesimo è sempre in relazione ad un punto, in questo caso $x_0$. Di 
+solito si omette di dire il punto solo se questo coincide con l'origine. 
+Esempi:
 \begin{itemize}
-	\item $x^3,\; x^5 - x^2,\; \sin{x^3},\; \tan^2{x}$ sono infinitesimi per $x \to 0$
+	\item $x^3,\; x^5 - x^2,\; \sin{x^3},\; \tan^2{x}$ sono infinitesimi per 
+        $x \to 0$
 	
-	\item $x^5 - x^2$ è anche un infinitesimo per $x \to 1$, mentre $x^3,\; \sin{x^3},\; \tan^2{x}$ no.
+	\item $x^5 - x^2$ è anche un infinitesimo per $x \to 1$, mentre $x^3,\; 
+        \sin{x^3},\; \tan^2{x}$ no.
 \end{itemize}
 
-L'idea del confronto di infinitesimi è la stessa del confronto di infiniti (Sezione: \ref{sec_gerarchiaInfiniti}), semplicemente invece di avere $x \to +\infty$ abbiamo $x \to x_0 \in \mathbb{R}$. Date due funzioni:
+L'idea del confronto di infinitesimi è la stessa del confronto di infiniti 
+(Sezione: \ref{sec_gerarchiaInfiniti}), semplicemente invece di avere $x \to 
++\infty$ abbiamo $x \to x_0 \in \mathbb{R}$. Date due funzioni:
 \begin{align*}
 	&f(x) \xrightarrow[x \to x_0]{} 0\\
 	&g(x) \xrightarrow[x \to x_0]{} 0
 \end{align*}
 Che quindi sono infinitesimi per $x_0$, se esiste:
 \begin{equation*}
-	\lim_{x \to x_0} \left| \dfrac{f(x)}{g(x)} \right| = l \in \mathbb{R} \cup \{+\infty\}
+	\lim_{x \to x_0} \left| \dfrac{f(x)}{g(x)} \right| = l \in \mathbb{R} \cup 
+    \{+\infty\}
 \end{equation*}
 Allora si hanno i seguenti casi:
 \begin{enumerate}
 	\item $L = 0 \implies f(x)$ è un infinitesimo di ordine superiore a $g(x)$.
 
-	\item $0 < L \in \mathbb{R} \implies f(x)$ e $g(x)$ sono infinitesimi equivalenti.
+	\item $0 < L \in \mathbb{R} \implies f(x)$ e $g(x)$ sono infinitesimi 
+        equivalenti.
 
-	\item $L = +\infty \implies g(x)$ è un infinitesimo di ordine superiore a $f(x)$.
+	\item $L = +\infty \implies g(x)$ è un infinitesimo di ordine superiore a 
+        $f(x)$.
 \end{enumerate}
 
 \subsection{La notazione \textit{o}-piccolo}
@@ -90,7 +135,8 @@ Allora si hanno i seguenti casi:
 	\end{equation*}
 	Se il punto $x_0$ coincide con l'origine si omette il “per $x \to 0$”
 }
-In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 0 "più velocemente". Per esempio:
+In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 
+0 "più velocemente". Per esempio:
 \begin{itemize}
 	\item $4x^4 = o(x^2)$ in quanto:
 		\begin{equation*}
@@ -98,17 +144,22 @@ In pratica $g(x)$ è un infinitesimo di ordine superiore a $f(x)$ e quindi va a 
 		\end{equation*}
 	\item $\sin^3{x} = o(x^2)$ in quanto:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{\sin^3{x}}{x^2} = \lim_{x \to 0} x \cdot \dfrac{\sin^3{x}}{x^3} = \lim_{x \to 0} x \cdot \left(\dfrac{\sin{x}}{x} \right)^3 = 0 \cdot 1 = 0
+			\lim_{x \to 0} \dfrac{\sin^3{x}}{x^2} = \lim_{x \to 0} x \cdot 
+            \dfrac{\sin^3{x}}{x^3} = \lim_{x \to 0} x \cdot \left(\dfrac{
+                \sin{x}}{x} \right)^3 = 0 \cdot 1 = 0
 		\end{equation*}
 	
 	\item Ma $x^3 \neq o(\sin^3{x})$, infatti sono infinitesimi equivalenti:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{x^3}{\sin^3{x}} = \lim_{x \to 0} \dfrac{1}{\left(\dfrac{\sin{x}}{x} \right)^3} = \dfrac{1}{1} = 1
+			\lim_{x \to 0} \dfrac{x^3}{\sin^3{x}} = \lim_{x \to 0} \dfrac{1}
+            {\left(\dfrac{\sin{x}}{x} \right)^3} = \dfrac{1}{1} = 1
 		\end{equation*}
 
 	\item $(x^6 - x^4)^2 = o(x-1)$ per $x \to 1$ in quanto:
 		\begin{equation*}
-			\lim_{x \to 1} \dfrac{(x^6 - x^4)^2}{x-1} = \lim_{x \to 1} \dfrac{x^8 (x^2 -1)^2}{x-1} = \lim_{x \to 1} x^8 (x+1)^2 (x-1) = 1 \cdot 2^2 \cdot 0 = 0
+			\lim_{x \to 1} \dfrac{(x^6 - x^4)^2}{x-1} = \lim_{x \to 1} 
+            \dfrac{x^8 (x^2 -1)^2}{x-1} = \lim_{x \to 1} x^8 (x+1)^2 (x-1) = 1 
+            \cdot 2^2 \cdot 0 = 0
 		\end{equation*}
 
 	\item $x^n = o(x^m) \quad \forall m \in \mathbb{N}: m < n$ in quanto:
@@ -120,10 +171,12 @@ Direi che $g(x) = o(1)$ per $x \to x_0$ significa che:
 \begin{equation*}
 	\lim_{x \to x_0} \dfrac{g(x)}{1} = 0
 \end{equation*}
-Cioè $g(x) \to 0$ per $x \to x_0$, che è un altro modo per dire che $g$ è un infinitesimo per $x \to x_0$
+Cioè $g(x) \to 0$ per $x \to x_0$, che è un altro modo per dire che $g$ è un 
+infinitesimo per $x \to x_0$
 
 \subsubsection{Proprietà algebriche degli \textit{o}-piccolo}
-Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, si assume $n, m \in \mathbb{N}$:
+Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
+si assume $n, m \in \mathbb{N}$:
 \begin{enumerate}
 	\item $f = o(x^n) \implies f= o(x^m)$ con $m < n$, dimostriamolo:\\
 
@@ -137,7 +190,9 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\end{equation*}
 		Se facciamo qualche sostituzione:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^n} \cdot \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^m} \cdot \dfrac{f(x)}{x^n} = \lim_{x \to 0} x^{n-m} \cdot \dfrac{f(x)}{x^n}
+			\lim_{x \to 0} \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^n} 
+            \cdot \dfrac{f(x)}{x^m} = \lim_{x \to 0} \dfrac{x^n}{x^m} \cdot 
+            \dfrac{f(x)}{x^n} = \lim_{x \to 0} x^{n-m} \cdot \dfrac{f(x)}{x^n}
 		\end{equation*}
 		Per ipotesi, in quanto $f(x) = o(x^n)$:
 		\begin{equation*}
@@ -153,7 +208,8 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 
 	\item $o(x^m) \cdot o(x^n)$ è un $o(x^{n+m})$
 
-	\item $(o(x^n))^m$ è un $o(x^{n \cdot m})$. La dimostrazione segue del punto 4.
+	\item $(o(x^n))^m$ è un $o(x^{n \cdot m})$. La dimostrazione segue del 
+        punto 4.
 
 	\item $o(o(x^4))$ è un $o(x^n)$. Nel senso che:
 		\begin{equation*}
@@ -161,7 +217,8 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\end{equation*}
 		Infatti:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{g(x)}{x^n} = \lim_{x \to 0} \dfrac{g(x)}{f(x)} \cdot \dfrac{f(x)}{x^n} = 0 \cdot 0 = 0
+			\lim_{x \to 0} \dfrac{g(x)}{x^n} = \lim_{x \to 0} \dfrac{g(x)}
+            {f(x)} \cdot \dfrac{f(x)}{x^n} = 0 \cdot 0 = 0
 		\end{equation*}
 
 	\item $o(x^n + o(x^m))$ è un $o(x^n)$ con $m \geq n$. Nel senso che:
@@ -170,73 +227,104 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\end{equation*}
 		Infatti:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \dfrac{x^n + g(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right)
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{x^n 
+            + g(x)} \cdot \dfrac{x^n + g(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}
+            {x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right)
 		\end{equation*}
 		Dalle ipotesi e dalla definizione di \textit{o}-piccolo:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + \dfrac{g(x)}{x^n}\right) = 0 \cdot (1 + 0) = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + g(x)} \cdot \left(1 + 
+            \dfrac{g(x)}{x^n}\right) = 0 \cdot (1 + 0) = 0
 		\end{equation*}
 
-	\item $o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) = o(x^n)$, con $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. Cioè in pratica l'\textit{o}-piccolo di un polinomio è l'\textit{o}-piccolo del grado più basso.
+	\item $o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) = o(x^n)$, con 
+        $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. Cioè in pratica 
+        l'\textit{o}-piccolo di un polinomio è l'\textit{o}-piccolo del grado 
+        più basso.
 		\begin{equation*}
 			o(\text{polinomio}) = o(\text{grado più basso})
 		\end{equation*}
 		Dimostriamolo:
 		\begin{equation*}
-			f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) \implies f = o(x^n)
+			f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots) \implies f 
+            = o(x^n)
 		\end{equation*}
-		Assumiamo $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$ per dimostrare $f = o(x^n)$. Per la definizione di \textit{o}-piccolo ci siamo ridotti a dimostrare:
+		Assumiamo $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$ per 
+        dimostrare $f = o(x^n)$. Per la definizione di \textit{o}-piccolo ci 
+        siamo ridotti a dimostrare:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{x^n} = 0
 		\end{equation*}
 		Che manipolato un po':
 		\begin{align*}
-			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot \dfrac{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots}{x^n} =\\[10pt]
-			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots)
+			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + 
+            p} + \cdots} \cdot \dfrac{x^n + \alpha x^{n+m} + \beta x^{n + p} + 
+            \cdots}{x^n} =\\[10pt]
+			&\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} 
+            + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots)
 		\end{align*}
 		Che per ipotesi:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots) = 0 \cdot (1 + 0 + 0 + \cdots) = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} 
+            + \cdots} \cdot (1 + \alpha x^{m} + \beta x^{p} + \cdots) = 0 \cdot 
+            (1 + 0 + 0 + \cdots) = 0
 		\end{equation*}
 
-		Vale anche il contrario: $o(x^n) = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$, con $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. Dimostriamolo:
+		Vale anche il contrario: $o(x^n) = o(x^n + \alpha x^{n+m} + \beta x^{n 
+        + p} + \cdots)$, con $m > 0, \alpha, \beta \cdots \in \mathbb{R}$. 
+        Dimostriamolo:
 		\begin{equation*}
-			f = o(x^n) \implies f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)
+			f = o(x^n) \implies f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + 
+            \cdots)
 		\end{equation*}
-		Assumiamo $f = o(x^n)$ per dimostrare $f = o(x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots)$, cioè:
+		Assumiamo $f = o(x^n)$ per dimostrare $f = o(x^n + \alpha x^{n+m} + 
+        \beta x^{n + p} + \cdots)$, cioè:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^n + \alpha x^{n+m} + \beta x^{n + p} 
+            + \cdots} = 0
 		\end{equation*}
-		Che moltiplicando e dividendo per gli stessi termini e usando l'ipotesi:
+		Che moltiplicando e dividendo per gli stessi termini e usando 
+        l'ipotesi:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n} \cdot \dfrac{x^n}{x^n + \alpha x^{n+m} + \beta x^{n + p} + \cdots} = \lim_{x \to 0} \dfrac{f(x)}{x^n} \cdot \dfrac{1}{1 + \alpha x^{m} + \beta x^{p} + \cdots} = 0 \cdot \dfrac{1}{1 + 0 + 0 + \cdots} = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} \cdot \dfrac{x^n}{x^n + \alpha 
+            x^{n+m} + \beta x^{n + p} + \cdots} = \lim_{x \to 0} \dfrac{f(x)}
+            {x^n} \cdot \dfrac{1}{1 + \alpha x^{m} + \beta x^{p} + \cdots} = 0 
+            \cdot \dfrac{1}{1 + 0 + 0 + \cdots} = 0
 		\end{equation*}
 
 	\item $\dfrac{o(x^n)}{x^m} = o(n^{n-m})$ se $m \leq n$. Infatti:
 		\begin{equation*}
 			f = \dfrac{o(x^n)}{x^m} \implies f = o(n^{n-m})
 		\end{equation*}
-		Assumendo $f = \dfrac{o(x^n)}{x^m}$, cioè $x^m \cdot f = o(x^n)$, per dimostrare $f = o(n^{n-m})$. Che equivale a dimostrare:
+		Assumendo $f = \dfrac{o(x^n)}{x^m}$, cioè $x^m \cdot f = o(x^n)$, per 
+        dimostrare $f = o(n^{n-m})$. Che equivale a dimostrare:
 		\begin{equation*}
 			\lim_{x \to 0} \dfrac{f(x)}{x^{n-m}} = 0
 		\end{equation*}
 		Manipolando e usando l'ipotesi:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^{n-m}} = \lim_{x \to 0} \dfrac{f(x) \cdot x^m}{x^n} = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^{n-m}} = \lim_{x \to 0} \dfrac{f(x) 
+            \cdot x^m}{x^n} = 0
 		\end{equation*}
 
-		Vale anche il contrario: se $g(x) = o(x^{n-m})$ allora $g(x) = \dfrac{o(x^n)}{x^m}$. In pratica dobbiamo dimostrare che $x^m \cdot g(x) = o(x^n)$:
+		Vale anche il contrario: se $g(x) = o(x^{n-m})$ allora $g(x) = 
+        \dfrac{o(x^n)}{x^m}$. In pratica dobbiamo dimostrare che $x^m \cdot 
+        g(x) = o(x^n)$:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac {x^m \cdot g(x)}{x^n} = \lim_{x \to 0} \dfrac{g(x)}{x^{n-m}} = 0
+			\lim_{x \to 0} \dfrac {x^m \cdot g(x)}{x^n} = \lim_{x \to 0} 
+            \dfrac{g(x)}{x^{n-m}} = 0
 		\end{equation*}
 
-	\item $o(k \cdot x^n) = o(x^n)$ con $k \in \mathbb{R}: k \neq 0$. Infatti con $f=o(k\cdot x^n)$:
+	\item $o(k \cdot x^n) = o(x^n)$ con $k \in \mathbb{R}: k \neq 0$. Infatti 
+        con $f=o(k\cdot x^n)$:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}{k \cdot x^n} \cdot k = 0 \cdot k = 0
+			\lim_{x \to 0} \dfrac{f(x)}{x^n} = \lim_{x \to 0} \dfrac{f(x)}
+            {k \cdot x^n} \cdot k = 0 \cdot k = 0
 		\end{equation*}
 		Analogamente vale viceversa.
 
-	\item Se due funzioni $f,g$ sono infinitesimi per $x \to x_0$ e sono infinitesimi dello stesso ordine:
+	\item Se due funzioni $f,g$ sono infinitesimi per $x \to x_0$ e sono 
+        infinitesimi dello stesso ordine:
 		\begin{equation*}
 			\lim_{x \to x_0} \dfrac{f(x)}{g(x)} = l \neq 0
 		\end{equation*}
@@ -246,53 +334,76 @@ Di seguito c'è un elenco delle proprietà algebriche degli \textit{o-piccolo}, 
 		\end{equation*}
 		Infatti dimostriamo che $h(x) = o(f) \implies h(x) = o(g)$:
 		\begin{equation*}
-			\lim_{x \to x_0} \dfrac{h(x)}{g(x)} = \lim_{x \to x_0} \dfrac{h(x)}{f(x)} \cdot \dfrac{f(x)}{g(x)} = 0 \cdot l = 0
+			\lim_{x \to x_0} \dfrac{h(x)}{g(x)} = \lim_{x \to x_0} \dfrac{h(x)}
+            {f(x)} \cdot \dfrac{f(x)}{g(x)} = 0 \cdot l = 0
 		\end{equation*}
 		Ovviamente vale anche il contrario perché:
 		\begin{equation*}
-			\lim_{x \to x_0} \dfrac{h(x)}{f(x)} = \lim_{x \to x_0} \dfrac{h(x)}{g(x)} \cdot \dfrac{g(x)}{f(x)} = 0 \cdot \dfrac{1}{l} = 0
+			\lim_{x \to x_0} \dfrac{h(x)}{f(x)} = \lim_{x \to x_0} \dfrac{h(x)}
+            {g(x)} \cdot \dfrac{g(x)}{f(x)} = 0 \cdot \dfrac{1}{l} = 0
 		\end{equation*}
 
 	\item Data una funzione $h(x)$ e $k \in \mathbb{R} : k \neq 0$:
 		\begin{equation*}
-			h(x) \xrightarrow[x \to 0]{} k \neq 0 \implies o(h(x) \cdot x^n) = o(x^n)
+			h(x) \xrightarrow[x \to 0]{} k \neq 0 \implies o(h(x) \cdot x^n) = 
+            o(x^n)
 		\end{equation*}
-		Infatti $x^n$ e $h(x) \cdot x^n$ sono infinitesimi equivalenti in quanto:
+		Infatti $x^n$ e $h(x) \cdot x^n$ sono infinitesimi equivalenti in 
+        quanto:
 		\begin{equation*}
-			\lim_{x \to 0} \dfrac{h(x) \cdot x^n}{x^n} = \lim_{x \to 0} h(x) = k \neq 0
+			\lim_{x \to 0} \dfrac{h(x) \cdot x^n}{x^n} = \lim_{x \to 0} h(x) = 
+            k \neq 0
 		\end{equation*}
 \end{enumerate}
-
-
-
-
 
 \subsection{Sviluppo di Taylor}
 
 \subsubsection{Idea intuitiva}
-Prima di dare la definizione di qualche teorema tirato fuori dal nulla vorrei cercare di dare l'idea dietro queste serie di Taylor, in modo che poi, quanto si andranno a leggere ed effettivamente studiare i teoremi successivi, si abbia comunque una vaga idea del loro significato e da dove deriva il tutto.\\
+Prima di dare la definizione di qualche teorema tirato fuori dal nulla vorrei 
+cercare di dare l'idea dietro queste serie di Taylor, in modo che poi, quanto 
+si andranno a leggere ed effettivamente studiare i teoremi successivi, si abbia 
+comunque una vaga idea del loro significato e da dove deriva il tutto.\\
 
-Prendiamo una funzione che vogliamo approssimare, per esempio $f(x) = e^x$ e scegliamo un punto in cui approssimare questa funzione, per esempio $x_0 = 0$. Ora non possiamo partire subito con 200 termini di approssimazione, ma dobbiamo costruire il polinomio piano piano in modo che tutti i passaggi abbiano effettivamente un senso. 
+Prendiamo una funzione che vogliamo approssimare, per esempio $f(x) = e^x$ e 
+scegliamo un punto in cui approssimare questa funzione, per esempio $x_0 = 0$. 
+Ora non possiamo partire subito con 200 termini di approssimazione, ma dobbiamo 
+costruire il polinomio piano piano in modo che tutti i passaggi abbiano 
+effettivamente un senso. 
 
-Proviamo quindi a trovare la migliore approssimazione di \textbf{grado 0} per $f(x) = e^x$ in $x_0 = 0$. Cioè in pratica quello che vogliamo fare è trovare un polinomio $p_0(x)$ di grado $0$ che sia la migliore approssimazione di $f(x)$ vicino a $x_0$. Questa condizione potremmo scriverla così:
+Proviamo quindi a trovare la migliore approssimazione di \textbf{grado 0} per 
+$f(x) = e^x$ in $x_0 = 0$. Cioè in pratica quello che vogliamo fare è trovare 
+un polinomio $p_0(x)$ di grado $0$ che sia la migliore approssimazione di 
+$f(x)$ vicino a $x_0$. Questa condizione potremmo scriverla così:
 \begin{equation*}
 	\lim_{x \to x_0} f(x) - p_0(x) = 0
 \end{equation*}
-In pratica quello che stiamo chiedendo è che quando ci avviciniamo al punto $x_0$ la differenza tra la funzione $f(x)$ e la sua approssimazione $p_0(x)$ tenda a 0 (che è un altro modo di dire che le due quantità diventano uguali). In questo caso il nostro polinomio di approssimazione è di grado 0, questo implica che equivale ad una costante generica $k \in \mathbb{R}$. Sostituendo la funzione $f(x) = e^x$, $p_0(x) = k$ e il punto $x_0 = 0$ il nostro limite risulta:
+In pratica quello che stiamo chiedendo è che quando ci avviciniamo al punto 
+$x_0$ la differenza tra la funzione $f(x)$ e la sua approssimazione $p_0(x)$ 
+tenda a 0 (che è un altro modo di dire che le due quantità diventano uguali). 
+In questo caso il nostro polinomio di approssimazione è di grado 0, questo 
+implica che equivale ad una costante generica $k \in \mathbb{R}$. Sostituendo 
+la funzione $f(x) = e^x$, $p_0(x) = k$ e il punto $x_0 = 0$ il nostro limite 
+risulta:
 \begin{equation*}
 	\lim_{x \to 0} e^x - k  = 0
 \end{equation*}
-Se ora proviamo a risolverlo ci viene fuori un equazione che si può risolvere per $k$, che è il nostro polinomio di approssimazione che vogliamo trovare:
+Se ora proviamo a risolverlo ci viene fuori un equazione che si può risolvere 
+per $k$, che è il nostro polinomio di approssimazione che vogliamo trovare:
 \begin{equation*}
 	\lim_{x \to 0} e^x - k  = 0 \implies e^0 - k  = 0 \implies k = e^0 = 1
 \end{equation*}
-Di conseguenza la migliore approssimazione di grado 0 della funzione $f(x) = e^x$ è il polinomio $p_0(x) = 1$:
+Di conseguenza la migliore approssimazione di grado 0 della funzione $f(x) = 
+e^x$ è il polinomio $p_0(x) = 1$:
 \begin{equation*}
 	e^x \approx 1 \qquad \text{per } x \to 0
 \end{equation*}
-Ovviamente però non è una gran approssimazione, quindi proviamo ad trovare l'approssimazione migliore sotto forma di polinomio di grado 1.\\
+Ovviamente però non è una gran approssimazione, quindi proviamo ad trovare 
+l'approssimazione migliore sotto forma di polinomio di grado 1.\\
 
-Vogliamo trovare il miglior polinomio di \textbf{grado 1} che approssima la funzione $f(x) = e^x$ in $x_0 = 0$. In questo caso se usiamo il limite usato in precedenza non riusciamo a ricavare nessuna informazione aggiuntiva sul polinomio. Questo perché:
+Vogliamo trovare il miglior polinomio di \textbf{grado 1} che approssima la 
+funzione $f(x) = e^x$ in $x_0 = 0$. In questo caso se usiamo il limite usato in 
+precedenza non riusciamo a ricavare nessuna informazione aggiuntiva sul 
+polinomio. Questo perché:
 \begin{align*}
 	&\lim_{x \to x_0} f(x) - p_1(x) = 0\\
 	&\lim_{x \to x_0} e^x - (ax + b) = 0\\
@@ -300,7 +411,23 @@ Vogliamo trovare il miglior polinomio di \textbf{grado 1} che approssima la funz
 	&1 - b = 0 \implies b = 1
 \end{align*}
 
-Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che abbiamo già imposto il limite nel punto e quest'ultimo non ci dà alcuna informazione aggiuntiva se aumentiamo il grado del polinomio, dobbiamo trovare un altro metodo per approssimare una funzione. Come abbiamo già visto, il limite nel punto ci dà la migliore approssimazione per il punto specifico, ma non ci dice nulla se ci allontaniamo leggermente da esso. Quello che vogliamo però è che se ci allontaniamo "un pochino" dal punto, il valore della funzione e il valore della nostra approssimazione siano abbastanza simili. Potremmo quindi pensare di imporre che se ci allontaniamo dal punto, il \textit{tasso di cambiamento della funzione sia lo stesso della nostra approssimazione}. In questo modo partendo dal punto stesso, quando ci allontaniamo il valore della funzione e della nostra approssimazione cambiano nello stesso modo. Per fare un esempio visuale prendiamo il grafico di $f(x) = e^x$ (Figura: \ref{fig_esponenzialeGrafico}). Nel grafico sono presenti anche delle rette (che sono dei polinomi di grado 1) che passano tutte per il punto $P(0, 1)$ che è la nostra prima approssimazione. Il fatto è che queste rette hanno coefficienti angolari diversi.
+Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che 
+abbiamo già imposto il limite nel punto e quest'ultimo non ci dà alcuna 
+informazione aggiuntiva se aumentiamo il grado del polinomio, dobbiamo trovare 
+un altro metodo per approssimare una funzione. Come abbiamo già visto, il 
+limite nel punto ci dà la migliore approssimazione per il punto specifico, ma 
+non ci dice nulla se ci allontaniamo leggermente da esso. Quello che vogliamo 
+però è che se ci allontaniamo "un pochino" dal punto, il valore della funzione 
+e il valore della nostra approssimazione siano abbastanza simili. Potremmo 
+quindi pensare di imporre che se ci allontaniamo dal punto, il \textit{tasso 
+di cambiamento della funzione sia lo stesso della nostra approssimazione}. In 
+questo modo partendo dal punto stesso, quando ci allontaniamo il valore della 
+funzione e della nostra approssimazione cambiano nello stesso modo. Per fare un 
+esempio visuale prendiamo il grafico di $f(x) = e^x$ (Figura: 
+\ref{fig_esponenzialeGrafico}). Nel grafico sono presenti anche delle rette 
+(che sono dei polinomi di grado 1) che passano tutte per il punto $P(0, 1)$ che 
+è la nostra prima approssimazione. Il fatto è che queste rette hanno 
+coefficienti angolari diversi.
 
 % Si può fare meglio questo grafico?
 \begin{figure}[h]
@@ -324,18 +451,27 @@ Infatti la costante $b$ è la nostra costante $k$ vista in precedenza. Visto che
 \addplot[domain=-0.8:2, samples=200]{x + 1};
 \end{axis}
 \end{tikzpicture}
-\caption{Grafico di $y = e^x$ con alcune rette che tentano una sua approssimazione}
+\caption{Grafico di $y = e^x$ con alcune rette che tentano una sua 
+    approssimazione}
 	\label{fig_esponenzialeGrafico}
 \end{figure}
 
 
-Ad occhio è facile vedere che la retta che sembra approssimare di più la funzione è quella non tratteggiata. Ma come la formalizziamo un po' di più questa cosa?
+Ad occhio è facile vedere che la retta che sembra approssimare di più la 
+funzione è quella non tratteggiata. Ma come la formalizziamo un po' di più 
+questa cosa?
 
-Ovviamente quando si parla di \textit{tasso di cambiamento} la lampadina che si deve accendere è quella della derivata, che infatti misura il tasso di cambiamento di una funzione in un determinato punto. Se quindi facciamo in modo che la funzione che vogliamo approssimare abbia la stessa derivata del nostro polinomio di approssimazione:
+Ovviamente quando si parla di \textit{tasso di cambiamento} la lampadina che 
+si deve accendere è quella della derivata, che infatti misura il tasso di 
+cambiamento di una funzione in un determinato punto. Se quindi facciamo in 
+modo che la funzione che vogliamo approssimare abbia la stessa derivata del 
+nostro polinomio di approssimazione:
 \begin{equation*}
 	f'(x_0) = p_1'(x_0)
 \end{equation*}
-È importante che la derivata sia calcolata in $x_0$ in quanto vogliamo sempre approssimare la funzione per un punto, in questo caso $x_0 = 0$. Ora se calcoliamo le derivate:
+È importante che la derivata sia calcolata in $x_0$ in quanto vogliamo sempre 
+approssimare la funzione per un punto, in questo caso $x_0 = 0$. Ora se 
+calcoliamo le derivate:
 \begin{equation*}
 	f'(x) = (e^x)' = e^x \qquad \qquad p_1'(x) = (ax + b)' = a
 \end{equation*}
@@ -345,16 +481,34 @@ Sostituendo quindi il punto:
 	e^{0} & = a\\
 	a & = 1
 \end{align*}
-In questo caso abbiamo trovato che il nostro polinomio di approssimazione $p_1(x) = ax + 1$, per approssimare al meglio la funzione e il suo \textit{tasso di cambiamento} deve avere il coefficiente $a = 1$. È importante però notare che del termine noto $b$ non sappiamo effettivamente nulla perché la derivata si "cancella". Se proviamo ad applicare la condizione vista in precedenza per trovare il polinomio di grado 0 che meglio approssima la funzione:
+In questo caso abbiamo trovato che il nostro polinomio di approssimazione 
+$p_1(x) = ax + 1$, per approssimare al meglio la funzione e il suo 
+\textit{tasso di cambiamento} deve avere il coefficiente $a = 1$. È importante 
+però notare che del termine noto $b$ non sappiamo effettivamente nulla perché 
+la derivata si "cancella". Se proviamo ad applicare la condizione vista in 
+precedenza per trovare il polinomio di grado 0 che meglio approssima la 
+funzione:
 \begin{align*}
 	&\lim_{x \to x_0} f(x) - p_1(x) = 0\\
 	&\lim_{x \to x_0} e^x - (ax + b) = 0\\
 	&e^0 - (a \cdot 0 + b) = 0\\
 	&1 - b = 0 \implies b = 1
 \end{align*}
-Come prima che a causa della derivata il termine noto spariva e quindi era completamente ininfluente sul tasso di cambiamento della funzione e del nostro polinomio, ora per il limite spariscono tutti i termini con una $x$, lasciando solo il termine noto. Questo è molto importante perché anche avendo un polinomio di approssimazione di grado 100 il termine noto sarà sempre lo stesso, in questo caso 1.
+Come prima che a causa della derivata il termine noto spariva e quindi era 
+completamente ininfluente sul tasso di cambiamento della funzione e del nostro 
+polinomio, ora per il limite spariscono tutti i termini con una $x$, lasciando 
+solo il termine noto. Questo è molto importante perché anche avendo un 
+polinomio di approssimazione di grado 100 il termine noto sarà sempre lo 
+stesso, in questo caso 1.
 
-Ora che però abbiamo già usato sia un limite che una derivata cosa ci inventiamo per trovare il miglior polinomio di \textbf{grado 2} che approssima la funzione? In realtà ora possiamo continuare ad iterare lo stesso processo della derivata, semplicemente usando derivate seconde, terze, ecc. Questo perché la derivata in quanto tale rappresenta il tasso di cambiamento della funzione di partenza, quindi se facciamo in modo che le due derivate seconde coincidano abbiamo aggiunto un grado di somiglianza tra il nostro polinomio e la funzione:
+Ora che però abbiamo già usato sia un limite che una derivata cosa ci 
+inventiamo per trovare il miglior polinomio di \textbf{grado 2} che approssima 
+la funzione? In realtà ora possiamo continuare ad iterare lo stesso processo 
+della derivata, semplicemente usando derivate seconde, terze, ecc. Questo 
+perché la derivata in quanto tale rappresenta il tasso di cambiamento della 
+funzione di partenza, quindi se facciamo in modo che le due derivate seconde 
+coincidano abbiamo aggiunto un grado di somiglianza tra il nostro polinomio e 
+la funzione:
 \begin{equation*}
 	f''(x_0) = p_2''(x_0)
 \end{equation*}
@@ -368,30 +522,47 @@ E quindi:
 	e^{0} & = 2a\\
 	a & = \dfrac{1}{2}
 \end{align*}
-Come ormai è facile notare, sui polinomi, la derivata \textit{n}-esima lascia solo i termini con grado maggiore di $n$. Di conseguenza quelli prima sono completamente indipendenti e questo significa che se approssimiamo una funzione con un polinomio di grado 1 e poi vogliamo trovare il polinomio di grado 2 che approssima meglio tale funzione, quest'ultimo sarà fatto dal primo polinomio più il grado che lo distingue. Cioè in questo caso avevamo già il polinomio di grado 1: 
+Come ormai è facile notare, sui polinomi, la derivata \textit{n}-esima lascia 
+solo i termini con grado maggiore di $n$. Di conseguenza quelli prima sono 
+completamente indipendenti e questo significa che se approssimiamo una funzione 
+con un polinomio di grado 1 e poi vogliamo trovare il polinomio di grado 2 che 
+approssima meglio tale funzione, quest'ultimo sarà fatto dal primo polinomio 
+più il grado che lo distingue. Cioè in questo caso avevamo già il polinomio di 
+grado 1: 
 \begin{equation*}
 	p_1(x) = x + 1
 \end{equation*}
-Per trovare il polinomio grado 2 partiamo da questo e semplicemente aggiungiamo un termine:
+Per trovare il polinomio grado 2 partiamo da questo e semplicemente aggiungiamo 
+un termine:
 \begin{equation*}
 	p_2(x) = ax^2 + p_1(x)
 \end{equation*}
-E in questo caso abbiamo trovato che $a = \frac{1}{2}$, quindi il polinomio di secondo grado che approssima al meglio la funzione $f(x) = e^x$ in $x_0 = 0$ è:
+E in questo caso abbiamo trovato che $a = \frac{1}{2}$, quindi il polinomio di 
+secondo grado che approssima al meglio la funzione $f(x) = e^x$ in $x_0 = 0$ è:
 \begin{equation*}
 	p_2(x) = \dfrac{1}{2}x^2 + x + 1
 \end{equation*}
-Sull'esponenziale è facile iterare il processo in quanto la derivata sarà sempre $e^x$ che in $x = 0$ vale $1$. Di conseguenza la derivata terza per approssimare un polinomio di grado 3 sarà:
+Sull'esponenziale è facile iterare il processo in quanto la derivata sarà 
+sempre $e^x$ che in $x = 0$ vale $1$. Di conseguenza la derivata terza per 
+approssimare un polinomio di grado 3 sarà:
 \begin{gather*}
 	p_3'''(x) = e^0\\
 	(a^3x + \dfrac{1}{2}x^2 + x + 1)''' = 1\\
 	3 \cdot 2 \cdot 1 \cdot a = 1\\
 	a = \dfrac{1}{3 \cdot 2 \cdot 1} = \dfrac{1}{3!}
 \end{gather*}
-Si comincia a vedere un pattern: infatti il coefficiente angolare del termine di grado $n$ sarà sempre $\dfrac{1}{n!}$ proprio perché dovendo derivare $n$ volte l'esponente di grado $n$ scende e forma un fattoriale. In questo caso la funzione $f(x) = e^x$ in $x_0 = 0$ è approssimata dal polinomio:
+Si comincia a vedere un pattern: infatti il coefficiente angolare del termine 
+di grado $n$ sarà sempre $\dfrac{1}{n!}$ proprio perché dovendo derivare $n$ 
+volte l'esponente di grado $n$ scende e forma un fattoriale. In questo caso la 
+funzione $f(x) = e^x$ in $x_0 = 0$ è approssimata dal polinomio:
 \begin{equation*}
 	e^x = 1 + x + \dfrac{1}{2!}x^2 + \dfrac{1}{3!} x^3 \cdots \dfrac{1}{n!} x^n
 \end{equation*}
-Ovviamente più avanti verrà definito tutto più formalmente, però questa è effettivamente il polinomio di Taylor per $f(x) = e^x$ in $x_0 = 0$. La cosa più bella però è vedere i grafici che piano piano si avvicinano sempre di più alla funzione (Figure: \ref{fig_approxEsponenziale1} e \ref{fig_approxEsponenziale2})
+Ovviamente più avanti verrà definito tutto più formalmente, però questa è 
+effettivamente il polinomio di Taylor per $f(x) = e^x$ in $x_0 = 0$. La cosa 
+più bella però è vedere i grafici che piano piano si avvicinano sempre di più 
+alla funzione (Figure: \ref{fig_approxEsponenziale1} e 
+\ref{fig_approxEsponenziale2})
 
 \begin{figure}
 \centering
@@ -461,7 +632,8 @@ Ovviamente più avanti verrà definito tutto più formalmente, però questa è e
 		     yticklabels={$1$},
 		    ]
 		\addplot[domain=-5:5, samples=200]{e^x};
-		\addplot[domain=-5:5, samples=200]{1/24*x*x*x*x + 1/6*x*x*x + 1/2*x*x + x + 1};
+		\addplot[domain=-5:5, samples=200]{1/24*x*x*x*x + 1/6*x*x*x + 1/2*x*x + 
+        x + 1};
 	\end{axis}
 	\end{tikzpicture}
 \end{subfigure}
@@ -472,7 +644,8 @@ Ovviamente più avanti verrà definito tutto più formalmente, però questa è e
 
 
 \subsubsection{Definizione formale}
-Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$. Se $f$ è continua in 0:
+Prendiamo una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$. Se $f$ è 
+continua in 0:
 \begin{equation*}
 	\lim_{x \to 0} f(x) = f(0)
 \end{equation*}
@@ -482,7 +655,8 @@ Cioè:
 \end{equation*}
 Ne consegue che $f(x) - f(0)$ è un infinitesimo per $x \to 0$:
 \begin{equation*}
-	f(x) - f(0) = o(1) \quad \implies \quad f(x) = f(0) + o(1) \quad \text{per } x \to 0
+	f(x) - f(0) = o(1) \quad \implies \quad f(x) = f(0) + o(1) \quad 
+    \text{per } x \to 0
 \end{equation*}
 Se provassimo a sostituire a $f(0)$ una qualunque costante $k \neq f(0)$:
 \begin{equation*}
@@ -512,18 +686,28 @@ Se quindi arrangiamo i termini in modo leggermente differente:
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + o(x) \quad \text{per } x \to 0
 \end{equation*}
-In questo caso il polinomio $f(0) + f'(0) \cdot x$ è la migliore approssimazione di grado 1 di $f$ in $x = 0$ perché l'errore tende a zero più velocemente di x.
+In questo caso il polinomio $f(0) + f'(0) \cdot x$ è la migliore 
+approssimazione di grado 1 di $f$ in $x = 0$ perché l'errore tende a zero più 
+velocemente di x.
 
 \imp{
-	La notazione \textbf{\textit{o}-piccolo infatti rappresenta l'errore} che ha la nostra approssimazione. Questo perché un $o(x)$ racchiude tutti i termini che vanno a $0$ più velocemente di $x$, quindi tutti i gradi superiori in quanto polinomio. Infatti un errore $o(x^4)$ racchiude tutti i gradi superiori a $x^4$.
+	La notazione \textbf{\textit{o}-piccolo infatti rappresenta l'errore} che 
+    ha la nostra approssimazione. Questo perché un $o(x)$ racchiude tutti i 
+    termini che vanno a $0$ più velocemente di $x$, quindi tutti i gradi 
+    superiori in quanto polinomio. Infatti un errore $o(x^4)$ racchiude tutti 
+    i gradi superiori a $x^4$.
 }
-Ovviamente come in fisica, la misura è \textit{tanto più buona quanto l'errore è piccolo}. È quindi necessario sempre scegliere il grado di approssimazione in base all'evenienza.
+Ovviamente come in fisica, la misura è \textit{tanto più buona quanto l'errore 
+è piccolo}. È quindi necessario sempre scegliere il grado di approssimazione in 
+base all'evenienza.
 
-Ora scegliamo il polinomio di grado 2 che approssima meglio la funzione. Ovviamente dobbiamo contare l'errore, che chiameremo $E_2(x)$:
+Ora scegliamo il polinomio di grado 2 che approssima meglio la funzione. 
+Ovviamente dobbiamo contare l'errore, che chiameremo $E_2(x)$:
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + a_2 \cdot x^2 + E_2(x)
 \end{equation*}
-Dobbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più velocemente di $x^2$, cioè:
+Dobbiamo scegliere $a_2 \in \mathbb{R}$ in modo che l'errore tenda a zero più 
+velocemente di $x^2$, cioè:
 \begin{equation*}
 	E_2(x) = o(x^2)
 \end{equation*}
@@ -535,14 +719,20 @@ Portando quindi tutti i termini a sinistra:
 \begin{equation*}
 	f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2 = o(x^2)
 \end{equation*}
-Applicando la definizione di \textit{o}-piccolo ci riduciamo a dover trovare $a_2$ dal seguente limite:
+Applicando la definizione di \textit{o}-piccolo ci riduciamo a dover trovare 
+$a_2$ dal seguente limite:
 \begin{equation*}
 	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} = 0
 \end{equation*}
-A tal fine usiamo il teorema di De L'Hôpital (Sezione: \ref{sec_deLHopital}) assumendo che la funzione sia derivabile due volte in $x = 0$:
+A tal fine usiamo il teorema di De L'Hôpital (Sezione: \ref{sec_deLHopital}) 
+assumendo che la funzione sia derivabile due volte in $x = 0$:
 \begin{align*}
-	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - 2! \cdot a_2 \cdot x}{2! \cdot x} \stackrel{\text{H}}{=}\\[10pt]
-	&\lim_{x \to 0} \left(\dfrac{f'(x) - f'(0)}{2! \cdot x} - a_2\right) = \dfrac{1}{2!} \left(\lim_{x \to 0} \dfrac{f'(x) - f'(0)}{x} \right) - a_2 =  \dfrac{1}{2!} f''(0) - a_2
+	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - a_2 \cdot x^2}{x^2} 
+    \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - 2! \cdot a_2 
+    \cdot x}{2! \cdot x} \stackrel{\text{H}}{=}\\[10pt]
+	&\lim_{x \to 0} \left(\dfrac{f'(x) - f'(0)}{2! \cdot x} - a_2\right) = 
+    \dfrac{1}{2!} \left(\lim_{x \to 0} \dfrac{f'(x) - f'(0)}{x} \right) - a_2 =  
+    \dfrac{1}{2!} f''(0) - a_2
 \end{align*}
 Ricordandoci che vogliamo che il risultato del limite sia 0:
 \begin{equation*}
@@ -552,18 +742,27 @@ Quindi la migliore approssimazione di grado 2 di $f$ in $x = 0$:
 \begin{equation*}
 	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2!} f''(0) \cdot x^2 + o(x^2)
 \end{equation*}
-Per trovare la migliore approssimazione di grado 3 basta iterare il processo. Quindi vogliamo trovare $a_3$:
+Per trovare la migliore approssimazione di grado 3 basta iterare il processo. 
+Quindi vogliamo trovare $a_3$:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3 + o(x^3)
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot 
+    x^3 + o(x^3)
 \end{equation*}
-Che portando tutto a sinistra e applicando la definizione di \textit{o}-piccolo:
+Che portando tutto a sinistra e applicando la definizione di 
+\textit{o}-piccolo:
 \begin{equation*}
-	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3}{x^3} = 0
+	\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) 
+    \cdot x^2 + a_3 \cdot x^3}{x^3} = 0
 \end{equation*}
 Assumendo che la funzione sia derivabile 3 volte applichiamo De L'Hôpital:
 \begin{align*}
-	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) \cdot x^2 + a_3 \cdot x^3}{x^3} \stackrel{\text{H}}{=} \lim_{x \to 0} \dfrac{f'(x) - f'(0) - f''(0) \cdot x + 3 \cdot a_3 \cdot x^2}{3 \cdot x^2} = \\[10pt]
-	= &\lim_{x \to 0} \dfrac{f''(x) - f''(0) + 3 \cdot 2 \cdot a_3 \cdot x}{3 \cdot 2 \cdot x} = \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{3! \cdot x} - a_3 = \dfrac{1}{3!} \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{x} - a_3 = \\[10pt]
+	&\lim_{x \to 0} \dfrac{f(x) - f(0) - f'(0) \cdot x - \dfrac{1}{2} f''(0) 
+    \cdot x^2 + a_3 \cdot x^3}{x^3} \stackrel{\text{H}}{=} \lim_{x \to 0} 
+    \dfrac{f'(x) - f'(0) - f''(0) \cdot x + 3 \cdot a_3 \cdot x^2}{3 \cdot 
+    x^2} = \\[10pt]
+	= &\lim_{x \to 0} \dfrac{f''(x) - f''(0) + 3 \cdot 2 \cdot a_3 \cdot x}{3 
+    \cdot 2 \cdot x} = \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{3! \cdot x} - a_3 
+    = \dfrac{1}{3!} \lim_{x \to 0} \dfrac{f''(x) - f''(0)}{x} - a_3 = \\[10pt]
 	= &\dfrac{1}{3!} f'''(0) - a_3
 \end{align*}
 Imponendo che sia uguale a 0 come prima:
@@ -572,11 +771,14 @@ Imponendo che sia uguale a 0 come prima:
 \end{equation*}
 Quindi la migliore approssimazione di grado 3 di $f$ in $x = 0$:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3)
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} 
+    f'''(0) \cdot x^3 + o(x^3)
 \end{equation*}
 Si comincia a vedere un pattern, infatti:
 \begin{equation*}
-	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} f'''(0) \cdot x^3 + o(x^3) = \left( \sum \limits_{i = 0}^3 \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^3)
+	f(x) = f(0) + f'(0) \cdot x + \dfrac{1}{2} f''(0) \cdot x^2 + \dfrac{1}{3!} 
+    f'''(0) \cdot x^3 + o(x^3) = \left( \sum \limits_{i = 0}^3 
+    \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^3)
 \end{equation*}
 Se la funzione è derivabile 4 volte:
 \begin{equation*}
@@ -584,18 +786,27 @@ Se la funzione è derivabile 4 volte:
 \end{equation*}
 E quindi:
 \begin{equation*}
-	f(x) = \left( \sum \limits_{i = 0}^4 \dfrac{f^{(i)}(0)}{i!} \cdot x^i \right) + o(x^4)
+	f(x) = \left( \sum \limits_{i = 0}^4 \dfrac{f^{(i)}(0)}{i!} \cdot x^i 
+    \right) + o(x^4)
 \end{equation*}
 Si dimostra così il teorema di Peano.
 
-
 \subsubsection{Teorema di Peano in $x = 0$}
 \thm{
-	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$, se $f$ è derivabile \textit{n}-volte in $x_0 = 0$ si definisce \textbf{polinomio di Taylor} di $f$ in $x_0 = 0$ di grado $\leq n$:
+	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $0 \in ]a,b[$, se $f$ è 
+    derivabile \textit{n}-volte in $x_0 = 0$ si definisce \textbf{polinomio di 
+    Taylor} di $f$ in $x_0 = 0$ di grado $\leq n$:
 	\begin{equation*}
 		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i
 	\end{equation*}
-	È l'unico polinomio di grado $\leq n$ tale che\footnote{In questo caso non si sa con certezza se il polinomio sarà esattamente di grado $n$, per quello si mette il $\leq$. Questo perché alcune derivate di ordine superiore potrebbero essere nulle facendo quindi risultare il polinomio di grado minore. Si noti però che se comunque il polinomio non risultasse di grado $n$, sarebbe comunque la migliore approssimazione di grado $n$ e avrebbe un \textit{o}-piccolo di $o(x^n)$. Un classico esempio in questo caso sono le funzioni seno e coseno.}: 
+	È l'unico polinomio di grado $\leq n$ tale che\footnote{In questo caso non 
+    si sa con certezza se il polinomio sarà esattamente di grado $n$, per 
+    quello si mette il $\leq$. Questo perché alcune derivate di ordine 
+    superiore potrebbero essere nulle facendo quindi risultare il polinomio di 
+    grado minore. Si noti però che se comunque il polinomio non risultasse di 
+    grado $n$, sarebbe comunque la migliore approssimazione di grado $n$ e 
+    avrebbe un \textit{o}-piccolo di $o(x^n)$. Un classico esempio in questo 
+    caso sono le funzioni seno e coseno.}: 
 	\begin{equation*}
 		f(x) = T_n(x) + o(x^n) \qquad \text{per } x \to 0
 	\end{equation*}
@@ -603,9 +814,12 @@ Si dimostra così il teorema di Peano.
 
 \subsubsection{Teorema di Peano generale}
 \thm{
-	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $x_0 \in ]a,b[$, se $f$ è derivabile \textit{n}-volte in $x_0$ si definisce \textbf{polinomio di Taylor} di $f$ in $x_0$ di grado $\leq n$:
+	Data una funzione $f:]a,b[ \to \mathbb{R}$ con $x_0 \in ]a,b[$, se $f$ è 
+    derivabile \textit{n}-volte in $x_0$ si definisce \textbf{polinomio di 
+    Taylor} di $f$ in $x_0$ di grado $\leq n$:
 	\begin{equation*}
-		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(x_0)}{i!} \cdot (x - x_0)^i
+		T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(x_0)}{i!} \cdot 
+        (x - x_0)^i
 	\end{equation*}
 	È l'unico polinomio di grado $\leq n$ tale che:
 	\begin{equation*}
@@ -613,19 +827,30 @@ Si dimostra così il teorema di Peano.
 	\end{equation*}
 }
 \imp{
-	È importante notare che il polinomio ci garantisce una buona approssimazione \textbf{solo vicino al punto} $\mathbf{x_0}$. È possibile che la funzione si approssimi anche lontano da quel punto, ma nessuno lo garantisce.
+	È importante notare che il polinomio ci garantisce una buona 
+    approssimazione \textbf{solo vicino al punto} $\mathbf{x_0}$. È possibile 
+    che la funzione si approssimi anche lontano da quel punto, ma nessuno lo 
+    garantisce.
 }
 
 \subsection{Sviluppi di Taylor per le funzioni elementari in $x_0 = 0$}
-Prima di dare tutti gli sviluppi delle funzioni elementari già calcolati è carino vedere come si utilizza effettivamente nella pratica il teorema di Peano. Nella sottosezione successiva sono comunque riportati tutti gli sviluppi delle funzioni elementari.\\
+Prima di dare tutti gli sviluppi delle funzioni elementari già calcolati è 
+carino vedere come si utilizza effettivamente nella pratica il teorema di 
+Peano. Nella sottosezione successiva sono comunque riportati tutti gli sviluppi 
+delle funzioni elementari.\\
 
-\textbf{Esponenziale:} Vogliamo calcolare lo sviluppo di Taylor per la funzione $f(x) = e^x$. Ricordiamoci che $e^x \in C^\infty (\mathbb{R})$, cioè è derivabile infinite volte su $\mathbb{R}$. Dal teorema di Peano:
+\textbf{Esponenziale:} Vogliamo calcolare lo sviluppo di Taylor per la funzione 
+$f(x) = e^x$. Ricordiamoci che $e^x \in C^\infty (\mathbb{R})$, cioè è 
+derivabile infinite volte su $\mathbb{R}$. Dal teorema di Peano:
 \begin{equation*}
 	T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i 
 \end{equation*}
-La cosa bella di $e^x$ è che la derivata è uguale alla funzione, di conseguenza tutte le derivate saranno sempre uguali e quindi $f^{(n)}(0) = 1 \; \forall n \in \mathbb{N}$. Ne consegue che:
+La cosa bella di $e^x$ è che la derivata è uguale alla funzione, di conseguenza 
+tutte le derivate saranno sempre uguali e quindi $f^{(n)}(0) = 1 \; \forall n 
+\in \mathbb{N}$. Ne consegue che:
 \begin{equation*}
-	T_n(x) = \sum \limits_{i = 0}^n \dfrac{1}{i!} \cdot x^i = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots
+	T_n(x) = \sum \limits_{i = 0}^n \dfrac{1}{i!} \cdot x^i = 1 + x + 
+    \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots
 \end{equation*}
 E quindi:
 \begin{equation*}
@@ -633,22 +858,33 @@ E quindi:
 \end{equation*}
 
 
-\textbf{Seno:} Calcoliamo lo sviluppo di Taylor per la funzione $f(x) = \sin{x}$, ricordandoci che $\sin{x} \in C^\infty (\mathbb{R})$. Proviamo prima di usare il teorema di Peano a calcolare le derivate in $x = 0$:
+\textbf{Seno:} Calcoliamo lo sviluppo di Taylor per la funzione $f(x) = 
+\sin{x}$, ricordandoci che $\sin{x} \in C^\infty (\mathbb{R})$. Proviamo prima 
+di usare il teorema di Peano a calcolare le derivate in $x = 0$:
 \begin{align*}
 	&f(0) = (\sin{x}) |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} &= 0\\[5pt]
 	&f'(0) = (\sin{x})' |_{x = 0} = \cos{x} |_{x = 0} = \cos{0} &= 1\\[5pt]
 	&f''(0) = (\sin{x})'' |_{x = 0} = -\sin{x} |_{x = 0} = -\sin{0} &= 0\\[5pt]
-	&f'''(0) = (\sin{x})''' |_{x = 0} = -\cos{x} |_{x = 0} = -\cos{0} &= -1\\[5pt]
-	&f^{(4)}(0) = (\sin{x})^{(4)} |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} &= 0\\[5pt]
-	&f^{(5)}(0) = (\sin{x})^{(5)} |_{x = 0} = \cos{x} |_{x = 0} = \cos{0} &= 1\\[5pt]
-	&f^{(6)}(0) = (\sin{x})^{(6)}|_{x = 0} = -\sin{x} |_{x = 0} = -\sin{0} &= 0\\[5pt]
-	&f^{(7)}(0) = (\sin{x})^{(7)} |_{x = 0} = -\cos{x} |_{x = 0} = -\cos{0} &= -1\\[5pt]
-	&f^{(8)}(0) = (\sin{x})^{(8)} |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} &= 0\\
+	&f'''(0) = (\sin{x})''' |_{x = 0} = -\cos{x} |_{x = 0} = 
+    -\cos{0} &= -1\\[5pt]
+	&f^{(4)}(0) = (\sin{x})^{(4)} |_{x = 0} = \sin{x} |_{x = 0} = 
+    \sin{0} &= 0\\[5pt]
+	&f^{(5)}(0) = (\sin{x})^{(5)} |_{x = 0} = \cos{x} |_{x = 0} = 
+    \cos{0} &= 1\\[5pt]
+	&f^{(6)}(0) = (\sin{x})^{(6)}|_{x = 0} = -\sin{x} |_{x = 0} = 
+    -\sin{0} &= 0\\[5pt]
+	&f^{(7)}(0) = (\sin{x})^{(7)} |_{x = 0} = -\cos{x} |_{x = 0} = 
+    -\cos{0} &= -1\\[5pt]
+	&f^{(8)}(0) = (\sin{x})^{(8)} |_{x = 0} = \sin{x} |_{x = 0} = 
+    \sin{0} &= 0\\
 	\vdots
 \end{align*}
-È facile vedere che i valori si ripetono uguali ogni 4. Sostituendo quindi al teorema di Peano:
+È facile vedere che i valori si ripetono uguali ogni 4. Sostituendo quindi al 
+teorema di Peano:
 \begin{equation*}
-	T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i = 0 + x \cdot 1 + \dfrac{1}{2!}x^2 \cdot 0 + \dfrac{1}{3!}x^3 \cdot -1 + \dfrac{1}{4!}x^4 \cdot 0 + \dfrac{1}{5!}x^5 \cdot 1 + \cdots 
+	T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i = 0 + x 
+    \cdot 1 + \dfrac{1}{2!}x^2 \cdot 0 + \dfrac{1}{3!}x^3 \cdot -1 + 
+    \dfrac{1}{4!}x^4 \cdot 0 + \dfrac{1}{5!}x^5 \cdot 1 + \cdots 
 \end{equation*}
 Che quindi diventa:
 \begin{equation*}
@@ -656,23 +892,34 @@ Che quindi diventa:
 \end{equation*}
 Dunque:
 \begin{equation*}
-	\sin{x} = \sum \limits_{i = 0}^n \dfrac{(-1)^i \cdot x^{2i + 1}}{(2i+1)!} + o(x^{2n +1})= x - \dfrac{1}{3!}x^3 + \dfrac{1}{5!}x^5 + \cdots + o(x^{2n + 1})
+	\sin{x} = \sum \limits_{i = 0}^n \dfrac{(-1)^i \cdot x^{2i + 1}}{(2i+1)!} + 
+    o(x^{2n +1})= x - \dfrac{1}{3!}x^3 + \dfrac{1}{5!}x^5 + \cdots + 
+    o(x^{2n + 1})
 \end{equation*}
 
 \imp{
-Una osservazione importante da fare è che nello sviluppo di $\sin{x}$ compaiono solo \textbf{termini dispari}. Questo perché la funzione è una funzione dispari.
+Una osservazione importante da fare è che nello sviluppo di $\sin{x}$ compaiono 
+solo \textbf{termini dispari}. Questo perché la funzione è una funzione 
+dispari.
 \begin{equation*}
 	\sin{(-x)} = -\sin{x}
 \end{equation*}
 }
 
-Questo è estremamente utile in quanto tutti i termini pari della successione sono nulli, e questo implica che ogni termine dispari di grado $2n + 1$ non è solo la migliore approssimazione per $\sin{x}$ di grado $2n + 1$, ma è anche la migliore approssimazione di grado $2n + 2$. Questo implica che:
+Questo è estremamente utile in quanto tutti i termini pari della successione 
+sono nulli, e questo implica che ogni termine dispari di grado $2n + 1$ non è 
+solo la migliore approssimazione per $\sin{x}$ di grado $2n + 1$, ma è anche la 
+migliore approssimazione di grado $2n + 2$. Questo implica che:
 \begin{align*}
 	\sin{x} = x + o(x) \quad &\implies \quad \sin{x} = x + o(x^2)\\[5pt]
-	\sin{x} = x - \dfrac{1}{3!}x^3 + o(x^3) \quad &\implies \quad \sin{x} = x - \dfrac{1}{3!}x^3 + o(x^4) \\[5pt]
-	\sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n +1} + o(x^{2n+1}) \quad &\implies \quad \sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n+1} + o(x^{2n+2})
+	\sin{x} = x - \dfrac{1}{3!}x^3 + o(x^3) \quad &\implies \quad \sin{x} = x - 
+    \dfrac{1}{3!}x^3 + o(x^4) \\[5pt]
+	\sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n +1} + o(x^{2n+1}) \quad 
+    &\implies \quad \sin{x} = x + \cdots + \dfrac{1}{(2n+1)!} x^{2n+1} + 
+    o(x^{2n+2})
 \end{align*}
-Possiamo quindi usare questo piccola osservazione a nostro vantaggio quando sviluppiamo il seno.\\
+Possiamo quindi usare questo piccola osservazione a nostro vantaggio quando 
+sviluppiamo il seno.\\
 
 \begin{figure}
 \centering
@@ -748,17 +995,24 @@ Possiamo quindi usare questo piccola osservazione a nostro vantaggio quando svil
 
 
 
-\textbf{Coseno:} Lo sviluppo della funzione $f(x) = \cos{x} \in C^\infty(\mathbb{R})$ è molto simile al seno in quanto anche in questa i valori della derivata si alternano ogni 4:
+\textbf{Coseno:} Lo sviluppo della funzione $f(x) = \cos{x} \in C^\infty(
+\mathbb{R})$ è molto simile al seno in quanto anche in questa i valori della 
+derivata si alternano ogni 4:
 \begin{align*}
 	&f^{(0)}(0) = (\cos{x}) |_{x = 0} = \cos{x} |_{x = 0} = \cos{0} &= 1\\[5pt]
-	&f^{(1)}(0) = (\cos{x})^{(1)}|_{x = 0} = -\sin{x} |_{x = 0} = -\sin{0} &= 0\\[5pt]
-	&f^{(2)}(0) = (\cos{x})^{(2)} |_{x = 0} = -\cos{x} |_{x = 0} = -\cos{0} &= -1\\[5pt]
-	&f^{(3)}(0) = (\cos{x})^{(3)} |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} &= 0\\
+	&f^{(1)}(0) = (\cos{x})^{(1)}|_{x = 0} = -\sin{x} |_{x = 0} = -\sin{0} 
+    &= 0\\[5pt]
+	&f^{(2)}(0) = (\cos{x})^{(2)} |_{x = 0} = -\cos{x} |_{x = 0} = -\cos{0} 
+    &= -1\\[5pt]
+	&f^{(3)}(0) = (\cos{x})^{(3)} |_{x = 0} = \sin{x} |_{x = 0} = \sin{0} 
+    &= 0\\
 	\vdots
 \end{align*}
 Quindi per il teorema di Peano:
 \begin{equation*}
-	T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i = 1 + x \cdot 0 + \dfrac{1}{2!}x^2 \cdot -1 + \dfrac{1}{3!}x^3 \cdot 0 + \dfrac{1}{4!}x^4 \cdot 1 + \dfrac{1}{5!}x^5 \cdot 0 + \cdots 
+	T_n(x) = \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i = 1 + x 
+    \cdot 0 + \dfrac{1}{2!}x^2 \cdot -1 + \dfrac{1}{3!}x^3 \cdot 0 + 
+    \dfrac{1}{4!}x^4 \cdot 1 + \dfrac{1}{5!}x^5 \cdot 0 + \cdots 
 \end{equation*}
 Che quindi diventa:
 \begin{equation*}
@@ -766,54 +1020,88 @@ Che quindi diventa:
 \end{equation*}
 Dunque:
 \begin{equation*}
-	\cos{x} = \sum \limits_{i = 0}^n \dfrac{(-1)^i \cdot x^{2i}}{(2i)!} + o(x^{2n}) = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots + o(x^{2n})
+	\cos{x} = \sum \limits_{i = 0}^n \dfrac{(-1)^i \cdot x^{2i}}{(2i)!} + 
+    o(x^{2n}) = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots + o(x^{2n})
 \end{equation*}
 \imp{
-	Come per la funzione seno in cui comparivano solo termini di grado dispari, nella funzione coseno compaio solo \textbf{termini di grado pari}. Questo perché la funzione è una funzione pari.
+	Come per la funzione seno in cui comparivano solo termini di grado dispari, 
+    nella funzione coseno compaio solo \textbf{termini di grado pari}. Questo 
+    perché la funzione è una funzione pari.
 \begin{equation*}
 	\cos{(-x)} = \cos{x}
 \end{equation*}
 }
-Come per il seno possiamo usare questa considerazione per diminuire l'errore tenendo la stessa approssimazione. Se infatti abbiamo un approssimazione di grado $2n$, risulta anche la migliore approssimazione di grado $2n + 1$ in quanto dovremmo aggiungere un termine dispari e quindi moltiplicato per uno 0, risultando quindi in un termine non presente:
+Come per il seno possiamo usare questa considerazione per diminuire l'errore 
+tenendo la stessa approssimazione. Se infatti abbiamo un approssimazione di 
+grado $2n$, risulta anche la migliore approssimazione di grado $2n + 1$ in 
+quanto dovremmo aggiungere un termine dispari e quindi moltiplicato per uno 0, 
+risultando quindi in un termine non presente:
 \begin{align*}
 	\cos{x} = 1 + o(1) \quad &\implies \quad \sin{x} = 1 + o(x)\\[5pt]
-	\sin{x} = 1 - \dfrac{1}{2!}x^2 + o(x^2) \quad &\implies \quad \sin{x} = x - \dfrac{1}{2!}x^2 + o(x^3) \\[5pt]
-	\sin{x} = x + \cdots + \dfrac{1}{(2n)!} x^{2n} + o(x^{2n}) \quad &\implies \quad \sin{x} = x + \cdots + \dfrac{1}{(2n)!} x^{2n} + o(x^{2n+1})
+	\sin{x} = 1 - \dfrac{1}{2!}x^2 + o(x^2) \quad &\implies \quad \sin{x} = x - 
+    \dfrac{1}{2!}x^2 + o(x^3) \\[5pt]
+	\sin{x} = x + \cdots + \dfrac{1}{(2n)!} x^{2n} + o(x^{2n}) \quad &\implies 
+    \quad \sin{x} = x + \cdots + \dfrac{1}{(2n)!} x^{2n} + o(x^{2n+1})
 \end{align*}
 
 
 
 
-\textbf{Logaritmo naturale:} Se uno prova a cercare il polinomi di Taylor di $f(x) = \ln{(x)}$ in $x = 0$ si accorge che in quel punto il logaritmo non è definito. Questo implica che dobbiamo trovare un altro punto, oppure cambiare la funzione da approssimare. Di solito si tende a cambiare la funzione per comodità e invece di calcolare il polinomio di Taylor per $\ln{(x)}$ lo si calcola per $\ln{(1 + x)}$.
+\textbf{Logaritmo naturale:} Se uno prova a cercare il polinomi di Taylor di 
+$f(x) = \ln{(x)}$ in $x = 0$ si accorge che in quel punto il logaritmo non è 
+definito. Questo implica che dobbiamo trovare un altro punto, oppure cambiare 
+la funzione da approssimare. Di solito si tende a cambiare la funzione per 
+comodità e invece di calcolare il polinomio di Taylor per $\ln{(x)}$ lo si 
+calcola per $\ln{(1 + x)}$.
 
-La scelta di sviluppare la funzione in $1 + x$ invece di qualsiasi altro punto (cioè perché non $2 + x$?) è per comodità. Se infatti volessimo svilupparla in un punto $x_0 > 0$:
+La scelta di sviluppare la funzione in $1 + x$ invece di qualsiasi altro punto 
+(cioè perché non $2 + x$?) è per comodità. Se infatti volessimo svilupparla in 
+un punto $x_0 > 0$:
 \begin{equation*}
-	\ln{x} = \ln (x_0 + (x - x_0)) = \ln \left(x_0 \cdot \left(1 + \dfrac{x - x_0}{x_0} \right) \right) = \ln{x_0} + \ln \left( 1 + \dfrac{1}{x_0}(x - x_0) \right)
+	\ln{x} = \ln (x_0 + (x - x_0)) = \ln \left(x_0 \cdot \left(1 + \dfrac{x - 
+    x_0}{x_0} \right) \right) = \ln{x_0} + \ln \left( 1 + \dfrac{1}{x_0}(x - 
+    x_0) \right)
 \end{equation*}
-Osserviamo che $\ln{x_0}$ è una costante, mentre se facciamo un cambio di variabile:
+Osserviamo che $\ln{x_0}$ è una costante, mentre se facciamo un cambio di 
+variabile:
 \begin{equation*}
 	t := \dfrac{1}{x_0} (x - x_0)
 \end{equation*}
 \begin{equation*}
 	\text{se } x \to x_0 \quad \implies \quad t \to 0
 \end{equation*}
-Quindi indipendentemente dal punto in cui vogliamo sviluppare il logaritmo possiamo sempre ridurci ad uno sviluppo di $\ln(1 + t)$ in $t = 0$. 
+Quindi indipendentemente dal punto in cui vogliamo sviluppare il logaritmo 
+possiamo sempre ridurci ad uno sviluppo di $\ln(1 + t)$ in $t = 0$. 
 
-Cominciamo quindi con il calcolare le derivate di $f(x) = \ln{(1 + x)}$ in $x = 0$:
+Cominciamo quindi con il calcolare le derivate di $f(x) = \ln{(1 + x)}$ in 
+$x = 0$:
 \begin{align*}
-	&f^{(0)}(0) = (\ln{(1+x)}) |_{x = 0} = \ln{(1 + x)} |_{x = 0} = \ln{1} &= 0\\[5pt]
-	&f^{(1)}(0) = (\ln{(1+x)})^{(1)}|_{x = 0} = (1+x)^{-1} |_{x = 0} = 1^{-1} &= 1\\[5pt]
-	&f^{(2)}(0) = (\ln{(1+x)})^{(2)} |_{x = 0} = -1 \cdot (1+x)^{-2} |_{x = 0} = -1(1)^{-2} &= -1\\[5pt]
-	&f^{(3)}(0) = (\ln{(1+x)})^{(3)} |_{x = 0} = -1 \cdot - 2 \cdot (1+x)^{-3} |_{x = 0} = 2! \cdot (1)^-3 &= 2!\\
-	&f^{(4)}(0) = (\ln{(1+x)})^{(4)} |_{x = 0} = -1 \cdot - 2 \cdot -3 \cdot (1+x)^{-4} |_{x = 0} = -3! \cdot (1)^-4 &= -3!\\
+	&f^{(0)}(0) = (\ln{(1+x)}) |_{x = 0} = \ln{(1 + x)} |_{x = 0} = \ln{1} 
+    &= 0\\[5pt]
+	&f^{(1)}(0) = (\ln{(1+x)})^{(1)}|_{x = 0} = (1+x)^{-1} |_{x = 0} = 1^{-1} 
+    &= 1\\[5pt]
+	&f^{(2)}(0) = (\ln{(1+x)})^{(2)} |_{x = 0} = -1 \cdot (1+x)^{-2} |_{x = 0} 
+    = -1(1)^{-2} &= -1\\[5pt]
+	&f^{(3)}(0) = (\ln{(1+x)})^{(3)} |_{x = 0} = -1 \cdot - 2 \cdot (1+x)^{-3} 
+    |_{x = 0} = 2! \cdot (1)^-3 &= 2!\\
+	&f^{(4)}(0) = (\ln{(1+x)})^{(4)} |_{x = 0} = -1 \cdot - 2 \cdot -3 \cdot 
+    (1+x)^{-4} |_{x = 0} = -3! \cdot (1)^-4 &= -3!\\
 	\vdots\\
-	&f^{(n)}(0) = (\ln{(1+x)})^{(n)} |_{x = 0} = (-1)^{n-1} \cdot (n-1)! \cdot (1+x)^{-n} |_{x = 0} = (-1)^{n-1} \cdot (n-1)!\\
+	&f^{(n)}(0) = (\ln{(1+x)})^{(n)} |_{x = 0} = (-1)^{n-1} \cdot (n-1)! \cdot 
+    (1+x)^{-n} |_{x = 0} = (-1)^{n-1} \cdot (n-1)!\\
 \end{align*}
-L'unico caso in cui la "formula generale" per la derivata non funzione è il primo, cioè quando non bisogna derivare ma semplicemente calcolare la funzione nel punto. Applicando quanto visto e il teorema di Peano:
+L'unico caso in cui la "formula generale" per la derivata non funzione è il 
+primo, cioè quando non bisogna derivare ma semplicemente calcolare la funzione 
+nel punto. Applicando quanto visto e il teorema di Peano:
 \begin{align*}
-	\ln{(1 + x)} &= \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i + o(x^n) = \ln(1) + \sum \limits_{i = 1}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i + o(x^n) = \\[5pt]
-	&= \ln(1) + \sum \limits_{i = 1}^n \dfrac{(-1)^{i-1} \cdot (i -1)!}{i!} \cdot x^i + o(x^n) = \sum \limits_{i = 1}^n \dfrac{(-1)^{i-1}}{i} \cdot x^i + o(x^n) =\\[5pt]
-	&= x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1} \cdot \dfrac{x^n}{n} + o(x^n)
+	\ln{(1 + x)} &= \sum \limits_{i = 0}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i + 
+    o(x^n) = \ln(1) + \sum \limits_{i = 1}^n \dfrac{f^{(i)}(0)}{i!} \cdot x^i + 
+    o(x^n) = \\[5pt]
+	&= \ln(1) + \sum \limits_{i = 1}^n \dfrac{(-1)^{i-1} \cdot (i -1)!}{i!} 
+    \cdot x^i + o(x^n) = \sum \limits_{i = 1}^n \dfrac{(-1)^{i-1}}{i} 
+    \cdot x^i + o(x^n) =\\[5pt]
+	&= x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1} \cdot 
+    \dfrac{x^n}{n} + o(x^n)
 \end{align*}
 
 \begin{figure}
@@ -848,7 +1136,8 @@ L'unico caso in cui la "formula generale" per la derivata non funzione è il pri
 	\end{axis}
 	\end{tikzpicture}
 \end{subfigure}
-	\caption{Approssimazioni di grado 1 e 2 della funzione $f(x) = \ln{(1 + x)}$} 
+	\caption{Approssimazioni di grado 1 e 2 della funzione $f(x) = 
+    \ln{(1 + x)}$} 
 \end{figure}
 
 
@@ -884,28 +1173,37 @@ L'unico caso in cui la "formula generale" per la derivata non funzione è il pri
 	\end{axis}
 	\end{tikzpicture}
 \end{subfigure}
-	\caption{Approssimazioni di grado 3 e 4 della funzione $f(x) = \ln{(1 +x)}$} 
+	\caption{Approssimazioni di grado 3 e 4 della funzione $f(x) = 
+    \ln{(1 +x)}$} 
 \end{figure}
-
-
-%\textbf{Radice quadrata:} HA poco senso perché nelle slide introduce solo il coefficiente binomiale generalizzato ma non da nessuna prova
 
 \clearpage % Va bene come comando?
 \subsubsection{Tavola riassuntiva}
 \begin{align*}
-	&e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!} + o(x^n)\\[10pt]
-	&\log(1 + x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1} \cdot \dfrac{x^n}{n} + o(x^n)\\[10pt]
-	&\sin{x} = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} + \cdots + (-1)^n \dfrac{x^{2n+1}}{(2n+1)!} + o(x^{2n+2})\\[10pt]
-	&\cos{x} = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots + (-1)^n \dfrac{x^{2n}}{(2n)!} + o(x^{2n+1})\\[10pt]
-	&\tan{x} = x + \dfrac{x^3}{3} + \dfrac{2}{15}x^5 + \dfrac{17}{315}x^7 + o(x^8)\\[10pt]
+	&e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!} 
+    + o(x^n)\\[10pt]
+	&\log(1 + x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3} + \cdots + (-1)^{n+1} 
+    \cdot \dfrac{x^n}{n} + o(x^n)\\[10pt]
+	&\sin{x} = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} + \cdots + (-1)^n 
+    \dfrac{x^{2n+1}}{(2n+1)!} + o(x^{2n+2})\\[10pt]
+	&\cos{x} = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots + (-1)^n 
+    \dfrac{x^{2n}}{(2n)!} + o(x^{2n+1})\\[10pt]
+	&\tan{x} = x + \dfrac{x^3}{3} + \dfrac{2}{15}x^5 + \dfrac{17}{315}x^7 + 
+    o(x^8)\\[10pt]
 	&\arcsin{x} = x + \dfrac{x^3}{6} + \dfrac{3}{40}x^5 + o(x^5)\\[10pt]
-	&\arccos{x} = \dfrac{\pi}{2} - x - \dfrac{x^3}{6} - \dfrac{3}{40} x^5 + o(x^5)\\[10pt]
-	&\arctan{x} = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} + \cdots + (-1)^n \dfrac{x^{2n+1}}{2n+1} + o(x^{2n+2})\\[10pt]
+	&\arccos{x} = \dfrac{\pi}{2} - x - \dfrac{x^3}{6} - \dfrac{3}{40} x^5 + 
+    o(x^5)\\[10pt]
+	&\arctan{x} = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} + \cdots + (-1)^n 
+    \dfrac{x^{2n+1}}{2n+1} + o(x^{2n+2})\\[10pt]
 	&\dfrac{1}{1 - x} = 1 + x + x^2 + \cdots + x^n + o(x^n)\\[10pt]
-	&(1 + x)^\alpha = 1 + \alpha x + \dfrac{\alpha(\alpha - 1)}{2} x^2 + \cdots +  \binom{\alpha}{n} x^n + o(x^n)
+	&(1 + x)^\alpha = 1 + \alpha x + \dfrac{\alpha(\alpha - 1)}{2} x^2 + 
+    \cdots + \binom{\alpha}{n} x^n + o(x^n)
 \end{align*}
-Quando $\alpha \in \mathbb{R}$ bisogna utilizzare il coefficiente binomiale generalizzato (Sezione: \ref{sec_coefficiente-binomiale-gen}) definito come segue:
+Quando $\alpha \in \mathbb{R}$ bisogna utilizzare il coefficiente binomiale 
+generalizzato (Sezione: \ref{sec_coefficiente-binomiale-gen}) definito come 
+segue:
 
 \begin{equation*}
-	\binom{\alpha}{n} = \dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha - n + 1)}{n!}
+	\binom{\alpha}{n} = \dfrac{\alpha (\alpha - 1) (\alpha -2) \cdots (\alpha 
+    - n + 1)}{n!}
 \end{equation*}
