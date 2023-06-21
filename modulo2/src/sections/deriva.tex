@@ -1119,7 +1119,8 @@ grado 2.
 	\begin{itemize}
 		\item $A > 0$ sse tutti gli autovalori sono positivi.
 		\item $A < 0$ sse tutti gli autovalori sono negativi.
-        \item $A$ è indefinita sse un autovalore è positivo e l'altro è negativo.
+        \item $A$ è indefinita sse un autovalore è positivo e l'altro è 
+            negativo.
 	\end{itemize}
 }
 
@@ -1135,14 +1136,14 @@ altra formula dove il resto viene espresso in maniera differente:
 	Sia $I \subseteq \mathbb{R}$ e sia $f: I \to \mathbb{R}$ con derivata 
 	prima e seconda continue sull'intervallo aperto $I$, vale che:
 	\begin{equation*}
-        \forall x_0 \in I, x_0 + h \in I, \exists \theta \in ]0,1[: \; f(x_0 + h) = 
-		f(x_0) + f'(x_0)h + f''(x_0 + \theta h)\dfrac{h^2}{2}
+        \forall x_0 \in I, x_0 + h \in I, \exists \theta \in ]0,1[: \; 
+        f(x_0 + h) = f(x_0) + f'(x_0)h + f''(x_0 + \theta h)\dfrac{h^2}{2}
 	\end{equation*}
 }
 Da notare che in questo caso il resto non si trova nell'\textit{o}-piccolo 
-(anche perché è assente), ma bensì nel termine di secondo grado. In particolare nel 
-fatto che la matrice Hessiana non viene valutata nel punto esatto $x_0$, ma in 
-una sorta di punto medio tra $x_0$ e $h$, cioè $x_0 + \theta h$.
+(anche perché è assente), ma bensì nel termine di secondo grado. In particolare 
+nel fatto che la matrice Hessiana non viene valutata nel punto esatto $x_0$, ma 
+in una sorta di punto medio tra $x_0$ e $h$, cioè $x_0 + \theta h$.
 \pf{
 	Per dimostrare il teorema facciamo la sostituzione $x_0 + h = x$. Ci 
 	riduciamo quindi a voler dimostrare che:
