@@ -120,3 +120,40 @@ Prima di della dimostrazione è necesarrio dimostrare un lemma:
     \end{equation*}
     \hfill Qed.
 }
+Dimostriamo ora solo il primo caso, cioè quello del punti di minimo:
+\pf{
+    Sia $f: A \to \mathbb{R}$ con $A \subseteq \mathbb{R}$ aperto. Sia $x_0 \in A$ tale che $\nabla f(x_0) = 0$ e $\mathbf{H}f(x_0) > 0$. Dimostriamo che $x_0$ è un minimo locale, cioè:
+    \begin{equation*}
+        \exists \delta > 0 : f(x_0 + h) \geq f(x_0) \quad \forall h \in B(0, \delta)
+    \end{equation*}
+    Possiamo usare la fomula di Taylor di secondo ordine ricordandoci che il gradiente è nullo:
+    \begin{equation*}
+        f(x_0 + h) - f(x_0) = \dfrac{1}{2} \langle \mathbf{H}f(x_0) h, h \rangle + o(\lVert h \rVert^2)
+    \end{equation*}
+    Dal lemma:
+    \begin{equation*}
+    \exists m > 0 : \langle \mathbf{H}f(x_0) h, h \rangle \geq m \lVert h \rVert^2 \quad \forall h \in \mathbb{R}^2
+    \end{equation*}
+    Dunque:
+    \begin{equation*}
+        f(x_0 + h) - f(x_0) \geq \dfrac{m}{2} \lVert h \rVert^2 + o(\lVert h \rVert^2) \quad \text{per } h \to 0
+    \end{equation*}
+    Per definzione di o-piccolo (con $\epsilon = \frac{m}{4}$):
+    \begin{equation*}
+        \exists \delta > 0 : \forall \langle h \rangle < \delta \implies |o(\lVert h \rVert^2)| \leq \dfrac{m}{4} \lVert h \rVert^2
+    \end{equation*}
+    Notiamo che $\forall \langle h \rangle$ è come dire $\forall h \in B(0, \delta)$. Eliminando il valore assoluto prendendo solo la parte negativa:
+    \begin{equation*}
+        o(\lVert h \rVert^2) \geq -\dfrac{m}{4} \lVert h \rVert^2 \quad \forall h \in B(0, \delta)
+    \end{equation*}
+    Risostituendo nella formula precedente:
+    \begin{equation*}
+        f(x_0 + h) - f(x_0) \geq \dfrac{m}{2} \lVert h \rVert^2 -\dfrac{m}{4} \lVert h \rVert^2 \quad \forall h \in B(0, \delta)
+    \end{equation*}
+    Che semplificando diventa:
+    \begin{equation*}
+        f(x_0 + h) - f(x_0) \geq \dfrac{m}{4} \lVert h \rVert^2 \quad \forall h \in B(0, \delta)
+    \end{equation*}
+    Essendo tutta la parte di destra positiva, abbiamo dimostrato che $x_0$ è un minimo.
+    \hfill Qed.
+}
