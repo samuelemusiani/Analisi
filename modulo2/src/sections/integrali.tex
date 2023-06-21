@@ -419,7 +419,8 @@ Che non è altro che una media aritmetica.
 	\end{equation*}
 	Usando la proprietà della monotonia degli integrali:
 	\begin{equation*}
-		\int_a^b f(x_1) \diff x \leq \int_a^b f(x) \diff x \leq \int_a^b f(x_2) \diff x
+		\int_a^b f(x_1) \diff x \leq \int_a^b f(x) \diff x \leq \int_a^b f(x_2) 
+        \diff x
 	\end{equation*}
 	Ed essendo $f(x_1)$ e $f(x_2)$ valori costanti:
 	\begin{equation*}
@@ -606,11 +607,15 @@ dimostrare che:
 	\begin{equation*}
 		\lim_{x \to 0^+} \dfrac{1}{h} \int_x^{x+h} f(t) \diff t = f(x)
 	\end{equation*}
-	Usiamo ora il teorema della media integrale, dove in particolare gli estremi $a = x$ e $b = x + h$ e quindi $b - a = x + h - x = h$:
+	Usiamo ora il teorema della media integrale, dove in particolare gli 
+    estremi $a = x$ e $b = x + h$ e quindi $b - a = x + h - x = h$:
 	\begin{equation*}
-		\exists c(h) \in \;\; ]x, x+h[ \;\; : \dfrac{1}{h} \int_x^{x+h} f(t) \diff t = f(c(h))
+		\exists c(h) \in \;\; ]x, x+h[ \;\; : \dfrac{1}{h} \int_x^{x+h} f(t) 
+        \diff t = f(c(h))
 	\end{equation*}
-	In questo caso abbiamo scritto $c(h)$ e non semplicemente $c$ per sottolianere che il punto dipende da $h$. Essendo però $c(h) \in \;]x,x+h[$ diventa che:
+	In questo caso abbiamo scritto $c(h)$ e non semplicemente $c$ per 
+    sottolianere che il punto dipende da $h$. Essendo però $c(h) \in \;]x,x+h[$ 
+    diventa che:
 	\begin{equation*}
 		x < c(h) < x + h
 	\end{equation*}
@@ -877,7 +882,8 @@ Risolvendo per $I$:
 In questo caso bisogna aggiungere $+ C$ in quanto stiamo sempre trattando con 
 tutte le primitive della funzione. Però possiamo finalmente concludere che:
 \begin{equation*}
-	\int e^x \cdot \sin(x) \diff x = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) + C
+	\int e^x \cdot \sin(x) \diff x = \dfrac{1}{2} e^x \cdot (\sin(x) - \cos(x)) 
+    + C
 \end{equation*}
 
 \subsubsection{Integrazione per sostituzione}
@@ -994,11 +1000,6 @@ In questo caso la sostituzione da fare è $x = \cos(t)$, quindi $\diff x =
     \sin(0)] = \\[10pt]
 	&= \pi - 0 = \pi
 \end{align*}
-
-
-\subsubsection{Integrali di fratte}
-Il prof non li ha fatti molto e ha detto al tutor di coprirli. Per completezza 
-mi sento in dovere di scrivere comunque qualcosa al riguardo. DA FARE :) %%DA FARE 
 
 \subsection{Integrali su intervalli non limitati (integrali generalizzati)}
 
