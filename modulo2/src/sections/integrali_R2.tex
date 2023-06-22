@@ -1,0 +1,73 @@
+\section{Integrali in due variabili}
+\subsection{Domini semplici}
+In più variabili i domini della funzioni possono essere molto irregolari. 
+Nonostante ciò alcune funzioni presentano gradi di regolarità per cui risulta 
+possibile descrivere il loro dominio attraverso intervalli e grafici di 
+funzioni. Si parla quindi di \textbf{dominio semplice}. Questi gradi di 
+regolarità sono estremamente utili nella formula di riduzione degli integrali 
+doppi e in generali anche per molti teoremi che però non vengono trattati nel 
+corso.
+\dfn{
+    Siano $g_1, g_2: [a, b] \to \mathbb{R}$ continue con $g_1(x) \leq g_2(x) 
+    \forall x \in [a, b]$. Il \textbf{dominio x-semplice}\footnote{Nota: gli 
+    insiemi x-semplici e y-semplici sono estremamente simili, quindi è facile 
+    confodersi (anche il prof lo fa). Quindi se in altri appunti vedete le 
+    definzioni con i nome invertiti non preoccupativi anche perché non è 
+    importante il nome.} (o insieme x-semplice) è definito come:
+    \begin{equation*}
+        A = \{(x, y) \in \mathbb{R}^2 | x \in [a, b], g_1(x) \leq y \leq 
+        g_2(x)\}
+    \end{equation*}
+}
+Un insieme y-semplice è estremamente simile, solo che si scambiano le variabili
+x e y:
+\dfn{
+    Siano $h_1, h_2: [c, d] \to \mathbb{R}$ continue con $h_1(y) \leq h_2(y) 
+    \forall y \in [c, d]$. Il \textbf{dominio y-semplice} (o insieme 
+    y-semplice) è definito come:
+    \begin{equation*}
+        A = \{(x, y) \in \mathbb{R}^2 | y \in [c, d], h_1(y) \leq x \leq 
+        h_2(y)\}
+    \end{equation*}
+}
+
+
+\subsection{Proprietà integrali}
+Tutte le proprietà degli integrali viste in una variabile si conservano anche 
+in due. Data $f$ continua e $A$ semplice:
+\begin{enumerate}
+    \item Linearità:
+        \begin{equation*}
+            \int_A (\lambda_1 f_1 + \lambda_2 f_2) = \lambda_1 \int_A f_1 +
+            \lambda_2 \int_A f_2
+        \end{equation*}
+
+    \item Se $A$ è un insime degenere (cioè una linea e quindi vale che $g_1(x)
+        \leq g_2(x) \forall x$) allora:
+        \begin{equation*}
+            \int_a f(x, y) \diff x \diff y = 0
+        \end{equation*}
+
+    \item Se la funzione è costante con valore 1 allora l'integrale è l'area di 
+        A:
+        \begin{equation*}
+            \int_A 1 \diff x \diff y = \text{Area di } A
+        \end{equation*}
+\end{enumerate}
+
+\subsection{Formula di riduzione}
+\imp{
+    Dato $A = \{(x, y) \in \mathbb{R}^2 | x \in [a, b], g_1(x) \leq y \leq 
+    g_2(x)\}$. Data inoltre $f: A \to \mathbb{R}$ continua, vale la formula:
+    \begin{equation*}
+        \int_A f(x, y) \diff x \diff y = \int_a^b \left(\int_{g_1(x)}^{g_2(x)} 
+        f(x, y) \diff y \right) \diff x
+    \end{equation*}
+}
+Se l'insieme invece che essere x-semplice era y-semplice valeva la stessa
+formula con la variabili ivertite, cioè se $A = \{(x, y) \in \mathbb{R}^2 | 
+y \in [c, d], h_1(y) \leq x \leq h_2(y)\}$ allora:
+\begin{equation*}
+    \int_A f(x, y) \diff x \diff y = \int_c^d \left(\int_{h_1(y)}^{h_2(y)} 
+    f(x, y) \diff x \right) \diff y
+\end{equation*}
