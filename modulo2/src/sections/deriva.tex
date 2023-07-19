@@ -299,7 +299,7 @@ Ovviamente la notazione con il prodotto euclideo si può espandere:
 %(ESEMPIO CON GRAFICO?)
 
 \thm{
-	\textbf{Differenziabile totale:} Data una funzione $f: \mathbb{R}^2 \to 
+	\textbf{Differenziale totale:} Data una funzione $f: \mathbb{R}^2 \to 
 	\mathbb{R}$ continua, se esistono le sue derivate parziali e sono 
 	continue in ogni punto allora $f$ è differenziabile in ogni punto. 
 	Cioè:
@@ -394,9 +394,9 @@ Dimostriamo ora il teorema del differenziale totale:
 	Possiamo raggruppare a due a due i termini identificandoli per 
 	comodità nel seguente modo:
 	\begin{enumerate}
-		\item $f(x_0 + h, y_0 + k) - f(x_0 + h, y_0)$
+        \item $f(x_0 + h, y_0) - f(x_0, y_0)$
 
-		\item $f(x_0 + h, y_0) - f(x_0, y_0)$
+		\item $f(x_0 + h, y_0 + k) - f(x_0 + h, y_0)$
 	\end{enumerate}
 	Possiamo ora applicare Langrange per le derivate parziali (cioè il 
 	lemma enunciato sopra):\\
@@ -422,7 +422,7 @@ Dimostriamo ora il teorema del differenziale totale:
 		=& \partial_x f(x_0, y_0) h + \partial_y f(x_0, y_0) k + 
 		o(\lVert (h, k) \rVert)
 	\end{align*}
-    Portando il prodotto scale espanso a destra e raccogliendo $h$ e $k$:
+    Portando il prodotto scale espanso a sinistra e raccogliendo $h$ e $k$:
 	\begin{equation*}
 		[\partial_x f(x_0 + \theta_1 h, y_0) - \partial_x f(x_0, y_0) ]h 
 		+ [\partial_y f(x_0 + h, y_0 + \theta_2 k) - \partial_y f(x_0, 
