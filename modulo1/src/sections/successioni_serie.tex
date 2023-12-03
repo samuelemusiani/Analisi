@@ -10,7 +10,9 @@
         (a_n)_{n \in \mathbb{N}},\;\, (a_n)_n\;\, \text{oppure}\;\, (a_n)
     \end{equation*}
 }
-L'idea alla base delle successioni matematiche è poter scrivere una lista di numeri che però abbiano un ordine. Avendole infatti definite come funzioni si può tenere l'ordine dei termini della successione semplicemente:
+L'idea alla base delle successioni matematiche è poter scrivere una lista di 
+numeri che però abbiano un ordine. Avendole infatti definite come funzioni si 
+può tenere l'ordine dei termini della successione semplicemente:
 \begin{gather*}
     f(0) = a_0\\
     f(1) = a_1\\
@@ -18,10 +20,16 @@ L'idea alla base delle successioni matematiche è poter scrivere una lista di nu
     f(3) = a_3\\
     \vdots
 \end{gather*}
-Il poter scrivere numeri in successione e dare loro un ordine sembra apparentemente sembra inutile, ma in realtà si rivela estremamente utile in moltissime definizioni di funzioni che però vanno estese. Per esempio, come è spiegato nella sezione \ref{sec_esponenziale} riguardo all'esponenziale, per definire tale funzione per tutti i numeri reali è necessario utilizzare una successione.\\
+Il poter scrivere numeri in successione e dare loro un ordine sembra 
+apparentemente sembra inutile, ma in realtà si rivela estremamente utile in 
+moltissime definizioni di funzioni che però vanno estese. Per esempio, come è 
+spiegato nella sezione \ref{sec_esponenziale} riguardo all'esponenziale, per 
+definire tale funzione per tutti i numeri reali è necessario utilizzare una 
+successione.\\
 
 \dfn{
-    Data una successione $(a_n)_n$ e un insieme $A = \{ a_n | n \in \mathbb{N}\}$. $(a_n)$ si dice:
+    Data una successione $(a_n)_n$ e un insieme $A = \{ a_n | n \in 
+    \mathbb{N}\}$. $(a_n)$ si dice:
     \begin{itemize}
         \item \textbf{Superiormente limitata} se $A$ è superiormente limitato.
         \item \textbf{Inferiormente limitata} se $A$ è inferiormente limitato.
@@ -30,7 +38,8 @@ Il poter scrivere numeri in successione e dare loro un ordine sembra apparenteme
 }
 
 \subsection{Successioni monotone}
-Per capire quanto segue è necessario prima guardare la sezioni sui limiti delle successioni (\ref{sec_lim_successioni}).
+Per capire quanto segue è necessario prima guardare la sezioni sui limiti delle 
+successioni (\ref{sec_lim_successioni}).
 \dfn{
 $(a_n)_n$ si dice \textbf{crescente} e si indica con $(a_n \nearrow)$ se:
 \begin{equation*}
@@ -38,7 +47,8 @@ $(a_n)_n$ si dice \textbf{crescente} e si indica con $(a_n \nearrow)$ se:
 \end{equation*}
 }
 \dfn{
-$(a_n)_n$ si dice \textbf{strettamente crescente} e si indica sempre con $(a_n \nearrow)$ se:
+$(a_n)_n$ si dice \textbf{strettamente crescente} e si indica sempre con 
+$(a_n \nearrow)$ se:
 \begin{equation*}
     \forall n \in \mathbb{N} : a_n < a_{n+1}
 \end{equation*}
@@ -50,13 +60,15 @@ $(a_n)_n$ si dice \textbf{decrescente} e si indica con $(a_n \searrow)$ se:
 \end{equation*}
 }
 \dfn{
-$(a_n)_n$ si dice \textbf{strettamente decrescente} e si indica sempre con $(a_n \searrow)$ se:
+$(a_n)_n$ si dice \textbf{strettamente decrescente} e si indica sempre con 
+$(a_n \searrow)$ se:
 \begin{equation*}
     \forall n \in \mathbb{N} : a_n > a_{n+1}
 \end{equation*}
 }
 
-Una successione crescente o decrescente si dice \textbf{monotona}. Le successioni monotone \textbf{hanno sempre limite}.
+Una successione crescente o decrescente si dice \textbf{monotona}. Le 
+successioni monotone \textbf{hanno sempre limite}.
 
 \thm{
 Se $(a_n)_n$ è \textbf{crescente}, allora:
@@ -70,7 +82,8 @@ Se $(a_n)_n$ è \textbf{decrescente}, allora:
 }
 Dimostriamo il teorema appena enunciato:
 \pf{
-Dimostreremo il teorema soltanto per $(a_n)_n \nearrow$. Si tratta quindi di provare:
+Dimostreremo il teorema soltanto per $(a_n)_n \nearrow$. Si tratta quindi di 
+provare:
 \begin{equation*}
     \lim_{n\to +\infty} a_n = \sup \{a_n | n \in \mathbb{N}\}
 \end{equation*}
@@ -84,14 +97,17 @@ Bisogna dimostrare due casi: $L = +\infty$ e $L \in \mathbb{R}$
         \end{equation*}
         cioè
         \begin{equation*}
-            \forall K > 0, \exists \bar{n} \in \mathbb{N} : \forall n \geq \overline{n} : a_n > K
+            \forall K > 0, \exists \bar{n} \in \mathbb{N} : \forall n \geq 
+            \overline{n} : a_n > K
         \end{equation*}
         Dato $A = \{a_n | n \in \mathbb{N}\}$
         \begin{itemize}
             \item A non è superiormente limitato in quanto $L = +\infty$
             \item A di conseguenza non ammette maggioranti
-            \item Ne consegue che K non è un maggiorante $\implies \exists a_{\bar{n}} \in A : a_{\bar{n}} > K$
-            \item Siccome per ipotesi $(a_n)_n \nearrow \implies \forall n \geq \bar{n} : a_n \geq a_{\bar{n}} > K$ 
+            \item Ne consegue che K non è un maggiorante $\implies \exists 
+              a_{\bar{n}} \in A : a_{\bar{n}} > K$
+            \item Siccome per ipotesi $(a_n)_n \nearrow \implies \forall n \geq 
+              \bar{n} : a_n \geq a_{\bar{n}} > K$ 
         \end{itemize}
     \item $\mathbf{L \in \mathbb{R}}$
     Ci riduciamo a provare che 
@@ -100,19 +116,24 @@ Bisogna dimostrare due casi: $L = +\infty$ e $L \in \mathbb{R}$
         \end{equation*}
         cioè
         \begin{align*}
-            \forall \epsilon > 0, \exists \bar{n} \in \mathbb{N} : \forall n \geq \overline{n} : |a_n& - L| < \epsilon\\
+            \forall \epsilon > 0, \exists \bar{n} \in \mathbb{N} : \forall n 
+            \geq \overline{n} : |a_n& - L| < \epsilon\\
             &\Big\Updownarrow\\
             L - \epsilon < &a_n < L + \epsilon
         \end{align*}
-        $a_n < L + \epsilon$ è ovvio per ipotesi in quanto $L$ è un maggiorante, quindi $\forall n \; a_n \leq L < L + \epsilon$. Ci rimane quindi solo da trovare $\bar{n}$ tale che:
+        $a_n < L + \epsilon$ è ovvio per ipotesi in quanto $L$ è un maggiorante, 
+        quindi $\forall n \; a_n \leq L < L + \epsilon$. Ci rimane quindi solo 
+        da trovare $\bar{n}$ tale che:
         \begin{equation*}
             \forall n \geq \bar{n} : a_n > L - \epsilon
         \end{equation*}
         Essendo $L = \sup \{a_n | n \in \mathbb{N}\}$
         \begin{itemize}
             \item $L$ è il più piccolo dei maggioranti di $A$
-            \item $L - \epsilon$ non è quindi un maggiorante di $A$ $\implies \exists a_{\bar{n}} \in A : L -\epsilon < a_{\bar{n}}$
-            \item Essendo $(a_n)_n \nearrow$ si ha che $\forall n \geq \bar{n} \;\; L-\epsilon < a_{\bar{n}} \leq a_{n}$
+            \item $L - \epsilon$ non è quindi un maggiorante di $A$ $\implies 
+              \exists a_{\bar{n}} \in A : L -\epsilon < a_{\bar{n}}$
+            \item Essendo $(a_n)_n \nearrow$ si ha che $\forall n \geq \bar{n} 
+              \;\; L-\epsilon < a_{\bar{n}} \leq a_{n}$
         \end{itemize}
         quindi
         \begin{equation*}
@@ -123,11 +144,13 @@ Bisogna dimostrare due casi: $L = +\infty$ e $L \in \mathbb{R}$
 }
 \textbf{Corollari} \label{corol_successioni}
 \begin{enumerate}
-    \item Se $(a_n)_n \nearrow$ e $(a_n)_n$ è \textbf{superiormente limitata}, allora $(a_n)_n$ è \textbf{convergente}, cioè
+    \item Se $(a_n)_n \nearrow$ e $(a_n)_n$ è \textbf{superiormente limitata}, 
+      allora $(a_n)_n$ è \textbf{convergente}, cioè
         \begin{equation*}
             \exists r \in \mathbb{R} : a_n \xrightarrow{\quad} r
         \end{equation*}
-    \item Se $(a_n)_n \searrow$ e $(a_n)_n$ è \textbf{inferiormente limitata}, allora $(a_n)_n$ è \textbf{convergente}, cioè
+    \item Se $(a_n)_n \searrow$ e $(a_n)_n$ è \textbf{inferiormente limitata}, 
+      allora $(a_n)_n$ è \textbf{convergente}, cioè
         \begin{equation*}
             \exists r \in \mathbb{R} : a_n \xrightarrow{\quad} r
         \end{equation*}
